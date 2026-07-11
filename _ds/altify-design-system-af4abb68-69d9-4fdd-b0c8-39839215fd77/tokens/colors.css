@@ -1,0 +1,133 @@
+/* ============================================================
+   Altify — Color tokens
+   Sampled from the Altify wordmark + "AI Powered OS" deck.
+   Brand navy #103860 · accent orange #E87830
+   Positioning trio: AI red #F0504D · Human blue #3E96E0 ·
+   Collaboration purple #7B6CF0
+   ============================================================ */
+:root {
+  /* ---------- Navy (primary brand) ---------- */
+  --navy-50:  #EEF3F8;
+  --navy-100: #D8E3EE;
+  --navy-200: #AFC6DC;
+  --navy-300: #7B9EC2;
+  --navy-400: #4E7BA8;
+  --navy-500: #2E5E8F;
+  --navy-600: #1B4A78;
+  --navy-700: #103860;  /* brand navy — wordmark */
+  --navy-800: #0E2E50;
+  --navy-900: #0B2540;  /* dark slide background */
+  --navy-950: #07182B;
+
+  /* ---------- Orange (accent) ---------- */
+  --orange-50:  #FDF1E8;
+  --orange-100: #FADDC6;
+  --orange-200: #F5BC8E;
+  --orange-300: #F09E5A;
+  --orange-400: #EC8B3E;
+  --orange-500: #E87830;  /* brand accent */
+  --orange-600: #D2641F;
+  --orange-700: #AC4F17;
+
+  /* ---------- Positioning trio (data / categories) ---------- */
+  /* AI work — coral red */
+  --red-50:  #FDEEEE;
+  --red-100: #FBD8D7;
+  --red-300: #F58D8B;
+  --red-500: #F0504D;
+  --red-600: #DA3A37;
+
+  /* Human work — sky blue */
+  --blue-50:  #EAF4FC;
+  --blue-100: #D2E7F8;
+  --blue-300: #82BAEC;
+  --blue-500: #3E96E0;
+  --blue-600: #2479C2;
+
+  /* Human + AI collaboration — violet */
+  --purple-50:  #F0EDFD;
+  --purple-100: #E0DBFB;
+  --purple-300: #AEA3F5;
+  --purple-500: #7B6CF0;
+  --purple-600: #5E4DD8;
+
+  /* ---------- Neutrals (cool gray) ---------- */
+  --white:    #FFFFFF;
+  --gray-50:  #F7F8FA;
+  --gray-100: #F1F3F5;  /* surface / feature-card fill */
+  --gray-150: #E8EBEE;
+  --gray-200: #DDE1E5;  /* borders */
+  --gray-300: #C2C8CE;
+  --gray-400: #9AA3AC;
+  --gray-500: #78828C;
+  --gray-600: #5A646E;  /* body text */
+  --gray-700: #434C55;
+  --gray-800: #2D343B;
+  --gray-900: #1E2327;  /* ink heading */
+  --gray-950: #14181C;
+
+  /* ============================================================
+     SEMANTIC ALIASES
+     ============================================================ */
+
+  /* Surfaces & backgrounds */
+  --color-bg:            var(--white);
+  --color-bg-subtle:     var(--gray-50);
+  --color-surface:       var(--white);
+  --color-surface-muted: var(--gray-100);   /* soft gray cards */
+  --color-surface-dark:  var(--navy-900);
+  --color-surface-brand: var(--navy-700);
+
+  /* Borders & dividers */
+  --color-border:        var(--gray-200);
+  --color-border-strong: var(--gray-300);
+  --color-border-ondark: rgba(255,255,255,.16);
+
+  /* Text */
+  --text-heading:    var(--navy-700);          /* primary headings — brand navy */
+  --text-ink:        var(--gray-900);           /* alt near-black headings */
+  --text-body:       var(--gray-600);
+  --text-muted:      var(--gray-500);
+  --text-on-dark:        rgba(255,255,255,.96);
+  --text-on-dark-muted:  rgba(255,255,255,.70);
+  --text-on-dark-subtle: rgba(255,255,255,.50);
+
+  /* Interactive / brand */
+  --color-primary:        var(--navy-700);
+  --color-primary-hover:  var(--navy-800);
+  --color-primary-press:  var(--navy-900);
+  --color-accent:         var(--orange-500);
+  --color-accent-hover:   var(--orange-600);
+  --color-accent-press:   var(--orange-700);
+  --color-link:           var(--navy-600);
+  --color-focus-ring:     rgba(232,120,48,.45);  /* orange focus */
+
+  /* Positioning semantic */
+  --data-ai:     var(--red-500);
+  --data-human:  var(--blue-500);
+  --data-collab: var(--purple-500);
+
+  /* Status (derived from palette, kept understated) */
+  --color-success: #1F9D63;
+  --color-warning: var(--orange-500);
+  --color-danger:  var(--red-600);
+  --color-info:    var(--blue-500);
+
+  /* ============================================================
+     SIGNATURE GRADIENTS / GLOWS
+     Soft radial "energy" blobs behind the positioning diagram,
+     and quadrant wash tints. Use sparingly, large & low-opacity.
+     ============================================================ */
+  --glow-ai:     radial-gradient(circle at center, rgba(240,80,77,.18), rgba(240,80,77,0) 70%);    /* @kind color */
+  --glow-human:  radial-gradient(circle at center, rgba(62,150,224,.18), rgba(62,150,224,0) 70%);   /* @kind color */
+  --glow-collab: radial-gradient(circle at center, rgba(123,108,240,.15), rgba(123,108,240,0) 70%); /* @kind color */
+
+  --wash-ai:     linear-gradient(160deg, rgba(240,80,77,.05), rgba(240,80,77,0) 60%);     /* @kind color */
+  --wash-human:  linear-gradient(200deg, rgba(62,150,224,.06), rgba(62,150,224,0) 60%);   /* @kind color */
+  --wash-collab: linear-gradient(180deg, rgba(123,108,240,.05), rgba(123,108,240,0) 60%); /* @kind color */
+
+  /* Brand gradient — navy depth for dark slides */
+  --gradient-navy: linear-gradient(155deg, var(--navy-800) 0%, var(--navy-950) 100%); /* @kind color */
+  /* Accent sweep — used very sparingly on hero CTAs / underlines */
+  --gradient-accent: linear-gradient(90deg, var(--orange-500), var(--orange-400)); /* @kind color */
+}

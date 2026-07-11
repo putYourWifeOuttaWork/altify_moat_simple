@@ -1,0 +1,64 @@
+/* ============================================================
+   Altify — Webfonts
+   Display: Poppins (geometric, bold headlines & wordmark feel)
+   Body/UI: DM Sans (variable; humanist-geometric, legible)
+   Mono:    JetBrains Mono (variable; code, data, kbd)
+   NOTE: Poppins is a Google Fonts substitute for the brand's
+   headline face (the deck source is a flattened PDF/PNG, so the
+   embedded face could not be extracted). Closest geometric match.
+   ============================================================ */
+
+/* ---- Poppins (static instances) ---- */
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/poppins-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../assets/fonts/poppins-500.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../assets/fonts/poppins-600.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonts/poppins-700.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../assets/fonts/poppins-800.woff2") format("woff2");
+}
+
+/* ---- DM Sans (variable weight 100–1000) ---- */
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 100 1000;
+  font-display: swap;
+  src: url("../assets/fonts/dmsans-variable.woff2") format("woff2");
+}
+
+/* ---- JetBrains Mono (variable weight 100–800) ---- */
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url("../assets/fonts/jetbrainsmono-variable.woff2") format("woff2");
+}
