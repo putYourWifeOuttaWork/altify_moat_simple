@@ -687,9 +687,9 @@ class Component extends DCLogic {
     }
 
     const dot = document.getElementById('loopDot');
-    const PERIOD = 18; // matches the ball's dur="18s"
-    const ballF = () => (svg.getCurrentTime() % PERIOD) / PERIOD;
     const ballOn = () => dot && dot.isConnected && parseFloat(getComputedStyle(dot).opacity || '0') > 0.5;
+    const R2 = 15 * 15;  // trigger radius around the 0,0 crossover point
+    const atCenter = () => { const m = dot.getCTM(); if (!m) return false; const dx = m.e - CENTER.x, dy = m.f - CENTER.y; return dx * dx + dy * dy < R2; };
 
     const row = [];        // snapshots on the belt, index 0 = leftmost / newest
     const tweens = [];
@@ -751,17 +751,16 @@ class Component extends DCLogic {
       addTween({ obj: o, fx: CENTER.x, fy: CENTER.y, tx: slotCx(0), ty: CY, dur: 780, arc: true, s0: 3.6, s1: 1 });
     };
 
-    let raf = 0, running = false, visible = false, fPrev = 0;
+    let raf = 0, running = false, visible = false, wasCenter = false;
     const frame = (ts) => {
       raf = 0;
       if (!running) return;
-      // f wrapping back below the previous value means the ball just completed a full rotation
-      if (visible && ballOn()) { const f = ballF(); if (f < fPrev) capture(); fPrev = f; }
-      else { fPrev = ballF(); }
+      // fire each time the ball enters the 0,0 crossover (it passes through twice per lap = double cadence)
+      if (visible && ballOn()) { const now = atCenter(); if (now && !wasCenter) capture(); wasCenter = now; }
       for (let i = tweens.length - 1; i >= 0; i--) { stepTween(tweens[i], ts); if (tweens[i].done) tweens.splice(i, 1); }
       raf = requestAnimationFrame(frame);
     };
-    const start = () => { if (!running) { running = true; fPrev = ballF(); raf = requestAnimationFrame(frame); } };
+    const start = () => { if (!running) { running = true; wasCenter = atCenter(); raf = requestAnimationFrame(frame); } };
     const stop = () => { running = false; if (raf) cancelAnimationFrame(raf); raf = 0; };
 
     // pause fully when the chart is off-screen; resume on re-entry
