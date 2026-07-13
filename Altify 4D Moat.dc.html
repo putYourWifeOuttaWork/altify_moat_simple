@@ -677,6 +677,8 @@ class Component extends DCLogic {
     const mask = el('mask', { id: 'memMask', maskUnits: 'userSpaceOnUse', x: bX, y: bY, width: bW, height: bH }, defs);
     el('rect', { x: bX, y: bY, width: bW, height: bH, fill: 'url(#memFade)' }, mask);
     const layer = el('g', { mask: 'url(#memMask)' }, svg);
+    const memLabel = el('text', { x: ROW_X, y: ROW_Y - 12, fill: '#8AA3BC', 'font-size': 10.5, 'font-weight': 700, 'letter-spacing': 1 }, svg);
+    memLabel.textContent = '4D MEMORY ON D360';
 
     const square = () => {
       const r = el('rect', { width: SQ, height: SQ, rx: 3, fill: ORANGE, stroke: 'rgba(255,255,255,.4)', 'stroke-width': 1 });
