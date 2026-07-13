@@ -525,6 +525,9 @@ class Component extends DCLogic {
       update();
     }
 
+    // --- 4D memory: snapshot on each full rotation + infinite belt (additive; never alters the chart) ---
+    this._setupMemory(animOn);
+
     if (!animOn) return;
 
     // --- section reveals ---
@@ -621,6 +624,139 @@ class Component extends DCLogic {
     }
   }
 
+  _setupMemory(animOn) {
+    const svg = document.querySelector('#loopfig svg');
+    if (!svg || document.getElementById('memMask')) return;
+    const NS = 'http://www.w3.org/2000/svg';
+    const el = (tag, attrs, parent) => {
+      const n = document.createElementNS(NS, tag);
+      if (attrs) for (const k in attrs) n.setAttribute(k, attrs[k]);
+      if (parent) parent.appendChild(n);
+      return n;
+    };
+    const ORANGE = '#EA7C31';
+    const SQ = 14, PITCH = 20, SLOTS = 6;      // small nested snapshots
+    const ROW_X = 56, ROW_Y = 434;             // lower-left of the chart frame (frame bottom ~456)
+    const CY = ROW_Y + SQ / 2;
+    const CENTER = { x: 450, y: 245 };         // the crossover: where a full rotation of the 8 completes
+    const slotCx = (i) => ROW_X + i * PITCH + SQ / 2;
+
+    let defs = svg.querySelector('defs');
+    if (!defs) defs = svg.insertBefore(document.createElementNS(NS, 'defs'), svg.firstChild);
+
+    // right-edge fade: snapshots dissolve into nothingness as the belt pushes them off
+    const grad = el('linearGradient', { id: 'memFade', x1: 0, y1: 0, x2: 1, y2: 0 }, defs);
+    el('stop', { offset: 0, 'stop-color': '#fff' }, grad);
+    el('stop', { offset: 0.72, 'stop-color': '#fff' }, grad);
+    el('stop', { offset: 1, 'stop-color': '#000' }, grad);
+    const bX = ROW_X - 8, bY = ROW_Y - 8, bW = PITCH * SLOTS + 64, bH = SQ + 16;
+    const mask = el('mask', { id: 'memMask', maskUnits: 'userSpaceOnUse', x: bX, y: bY, width: bW, height: bH }, defs);
+    el('rect', { x: bX, y: bY, width: bW, height: bH, fill: 'url(#memFade)' }, mask);
+    const layer = el('g', { mask: 'url(#memMask)' }, svg);
+
+    const square = () => {
+      const r = el('rect', { width: SQ, height: SQ, rx: 3, fill: ORANGE, stroke: 'rgba(255,255,255,.4)', 'stroke-width': 1 });
+      r.style.filter = 'drop-shadow(0 0 5px rgba(234,124,49,.65))';
+      return r;
+    };
+    const setXform = (node, cx, cy, s) => {
+      s = s || 1;
+      node.setAttribute('transform', 'translate(' + cx + ' ' + cy + ') scale(' + s + ') translate(' + (-SQ / 2) + ' ' + (-SQ / 2) + ')');
+    };
+
+    const hasMotion = !!document.querySelector('#loopDot animateMotion');
+    // reduced-motion / animations off: static belt of snapshots, faded at the right. nothing moves.
+    if (!animOn || !hasMotion) {
+      for (let i = 0; i < SLOTS; i++) { const r = square(); setXform(r, slotCx(i), CY, 1); layer.appendChild(r); }
+      return;
+    }
+
+    const dot = document.getElementById('loopDot');
+    const PERIOD = 18; // matches the ball's dur="18s"
+    const ballF = () => (svg.getCurrentTime() % PERIOD) / PERIOD;
+    const ballOn = () => dot && dot.isConnected && parseFloat(getComputedStyle(dot).opacity || '0') > 0.5;
+
+    const row = [];        // snapshots on the belt, index 0 = leftmost / newest
+    const tweens = [];
+    const ease = (u) => u < 0.5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2;
+    const addTween = (t) => {
+      for (let i = tweens.length - 1; i >= 0; i--) if (tweens[i].obj === t.obj) tweens.splice(i, 1);
+      t.fx = t.fx != null ? t.fx : t.obj.cx;
+      t.fy = t.fy != null ? t.fy : t.obj.cy;
+      t.t0 = performance.now();
+      t.dur = t.dur || 500;
+      t.s0 = t.s0 != null ? t.s0 : 1;
+      t.s1 = t.s1 != null ? t.s1 : 1;
+      tweens.push(t);
+    };
+    const stepTween = (t, ts) => {
+      const u = Math.min(1, (ts - t.t0) / t.dur), e = ease(u);
+      let cx, cy;
+      if (t.arc) {
+        const mx = (t.fx + t.tx) / 2, my = Math.min(t.fy, t.ty) - 40, iv = 1 - e;
+        cx = iv * iv * t.fx + 2 * iv * e * mx + e * e * t.tx;
+        cy = iv * iv * t.fy + 2 * iv * e * my + e * e * t.ty;
+      } else {
+        cx = t.fx + (t.tx - t.fx) * e;
+        cy = t.fy + (t.ty - t.fy) * e;
+      }
+      t.obj.cx = cx; t.obj.cy = cy;
+      setXform(t.obj.el, cx, cy, t.s0 + (t.s1 - t.s0) * e);
+      if (t.fade != null) t.obj.el.style.opacity = String(1 + (t.fade - 1) * e);
+      if (u >= 1) { t.done = true; if (t.onDone) t.onDone(); }
+    };
+
+    // full-frame white shutter: the snapshot is taken
+    const flash = () => {
+      const f = el('rect', { x: 40, y: 30, width: 820, height: 426, rx: 18, fill: '#fff' }, svg);
+      f.style.opacity = '0'; f.style.pointerEvents = 'none';
+      f.animate([{ opacity: 0 }, { opacity: 0.55, offset: 0.4 }, { opacity: 0 }], { duration: 150, easing: 'ease-out' })
+        .onfinish = () => { if (f.parentNode) f.parentNode.removeChild(f); };
+    };
+
+    const capture = () => {
+      flash();
+      // push the belt one slot along; anything past the last slot slides off and dissolves
+      for (let k = row.length - 1; k >= 0; k--) {
+        const o = row[k];
+        o.slot += 1;
+        if (o.slot >= SLOTS) {
+          row.splice(k, 1);
+          addTween({ obj: o, tx: slotCx(SLOTS + 1), ty: CY, dur: 760, fade: 0, onDone: () => { if (o.el.parentNode) o.el.parentNode.removeChild(o.el); } });
+        } else {
+          addTween({ obj: o, tx: slotCx(o.slot), ty: CY, dur: 500 });
+        }
+      }
+      // the snapshot pops off the loop large, then shrinks to nest at the front of the belt
+      const o = { el: square(), slot: 0, cx: CENTER.x, cy: CENTER.y };
+      o.el.style.opacity = '1';
+      setXform(o.el, o.cx, o.cy, 3.6);
+      layer.appendChild(o.el);
+      row.unshift(o);
+      addTween({ obj: o, fx: CENTER.x, fy: CENTER.y, tx: slotCx(0), ty: CY, dur: 780, arc: true, s0: 3.6, s1: 1 });
+    };
+
+    let raf = 0, running = false, visible = false, fPrev = 0;
+    const frame = (ts) => {
+      raf = 0;
+      if (!running) return;
+      // f wrapping back below the previous value means the ball just completed a full rotation
+      if (visible && ballOn()) { const f = ballF(); if (f < fPrev) capture(); fPrev = f; }
+      else { fPrev = ballF(); }
+      for (let i = tweens.length - 1; i >= 0; i--) { stepTween(tweens[i], ts); if (tweens[i].done) tweens.splice(i, 1); }
+      raf = requestAnimationFrame(frame);
+    };
+    const start = () => { if (!running) { running = true; fPrev = ballF(); raf = requestAnimationFrame(frame); } };
+    const stop = () => { running = false; if (raf) cancelAnimationFrame(raf); raf = 0; };
+
+    // pause fully when the chart is off-screen; resume on re-entry
+    const io = new IntersectionObserver((es) => es.forEach((e) => { visible = e.isIntersecting; if (visible) start(); else stop(); }), { threshold: 0.15 });
+    io.observe(document.getElementById('loopfig'));
+    this._observers.push(io);
+    this._memStop = stop;
+    this._finishers.push(() => { stop(); for (let i = row.length; i < SLOTS; i++) { const r = square(); setXform(r, slotCx(i), CY, 1); layer.appendChild(r); row.push({ el: r, slot: i, cx: slotCx(i), cy: CY }); } });
+  }
+
   componentDidUpdate(prevProps) {
     const was = prevProps.animations ?? true;
     const now = this.props.animations ?? true;
@@ -628,6 +764,7 @@ class Component extends DCLogic {
   }
 
   componentWillUnmount() {
+    if (this._memStop) this._memStop();
     window.removeEventListener('beforeprint', this._onPrint);
     if (this._onNavScroll) window.removeEventListener('scroll', this._onNavScroll);
     if (this._onNavResize) window.removeEventListener('resize', this._onNavResize);
