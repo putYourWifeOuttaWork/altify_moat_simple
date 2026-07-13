@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Altify · From flat records to a living one</title>
+  <link rel="stylesheet" href="../_ds/altify-design-system-af4abb68-69d9-4fdd-b0c8-39839215fd77/tokens/fonts.css">
+  <link rel="stylesheet" href="../_ds/altify-design-system-af4abb68-69d9-4fdd-b0c8-39839215fd77/tokens/colors.css">
+  <link rel="stylesheet" href="../_ds/altify-design-system-af4abb68-69d9-4fdd-b0c8-39839215fd77/tokens/typography.css">
+  <link rel="stylesheet" href="../_ds/altify-design-system-af4abb68-69d9-4fdd-b0c8-39839215fd77/tokens/spacing.css">
+  <link rel="stylesheet" href="../_ds/altify-design-system-af4abb68-69d9-4fdd-b0c8-39839215fd77/styles.css">
+  <script src="../_ds/altify-design-system-af4abb68-69d9-4fdd-b0c8-39839215fd77/_ds_bundle.js"></script>
+  <style>
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#0F2036;color:#EAF0F6;font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+    ::selection{background:rgba(234,124,49,.35)}
+    a{color:#7ED2EE;text-decoration-color:rgba(126,210,238,.4)}
+    a:hover{color:#EAF0F6}
+  </style>
+</helmet>
+
+<div style="min-width:320px">
+
+  <!-- TOPBAR -->
+  <div data-screen-label="Topbar" style="position:sticky;top:0;z-index:50;background:rgba(15,32,54,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(175,194,214,.16)">
+    <div style="max-width:900px;margin:0 auto;padding:0 28px;display:flex;align-items:center;gap:22px;height:62px">
+      <img src="../assets/altify-logo-white.png" alt="Altify" style="height:20px;width:auto;display:block;flex:none">
+      <nav id="topnav" aria-label="Sections" style="margin-left:auto;display:flex;align-items:center;gap:20px;overflow-x:auto;white-space:nowrap;scrollbar-width:none;padding:6px 0;min-width:0">
+        <a href="#sec-curve" data-target="0" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">The curve</a>
+        <a href="#sec-law" data-target="1" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">The law</a>
+        <a href="#sec-depth" data-target="2" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">The depth</a>
+        <a href="#sec-clock" data-target="3" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">The clock</a>
+        <a href="#sec-build" data-target="4" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">The build</a>
+        <a href="#sec-memory" data-target="5" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">The memory</a>
+        <a href="#sec-rep" data-target="6" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">The rep</a>
+        <a href="#sec-ask" data-target="7" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">The ask</a>
+      </nav>
+      <button id="navMenuBtn" aria-label="Sections menu" aria-expanded="false" style="display:none;width:44px;height:44px;border-radius:10px;background:transparent;border:1px solid rgba(175,194,214,.35);color:#EAF0F6;align-items:center;justify-content:center;cursor:pointer;padding:0;margin-left:auto;flex:none">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M 4 7 H 20 M 4 12 H 20 M 4 17 H 20"></path></svg>
+      </button>
+    </div>
+    <div id="navMenu" style="display:none;position:absolute;top:100%;left:0;right:0;z-index:49;flex-direction:column;background:rgba(15,32,54,.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(175,194,214,.2);padding:8px 28px 14px">
+      <a href="#sec-curve" data-target="0" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">The curve</a>
+      <a href="#sec-law" data-target="1" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">The law</a>
+      <a href="#sec-depth" data-target="2" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">The depth</a>
+      <a href="#sec-clock" data-target="3" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">The clock</a>
+      <a href="#sec-build" data-target="4" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">The build</a>
+      <a href="#sec-memory" data-target="5" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">The memory</a>
+      <a href="#sec-rep" data-target="6" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">The rep</a>
+      <a href="#sec-ask" data-target="7" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 2px" style-hover="color:#FFFFFF">The ask</a>
+    </div>
+  </div>
+
+  <!-- 1 · HERO + CURVE -->
+  
+
+  <!-- 2 · SIMON: THE LAW -->
+  <header id="sec-curve" data-nav="The curve" data-screen-label="01 Hero + curve" style="padding:84px 0 30px;position:relative;overflow:hidden">
+    <div style="position:absolute;right:-260px;top:-240px;width:600px;height:600px;border-radius:50%;background:radial-gradient(closest-side, rgba(234,124,49,.14), rgba(234,124,49,0));pointer-events:none"></div>
+    <div style="max-width:900px;margin:0 auto;padding:0 28px;position:relative">
+      <div style="display:inline-flex;align-items:center;gap:9px;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#EA7C31"><span style="width:7px;height:7px;border-radius:50%;background:#EA7C31;flex:none"></span>Why we build the moat</div>
+      <h1 style="font-family:var(--font-display);font-weight:800;font-size:clamp(2.15rem,5vw,3.5rem);line-height:1.09;letter-spacing:-.025em;color:#FFFFFF;margin:20px 0 0;text-wrap:balance">Everyone else searches wide.<br><em style="font-style:normal;color:#EA7C31">We go deep.</em></h1>
+      <p style="font-size:clamp(1.05rem,1.8vw,1.26rem);color:#AFC2D6;max-width:56ch;margin:18px 0 0;line-height:1.55">Sales AI today is a shallow system. The more it reads, the foggier it gets. Altify already runs deep context that can sharpen AI with more data. This is the core of our future value proposition for customers.<b> Scale turning into clarity.</b></p>
+
+      <figure id="curvefig" data-rv="1" style="margin:34px 0 0;border:1px solid rgba(175,194,214,.16);border-radius:16px;background:#0F2036;overflow:hidden">
+        <svg viewBox="0 0 900 460" style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif">
+          <rect width="900" height="460" fill="#0F2036"></rect>
+          <line x1="110" y1="380" x2="820" y2="380" stroke="rgba(175,194,214,.3)" stroke-width="1.4"></line>
+          <line x1="110" y1="60" x2="110" y2="380" stroke="rgba(175,194,214,.3)" stroke-width="1.4"></line>
+          <text x="102" y="74" fill="#8AA3BC" font-size="12" text-anchor="end">clear</text>
+          <text x="102" y="384" fill="#8AA3BC" font-size="12" text-anchor="end">foggy</text>
+          <text x="465" y="414" fill="#8AA3BC" font-size="12.5" text-anchor="middle">more information →</text>
+          <path id="theirs" d="M 110.0 301.1 L 117.1 297.8 L 124.2 294.0 L 131.3 289.6 L 138.4 284.7 L 145.5 279.4 L 152.6 273.7 L 159.7 267.7 L 166.8 261.6 L 173.9 255.5 L 181.0 249.5 L 188.1 243.9 L 195.2 238.8 L 202.3 234.3 L 209.4 230.7 L 216.5 228.0 L 223.6 226.5 L 230.7 226.1 L 237.8 227.0 L 244.9 229.1 L 252.0 232.5 L 259.1 237.0 L 266.2 242.7 L 273.3 249.3 L 280.4 256.8 L 287.5 264.9 L 294.6 273.5 L 301.7 282.5 L 308.8 291.6 L 315.9 300.7 L 323.0 309.7 L 330.1 318.4 L 337.2 326.7 L 344.3 334.6 L 351.4 342.0 L 358.5 348.8 L 365.6 355.1 L 372.7 360.8 L 379.8 362.0 L 386.9 362.0 L 394.0 362.0 L 401.1 362.0 L 408.2 362.0 L 415.3 362.0 L 422.4 362.0 L 429.5 362.0 L 436.6 362.0 L 443.7 362.0 L 450.8 362.0 L 457.9 362.0 L 465.0 362.0 L 472.1 362.0 L 479.2 362.0 L 486.3 362.0 L 493.4 362.0 L 500.5 362.0 L 507.6 362.0 L 514.7 362.0 L 521.8 362.0 L 528.9 362.0 L 536.0 362.0 L 543.1 362.0 L 550.2 362.0 L 557.3 362.0 L 564.4 362.0 L 571.5 362.0 L 578.6 362.0 L 585.7 362.0 L 592.8 362.0 L 599.9 362.0 L 607.0 362.0 L 614.1 362.0 L 621.2 362.0 L 628.3 362.0 L 635.4 362.0 L 642.5 362.0 L 649.6 362.0 L 656.7 362.0 L 663.8 362.0 L 670.9 362.0 L 678.0 362.0 L 685.1 362.0 L 692.2 362.0 L 699.3 362.0 L 706.4 362.0 L 713.5 362.0 L 720.6 362.0 L 727.7 362.0 L 734.8 362.0 L 741.9 362.0 L 749.0 362.0 L 756.1 362.0 L 763.2 362.0 L 770.3 362.0 L 777.4 362.0 L 784.5 362.0 L 791.6 362.0 L 798.7 362.0 L 805.8 362.0 L 812.9 362.0 L 820.0 362.0" fill="none" stroke="#8AA3BC" stroke-width="4" stroke-linecap="round" opacity=".85"></path>
+          <path id="ours" d="M 110.0 332.0 L 117.1 331.5 L 124.2 330.8 L 131.3 329.9 L 138.4 328.9 L 145.5 327.8 L 152.6 326.6 L 159.7 325.4 L 166.8 324.1 L 173.9 322.7 L 181.0 321.3 L 188.1 319.8 L 195.2 318.3 L 202.3 316.7 L 209.4 315.1 L 216.5 313.5 L 223.6 311.8 L 230.7 310.1 L 237.8 308.3 L 244.9 306.5 L 252.0 304.7 L 259.1 302.8 L 266.2 300.9 L 273.3 299.0 L 280.4 297.0 L 287.5 295.1 L 294.6 293.1 L 301.7 291.0 L 308.8 289.0 L 315.9 286.9 L 323.0 284.8 L 330.1 282.6 L 337.2 280.5 L 344.3 278.3 L 351.4 276.1 L 358.5 273.8 L 365.6 271.6 L 372.7 269.3 L 379.8 267.0 L 386.9 264.7 L 394.0 262.3 L 401.1 260.0 L 408.2 257.6 L 415.3 255.2 L 422.4 252.8 L 429.5 250.3 L 436.6 247.9 L 443.7 245.4 L 450.8 242.9 L 457.9 240.4 L 465.0 237.8 L 472.1 235.3 L 479.2 232.7 L 486.3 230.1 L 493.4 227.5 L 500.5 224.9 L 507.6 222.3 L 514.7 219.6 L 521.8 217.0 L 528.9 214.3 L 536.0 211.6 L 543.1 208.9 L 550.2 206.1 L 557.3 203.4 L 564.4 200.6 L 571.5 197.8 L 578.6 195.0 L 585.7 192.2 L 592.8 189.4 L 599.9 186.6 L 607.0 183.7 L 614.1 180.8 L 621.2 178.0 L 628.3 175.1 L 635.4 172.2 L 642.5 169.2 L 649.6 166.3 L 656.7 163.4 L 663.8 160.4 L 670.9 157.4 L 678.0 154.4 L 685.1 151.4 L 692.2 148.4 L 699.3 145.4 L 706.4 142.3 L 713.5 139.3 L 720.6 136.2 L 727.7 133.1 L 734.8 130.0 L 741.9 126.9 L 749.0 123.8 L 756.1 120.7 L 763.2 117.6 L 770.3 114.4 L 777.4 111.2 L 784.5 108.1 L 791.6 104.9 L 798.7 101.7 L 805.8 98.5 L 812.9 95.2 L 820.0 92.0" fill="none" stroke="#EA7C31" stroke-width="5" stroke-linecap="round"></path>
+          <g id="theirsEnd" opacity="0">
+            <circle cx="820.0" cy="362.0" r="5" fill="#8AA3BC"></circle>
+            <text x="814.0" y="386.0" fill="#AFC2D6" font-size="13" font-weight="700" text-anchor="end">Search wide</text>
+            <text x="814.0" y="404.0" fill="#8AA3BC" font-size="11.5" text-anchor="end">more information, more fog</text>
+          </g>
+          <g id="oursEnd" opacity="0">
+            <circle cx="820.0" cy="92.0" r="6" fill="#EA7C31"></circle>
+            <text x="810.0" y="78.0" fill="#EA7C31" font-size="14" font-weight="800" text-anchor="end">Altify goes deep</text>
+            <text x="810.0" y="94.0" fill="#EAF0F6" font-size="11.5" text-anchor="end">more information, more clarity</text>
+          </g>
+        </svg>
+        <figcaption style="display:flex;gap:22px;flex-wrap:wrap;padding:14px 20px 18px;font-size:13.5px;margin:0">
+          <span style="display:inline-flex;align-items:center;gap:8px;color:#AFC2D6"><span style="width:14px;height:4px;border-radius:2px;background:#8AA3BC;flex:none"></span>Flat records: the more AI reads, the cloudier it gets</span>
+          <span style="display:inline-flex;align-items:center;gap:8px;color:#AFC2D6"><span style="width:14px;height:4px;border-radius:2px;background:#EA7C31;flex:none"></span>A living record: the more it holds, the sharper it gets</span>
+        </figcaption>
+      </figure>
+    </div>
+  </header><section id="sec-law" data-nav="The law" data-screen-label="02 Simon quote" style="padding:76px 0;border-top:1px solid rgba(175,194,214,.14)">
+    <div style="max-width:900px;margin:0 auto;padding:0 28px">
+      <div data-rv="1" style="text-align:center;max-width:60ch;margin:0 auto">
+        <p style="font-family:var(--font-display);font-size:clamp(1.5rem,3.4vw,2.4rem);font-weight:800;color:#FFFFFF;line-height:1.22;letter-spacing:-.02em;margin:0;text-wrap:balance">“A wealth of information creates<br><em style="font-style: normal; color: rgb(234, 124, 49);">a poverty of attention.</em>”</p>
+        <div style="margin-top:16px;font-size:13px;color:#8AA3BC;letter-spacing:.04em">— <strong style="color:#7ED2EE;font-weight:700">Herbert Simon</strong>, Nobel laureate, 1971</div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · THE DEPTH WE ALREADY OWN + ROADMAP -->
+  
+
+  <!-- 4 · THE CLOCK (NADELLA) + INFINITY LOOP -->
+  <section id="sec-depth" data-nav="The depth" data-screen-label="03 Depth + roadmap" style="padding:72px 0;border-top:1px solid rgba(175,194,214,.14)">
+    <div style="max-width:900px;margin:0 auto;padding:0 28px">
+      <div style="display:inline-flex;align-items:center;gap:9px;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#EA7C31;margin-bottom:14px"><span style="width:7px;height:7px;border-radius:50%;background:#EA7C31;flex:none"></span>What almost no one knows about us</div>
+      <h2 style="font-family:var(--font-display);font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.14;letter-spacing:-.02em;color:#FFFFFF;max-width:26ch;margin:0;text-wrap:balance">We built the rare part. <em style="font-style:normal;color:#EA7C31">The hard part is ahead.</em></h2>
+      <p style="font-size:18.5px;color:#AFC2D6;max-width:62ch;margin:16px 0 0;line-height:1.6">Altify uses deep detail on each deal to drive AI. Now, we <b>must</b> use AI to <b>build the detail itself</b>, storing each point in time as <b>living history</b>, driving customers' <b>sales execution capabilities</b>, year over year as data gets bigger.</p>
+      <sc-if value="{{ showHardMoat }}" hint-placeholder-val="{{ false }}">
+        <p style="font-family:var(--font-display);font-weight:700;font-size:19px;color:#FFFFFF;margin:18px 0 0">Hard is the moat.</p>
+      </sc-if>
+
+      <p style="font-family:var(--font-display);font-weight:700;font-size:20px;color:#FFFFFF;max-width:44ch;margin:26px 0 0;line-height:1.35;letter-spacing:-.01em;text-wrap:balance">Our line rises while others’ fall because we dig into <em style="font-style:normal;color:#EA7C31">the politics.</em></p>
+      <div data-rv="1" style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+        <span style="background:#152A44;border:1px solid rgba(175,194,214,.3);border-radius:999px;padding:10px 18px;font-size:16px;font-weight:700;color:#EAF0F6">The <strong style="color:#EA7C31;font-weight:700">people</strong></span>
+        <span style="background:#152A44;border:1px solid rgba(175,194,214,.3);border-radius:999px;padding:10px 18px;font-size:16px;font-weight:700;color:#EAF0F6">The <strong style="color:#EA7C31;font-weight:700">problems</strong></span>
+        <span style="background:#152A44;border:1px solid rgba(175,194,214,.3);border-radius:999px;padding:10px 18px;font-size:16px;font-weight:700;color:#EAF0F6">The <strong style="color:#EA7C31;font-weight:700">process</strong></span>
+        <span style="background:#152A44;border:1px solid rgba(175,194,214,.3);border-radius:999px;padding:10px 18px;font-size:16px;font-weight:700;color:#EAF0F6">The <strong style="color:#EA7C31;font-weight:700">potential</strong></span>
+      </div>
+
+      <!-- VISUAL B · the 2D → 3D → 4D roadmap -->
+      <figure id="rmfig" data-rv="1" style="margin:32px 0 0;border:1px solid rgba(175,194,214,.16);border-radius:16px;background:#0F2036;overflow:hidden;max-width:840px">
+        <svg viewBox="0 0 900 290" style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif">
+          <rect width="900" height="290" fill="#0F2036"></rect>
+
+          <!-- 2D · one flat page -->
+          <g id="rm1">
+            <rect x="70" y="42" width="96" height="120" rx="7" fill="#152A44" stroke="#46607C" stroke-width="1.5"></rect>
+            <line x1="86" y1="68" x2="150" y2="68" stroke="#46607C" stroke-width="3"></line>
+            <line x1="86" y1="88" x2="140" y2="88" stroke="#33485F" stroke-width="3"></line>
+            <line x1="86" y1="108" x2="146" y2="108" stroke="#33485F" stroke-width="3"></line>
+            <line x1="86" y1="128" x2="132" y2="128" stroke="#33485F" stroke-width="3"></line>
+            <text x="118" y="240" text-anchor="middle" fill="#8AA3BC" font-size="28" font-weight="800" font-family="Poppins, system-ui, sans-serif">2D</text>
+            <text x="118" y="262" text-anchor="middle" fill="#8AA3BC" font-size="12.5">one flat page.</text>
+          </g>
+
+          <g id="ra1">
+            <path d="M 206 102 H 258 M 250 96 L 258 102 L 250 108" stroke="#EA7C31" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+          </g>
+
+          <!-- 3D · the org chart -->
+          <g id="rm2">
+            <g transform="translate(302,44)">
+              <rect x="55" y="0" width="52" height="34" rx="6" fill="#152A44" stroke="#EA7C31" stroke-width="1.7"></rect>
+              <path d="M 81 34 V 54 M 27 54 H 135 M 27 54 V 72 M 81 54 V 72 M 135 54 V 72" stroke="#EA7C31" stroke-width="1.5" fill="none"></path>
+              <rect x="4" y="72" width="46" height="32" rx="6" fill="#152A44" stroke="#EA7C31" stroke-width="1.5"></rect>
+              <rect x="58" y="72" width="46" height="32" rx="6" fill="#152A44" stroke="#EA7C31" stroke-width="1.5"></rect>
+              <rect x="112" y="72" width="46" height="32" rx="6" fill="#152A44" stroke="#EA7C31" stroke-width="1.5"></rect>
+            </g>
+            <text x="383" y="240" text-anchor="middle" fill="#EA7C31" font-size="28" font-weight="800" font-family="Poppins, system-ui, sans-serif">3D</text>
+            <text x="383" y="262" text-anchor="middle" fill="#AFC2D6" font-size="12.5">the deal, mapped in depth.</text>
+          </g>
+
+          <g id="ra2">
+            <path d="M 500 102 H 552 M 544 96 L 552 102 L 544 108" stroke="#EA7C31" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+          </g>
+
+          <!-- 4D · the same depth, receding through time -->
+          <g id="rm3">
+            <g transform="translate(646,26)" opacity=".3">
+              <rect x="55" y="0" width="52" height="34" rx="6" fill="#0F2439" stroke="#53AFD4" stroke-width="1.5"></rect>
+              <path d="M 81 34 V 54 M 27 54 H 135 M 27 54 V 72 M 81 54 V 72 M 135 54 V 72" stroke="#53AFD4" stroke-width="1.3" fill="none"></path>
+              <rect x="4" y="72" width="46" height="32" rx="6" fill="#0F2439" stroke="#53AFD4" stroke-width="1.3"></rect>
+              <rect x="58" y="72" width="46" height="32" rx="6" fill="#0F2439" stroke="#53AFD4" stroke-width="1.3"></rect>
+              <rect x="112" y="72" width="46" height="32" rx="6" fill="#0F2439" stroke="#53AFD4" stroke-width="1.3"></rect>
+            </g>
+            <g transform="translate(620,43)" opacity=".5">
+              <rect x="55" y="0" width="52" height="34" rx="6" fill="#0F2439" stroke="#B87F55" stroke-width="1.5"></rect>
+              <path d="M 81 34 V 54 M 27 54 H 135 M 27 54 V 72 M 81 54 V 72 M 135 54 V 72" stroke="#B87F55" stroke-width="1.3" fill="none"></path>
+              <rect x="4" y="72" width="46" height="32" rx="6" fill="#0F2439" stroke="#B87F55" stroke-width="1.3"></rect>
+              <rect x="58" y="72" width="46" height="32" rx="6" fill="#0F2439" stroke="#B87F55" stroke-width="1.3"></rect>
+              <rect x="112" y="72" width="46" height="32" rx="6" fill="#0F2439" stroke="#B87F55" stroke-width="1.3"></rect>
+            </g>
+            <g transform="translate(594,60)">
+              <rect x="55" y="0" width="52" height="34" rx="6" fill="#152A44" stroke="#EA7C31" stroke-width="1.7"></rect>
+              <path d="M 81 34 V 54 M 27 54 H 135 M 27 54 V 72 M 81 54 V 72 M 135 54 V 72" stroke="#EA7C31" stroke-width="1.5" fill="none"></path>
+              <rect x="4" y="72" width="46" height="32" rx="6" fill="#152A44" stroke="#EA7C31" stroke-width="1.5"></rect>
+              <rect x="58" y="72" width="46" height="32" rx="6" fill="#152A44" stroke="#EA7C31" stroke-width="1.5"></rect>
+              <rect x="112" y="72" width="46" height="32" rx="6" fill="#152A44" stroke="#EA7C31" stroke-width="1.5"></rect>
+            </g>
+            <path d="M 594 186 H 826 M 818 180 L 826 186 L 818 192" stroke="#EA7C31" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".85"></path>
+            <text x="826" y="176" text-anchor="end" fill="#8AA3BC" font-size="11">time</text>
+            <text x="710" y="240" text-anchor="middle" fill="#EA7C31" font-size="28" font-weight="800" font-family="Poppins, system-ui, sans-serif">4D</text>
+            <text x="710" y="262" text-anchor="middle" fill="#AFC2D6" font-size="12.5">that depth, over time.</text>
+          </g>
+        </svg>
+      </figure>
+    </div>
+  </section>
+
+  <section id="sec-clock" data-nav="The clock" data-screen-label="05 The clock + loop" style="padding:72px 0;border-top:1px solid rgba(175,194,214,.14)">
+    <div style="max-width:900px;margin:0 auto;padding:0 28px">
+      <div style="display:inline-flex;align-items:center;gap:9px;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#EA7C31;margin-bottom:14px"><span style="width:7px;height:7px;border-radius:50%;background:#EA7C31;flex:none"></span>The clock</div>
+      <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem,3vw,2.2rem); line-height: 1.14; letter-spacing: -.02em; color: var(--white); max-width: 26ch; margin: 0; text-wrap: balance">The most trusted voice in enterprise has <u>started the clock</u></h2>
+      <div data-rv="1" style="margin-top:26px;border-left:3px solid #53AFD4;background:rgba(83,175,212,.07);border-radius:0 12px 12px 0;padding:18px 22px;max-width:70ch">
+        <p style="color:#EAF0F6;font-size:16.5px;font-style:italic;line-height:1.5;margin:0">"The moat that lasts is a learning loop that compounds over time. It cannot be replicated by renting the same model everyone else can rent*..."</p>
+        <div style="margin-top:8px;font-size:12.5px;color:#8AA3BC;font-style:normal;letter-spacing:.04em">— <strong style="color:#7ED2EE;font-weight:700">Satya Nadella</strong>, Microsoft CEO · from his December 2025 memo</div>
+      </div>
+      <p style="font-size:17px;color:#AFC2D6;max-width:62ch;margin:24px 0 0;line-height:1.6">Nadella is <b>warning</b> us that companies that don’t build a proprietary AI learning loop will be displaced by free alternatives.</p>
+      <p style="font-size:17px;color:#AFC2D6;max-width:62ch;margin:26px 0 0;line-height:1.6"><b>Nadella’s</b> <b>loop in Altify</b>: Humans drive AI with sales execution. AI tracks and enriches humans with clear detail they can’t get alone. Symbiotic and synergistic, driving better sales execution and better data on each loop. The system gets deeper and learns over time.</p>
+
+      <!-- VISUAL A · the infinity loop -->
+      <figure id="loopfig" data-rv="1" style="margin:28px 0 0;border:1px solid rgba(175,194,214,.16);border-radius:16px;background:#0F2036;overflow:hidden">
+        
+        <svg viewBox="0 0 900 480" style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif">
+          <defs>
+            <linearGradient id="gS1" gradientUnits="userSpaceOnUse" x1="450" y1="245" x2="246.9" y2="353">
+              <stop offset="0" stop-color="#7B61C9"></stop><stop offset="1" stop-color="#E1673A"></stop>
+            </linearGradient>
+            <linearGradient id="gS2" gradientUnits="userSpaceOnUse" x1="246.9" y1="353" x2="450" y2="245">
+              <stop offset="0" stop-color="#E1673A"></stop><stop offset="1" stop-color="#7B61C9"></stop>
+            </linearGradient>
+            <linearGradient id="gS3" gradientUnits="userSpaceOnUse" x1="450" y1="245" x2="653.1" y2="137">
+              <stop offset="0" stop-color="#7B61C9"></stop><stop offset="1" stop-color="#3E9AD6"></stop>
+            </linearGradient>
+            <linearGradient id="gS4" gradientUnits="userSpaceOnUse" x1="653.1" y1="137" x2="450" y2="245">
+              <stop offset="0" stop-color="#3E9AD6"></stop><stop offset="1" stop-color="#7B61C9"></stop>
+            </linearGradient>
+            <radialGradient id="glowAI" cx=".5" cy=".5" r=".5">
+              <stop offset="0" stop-color="#E1673A" stop-opacity=".2"></stop><stop offset="1" stop-color="#E1673A" stop-opacity="0"></stop>
+            </radialGradient>
+            <radialGradient id="glowHU" cx=".5" cy=".5" r=".5">
+              <stop offset="0" stop-color="#3E9AD6" stop-opacity=".2"></stop><stop offset="1" stop-color="#3E9AD6" stop-opacity="0"></stop>
+            </radialGradient>
+          </defs>
+          <rect width="900" height="480" fill="#0F2036"></rect>
+          <rect x="40" y="30" width="820" height="426" rx="18" fill="rgba(21,42,68,.45)" stroke="rgba(175,194,214,.18)" stroke-width="1.3"></rect>
+
+          <g id="loopMeta">
+            <!-- axes -->
+            <line x1="64" y1="245" x2="836" y2="245" stroke="rgba(175,194,214,.22)" stroke-width="1.2" stroke-dasharray="2 6"></line>
+            <line x1="450" y1="56" x2="450" y2="434" stroke="rgba(175,194,214,.22)" stroke-width="1.2" stroke-dasharray="2 6"></line>
+            <text x="450" y="47" text-anchor="middle" fill="#8AA3BC" font-size="11.5" font-weight="700" letter-spacing="1.2">EASY FOR HUMANS</text>
+            <text x="450" y="449" text-anchor="middle" fill="#8AA3BC" font-size="11.5" font-weight="700" letter-spacing="1.2">HARD FOR HUMANS</text>
+            <text x="64" y="234" fill="#8AA3BC" font-size="11.5" font-weight="700" letter-spacing="1.2">LOW IMPACT</text>
+            <text x="836" y="234" text-anchor="end" fill="#8AA3BC" font-size="11.5" font-weight="700" letter-spacing="1.2">HIGH IMPACT</text>
+            <!-- corner labels -->
+            <text x="64" y="62" fill="#9A8BD4" font-size="10" letter-spacing="1" opacity=".8">HUMAN + AI COLLABORATION</text>
+            <text x="836" y="430" text-anchor="end" fill="#9A8BD4" font-size="10" letter-spacing="1" opacity=".8">HUMAN + AI COLLABORATION</text>
+            <!-- lobe glows -->
+            <circle cx="340" cy="315" r="100" fill="url(#glowAI)"></circle>
+            <circle cx="560" cy="185" r="110" fill="url(#glowHU)"></circle>
+          </g>
+
+          <!-- the single continuous figure-8, gradient stroke: blue → purple → red → purple → blue -->
+          <path id="ls1" d="M 450.0 245.0 L 444.1 242.0 L 438.2 238.9 L 432.3 235.9 L 426.4 232.9 L 420.5 229.9 L 414.5 227.0 L 408.6 224.2 L 402.6 221.4 L 396.5 218.7 L 390.5 216.0 L 384.4 213.5 L 378.2 211.1 L 372.0 208.9 L 365.8 206.7 L 359.5 204.8 L 353.2 203.0 L 346.9 201.4 L 340.5 200.0 L 334.1 198.9 L 327.7 198.1 L 321.3 197.5 L 314.9 197.2 L 308.5 197.3 L 302.1 197.7 L 295.7 198.6 L 289.5 199.8 L 283.3 201.6 L 277.3 203.7 L 271.4 206.4 L 265.7 209.7 L 260.2 213.4 L 255.1 217.8 L 250.2 222.8 L 245.7 228.3 L 241.7 234.5 L 238.1 241.2 L 235.0 248.5 L 232.5 256.4 L 230.7 264.9 L 229.5 273.8 L 229.0 283.1 L 229.3 292.7 L 230.3 302.7 L 232.1 312.8 L 234.7 323.0 L 238.0 333.2 L 242.1 343.2 L 246.9 353.0" fill="none" stroke="url(#gS1)" stroke-width="5" stroke-linecap="round"></path>
+          <path id="ls2" d="M 246.9 353.0 L 252.4 362.4 L 258.4 371.4 L 265.0 379.9 L 272.0 387.7 L 279.3 394.9 L 287.0 401.3 L 294.9 406.9 L 302.8 411.7 L 310.9 415.7 L 318.9 418.9 L 326.8 421.3 L 334.6 422.8 L 342.2 423.6 L 349.6 423.7 L 356.7 423.1 L 363.5 421.8 L 370.1 420.0 L 376.2 417.5 L 382.1 414.6 L 387.6 411.3 L 392.8 407.5 L 397.7 403.3 L 402.2 398.8 L 406.5 394.1 L 410.4 389.0 L 414.0 383.7 L 417.4 378.3 L 420.5 372.6 L 423.4 366.8 L 426.1 360.9 L 428.5 354.9 L 430.7 348.7 L 432.8 342.5 L 434.6 336.2 L 436.4 329.9 L 437.9 323.5 L 439.4 317.0 L 440.7 310.6 L 441.9 304.1 L 443.1 297.5 L 444.1 291.0 L 445.1 284.5 L 446.0 277.9 L 446.9 271.3 L 447.7 264.7 L 448.5 258.2 L 449.2 251.6 L 450.0 245.0" fill="none" stroke="url(#gS2)" stroke-width="5" stroke-linecap="round"></path>
+          <path id="ls3" d="M 450.0 245.0 L 450.8 238.4 L 451.5 231.8 L 452.3 225.3 L 453.1 218.7 L 454.0 212.1 L 454.9 205.5 L 455.9 199.0 L 456.9 192.5 L 458.1 185.9 L 459.3 179.4 L 460.6 173.0 L 462.1 166.5 L 463.6 160.1 L 465.4 153.8 L 467.2 147.5 L 469.3 141.3 L 471.5 135.1 L 473.9 129.1 L 476.6 123.2 L 479.5 117.4 L 482.6 111.7 L 486.0 106.3 L 489.6 101.0 L 493.5 95.9 L 497.8 91.2 L 502.3 86.7 L 507.2 82.5 L 512.4 78.7 L 517.9 75.4 L 523.8 72.5 L 529.9 70.0 L 536.5 68.2 L 543.3 66.9 L 550.4 66.3 L 557.8 66.4 L 565.4 67.2 L 573.2 68.7 L 581.1 71.1 L 589.1 74.3 L 597.2 78.3 L 605.1 83.1 L 613.0 88.7 L 620.7 95.1 L 628.0 102.3 L 635.0 110.1 L 641.6 118.6 L 647.6 127.6 L 653.1 137.0" fill="none" stroke="url(#gS3)" stroke-width="5" stroke-linecap="round"></path>
+          <path id="ls4" d="M 653.1 137.0 L 657.9 146.8 L 662.0 156.8 L 665.3 167.0 L 667.9 177.2 L 669.7 187.3 L 670.7 197.3 L 671.0 206.9 L 670.5 216.2 L 669.3 225.1 L 667.5 233.6 L 665.0 241.5 L 661.9 248.8 L 658.3 255.5 L 654.3 261.7 L 649.8 267.2 L 644.9 272.2 L 639.8 276.6 L 634.3 280.3 L 628.6 283.6 L 622.7 286.3 L 616.7 288.4 L 610.5 290.2 L 604.3 291.4 L 597.9 292.3 L 591.5 292.7 L 585.1 292.8 L 578.7 292.5 L 572.3 291.9 L 565.9 291.1 L 559.5 290.0 L 553.1 288.6 L 546.8 287.0 L 540.5 285.2 L 534.2 283.3 L 528.0 281.1 L 521.8 278.9 L 515.6 276.5 L 509.5 274.0 L 503.5 271.3 L 497.4 268.6 L 491.4 265.8 L 485.5 263.0 L 479.5 260.1 L 473.6 257.1 L 467.7 254.1 L 461.8 251.1 L 455.9 248.0 L 450.0 245.0" fill="none" stroke="url(#gS4)" stroke-width="5" stroke-linecap="round"></path>
+
+          <g id="loopMeta2">
+            <!-- crossover node -->
+            <circle cx="450" cy="245" r="7.5" fill="#0F2036" stroke="#7B61C9" stroke-width="2.5"></circle>
+            <!-- hand-off labels -->
+            <g text-anchor="end">
+              <text x="414" y="172" fill="#9A8BD4" font-size="13" font-weight="700">Reconciliation</text>
+              <text x="414" y="189" fill="#8AA3BC" font-size="10.5">Headless T&amp;I</text>
+            </g>
+            <g>
+              <text x="488" y="318" fill="#9A8BD4" font-size="13" font-weight="700">Inspections</text>
+              <text x="488" y="335" fill="#8AA3BC" font-size="10.5">Headless TeamView</text>
+            </g>
+            <!-- human lobe labels -->
+            <g text-anchor="middle">
+              <text x="560" y="146" fill="#6FC2EC" font-size="15" font-weight="700" font-family="Poppins, system-ui, sans-serif" letter-spacing="1.4">HUMAN WORK</text>
+              <text x="560" y="164" fill="#8AA3BC" font-size="11">Communication &amp; Strategy</text>
+              <text x="560" y="190" fill="#CBDCEA" font-size="11.5">Emails</text>
+              <text x="560" y="207" fill="#CBDCEA" font-size="11.5">Calls &amp; Chats</text>
+              <text x="560" y="224" fill="#CBDCEA" font-size="11.5">Notes &amp; Transcripts</text>
+              <text x="560" y="241" fill="#CBDCEA" font-size="11.5">Strategic Thought</text>
+              <text x="560" y="258" fill="#CBDCEA" font-size="11.5">Other CRM Work</text>
+            </g>
+            <!-- AI lobe labels -->
+            <g text-anchor="middle">
+              <text x="340" y="268" fill="#F08A5F" font-size="15" font-weight="700" font-family="Poppins, system-ui, sans-serif" letter-spacing="1.4">AI WORK</text>
+              <text x="340" y="286" fill="#8AA3BC" font-size="11">Administration &amp; Analysis</text>
+              <text x="340" y="312" fill="#CBDCEA" font-size="11.5">Human Data Ingestion</text>
+              <text x="340" y="329" fill="#CBDCEA" font-size="11.5">Data Mapping</text>
+              <text x="340" y="346" fill="#CBDCEA" font-size="11.5">Contextual Record Analysis</text>
+              <text x="340" y="363" fill="#CBDCEA" font-size="11.5">Altify Administration</text>
+            </g>
+            <!-- feed-forward arc -->
+            <path d="M 410 156 Q 426 86 478 80 M 465.5 76 L 478 80 L 466.7 87" stroke="#9A8BD4" stroke-width="1.6" fill="none" stroke-dasharray="3 7" stroke-linecap="round"></path>
+            <text x="404" y="104" text-anchor="end" fill="#9A8BD4" font-size="11.5">New tasks &amp; info</text>
+          </g>
+
+          <!-- traveling pulse -->
+          <g id="loopDot" opacity="0">
+            <circle r="11" fill="#EAF0F6" opacity=".14"></circle>
+            <circle r="4" fill="#EAF0F6" opacity=".95"></circle>
+            <animateMotion dur="18s" repeatCount="indefinite" path="M 450.0 245.0 L 444.1 242.0 L 438.2 238.9 L 432.3 235.9 L 426.4 232.9 L 420.5 229.9 L 414.5 227.0 L 408.6 224.2 L 402.6 221.4 L 396.5 218.7 L 390.5 216.0 L 384.4 213.5 L 378.2 211.1 L 372.0 208.9 L 365.8 206.7 L 359.5 204.8 L 353.2 203.0 L 346.9 201.4 L 340.5 200.0 L 334.1 198.9 L 327.7 198.1 L 321.3 197.5 L 314.9 197.2 L 308.5 197.3 L 302.1 197.7 L 295.7 198.6 L 289.5 199.8 L 283.3 201.6 L 277.3 203.7 L 271.4 206.4 L 265.7 209.7 L 260.2 213.4 L 255.1 217.8 L 250.2 222.8 L 245.7 228.3 L 241.7 234.5 L 238.1 241.2 L 235.0 248.5 L 232.5 256.4 L 230.7 264.9 L 229.5 273.8 L 229.0 283.1 L 229.3 292.7 L 230.3 302.7 L 232.1 312.8 L 234.7 323.0 L 238.0 333.2 L 242.1 343.2 L 246.9 353.0 L 252.4 362.4 L 258.4 371.4 L 265.0 379.9 L 272.0 387.7 L 279.3 394.9 L 287.0 401.3 L 294.9 406.9 L 302.8 411.7 L 310.9 415.7 L 318.9 418.9 L 326.8 421.3 L 334.6 422.8 L 342.2 423.6 L 349.6 423.7 L 356.7 423.1 L 363.5 421.8 L 370.1 420.0 L 376.2 417.5 L 382.1 414.6 L 387.6 411.3 L 392.8 407.5 L 397.7 403.3 L 402.2 398.8 L 406.5 394.1 L 410.4 389.0 L 414.0 383.7 L 417.4 378.3 L 420.5 372.6 L 423.4 366.8 L 426.1 360.9 L 428.5 354.9 L 430.7 348.7 L 432.8 342.5 L 434.6 336.2 L 436.4 329.9 L 437.9 323.5 L 439.4 317.0 L 440.7 310.6 L 441.9 304.1 L 443.1 297.5 L 444.1 291.0 L 445.1 284.5 L 446.0 277.9 L 446.9 271.3 L 447.7 264.7 L 448.5 258.2 L 449.2 251.6 L 450.0 245.0 L 450.8 238.4 L 451.5 231.8 L 452.3 225.3 L 453.1 218.7 L 454.0 212.1 L 454.9 205.5 L 455.9 199.0 L 456.9 192.5 L 458.1 185.9 L 459.3 179.4 L 460.6 173.0 L 462.1 166.5 L 463.6 160.1 L 465.4 153.8 L 467.2 147.5 L 469.3 141.3 L 471.5 135.1 L 473.9 129.1 L 476.6 123.2 L 479.5 117.4 L 482.6 111.7 L 486.0 106.3 L 489.6 101.0 L 493.5 95.9 L 497.8 91.2 L 502.3 86.7 L 507.2 82.5 L 512.4 78.7 L 517.9 75.4 L 523.8 72.5 L 529.9 70.0 L 536.5 68.2 L 543.3 66.9 L 550.4 66.3 L 557.8 66.4 L 565.4 67.2 L 573.2 68.7 L 581.1 71.1 L 589.1 74.3 L 597.2 78.3 L 605.1 83.1 L 613.0 88.7 L 620.7 95.1 L 628.0 102.3 L 635.0 110.1 L 641.6 118.6 L 647.6 127.6 L 653.1 137.0 L 657.9 146.8 L 662.0 156.8 L 665.3 167.0 L 667.9 177.2 L 669.7 187.3 L 670.7 197.3 L 671.0 206.9 L 670.5 216.2 L 669.3 225.1 L 667.5 233.6 L 665.0 241.5 L 661.9 248.8 L 658.3 255.5 L 654.3 261.7 L 649.8 267.2 L 644.9 272.2 L 639.8 276.6 L 634.3 280.3 L 628.6 283.6 L 622.7 286.3 L 616.7 288.4 L 610.5 290.2 L 604.3 291.4 L 597.9 292.3 L 591.5 292.7 L 585.1 292.8 L 578.7 292.5 L 572.3 291.9 L 565.9 291.1 L 559.5 290.0 L 553.1 288.6 L 546.8 287.0 L 540.5 285.2 L 534.2 283.3 L 528.0 281.1 L 521.8 278.9 L 515.6 276.5 L 509.5 274.0 L 503.5 271.3 L 497.4 268.6 L 491.4 265.8 L 485.5 263.0 L 479.5 260.1 L 473.6 257.1 L 467.7 254.1 L 461.8 251.1 L 455.9 248.0 L 450.0 245.0"></animateMotion>
+          </g>
+        </svg><figcaption style="display:flex;gap:22px;flex-wrap:wrap;padding:14px 20px 18px;font-size:13.5px;margin:0">
+          <span style="display:inline-flex;align-items:center;gap:8px;color:#AFC2D6"><span style="width:9px;height:9px;border-radius:50%;background:#E1673A;flex:none"></span>AI does the grunt work</span>
+          <span style="display:inline-flex;align-items:center;gap:8px;color:#AFC2D6"><span style="width: 9px; height: 9px; border-radius: 50%; background: rgb(62, 154, 214); flex: 0 0 auto;"></span>Humans do sales execution</span>
+          <span style="display:inline-flex;align-items:center;gap:8px;color:#AFC2D6"><span style="width: 9px; height: 9px; border-radius: 50%; background: rgb(123, 97, 201); flex: 0 0 auto;"></span>They drive each other &amp; meet to reconcile &amp; inspect</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 5 · THE BUILD — AUTOMATING 3D + TRUST -->
+  
+
+  <!-- 9 · 4D — THE MEMORY THAT COMPOUNDS -->
+  <section id="sec-build" data-nav="The build" data-screen-label="08 Automating 3D" style="padding:72px 0;border-top:1px solid rgba(175,194,214,.14)">
+    <div style="max-width:900px;margin:0 auto;padding:0 28px">
+      <div style="display:inline-flex;align-items:center;gap:9px;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#EA7C31;margin-bottom:14px"><span style="width: 7px; height: 7px; border-radius: 50%; background: rgb(234, 124, 49); flex: 0 0 auto;"></span><u>THE FUTURE · AUTOMATING THE 3D</u></div>
+      <h2 style="font-family:var(--font-display);font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.14;letter-spacing:-.02em;color:#FFFFFF;max-width:26ch;margin:0;text-wrap:balance">We fill the depth. <em style="font-style:normal;color:#EA7C31">Collaboration builds the trust.</em></h2>
+      <p style="font-size:18.5px;color:#AFC2D6;max-width:62ch;margin:16px 0 0;line-height:1.6">Altify will fill our 3D architecture by reading emails, calls, and notes, building the deep records, delegating the citable work to AI, and leaving the life-or-death work to humans. As a result, seller understanding goes from shallow to deep, and over time it gets deeper. The seller’s job is to collaborate with AI and continue working in their zone of brilliance (sales execution), benefiting from the deep understanding provided by Altify’s proprietary system.</p>
+      <div data-rv="1" style="margin-top:24px;display:flex;gap:14px;align-items:flex-start;background:rgba(232,180,74,.08);border:1px solid rgba(232,180,74,.35);border-radius:12px;padding:18px 20px;max-width:74ch">
+        <span style="width:14px;height:14px;border-radius:50%;background:#E8B44A;flex:none;margin-top:5px"></span>
+        <p style="color:#EAF0F6;font-size:16px;line-height:1.6;margin:0"><b>Collaboration</b>: here’s how we beat the trust problem: anything the AI can’t tie to a hard, checkable fact gets <strong style="color: rgb(242, 200, 102); font-weight: 700;">yellow-flagged for a person to approve.</strong> Nothing enters the record as a guess. The human keeps the judgment. The machine keeps the record.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="sec-memory" data-nav="The memory" data-screen-label="09 4D memory" style="padding:72px 0;border-top:1px solid rgba(175,194,214,.14)">
+    <div style="max-width:900px;margin:0 auto;padding:0 28px">
+      <div style="display:inline-flex;align-items:center;gap:9px;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#EA7C31;margin-bottom:14px"><span style="width: 7px; height: 7px; border-radius: 50%; background: rgb(234, 124, 49); flex: 0 0 auto;"></span><u>THE FUTURE · EXECUTION IN 4D</u></div>
+      <h2 style="font-family:var(--font-display);font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.14;letter-spacing:-.02em;color:#FFFFFF;max-width:26ch;margin:0;text-wrap:balance">Altify remembers. <em style="font-style: normal; color: rgb(234, 124, 49);">Forever.</em></h2>
+      <p style="font-size:18.5px;color:#AFC2D6;max-width:62ch;margin:16px 0 0;line-height:1.6">The same system that fills the record also <strong style="color: rgb(255, 255, 255); font-weight: 700;">stamps every official change</strong> into a proprietary memory. Every person, deal, and account. Our customers gain clarity and value year over year. The AI focuses in on the deep progression. The more time, the <strong style="color: rgb(255, 255, 255); font-weight: 700;">sharper</strong> it gets.</p>
+      <p style="font-size:17px;color:#AFC2D6;max-width:62ch;margin:16px 0 0;line-height:1.6"><i>This is the compounding loop Nadella described...and our moat to build now.</i></p>
+    </div>
+  </section>
+
+  <!-- 10 · THE SELLER WHO LEAVES -->
+  <section id="sec-rep" data-nav="The rep" data-screen-label="10 Seller scene" style="padding:72px 0;border-top:1px solid rgba(175,194,214,.14)">
+    <div style="max-width:900px;margin:0 auto;padding:0 28px">
+      <div style="display:inline-flex;align-items:center;gap:9px;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#EA7C31;margin-bottom:14px"><span style="width:7px;height:7px;border-radius:50%;background:#EA7C31;flex:none"></span>What it feels like</div>
+      <h2 style="font-family:var(--font-display);font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.14;letter-spacing:-.02em;color:#FFFFFF;max-width:26ch;margin:0;text-wrap:balance">A rep leaves. <br>The tribal knowledge sticks.</h2>
+      <div data-rv="1" style="margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:16px">
+        <div style="border-radius:14px;padding:24px;border:1px solid rgba(138,163,188,.4);background:#152A44">
+          <span style="font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#8AA3BC">FLAT CONTEXT · 2-D</span>
+          <h4 style="color:#FFFFFF;font-family:var(--font-display);font-size:17.5px;font-weight:700;margin:10px 0 10px;letter-spacing:-.01em">Tribal knowledge lost with the AE</h4>
+          <p style="color:#AFC2D6;font-size:15.5px;line-height:1.55;margin:0">A seller worked the account for two years. The deals, the people, the friendships. They leave. The next rep starts in a fog: piecing together who’s who, never quite sure what really happened, what anyone cares about, or what to do next...</p>
+        </div>
+        <div style="border-radius:14px;padding:24px;border:1px solid rgba(234,124,49,.5);background:#152A44">
+          <span style="font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#EA7C31">LIVING CONTEXT · 4-D</span>
+          <h4 style="color:#FFFFFF;font-family:var(--font-display);font-size:17.5px;font-weight:700;margin:10px 0 10px;letter-spacing:-.01em">One brief to bring new AE up to speed</h4>
+          <p style="color:#EAF0F6;font-size:15.5px;line-height:1.55;margin:0">The new rep engages AI, gets an account brief, and sees every person who has touched the account over two years. What everyone cares about, what to watch for, where the politics sit. And the whole arc of the account. Nothing lost. Nobody starts over.</p>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- 11 · CALL TO ACTION -->
+  
+
+  <!-- FOOTER -->
+  <section id="sec-ask" data-nav="The ask" data-screen-label="11 Call to action" style="padding:72px 0 76px;border-top:1px solid rgba(175,194,214,.14)">
+    <div style="max-width:900px;margin:0 auto;padding:0 28px">
+      <div style="display:inline-flex;align-items:center;gap:9px;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#EA7C31;margin-bottom:14px"><span style="width:7px;height:7px;border-radius:50%;background:#EA7C31;flex:none"></span>The move</div>
+      <h2 style="font-family:var(--font-display);font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.14;letter-spacing:-.02em;color:#FFFFFF;max-width:28ch;margin:0;text-wrap:balance">Fear of big things disappears the moment you take <u>the first step</u></h2>
+      <p style="font-size:17px;color:#AFC2D6;max-width:62ch;margin:16px 0 0;line-height:1.6">We start small inside Altify. 4 steps. Step one is cheap, safe, and <b>right</b> <b>now</b>...</p>
+      <figure data-rv="1" style="margin:30px 0 0;border:1px solid rgba(175,194,214,.16);border-radius:16px;overflow:hidden;background:#0F2036">
+        <svg viewBox="0 0 900 440" style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif">
+          <rect width="900" height="440" fill="#0F2036"></rect>
+          <text x="64" y="34" fill="#8AA3BC" font-size="12.5">one small step now → the whole market later</text>
+          <line x1="56" y1="419" x2="868" y2="419" stroke="rgba(175,194,214,.18)" stroke-width="1.4"></line>
+          <rect x="72" y="210" width="183" height="208" rx="9" fill="#53AFD4" opacity="0.13"></rect>
+          <path d="M72 254 v-35 a9 9 0 0 1 9 -9 h165 a9 9 0 0 1 9 9 v35 Z" fill="#53AFD4"></path>
+          <text x="164" y="239" text-anchor="middle" fill="#0F2036" font-size="17" font-weight="800" font-family="JetBrains Mono, Menlo, monospace">01</text>
+          <text x="164" y="278" text-anchor="middle" fill="#EAF0F6" font-size="14" font-weight="800">Prove it on us</text>
+          <text x="164" y="300" text-anchor="middle" fill="#AFC2D6" font-size="12.5">Our own book, our own</text>
+          <text x="164" y="318" text-anchor="middle" fill="#AFC2D6" font-size="12.5">deals. Weeks, not</text>
+          <text x="164" y="336" text-anchor="middle" fill="#AFC2D6" font-size="12.5">quarters.</text>
+          <rect x="72" y="185" width="183" height="18" rx="9" fill="#0F2036" stroke="#53AFD4"></rect>
+          <text x="164" y="198" text-anchor="middle" fill="#7ED2EE" font-size="9.5" font-weight="800" letter-spacing="1">START HERE</text>
+          <rect x="271" y="168" width="183" height="250" rx="9" fill="#3E9AC4" opacity="0.13"></rect>
+          <path d="M271 212 v-35 a9 9 0 0 1 9 -9 h165 a9 9 0 0 1 9 9 v35 Z" fill="#3E9AC4"></path>
+          <text x="362" y="197" text-anchor="middle" fill="#0F2036" font-size="17" font-weight="800" font-family="JetBrains Mono, Menlo, monospace">02</text>
+          <text x="362" y="236" text-anchor="middle" fill="#EAF0F6" font-size="14" font-weight="800">Hand it to a few</text>
+          <text x="362" y="258" text-anchor="middle" fill="#AFC2D6" font-size="12.5">A pilot or two. Early</text>
+          <text x="362" y="276" text-anchor="middle" fill="#AFC2D6" font-size="12.5">adopters feel it.</text>
+          <rect x="470" y="126" width="183" height="292" rx="9" fill="#EA7C31" opacity="0.13"></rect>
+          <path d="M470 170 v-35 a9 9 0 0 1 9 -9 h165 a9 9 0 0 1 9 9 v35 Z" fill="#EA7C31"></path>
+          <text x="562" y="155" text-anchor="middle" fill="#0F2036" font-size="17" font-weight="800" font-family="JetBrains Mono, Menlo, monospace">03</text>
+          <text x="562" y="194" text-anchor="middle" fill="#EAF0F6" font-size="14" font-weight="800">Defend the book</text>
+          <text x="562" y="216" text-anchor="middle" fill="#AFC2D6" font-size="12.5">Every account we own,</text>
+          <text x="562" y="234" text-anchor="middle" fill="#AFC2D6" font-size="12.5">locked in.</text>
+          <rect x="669" y="84" width="183" height="334" rx="9" fill="#D5552E" opacity="0.13"></rect>
+          <path d="M669 128 v-35 a9 9 0 0 1 9 -9 h165 a9 9 0 0 1 9 9 v35 Z" fill="#D5552E"></path>
+          <text x="760" y="113" text-anchor="middle" fill="#0F2036" font-size="17" font-weight="800" font-family="JetBrains Mono, Menlo, monospace">04</text>
+          <text x="760" y="152" text-anchor="middle" fill="#EAF0F6" font-size="14" font-weight="800">Take the market</text>
+          <text x="760" y="174" text-anchor="middle" fill="#AFC2D6" font-size="12.5">The first 4D enterprise</text>
+          <text x="760" y="192" text-anchor="middle" fill="#AFC2D6" font-size="12.5">selling system.</text>
+          <path d="M 164 181 L 362 139 L 562 97 L 760 55" fill="none" stroke="#EA7C31" stroke-width="2.4" stroke-dasharray="2 6" opacity=".85"></path>
+          <path d="M 760 55 l -11 -2 m 11 2 l -8 9" stroke="#EA7C31" stroke-width="2.4" fill="none"></path>
+        </svg>
+      </figure>
+      <div data-rv="1" style="margin-top:28px;display:flex;gap:14px;align-items:flex-start;background:rgba(234,124,49,.07);border:1px solid rgba(234,124,49,.4);border-radius:12px;padding:18px 20px;max-width:74ch">
+        <span style="width:14px;height:14px;border-radius:50%;background:#EA7C31;flex:none;margin-top:5px"></span>
+        <p style="color:#EAF0F6;font-size:16px;line-height:1.6;margin:0"><strong style="color: rgb(234, 124, 49); font-weight: 700;">The ask:</strong> <b>a</b> <b>yes</b>, starting now. And a small team chosen for mindset, not headcount: our most AI-native engineers, the ones willing to learn and work differently. More people will not make this faster. The right people will.</p>
+      </div>
+      <p style="margin: 34px 0 0; font-family: var(--font-display); font-size: clamp(1.2rem,2.4vw,1.7rem); font-weight: 800; color: #FFFFFF; max-width: 24ch; line-height: 1.25; letter-spacing: -.015em; text-wrap: balance; width: 424px; height: 96px">The destination is enormous; 4-Dimensional selling is inevitable.<br>&nbsp;<em style="font-style: normal; color: rgb(234, 124, 49);">The first step is now.</em><br></p>
+    </div>
+  </section><footer data-screen-label="Footer" style="border-top:1px solid rgba(175,194,214,.16);padding:22px 0 46px;color:#8AA3BC;font-size:12px">
+    <div style="max-width:900px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap">
+      <div>ALTIFY · Internal · Not for external distribution</div>
+      <div>*Nadella references paraphrased from his December 2025 memo · July 2026</div>
+    </div>
+  </footer>
+
+  <button id="navUp" aria-label="Previous section" style="position:fixed;top:80px;right:18px;z-index:40;width:46px;height:46px;border-radius:50%;background:rgba(21,42,68,.94);border:1px solid rgba(175,194,214,.35);color:#EA7C31;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;opacity:0;pointer-events:none;transition:opacity .25s ease,border-color .15s ease" style-hover="border-color:#EA7C31">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M 5 14.5 L 12 7.5 L 19 14.5"></path></svg>
+  </button>
+  <button id="navDown" aria-label="Next section" style="position:fixed;bottom:22px;right:18px;z-index:40;width:46px;height:46px;border-radius:50%;background:rgba(21,42,68,.94);border:1px solid rgba(175,194,214,.35);color:#EA7C31;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;opacity:0;pointer-events:none;transition:opacity .25s ease,border-color .15s ease" style-hover="border-color:#EA7C31">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M 5 9.5 L 12 16.5 L 19 9.5"></path></svg>
+  </button>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;animations&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Behavior&quot; },
+  &quot;hardMoatLine&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: false, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Copy&quot; }
+}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      showHardMoat: this.props.hardMoatLine ?? false
+    };
+  }
+
+  componentDidMount() {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const animOn = (this.props.animations ?? true) && !reduced;
+    const $ = (id) => document.getElementById(id);
+    this._finishers = [];
+    this._observers = [];
+    const finishAll = () => { this._finishers.forEach((f) => { try { f(); } catch (e) {} }); this._finishers = []; };
+    this._finishAll = finishAll;
+    this._onPrint = () => finishAll();
+    window.addEventListener('beforeprint', this._onPrint);
+
+    // traveling pulse: only when animating
+    const dot = $('loopDot');
+    if (dot && !animOn) dot.remove();
+
+    // --- section quick-nav: sticky links + one-at-a-time step buttons (always active) ---
+    const navSecs = Array.from(document.querySelectorAll('[data-nav]'));
+    const topnav = $('topnav');
+    const btnUp = $('navUp'), btnDown = $('navDown');
+    const menuBtn = $('navMenuBtn'), navMenu = $('navMenu');
+    const navLinks = Array.from(document.querySelectorAll('#topnav a[data-target], #navMenu a[data-target]'));
+    if (navSecs.length) {
+      const NAVH = 70;
+      const secTop = (el) => el.getBoundingClientRect().top + window.scrollY;
+      const curIdx = () => {
+        const y = window.scrollY + NAVH + 80;
+        let idx = 0;
+        navSecs.forEach((s, i) => { if (secTop(s) <= y) idx = i; });
+        return idx;
+      };
+      const goTo = (i) => {
+        if (i < 0 || i >= navSecs.length) return;
+        window.scrollTo({ top: Math.max(0, secTop(navSecs[i]) - NAVH + 6), behavior: reduced ? 'auto' : 'smooth' });
+      };
+      const setBtn = (b, on) => { if (b) { b.style.opacity = on ? '1' : '0'; b.style.pointerEvents = on ? 'auto' : 'none'; } };
+      const update = () => {
+        const i = curIdx();
+        setBtn(btnUp, i > 0);
+        setBtn(btnDown, i < navSecs.length - 1);
+        navLinks.forEach((a) => { a.style.color = (+a.dataset.target === i) ? '#EA7C31' : '#AFC2D6'; });
+      };
+      if (btnUp) btnUp.onclick = () => goTo(curIdx() - 1);
+      if (btnDown) btnDown.onclick = () => goTo(curIdx() + 1);
+      this._onNavClick = (e) => {
+        const a = e.target.closest('a[data-target]');
+        if (!a) return;
+        e.preventDefault();
+        goTo(+a.dataset.target);
+        if (navMenu && navMenu.style.display === 'flex') { navMenu.style.display = 'none'; if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false'); }
+      };
+      if (topnav) topnav.addEventListener('click', this._onNavClick);
+      if (navMenu) navMenu.addEventListener('click', this._onNavClick);
+      // collapse the inline links into a menu whenever they can't fit
+      const topRow = topnav ? topnav.parentElement : null;
+      const logoEl = topRow ? topRow.querySelector('img') : null;
+      let needW = topnav ? topnav.scrollWidth + 2 : 0;
+      const applyCollapse = () => {
+        if (!topnav || !topRow) return;
+        if (topnav.style.display !== 'none') needW = Math.max(needW, topnav.scrollWidth + 2);
+        const avail = topRow.clientWidth - (logoEl ? logoEl.offsetWidth : 0) - 30;
+        const collapsed = needW > avail;
+        topnav.style.display = collapsed ? 'none' : 'flex';
+        if (menuBtn) menuBtn.style.display = collapsed ? 'flex' : 'none';
+        if (!collapsed && navMenu) { navMenu.style.display = 'none'; if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false'); }
+      };
+      if (menuBtn && navMenu) {
+        menuBtn.onclick = (e) => {
+          e.stopPropagation();
+          const open = navMenu.style.display !== 'flex';
+          navMenu.style.display = open ? 'flex' : 'none';
+          menuBtn.setAttribute('aria-expanded', String(open));
+        };
+        this._onDocClick = (ev) => {
+          if (navMenu.style.display === 'flex' && !navMenu.contains(ev.target) && !menuBtn.contains(ev.target)) {
+            navMenu.style.display = 'none';
+            menuBtn.setAttribute('aria-expanded', 'false');
+          }
+        };
+        document.addEventListener('click', this._onDocClick);
+      }
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => applyCollapse());
+      this._topnavEl = topnav;
+      this._navRaf = 0;
+      this._onNavScroll = () => {
+        if (this._navRaf) return;
+        this._navRaf = requestAnimationFrame(() => { this._navRaf = 0; update(); });
+      };
+      window.addEventListener('scroll', this._onNavScroll, { passive: true });
+      this._onNavResize = () => { applyCollapse(); this._onNavScroll(); };
+      window.addEventListener('resize', this._onNavResize, { passive: true });
+      applyCollapse();
+      update();
+    }
+
+    if (!animOn) return;
+
+    // --- section reveals ---
+    const rvs = Array.from(document.querySelectorAll('[data-rv]'));
+    rvs.forEach((el) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(16px)';
+      el.style.transition = 'opacity .6s cubic-bezier(.22,.61,.36,1), transform .6s cubic-bezier(.22,.61,.36,1)';
+    });
+    const show = (el) => { el.style.opacity = '1'; el.style.transform = 'none'; };
+    const rio = new IntersectionObserver((es) => es.forEach((e) => {
+      if (e.isIntersecting) { show(e.target); rio.unobserve(e.target); }
+    }), { threshold: 0.12 });
+    rvs.forEach((el) => rio.observe(el));
+    this._observers.push(rio);
+    this._finishers.push(() => rvs.forEach(show));
+
+    // --- hero curve draw ---
+    const theirs = $('theirs'), ours = $('ours'), tEnd = $('theirsEnd'), oEnd = $('oursEnd'), curvefig = $('curvefig');
+    const prep = (p) => { const L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = L; return L; };
+    if (curvefig && theirs && ours) {
+      prep(theirs); prep(ours);
+      const finishCurve = () => {
+        [theirs, ours].forEach((p) => { p.style.transition = 'none'; p.style.strokeDashoffset = 0; });
+        [tEnd, oEnd].forEach((g) => { g.style.transition = 'none'; g.style.opacity = 1; });
+      };
+      this._finishers.push(finishCurve);
+      const cio = new IntersectionObserver((es) => es.forEach((e) => {
+        if (!e.isIntersecting) return;
+        theirs.style.transition = 'stroke-dashoffset 1.4s ease-out';
+        theirs.style.strokeDashoffset = 0;
+        setTimeout(() => { tEnd.style.transition = 'opacity .5s ease'; tEnd.style.opacity = 1; }, 1200);
+        setTimeout(() => {
+          ours.style.transition = 'stroke-dashoffset 1.6s cubic-bezier(.4,0,.2,1)';
+          ours.style.strokeDashoffset = 0;
+          setTimeout(() => { oEnd.style.transition = 'opacity .5s ease'; oEnd.style.opacity = 1; }, 1500);
+        }, 700);
+        cio.unobserve(curvefig);
+      }), { threshold: 0.4 });
+      cio.observe(curvefig);
+      this._observers.push(cio);
+    }
+
+    // --- infinity loop: draw the one continuous line, then reveal labels + pulse ---
+    const loopfig = $('loopfig');
+    const segs = ['ls3', 'ls4', 'ls1', 'ls2'].map($).filter(Boolean); // human lobe first, through the crossover, around the AI lobe
+    const meta = $('loopMeta'), meta2 = $('loopMeta2');
+    if (loopfig && segs.length === 4) {
+      segs.forEach(prep);
+      [meta, meta2].forEach((g) => { if (g) { g.style.opacity = '0'; } });
+      if (dot) dot.style.opacity = '0';
+      const finishLoop = () => {
+        segs.forEach((p) => { p.style.transition = 'none'; p.style.strokeDashoffset = 0; });
+        [meta, meta2].forEach((g) => { if (g) { g.style.transition = 'none'; g.style.opacity = '1'; } });
+        if (dot && dot.isConnected) dot.style.opacity = '1';
+      };
+      this._finishers.push(finishLoop);
+      const lio = new IntersectionObserver((es) => es.forEach((e) => {
+        if (!e.isIntersecting) return;
+        segs.forEach((p, i) => {
+          setTimeout(() => {
+            p.style.transition = 'stroke-dashoffset .62s ' + (i === 0 ? 'cubic-bezier(.4,0,.6,1)' : 'linear');
+            p.style.strokeDashoffset = 0;
+          }, i * 590);
+        });
+        setTimeout(() => {
+          [meta, meta2].forEach((g) => { if (g) { g.style.transition = 'opacity .8s ease'; g.style.opacity = '1'; } });
+        }, 4 * 590 + 150);
+        setTimeout(() => {
+          if (dot && dot.isConnected) { dot.style.transition = 'opacity 1s ease'; dot.style.opacity = '1'; }
+        }, 4 * 590 + 700);
+        lio.unobserve(loopfig);
+      }), { threshold: 0.35 });
+      lio.observe(loopfig);
+      this._observers.push(lio);
+    }
+
+    // --- roadmap: dimensions light up in sequence ---
+    const rmfig = $('rmfig');
+    const stages = ['ra1', 'rm2', 'ra2', 'rm3'].map($).filter(Boolean);
+    if (rmfig && stages.length === 4) {
+      stages.forEach((g) => { g.style.opacity = '0'; });
+      const finishRm = () => stages.forEach((g) => { g.style.transition = 'none'; g.style.opacity = '1'; });
+      this._finishers.push(finishRm);
+      const mio = new IntersectionObserver((es) => es.forEach((e) => {
+        if (!e.isIntersecting) return;
+        stages.forEach((g, i) => {
+          setTimeout(() => { g.style.transition = 'opacity .55s ease'; g.style.opacity = '1'; }, 350 + i * 380);
+        });
+        mio.unobserve(rmfig);
+      }), { threshold: 0.4 });
+      mio.observe(rmfig);
+      this._observers.push(mio);
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    const was = prevProps.animations ?? true;
+    const now = this.props.animations ?? true;
+    if (was && !now && this._finishAll) this._finishAll();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('beforeprint', this._onPrint);
+    if (this._onNavScroll) window.removeEventListener('scroll', this._onNavScroll);
+    if (this._onNavResize) window.removeEventListener('resize', this._onNavResize);
+    if (this._onDocClick) document.removeEventListener('click', this._onDocClick);
+    if (this._topnavEl && this._onNavClick) this._topnavEl.removeEventListener('click', this._onNavClick);
+    (this._observers || []).forEach((o) => o.disconnect());
+  }
+}
+</script>
+</body>
+</html>
