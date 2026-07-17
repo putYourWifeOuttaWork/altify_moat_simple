@@ -887,8 +887,26 @@ class Component extends DCLogic {
 
     const dot = document.getElementById('loopDot');
     const ballOn = () => dot && dot.isConnected && parseFloat(getComputedStyle(dot).opacity || '0') > 0.5;
-    const R2 = 15 * 15;  // trigger radius around the 0,0 crossover point
-    const atCenter = () => { const m = dot.getCTM(); if (!m) return false; const dx = m.e - CENTER.x, dy = m.f - CENTER.y; return dx * dx + dy * dy < R2; };
+    // detect the two crossover passes by the ball's time fraction (render-independent, unlike getCTM)
+    const PERIOD = 18; // matches the ball's dur="18s"
+    const ballF = () => (svg.getCurrentTime() % PERIOD) / PERIOD;
+    let fMid = 0.5; // fraction at which the ball makes its second pass through the 0,0 crossover
+    (() => {
+      const am = dot.querySelector('animateMotion');
+      const pathD = am && am.getAttribute('path');
+      if (!pathD) return;
+      const defs = svg.querySelector('defs') || svg.insertBefore(document.createElementNS(NS, 'defs'), svg.firstChild);
+      const mp = document.createElementNS(NS, 'path');
+      mp.setAttribute('d', pathD);
+      defs.appendChild(mp);
+      const L = mp.getTotalLength();
+      let best = 1e9;
+      for (let i = 120; i <= 880; i++) {
+        const p = mp.getPointAtLength(i / 1000 * L);
+        const dx = p.x - CENTER.x, dy = p.y - CENTER.y, d = dx * dx + dy * dy;
+        if (d < best) { best = d; fMid = i / 1000; }
+      }
+    })();
 
     const row = [];        // snapshots on the belt, index 0 = leftmost / newest
     const tweens = [];
@@ -950,16 +968,21 @@ class Component extends DCLogic {
       addTween({ obj: o, fx: CENTER.x, fy: CENTER.y, tx: slotCx(0), ty: CY, dur: 780, arc: true, s0: 3.6, s1: 1 });
     };
 
-    let raf = 0, running = false, visible = false, wasCenter = false;
+    let raf = 0, running = false, visible = false, fPrev = 0;
     const frame = (ts) => {
       raf = 0;
       if (!running) return;
-      // fire each time the ball enters the 0,0 crossover (it passes through twice per lap = double cadence)
-      if (visible && ballOn()) { const now = atCenter(); if (now && !wasCenter) capture(); wasCenter = now; }
+      // fire on both crossover passes per lap: the wrap at f=0 and the mid crossing at f=fMid (double cadence)
+      if (visible && ballOn()) {
+        const f = ballF();
+        if (f < fPrev) capture();
+        else if (fPrev < fMid && fMid <= f) capture();
+        fPrev = f;
+      } else { fPrev = ballF(); }
       for (let i = tweens.length - 1; i >= 0; i--) { stepTween(tweens[i], ts); if (tweens[i].done) tweens.splice(i, 1); }
       raf = requestAnimationFrame(frame);
     };
-    const start = () => { if (!running) { running = true; wasCenter = atCenter(); raf = requestAnimationFrame(frame); } };
+    const start = () => { if (!running) { running = true; fPrev = ballF(); raf = requestAnimationFrame(frame); } };
     const stop = () => { running = false; if (raf) cancelAnimationFrame(raf); raf = 0; };
 
     // pause fully when the chart is off-screen; resume on re-entry
