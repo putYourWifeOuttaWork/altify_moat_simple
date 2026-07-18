@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Altify · The architecture layer</title>
+  <link rel="stylesheet" href="_ds/altify-design-system-af4abb68-69d9-4fdd-b0c8-39839215fd77/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/altify-design-system-af4abb68-69d9-4fdd-b0c8-39839215fd77/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/altify-design-system-af4abb68-69d9-4fdd-b0c8-39839215fd77/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/altify-design-system-af4abb68-69d9-4fdd-b0c8-39839215fd77/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/altify-design-system-af4abb68-69d9-4fdd-b0c8-39839215fd77/styles.css">
+  <script src="_ds/altify-design-system-af4abb68-69d9-4fdd-b0c8-39839215fd77/_ds_bundle.js"></script>
+  <style>
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#0F2036;color:#EAF0F6;font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+    ::selection{background:rgba(234,124,49,.35)}
+    a{color:#7ED2EE;text-decoration-color:rgba(126,210,238,.4)}
+    a:hover{color:#EAF0F6}
+    .sec{padding:72px 0;border-top:1px solid rgba(175,194,214,.14)}
+    .wrap{max-width:900px;margin:0 auto;padding:0 28px}
+    .eyb{display:inline-flex;align-items:center;gap:9px;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#EA7C31;margin-bottom:14px}
+    .eyb i{width:7px;height:7px;border-radius:50%;background:#EA7C31;display:inline-block;flex:none}
+    .h2{font-family:var(--font-display);font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.14;letter-spacing:-.02em;color:#FFFFFF;max-width:30ch;margin:0;text-wrap:balance}
+    .h2 em{font-style:normal;color:#EA7C31}
+    .body{font-size:17px;color:#AFC2D6;max-width:62ch;margin:16px 0 0;line-height:1.6}
+    .kick{font-family:var(--font-display);font-weight:700;font-size:20px;color:#FFFFFF;max-width:56ch;margin:24px 0 0;line-height:1.35;letter-spacing:-.01em;text-wrap:balance}
+    .kick em{font-style:normal;color:#EA7C31}
+    .cap{font-size:12.5px;color:#8AA3BC;margin-top:8px}
+    .lbl{font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#8AA3BC}
+    .card{border:1px solid rgba(175,194,214,.16);border-radius:16px;background:#0F2036;padding:16px 16px 18px}
+    .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:24px}
+    sup a{color:#7ED2EE;text-decoration:none}
+    #sec-appendix details{background:#152A44;border:1px solid rgba(175,194,214,.22);border-radius:12px;margin-top:12px;overflow:hidden}
+    #sec-appendix summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:center;gap:12px;font-size:12px;font-weight:800;letter-spacing:.08em;color:#EA7C31}
+    #sec-appendix summary::-webkit-details-marker{display:none}
+    #sec-appendix summary::after{content:"";width:9px;height:9px;border-right:2px solid #8AA3BC;border-bottom:2px solid #8AA3BC;transform:rotate(45deg);margin-left:auto;flex:none;transition:transform .2s ease}
+    #sec-appendix details[open] summary::after{transform:rotate(-135deg)}
+    #sec-appendix summary:focus-visible{outline:2px solid #7ED2EE;outline-offset:2px}
+    #sec-appendix .panelbody{padding:2px 20px 22px;color:#AFC2D6;font-size:15px;line-height:1.62}
+    #sec-appendix .panelbody p{margin:0 0 15px}
+    #sec-appendix .panelbody p:last-child{margin-bottom:0}
+    #sec-appendix .panelbody b{color:#FFFFFF}
+  </style>
+</helmet>
+
+<div style="min-width:320px">
+
+  <!-- TOPBAR -->
+  <div data-screen-label="Topbar" style="position:sticky;top:0;z-index:50;background:rgba(15,32,54,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(175,194,214,.16)">
+    <div style="max-width:900px;margin:0 auto;padding:0 28px;display:flex;align-items:center;gap:22px;height:62px">
+      <img src="assets/altify-logo-white.png" alt="Altify" style="height:20px;width:auto;display:block;flex:none">
+      <nav id="topnav" aria-label="Sections" style="margin-left:auto;display:flex;align-items:center;gap:20px;overflow-x:auto;white-space:nowrap;scrollbar-width:none;padding:6px 0;min-width:0">
+        <a href="#sec-hero" data-target="0" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">The layer</a>
+        <a href="#sec-law" data-target="1" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">The law</a>
+        <a href="#sec-stacked" data-target="2" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">The problem</a>
+        <a href="#sec-ontology" data-target="3" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">Ontology</a>
+        <a href="#sec-traversal" data-target="4" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">Traversal</a>
+        <a href="#sec-algo" data-target="5" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">Algorithmic</a>
+        <a href="#sec-determinism" data-target="6" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">The output</a>
+        <a href="#sec-time" data-target="7" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">Through time</a>
+        <a href="#sec-cost" data-target="8" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">The cost</a>
+        <a href="#sec-appendix" data-target="9" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">Appendix</a>
+      </nav>
+      <button id="navMenuBtn" aria-label="Sections menu" aria-expanded="false" style="display:none;width:44px;height:44px;border-radius:10px;background:transparent;border:1px solid rgba(175,194,214,.35);color:#EAF0F6;align-items:center;justify-content:center;cursor:pointer;padding:0;margin-left:auto;flex:none">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M 4 7 H 20 M 4 12 H 20 M 4 17 H 20"></path></svg>
+      </button>
+    </div>
+    <div id="navMenu" style="display:none;position:absolute;top:100%;left:0;right:0;z-index:49;flex-direction:column;background:rgba(15,32,54,.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(175,194,214,.2);padding:8px 28px 14px">
+      <a href="#sec-hero" data-target="0" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">The layer</a>
+      <a href="#sec-law" data-target="1" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">The law</a>
+      <a href="#sec-stacked" data-target="2" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">The problem</a>
+      <a href="#sec-ontology" data-target="3" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">Ontology</a>
+      <a href="#sec-traversal" data-target="4" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">Traversal</a>
+      <a href="#sec-algo" data-target="5" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">Algorithmic</a>
+      <a href="#sec-determinism" data-target="6" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">The output</a>
+      <a href="#sec-time" data-target="7" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">Through time</a>
+      <a href="#sec-cost" data-target="8" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">The cost</a>
+      <a href="#sec-appendix" data-target="9" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 2px" style-hover="color:#FFFFFF">Appendix</a>
+    </div>
+  </div>
+
+  <!-- 0 · HERO -->
+  <header id="sec-hero" data-nav="The layer" data-screen-label="00 Hero" style="padding:84px 0 30px;position:relative;overflow:hidden">
+    <div style="position:absolute;right:-260px;top:-240px;width:600px;height:600px;border-radius:50%;background:radial-gradient(closest-side, rgba(234,124,49,.14), rgba(234,124,49,0));pointer-events:none"></div>
+    <div class="wrap" style="position:relative">
+      <div class="eyb"><i></i>The architecture layer</div>
+      <h1 style="font-family:var(--font-display);font-weight:800;font-size:clamp(2.05rem,4.6vw,3.2rem);line-height:1.1;letter-spacing:-.025em;color:#FFFFFF;margin:20px 0 0;max-width:20ch;text-wrap:balance">Under the coach, under the loop, <em style="font-style:normal;color:#EA7C31">there is a machine.</em></h1>
+      <p style="font-size:clamp(1.02rem,1.7vw,1.2rem);color:#AFC2D6;max-width:60ch;margin:18px 0 0;line-height:1.55">Enterprise selling runs as three layers. Sellers execute on top. Humans and AI collaborate in the middle. And underneath sits the architecture layer: everything but humans. This page is about the bottom of the cake, because everything above it stands on what happens down here.</p>
+
+      <!-- VISUAL 0 · the cake -->
+      <figure data-rv="1" style="margin:32px 0 0;display:flex;gap:14px;align-items:stretch">
+        <div style="flex:1;display:flex;flex-direction:column;gap:8px">
+          <div style="border:1px solid rgba(175,194,214,.28);border-radius:12px;background:#152A44;padding:15px 18px"><div style="font-family:var(--font-display);font-weight:800;font-size:15px;letter-spacing:.06em;color:#EAF0F6">EXECUTION</div><div style="font-size:12.5px;color:#8AA3BC;margin-top:2px">sellers selling</div></div>
+          <div style="border:1px solid rgba(175,194,214,.28);border-radius:12px;background:#152A44;padding:15px 18px"><div style="font-family:var(--font-display);font-weight:800;font-size:15px;letter-spacing:.06em;color:#EAF0F6">COLLABORATION</div><div style="font-size:12.5px;color:#8AA3BC;margin-top:2px">AI drafts, humans ratify</div></div>
+          <div style="border:1px solid rgba(234,124,49,.6);box-shadow:0 0 22px rgba(234,124,49,.12);border-radius:12px;background:#1a2740;padding:15px 18px"><div style="font-family:var(--font-display);font-weight:800;font-size:15px;letter-spacing:.06em;color:#EA7C31">ARCHITECTURE</div><div style="font-size:12.5px;color:#EA7C31;margin-top:2px">this page</div></div>
+        </div>
+        <div style="flex:none;width:40px;position:relative;display:flex;align-items:center;justify-content:center">
+          <svg width="16" height="100%" viewBox="0 0 16 220" preserveAspectRatio="none" style="position:absolute;inset:0"><path d="M8 214 V16 M2 28 L8 12 L14 28" stroke="#EA7C31" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".7"></path></svg>
+          <span style="transform:rotate(-90deg);white-space:nowrap;font-size:10px;color:#8AA3BC;letter-spacing:.06em;position:relative;background:#0F2036;padding:0 6px">each layer feeds the next</span>
+        </div>
+      </figure>
+    </div>
+  </header>
+
+  <!-- 1 · THE LAW (quote card) -->
+  <section id="sec-law" data-nav="The law" data-screen-label="01 The law" class="sec">
+    <div class="wrap">
+      <div data-rv="1" style="text-align:center;max-width:62ch;margin:0 auto">
+        <p style="font-family:var(--font-display);font-size:clamp(1.4rem,3.1vw,2.2rem);font-weight:800;color:#FFFFFF;line-height:1.24;letter-spacing:-.02em;margin:0;text-wrap:balance">“Structure is never inferred. Values are inferred once, then ratified. <em style="font-style:normal;color:#EA7C31">Answers are retrieved, not guessed.</em>”</p>
+        <div class="cap" style="margin-top:16px">the quarantine law: inference is allowed only at the edges, never in the middle.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 · STACKED GUESSING -->
+  <section id="sec-stacked" data-nav="The problem" data-screen-label="02 Stacked guessing" class="sec">
+    <div class="wrap">
+      <div class="eyb"><i></i>The architecture layer · Stacked guessing</div>
+      <h2 class="h2">Inference stacked <em>on inference.</em></h2>
+      <p class="body">Most AI sales systems guess three times. A model guesses what the transcript meant. A model guesses how the pieces relate. A model guesses your answer from both guesses, fresh, on every question. Nobody ratifies any of it.</p>
+
+      <!-- VISUAL 2 · stacked vs quarantined -->
+      <div data-rv="1" class="grid2">
+        <div class="card" style="border-color:rgba(138,163,188,.4)">
+          <span class="lbl">Them</span>
+          <div style="margin-top:14px;display:flex;flex-direction:column;gap:0">
+            <div style="border:1px solid rgba(138,163,188,.4);border-radius:8px;background:#152A44;padding:10px 12px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:13px;color:#EAF0F6">extraction</span><span style="font-size:11px;color:#8AA3BC">~ guessed</span></div>
+            <div style="text-align:center;color:#8AA3BC;font-size:15px;line-height:1;padding:3px 0">&#215;</div>
+            <div style="border:1px solid rgba(138,163,188,.4);border-radius:8px;background:#152A44;padding:10px 12px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:13px;color:#EAF0F6">structure</span><span style="font-size:11px;color:#8AA3BC">~ guessed</span></div>
+            <div style="text-align:center;color:#8AA3BC;font-size:15px;line-height:1;padding:3px 0">&#215;</div>
+            <div style="border:1px solid rgba(138,163,188,.4);border-radius:8px;background:#152A44;padding:10px 12px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:13px;color:#EAF0F6">answer</span><span style="font-size:11px;color:#8AA3BC">~ guessed</span></div>
+          </div>
+        </div>
+        <div class="card" style="border-color:rgba(234,124,49,.5)">
+          <span class="lbl" style="color:#EA7C31">Altify</span>
+          <div style="margin-top:14px;display:flex;align-items:stretch;gap:8px">
+            <div style="flex:none;width:74px;border:1px solid rgba(234,124,49,.4);border-radius:8px;background:rgba(234,124,49,.06);padding:9px 8px;display:flex;flex-direction:column;justify-content:center"><span style="font-size:10px;font-weight:800;letter-spacing:.04em;color:#EA7C31">WRITE</span><span style="font-size:10.5px;color:#AFC2D6;margin-top:3px;line-height:1.3">AI drafts, human ratifies</span></div>
+            <div style="flex:1;border:1.6px solid #EA7C31;border-radius:8px;background:#1a2740;padding:14px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center"><span style="font-size:13.5px;font-weight:700;color:#FFFFFF">structure</span><span style="font-size:11.5px;color:#EA7C31;margin-top:3px">defined, computed</span></div>
+            <div style="flex:none;width:74px;border:1px solid rgba(234,124,49,.4);border-radius:8px;background:rgba(234,124,49,.06);padding:9px 8px;display:flex;flex-direction:column;justify-content:center"><span style="font-size:10px;font-weight:800;letter-spacing:.04em;color:#EA7C31">READ</span><span style="font-size:10.5px;color:#AFC2D6;margin-top:3px;line-height:1.3">sense-making only</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="cap" style="margin-top:12px">guessing, quarantined at the edges.</div>
+
+      <p class="kick" style="max-width:44ch">Multiplied guessing is <em>not an enterprise system.</em></p>
+    </div>
+  </section>
+
+  <!-- 3 · ONTOLOGY -->
+  <section id="sec-ontology" data-nav="Ontology" data-screen-label="03 Ontology" class="sec">
+    <div class="wrap">
+      <div class="eyb"><i></i>Pillar one · Ontology</div>
+      <h2 class="h2">Every reference <em>carries its why.</em></h2>
+      <p class="body">A cross-reference without meaning still needs a guess: the system knows A relates to B, but not why. In our structure the why is stored inside the reference. The maps give the rubrics their subjects. The rubrics give the maps their meaning. Each explains the other, and the structure adapts by rule: which methodology, which questions, which process, chosen by the deal's own attributes, not by inference.</p>
+
+      <!-- VISUAL 3 · mutual definition -->
+      <div data-rv="1" style="margin-top:24px;display:flex;gap:16px;align-items:stretch;flex-wrap:wrap">
+        <div style="flex:1;min-width:260px;border:1px solid rgba(175,194,214,.16);border-radius:16px;background:#0F2036;padding:18px">
+          <div style="display:flex;gap:10px">
+            <div style="flex:1;border:1px solid rgba(234,124,49,.45);border-radius:10px;background:#152A44;padding:11px 12px;text-align:center;font-size:13px;font-weight:700;color:#EAF0F6">People</div>
+            <div style="flex:1;border:1px solid rgba(234,124,49,.45);border-radius:10px;background:#152A44;padding:11px 12px;text-align:center;font-size:13px;font-weight:700;color:#EAF0F6">Problems</div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:22px;padding:10px 0">
+            <div style="text-align:center"><svg width="16" height="34" viewBox="0 0 16 34"><path d="M8 4 V30 M3 24 L8 31 L13 24" stroke="#EA7C31" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg><div style="font-size:9.5px;color:#8AA3BC;max-width:96px;line-height:1.3">who and what this applies to</div></div>
+            <div style="text-align:center"><svg width="16" height="34" viewBox="0 0 16 34"><path d="M8 30 V4 M3 10 L8 3 L13 10" stroke="#8AA3BC" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg><div style="font-size:9.5px;color:#8AA3BC;max-width:96px;line-height:1.3">what must be true about them</div></div>
+          </div>
+          <div style="display:flex;gap:10px">
+            <div style="flex:1;border:1px solid rgba(175,194,214,.3);border-radius:10px;background:#0F2439;padding:11px 12px;text-align:center;font-size:13px;font-weight:700;color:#AFC2D6">Process</div>
+            <div style="flex:1;border:1px solid rgba(175,194,214,.3);border-radius:10px;background:#0F2439;padding:11px 12px;text-align:center;font-size:13px;font-weight:700;color:#AFC2D6">Methodology</div>
+          </div>
+        </div>
+        <div style="flex:none;align-self:center;max-width:200px;border:1px dashed rgba(234,124,49,.5);border-radius:12px;background:rgba(234,124,49,.06);padding:14px 16px">
+          <div style="font-size:9.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#EA7C31;margin-bottom:5px">Deal type selects the rules</div>
+          <div style="font-size:13px;color:#EAF0F6;line-height:1.4">data as metadata</div>
+        </div>
+      </div>
+
+      <p class="kick" style="max-width:34ch">Dynamic by rule. <em>Never by guess.</em></p>
+    </div>
+  </section>
+
+  <!-- 4 · TRAVERSAL (pile and spine) -->
+  <section id="sec-traversal" data-nav="Traversal" data-screen-label="04 Traversal" class="sec">
+    <div class="wrap">
+      <div class="eyb"><i></i>Pillar two · Traversal</div>
+      <h2 class="h2">One ID. <em>Everything walkable.</em></h2>
+      <p class="body">Everything about a deal hangs off one opportunity ID in typed relationships. AI walks a branch and the answer is already there. And because the schema is closed, it can do the one thing retrieval cannot: enumerate what is missing.<sup style="font-size:.7em;line-height:0"><a href="#r1">1</a></sup></p>
+
+      <!-- VISUAL 4 · the pile and the spine -->
+      <div data-rv="1" class="grid2">
+        <div class="card" style="border-color:rgba(138,163,188,.4)">
+          <span class="lbl">Flat</span>
+          <svg viewBox="0 0 300 210" style="width:100%;height:auto;display:block;margin-top:10px" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif">
+            <rect x="28" y="26" width="26" height="15" rx="3" fill="#0F2439" stroke="#46607C" stroke-width="1.4" transform="rotate(-18 41 33.5)"></rect>
+            <rect x="95" y="18" width="26" height="15" rx="3" fill="#0F2439" stroke="#46607C" stroke-width="1.4" transform="rotate(12 108 25.5)"></rect>
+            <rect x="165" y="16" width="26" height="15" rx="3" fill="#0F2439" stroke="#46607C" stroke-width="1.4" transform="rotate(-6 178 23.5)"></rect>
+            <rect x="228" y="28" width="26" height="15" rx="3" fill="#0F2439" stroke="#46607C" stroke-width="1.4" transform="rotate(20 241 35.5)"></rect>
+            <rect x="256" y="70" width="26" height="15" rx="3" fill="#0F2439" stroke="#46607C" stroke-width="1.4" transform="rotate(-14 269 77.5)"></rect>
+            <rect x="20" y="76" width="26" height="15" rx="3" fill="#0F2439" stroke="#46607C" stroke-width="1.4" transform="rotate(10 33 83.5)"></rect>
+            <rect x="252" y="120" width="26" height="15" rx="3" fill="#0F2439" stroke="#46607C" stroke-width="1.4" transform="rotate(-22 265 127.5)"></rect>
+            <rect x="24" y="140" width="26" height="15" rx="3" fill="#0F2439" stroke="#46607C" stroke-width="1.4" transform="rotate(16 37 147.5)"></rect>
+            <rect x="80" y="178" width="26" height="15" rx="3" fill="#0F2439" stroke="#46607C" stroke-width="1.4" transform="rotate(-8 93 185.5)"></rect>
+            <rect x="150" y="184" width="26" height="15" rx="3" fill="#0F2439" stroke="#46607C" stroke-width="1.4" transform="rotate(10 163 191.5)"></rect>
+            <rect x="212" y="170" width="26" height="15" rx="3" fill="#0F2439" stroke="#46607C" stroke-width="1.4" transform="rotate(-18 225 177.5)"></rect>
+            <rect x="254" y="156" width="26" height="15" rx="3" fill="#0F2439" stroke="#46607C" stroke-width="1.4" transform="rotate(8 267 163.5)"></rect>
+            <g stroke="#8AA3BC" stroke-width="1" stroke-dasharray="2 3" opacity=".5">
+              <line x1="150" y1="105" x2="108" y2="26"></line><line x1="150" y1="105" x2="178" y2="24"></line><line x1="150" y1="105" x2="241" y2="36"></line><line x1="150" y1="105" x2="269" y2="78"></line><line x1="150" y1="105" x2="265" y2="128"></line><line x1="150" y1="105" x2="93" y2="186"></line><line x1="150" y1="105" x2="225" y2="178"></line><line x1="150" y1="105" x2="33" y2="84"></line>
+            </g>
+            <circle cx="150" cy="105" r="12" fill="rgba(138,163,188,.14)"></circle>
+            <circle cx="150" cy="105" r="7" fill="#AFC2D6"></circle>
+            <text x="150" y="108.5" text-anchor="middle" fill="#0F2036" font-size="8" font-weight="800">AI</text>
+            <text x="120" y="62" fill="#8AA3BC" font-size="15" font-weight="700">?</text><text x="206" y="96" fill="#8AA3BC" font-size="15" font-weight="700">?</text><text x="112" y="150" fill="#8AA3BC" font-size="15" font-weight="700">?</text>
+          </svg>
+          <div class="cap">reads everything, then guesses</div>
+        </div>
+        <div class="card" style="border-color:rgba(234,124,49,.5)">
+          <span class="lbl" style="color:#EA7C31">Altify</span>
+          <svg viewBox="0 0 300 210" style="width:100%;height:auto;display:block;margin-top:10px" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif">
+            <rect x="70" y="8" width="120" height="26" rx="7" fill="#152A44" stroke="#EA7C31" stroke-width="1.7"></rect>
+            <text x="130" y="25" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="700">Opportunity</text>
+            <line x1="92" y1="34" x2="92" y2="190" stroke="#EA7C31" stroke-width="1.6" opacity=".5"></line>
+            <line x1="92" y1="58" x2="120" y2="58" stroke="#EA7C31" stroke-width="1.4" opacity=".5"></line>
+            <text x="126" y="62" fill="#AFC2D6" font-size="12">People</text>
+            <rect x="222" y="49" width="56" height="18" rx="5" fill="#182f49" stroke="#EA7C31" stroke-width="1.1"></rect>
+            <text x="250" y="62" text-anchor="middle" fill="#EA7C31" font-size="11" font-weight="700">0.82</text>
+            <line x1="92" y1="96" x2="120" y2="96" stroke="#EA7C31" stroke-width="1.4" opacity=".5"></line>
+            <text x="126" y="100" fill="#AFC2D6" font-size="12">Problems</text>
+            <rect x="222" y="87" width="56" height="18" rx="5" fill="#182f49" stroke="#EA7C31" stroke-width="1.1"></rect>
+            <text x="250" y="100" text-anchor="middle" fill="#EA7C31" font-size="11" font-weight="700">Y</text>
+            <line x1="92" y1="134" x2="120" y2="134" stroke="#EA7C31" stroke-width="2.4"></line>
+            <text x="126" y="138" fill="#FFFFFF" font-size="12" font-weight="700">Process</text>
+            <rect x="222" y="125" width="56" height="18" rx="5" fill="#2a1a10" stroke="#EA7C31" stroke-width="1.7"></rect>
+            <text x="250" y="138" text-anchor="middle" fill="#EA7C31" font-size="11" font-weight="700">4/5</text>
+            <line x1="176" y1="134" x2="222" y2="134" stroke="#EA7C31" stroke-width="2"></line>
+            <circle cx="192" cy="134" r="6" fill="#EAF0F6"></circle>
+            <line x1="92" y1="172" x2="120" y2="172" stroke="#EA7C31" stroke-width="1.4" opacity=".5"></line>
+            <text x="126" y="176" fill="#AFC2D6" font-size="12">Potential</text>
+            <rect x="222" y="163" width="56" height="18" rx="5" fill="#182f49" stroke="#EA7C31" stroke-width="1.1"></rect>
+            <text x="250" y="176" text-anchor="middle" fill="#EA7C31" font-size="11" font-weight="700">N</text>
+          </svg>
+          <div class="cap">reads one branch, the answer is already there</div>
+        </div>
+      </div>
+
+      <p class="kick">Retrieval finds what was written. <em>Traversal knows what's missing.</em></p>
+    </div>
+  </section>
+
+  <!-- 5 · ALGORITHMIC -->
+  <section id="sec-algo" data-nav="Algorithmic" data-screen-label="05 Algorithmic" class="sec">
+    <div class="wrap">
+      <div class="eyb"><i></i>Pillar three · Algorithmic</div>
+      <h2 class="h2">The structure is dynamic. <em>The computation is absolute.</em></h2>
+      <p class="body">Scores, roll-ups, and which-value-wins are computed by code, the way they have been here for a decade. Not because algorithms are old, but because where a right answer exists, guessing at it is malpractice.<sup style="font-size:.7em;line-height:0"><a href="#r2">2</a></sup></p>
+
+      <!-- VISUAL 5 · the computation -->
+      <figure data-rv="1" style="margin:24px 0 0;border:1px solid rgba(175,194,214,.16);border-radius:16px;background:#0F2036;padding:18px">
+        <svg viewBox="0 0 600 120" style="width:100%;height:auto;display:block;max-width:520px" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif">
+          <g>
+            <rect x="10" y="24" width="34" height="24" rx="5" fill="#152A44" stroke="#46607C" stroke-width="1.2"></rect><text x="27" y="40" text-anchor="middle" fill="#AFC2D6" font-size="12" font-weight="700">Y</text>
+            <rect x="10" y="52" width="34" height="24" rx="5" fill="#152A44" stroke="#46607C" stroke-width="1.2"></rect><text x="27" y="68" text-anchor="middle" fill="#AFC2D6" font-size="12" font-weight="700">N</text>
+            <rect x="52" y="24" width="34" height="24" rx="5" fill="#152A44" stroke="#46607C" stroke-width="1.2"></rect><text x="69" y="40" text-anchor="middle" fill="#AFC2D6" font-size="12" font-weight="700">Y</text>
+            <rect x="52" y="52" width="34" height="24" rx="5" fill="#152A44" stroke="#46607C" stroke-width="1.2"></rect><text x="69" y="68" text-anchor="middle" fill="#AFC2D6" font-size="12" font-weight="700">N</text>
+          </g>
+          <path d="M96 50 H150 M144 45 L150 50 L144 55" stroke="#EA7C31" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+          <circle cx="200" cy="50" r="30" fill="none" stroke="#EA7C31" stroke-width="2"></circle>
+          <g stroke="#EA7C31" stroke-width="2">
+            <line x1="200" y1="14" x2="200" y2="26"></line><line x1="200" y1="74" x2="200" y2="86"></line><line x1="164" y1="50" x2="176" y2="50"></line><line x1="224" y1="50" x2="236" y2="50"></line><line x1="175" y1="25" x2="183" y2="33"></line><line x1="217" y1="67" x2="225" y2="75"></line><line x1="225" y1="25" x2="217" y2="33"></line><line x1="183" y1="67" x2="175" y2="75"></line>
+          </g>
+          <circle cx="200" cy="50" r="8" fill="#0F2036" stroke="#EA7C31" stroke-width="2"></circle>
+          <path d="M250 50 H300 M294 45 L300 50 L294 55" stroke="#EA7C31" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+          <rect x="312" y="34" width="52" height="32" rx="7" fill="#1a2740" stroke="#EA7C31" stroke-width="1.7"></rect><text x="338" y="55" text-anchor="middle" fill="#EA7C31" font-size="16" font-weight="800">62</text>
+          <circle cx="392" cy="50" r="11" fill="none" stroke="#8AA3BC" stroke-width="1.4"></circle><path d="M392 43 V50 L397 53" stroke="#8AA3BC" stroke-width="1.4" fill="none" stroke-linecap="round"></path>
+          <text x="418" y="47" fill="#AFC2D6" font-size="12">newest ratified value wins</text>
+          <text x="418" y="63" fill="#8AA3BC" font-size="11">by rule</text>
+        </svg>
+      </figure>
+
+      <p class="kick" style="max-width:40ch">Where there's a right answer, <em>we compute it.</em></p>
+    </div>
+  </section>
+
+  <!-- 6 · DETERMINISM -->
+  <section id="sec-determinism" data-nav="The output" data-screen-label="06 Determinism" class="sec">
+    <div class="wrap">
+      <div class="eyb"><i></i>The output · Determinism</div>
+      <h2 class="h2">Determinism is not a pillar. <em>It is the product.</em></h2>
+      <p class="body">Ontology gives meaning. Traversal gives reach. Algorithm gives computation. Together they print one guarantee at the boundary, and everything above stands on it: ask twice, get the same answer twice, and get told what's missing. In one measurement, a frontier model asked the same question a thousand times at its most careful setting gave eighty different answers.<sup style="font-size:.7em;line-height:0"><a href="#r3">3</a></sup> This layer gives one.</p>
+
+      <!-- VISUAL 6 · the beam -->
+      <div data-rv="1" style="margin-top:24px;display:flex;gap:16px;align-items:stretch;flex-wrap:wrap">
+        <div style="flex:1;min-width:260px;border:1px solid rgba(175,194,214,.16);border-radius:16px;background:#0F2036;padding:18px;position:relative;overflow:hidden">
+          <div style="border:1px dashed rgba(175,194,214,.3);border-radius:10px;padding:9px 12px;text-align:center;font-size:10.5px;font-weight:800;letter-spacing:.1em;color:#8AA3BC">COLLABORATION</div>
+          <div style="display:flex;justify-content:center;padding:6px 0"><svg width="26" height="40" viewBox="0 0 26 40"><path d="M13 38 V6 M6 15 L13 4 L20 15" stroke="#EA7C31" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+          <div style="border:1.6px solid rgba(234,124,49,.6);border-radius:10px;background:#1a2740;padding:12px;display:flex;flex-direction:column;gap:6px">
+            <div style="text-align:center;font-size:11px;color:#EAF0F6;border:1px solid rgba(234,124,49,.35);border-radius:7px;padding:6px">ALGORITHMIC</div>
+            <div style="text-align:center;font-size:11px;color:#EAF0F6;border:1px solid rgba(234,124,49,.35);border-radius:7px;padding:6px">TRAVERSAL</div>
+            <div style="text-align:center;font-size:11px;color:#EA7C31;font-weight:700;border:1px solid rgba(234,124,49,.55);border-radius:7px;padding:6px">ONTOLOGY</div>
+          </div>
+          <div class="cap" style="text-align:center;margin-top:10px">determinism, delivered upward</div>
+        </div>
+        <div style="flex:none;align-self:center;display:flex;flex-direction:column;gap:10px">
+          <div style="border:1px solid rgba(138,163,188,.4);border-radius:10px;background:#152A44;padding:12px 16px;min-width:150px"><div style="font-size:12px;color:#8AA3BC">1,000 asks</div><div style="font-family:var(--font-display);font-weight:800;font-size:20px;color:#AFC2D6">80 answers</div></div>
+          <div style="border:1.4px solid rgba(234,124,49,.55);border-radius:10px;background:rgba(234,124,49,.07);padding:12px 16px;min-width:150px"><div style="font-size:12px;color:#EA7C31">1,000 asks</div><div style="font-family:var(--font-display);font-weight:800;font-size:20px;color:#EA7C31">1 answer</div></div>
+        </div>
+      </div>
+
+      <p class="kick">Ask twice. Same answer. <em>And it knows what's missing.</em></p>
+    </div>
+  </section>
+
+  <!-- 7 · THROUGH TIME -->
+  <section id="sec-time" data-nav="Through time" data-screen-label="07 Through time" class="sec">
+    <div class="wrap">
+      <div class="eyb"><i></i>The fourth dimension</div>
+      <h2 class="h2">4D is not a fourth pillar. <em>It is the same three, through time.</em></h2>
+      <p class="body">Traversal through time is walking a timeline. Ontology through time is deltas that mean something: role changed, sentiment shifted, flag raised. Computation through time is a rule deciding which value wins.<sup style="font-size:.7em;line-height:0"><a href="#r2">2</a></sup> One record per person, per deal, deepening daily instead of multiplying.<sup style="font-size:.7em;line-height:0"><a href="#r4">4</a></sup></p>
+
+      <!-- VISUAL 7 · strata vs copies -->
+      <div data-rv="1" class="grid2">
+        <div class="card" style="border-color:rgba(138,163,188,.4)">
+          <span class="lbl">Snapshots</span>
+          <svg viewBox="0 0 300 170" style="width:100%;height:auto;display:block;margin-top:10px" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif">
+            <g opacity=".3"><rect x="30" y="24" width="80" height="46" rx="6" fill="#0F2439" stroke="#46607C" stroke-width="1.3"></rect><line x1="42" y1="40" x2="96" y2="40" stroke="#46607C" stroke-width="2.5"></line><line x1="42" y1="52" x2="82" y2="52" stroke="#33485F" stroke-width="2.5"></line></g>
+            <g opacity=".42"><rect x="70" y="40" width="80" height="46" rx="6" fill="#0F2439" stroke="#46607C" stroke-width="1.3"></rect><line x1="82" y1="56" x2="136" y2="56" stroke="#46607C" stroke-width="2.5"></line><line x1="82" y1="68" x2="122" y2="68" stroke="#33485F" stroke-width="2.5"></line></g>
+            <g opacity=".55"><rect x="130" y="30" width="80" height="46" rx="6" fill="#0F2439" stroke="#46607C" stroke-width="1.3"></rect><line x1="142" y1="46" x2="196" y2="46" stroke="#46607C" stroke-width="2.5"></line><line x1="142" y1="58" x2="182" y2="58" stroke="#33485F" stroke-width="2.5"></line></g>
+            <g opacity=".7"><rect x="110" y="86" width="80" height="46" rx="6" fill="#0F2439" stroke="#46607C" stroke-width="1.3"></rect><line x1="122" y1="102" x2="176" y2="102" stroke="#46607C" stroke-width="2.5"></line><line x1="122" y1="114" x2="162" y2="114" stroke="#33485F" stroke-width="2.5"></line></g>
+            <g opacity=".85"><rect x="186" y="74" width="80" height="46" rx="6" fill="#0F2439" stroke="#46607C" stroke-width="1.3"></rect><line x1="198" y1="90" x2="252" y2="90" stroke="#46607C" stroke-width="2.5"></line><line x1="198" y1="102" x2="238" y2="102" stroke="#33485F" stroke-width="2.5"></line></g>
+          </svg>
+          <div class="cap">snapshots to reconcile</div>
+        </div>
+        <div class="card" style="border-color:rgba(234,124,49,.5)">
+          <span class="lbl" style="color:#EA7C31">Altify</span>
+          <svg viewBox="0 0 300 170" style="width:100%;height:auto;display:block;margin-top:10px" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif">
+            <rect x="95" y="14" width="110" height="30" rx="7" fill="#152A44" stroke="#EA7C31" stroke-width="1.7"></rect>
+            <text x="150" y="33" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="700">One record</text>
+            <rect x="102" y="52" width="96" height="20" rx="4" fill="#182f49" stroke="#EA7C31" stroke-width="1.1"></rect><text x="112" y="66" fill="#EA7C31" font-size="10.5" font-weight="700">Q3</text>
+            <rect x="102" y="78" width="96" height="20" rx="4" fill="#152a44" stroke="rgba(234,124,49,.6)" stroke-width="1"></rect><text x="112" y="92" fill="#AFC2D6" font-size="10.5" font-weight="700">Q2</text>
+            <rect x="102" y="104" width="96" height="20" rx="4" fill="#132338" stroke="rgba(234,124,49,.4)" stroke-width="1"></rect><text x="112" y="118" fill="#8AA3BC" font-size="10.5" font-weight="700">Q1</text>
+            <rect x="102" y="130" width="96" height="20" rx="4" fill="#101d2f" stroke="rgba(234,124,49,.28)" stroke-width="1"></rect><text x="112" y="144" fill="#8AA3BC" font-size="10.5" font-weight="700">LAST YEAR</text>
+            <line x1="150" y1="44" x2="150" y2="52" stroke="#EA7C31" stroke-width="1.4"></line>
+            <path d="M214 58 V150 M209 144 L214 150 L219 144" stroke="#8AA3BC" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".7"></path>
+          </svg>
+          <div class="cap">one record, deepening</div>
+        </div>
+      </div>
+
+      <p class="kick" style="max-width:40ch">The record deepens. <em>It never multiplies.</em></p>
+    </div>
+  </section>
+
+  <!-- 8 · THE COST -->
+  <section id="sec-cost" data-nav="The cost" data-screen-label="08 The cost" class="sec">
+    <div class="wrap">
+      <div class="eyb"><i></i>The cost</div>
+      <h2 class="h2">Paid once. <em>Amortized forever.</em></h2>
+      <p class="body">Designing a closed schema is tedious, and it happens at design time, once, then evolves on a cadence. That cost is real, and it is the price of admission that keeps this architecture where it belongs: deals with many stakeholders and long cycles, where guessing is the thing you cannot afford. Below that line, lighter tools are the right answer, and we say so.</p>
+      <p class="kick">Necessary above the enterprise line. Unnecessary below it. <em>That is the point.</em></p>
+    </div>
+  </section>
+
+  <!-- 9 · APPENDIX -->
+  <section id="sec-appendix" data-nav="Appendix" data-screen-label="09 Appendix" class="sec">
+    <div class="wrap">
+      <h2 style="font-family:var(--font-display);font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.14;letter-spacing:-.02em;color:#FFFFFF;margin:0">Appendix</h2>
+      <p style="font-size:15px;color:#8AA3BC;margin:8px 0 0">Three panels. Open what you need.</p>
+
+      <details>
+        <summary>THE STACK, TECHNICALLY</summary>
+        <div class="panelbody">
+          <p><b>Closed, expert-defined schema.</b> The ontology is the customer's own methodology encoded as objects, fields, and typed relationships: relationship maps, insight maps, process steps, assessment rubrics, all children of one opportunity ID with deterministic foreign keys. Nothing about the structure is model-generated.</p>
+          <p><b>Data as metadata.</b> Which methodology applies, which questions it asks, and which process governs are selected by rule from the deal's own attributes: solution, segment, motion. The structure is dynamic without being inferred.</p>
+          <p><b>The write edge.</b> LLM extraction runs once per new input, at ingestion. Every extracted value carries a citation to its source and a confidence level. Low confidence routes to a human for ratification; high confidence writes with full audit. Inference exists here, quarantined, and caught.</p>
+          <p><b>The read edge.</b> Answers are assembled by traversal and computation. Model inference at read time is limited to sense-making over already-true values: a fraction of the volume, and never the source of facts.</p>
+          <p><b>Time.</b> Changes write as deltas onto one persistent record per entity: append-only journal beside upserted current state, with deterministic survivorship deciding which value wins, and compaction rolling old deltas into period summaries.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>WHY EACH CHOICE, THE EVIDENCE</summary>
+        <div class="panelbody">
+          <p><b>Why a closed schema:</b> models cannot reliably detect what is absent from open text: frontier models reach only about 70% F1 finding deliberate omissions even at small context sizes, because attention cannot attend to gaps.<sup style="font-size:.7em;line-height:0"><a href="#r1">1</a></sup> A closed schema turns absence into a null-field lookup. Every red flag is exactly that.</p>
+          <p><b>Why computation over judgment:</b> replacing model judgment with a deterministic rule improved accuracy by 10.8 points, widening to 21 at long context, while a leading temporal knowledge graph scored 7% on the same conflict-resolution task.<sup style="font-size:.7em;line-height:0"><a href="#r2">2</a></sup> Our survivorship and scoring are those rules.</p>
+          <p><b>Why not generation-time answers:</b> identical temperature-zero sampling produced 80 distinct outputs in 1,000 runs.<sup style="font-size:.7em;line-height:0"><a href="#r3">3</a></sup> Long context degrades 30 to 50% before advertised limits, worst on cross-referencing.<sup style="font-size:.7em;line-height:0"><a href="#r5">5</a></sup> Retrieving pre-computed state uses about 90% fewer tokens than re-reading history.<sup style="font-size:.7em;line-height:0"><a href="#r4">4</a></sup></p>
+          <p><b>Why ratified citations:</b> roughly half of citations generated at answer time are invalid on audit.<sup style="font-size:.7em;line-height:0"><a href="#r6">6</a></sup> Ours are written at ingestion and human-ratified where uncertain, following the proven pattern of routing the uncertain few percent to people.<sup style="font-size:.7em;line-height:0"><a href="#r7">7</a></sup></p>
+          <p><b>The shared weakness, said plainly:</b> our write edge depends on the same extraction reliability that limits automatic knowledge graphs, with published error rates from a few percent to roughly a quarter in open graphs.<sup style="font-size:.7em;line-height:0"><a href="#r8">8</a></sup> Confidence routing and ratification contain it. Nothing eliminates it. The highest-value number we can ever publish is our own measured extraction precision and ratification catch rate.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>RECEIPTS</summary>
+        <div class="panelbody">
+          <p id="r1"><sup style="color:#7ED2EE;font-weight:700">1</sup> AbsenceBench (arXiv:2506.11440, June 2025): detecting deliberate omissions, Claude 3.7 Sonnet at 69.6% F1 at ~5K tokens; attention cannot attend to gaps.</p>
+          <p id="r2"><sup style="color:#7ED2EE;font-weight:700">2</sup> "Don't Ask the LLM to Track Freshness" (arXiv:2606.01435, May 2026): deterministic rule beats LLM judgment by 10.8 to 21 points; temporal knowledge graph Zep/Graphiti at 7% on single-hop fact consolidation.</p>
+          <p id="r3"><sup style="color:#7ED2EE;font-weight:700">3</sup> Thinking Machines Lab, "Defeating Nondeterminism in LLM Inference" (September 2025): 1,000 temperature-zero samples, 80 unique completions.</p>
+          <p id="r4"><sup style="color:#7ED2EE;font-weight:700">4</sup> Mem0 (arXiv:2504.19413, ECAI 2025): structured memory at ~90% fewer tokens (1,764 vs 26,031) and 91% lower p95 latency than full-context. Zep (arXiv:2501.13956): structured temporal memory up to +18.5% accuracy, ~90% lower latency.</p>
+          <p id="r5"><sup style="color:#7ED2EE;font-weight:700">5</sup> Lost in the Middle (Liu et al., TACL 2024, arXiv:2307.03172): >30% mid-context accuracy drop. Chroma, Context Rot (July 2025): 18 frontier models degrading 30 to 50% before advertised limits.</p>
+          <p id="r6"><sup style="color:#7ED2EE;font-weight:700">6</sup> GhostCite (arXiv:2602.06718): ~50% of model-generated citations invalid on audit; "Correctness is not Faithfulness" (arXiv:2412.18004).</p>
+          <p id="r7"><sup style="color:#7ED2EE;font-weight:700">7</sup> Cleanlab (2025): confidence-thresholded routing: automate 95 to 99%, review the uncertain 1 to 5%.</p>
+          <p id="r8"><sup style="color:#7ED2EE;font-weight:700">8</sup> Automatic KG construction error rates: ~2.4% anomalous triples in controlled settings (arXiv:2602.13830) up to ~26% erroneous knowledge in NELL (cited in arXiv:2506.11012).</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <footer data-screen-label="Footer" style="border-top:1px solid rgba(175,194,214,.16);padding:30px 0 46px">
+    <div style="max-width:900px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center">
+      <a href="./" style="display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#EA7C31;text-decoration:none">The vision <span style="font-size:15px">&#8594;</span></a>
+      <div style="color:#8AA3BC;font-size:12px">ALTIFY · Internal · Not for external distribution</div>
+    </div>
+  </footer>
+
+  <button id="navUp" aria-label="Previous section" style="position:fixed;top:80px;right:18px;z-index:40;width:46px;height:46px;border-radius:50%;background:rgba(21,42,68,.94);border:1px solid rgba(175,194,214,.35);color:#EA7C31;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;opacity:0;pointer-events:none;transition:opacity .25s ease" style-hover="border-color:#EA7C31">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M 5 14.5 L 12 7.5 L 19 14.5"></path></svg>
+  </button>
+  <button id="navDown" aria-label="Next section" style="position:fixed;bottom:22px;right:18px;z-index:40;width:46px;height:46px;border-radius:50%;background:rgba(21,42,68,.94);border:1px solid rgba(175,194,214,.35);color:#EA7C31;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;opacity:0;pointer-events:none;transition:opacity .25s ease" style-hover="border-color:#EA7C31">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M 5 9.5 L 12 16.5 L 19 9.5"></path></svg>
+  </button>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  componentDidMount() {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const $ = (id) => document.getElementById(id);
+    this._observers = [];
+
+    // --- footnotes: open the Receipts panel and scroll to the source (enhancement; accordion works without JS) ---
+    this._onFnClick = (e) => {
+      const a = e.target.closest('a[href^="#r"]');
+      if (!a) return;
+      const id = a.getAttribute('href').slice(1);
+      if (!/^r\d+$/.test(id)) return;
+      const target = document.getElementById(id);
+      if (!target) return;
+      e.preventDefault();
+      const dets = target.closest('details');
+      if (dets && !dets.open) dets.open = true;
+      requestAnimationFrame(() => { target.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' }); });
+    };
+    document.addEventListener('click', this._onFnClick);
+
+    // --- section quick-nav: sticky links + step buttons ---
+    const navSecs = Array.from(document.querySelectorAll('[data-nav]'));
+    const topnav = $('topnav');
+    const btnUp = $('navUp'), btnDown = $('navDown');
+    const menuBtn = $('navMenuBtn'), navMenu = $('navMenu');
+    const navLinks = Array.from(document.querySelectorAll('#topnav a[data-target], #navMenu a[data-target]'));
+    if (navSecs.length) {
+      const NAVH = 70;
+      const secTop = (el) => el.getBoundingClientRect().top + window.scrollY;
+      const curIdx = () => { const y = window.scrollY + NAVH + 80; let idx = 0; navSecs.forEach((s, i) => { if (secTop(s) <= y) idx = i; }); return idx; };
+      const goTo = (i) => { if (i < 0 || i >= navSecs.length) return; window.scrollTo({ top: Math.max(0, secTop(navSecs[i]) - NAVH + 6), behavior: reduced ? 'auto' : 'smooth' }); };
+      const setBtn = (b, on) => { if (b) { b.style.opacity = on ? '1' : '0'; b.style.pointerEvents = on ? 'auto' : 'none'; } };
+      const update = () => { const i = curIdx(); setBtn(btnUp, i > 0); setBtn(btnDown, i < navSecs.length - 1); navLinks.forEach((a) => { a.style.color = (+a.dataset.target === i) ? '#EA7C31' : '#AFC2D6'; }); };
+      if (btnUp) btnUp.onclick = () => goTo(curIdx() - 1);
+      if (btnDown) btnDown.onclick = () => goTo(curIdx() + 1);
+      this._onNavClick = (e) => { const a = e.target.closest('a[data-target]'); if (!a) return; e.preventDefault(); goTo(+a.dataset.target); if (navMenu && navMenu.style.display === 'flex') { navMenu.style.display = 'none'; if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false'); } };
+      if (topnav) topnav.addEventListener('click', this._onNavClick);
+      if (navMenu) navMenu.addEventListener('click', this._onNavClick);
+      const topRow = topnav ? topnav.parentElement : null;
+      const logoEl = topRow ? topRow.querySelector('img') : null;
+      let needW = topnav ? topnav.scrollWidth + 2 : 0;
+      const applyCollapse = () => {
+        if (!topnav || !topRow) return;
+        if (topnav.style.display !== 'none') needW = Math.max(needW, topnav.scrollWidth + 2);
+        const avail = topRow.clientWidth - (logoEl ? logoEl.offsetWidth : 0) - 30;
+        const collapsed = needW > avail;
+        topnav.style.display = collapsed ? 'none' : 'flex';
+        if (menuBtn) menuBtn.style.display = collapsed ? 'flex' : 'none';
+        if (!collapsed && navMenu) { navMenu.style.display = 'none'; if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false'); }
+      };
+      if (menuBtn && navMenu) {
+        menuBtn.onclick = (e) => { e.stopPropagation(); const open = navMenu.style.display !== 'flex'; navMenu.style.display = open ? 'flex' : 'none'; menuBtn.setAttribute('aria-expanded', String(open)); };
+        this._onDocClick = (ev) => { if (navMenu.style.display === 'flex' && !navMenu.contains(ev.target) && !menuBtn.contains(ev.target)) { navMenu.style.display = 'none'; menuBtn.setAttribute('aria-expanded', 'false'); } };
+        document.addEventListener('click', this._onDocClick);
+      }
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => applyCollapse());
+      this._topnavEl = topnav;
+      this._navRaf = 0;
+      this._onNavScroll = () => { if (this._navRaf) return; this._navRaf = requestAnimationFrame(() => { this._navRaf = 0; update(); }); };
+      window.addEventListener('scroll', this._onNavScroll, { passive: true });
+      this._onNavResize = () => { applyCollapse(); this._onNavScroll(); };
+      window.addEventListener('resize', this._onNavResize, { passive: true });
+      applyCollapse();
+      update();
+    }
+
+    // --- section reveals ---
+    if (reduced) return;
+    const rvs = Array.from(document.querySelectorAll('[data-rv]'));
+    rvs.forEach((el) => { el.style.opacity = '0'; el.style.transform = 'translateY(16px)'; el.style.transition = 'opacity .6s cubic-bezier(.22,.61,.36,1), transform .6s cubic-bezier(.22,.61,.36,1)'; });
+    const show = (el) => { el.style.opacity = '1'; el.style.transform = 'none'; };
+    const rio = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { show(e.target); rio.unobserve(e.target); } }), { threshold: 0.12 });
+    rvs.forEach((el) => rio.observe(el));
+    this._observers.push(rio);
+    this._onPrint = () => rvs.forEach(show);
+    window.addEventListener('beforeprint', this._onPrint);
+  }
+
+  componentWillUnmount() {
+    if (this._onFnClick) document.removeEventListener('click', this._onFnClick);
+    if (this._onNavScroll) window.removeEventListener('scroll', this._onNavScroll);
+    if (this._onNavResize) window.removeEventListener('resize', this._onNavResize);
+    if (this._onDocClick) document.removeEventListener('click', this._onDocClick);
+    if (this._onPrint) window.removeEventListener('beforeprint', this._onPrint);
+    if (this._topnavEl && this._onNavClick) this._topnavEl.removeEventListener('click', this._onNavClick);
+    (this._observers || []).forEach((o) => o.disconnect());
+  }
+}
+</script>
+</body>
+</html>
