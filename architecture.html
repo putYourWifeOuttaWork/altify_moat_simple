@@ -21,20 +21,36 @@
     ::selection{background:rgba(234,124,49,.35)}
     a{color:#7ED2EE;text-decoration-color:rgba(126,210,238,.4)}
     a:hover{color:#EAF0F6}
+    sup{font-size:.7em;line-height:0}
+    sup a{color:#7ED2EE;text-decoration:none}
     .sec{padding:72px 0;border-top:1px solid rgba(175,194,214,.14)}
     .wrap{max-width:900px;margin:0 auto;padding:0 28px}
     .eyb{display:inline-flex;align-items:center;gap:9px;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#EA7C31;margin-bottom:14px}
     .eyb i{width:7px;height:7px;border-radius:50%;background:#EA7C31;display:inline-block;flex:none}
-    .h2{font-family:var(--font-display);font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.14;letter-spacing:-.02em;color:#FFFFFF;max-width:30ch;margin:0;text-wrap:balance}
+    .h2{font-family:var(--font-display);font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.14;letter-spacing:-.02em;color:#FFFFFF;max-width:32ch;margin:0;text-wrap:balance}
     .h2 em{font-style:normal;color:#EA7C31}
-    .body{font-size:17px;color:#AFC2D6;max-width:62ch;margin:16px 0 0;line-height:1.6}
-    .kick{font-family:var(--font-display);font-weight:700;font-size:20px;color:#FFFFFF;max-width:56ch;margin:24px 0 0;line-height:1.35;letter-spacing:-.01em;text-wrap:balance}
+    .body{font-size:17px;color:#AFC2D6;max-width:64ch;margin:16px 0 0;line-height:1.6}
+    .kick{font-family:var(--font-display);font-weight:700;font-size:20px;color:#FFFFFF;max-width:58ch;margin:26px 0 0;line-height:1.35;letter-spacing:-.01em;text-wrap:balance}
     .kick em{font-style:normal;color:#EA7C31}
-    .cap{font-size:12.5px;color:#8AA3BC;margin-top:8px}
-    .lbl{font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#8AA3BC}
+    .cap{font-size:12.5px;color:#8AA3BC;margin-top:9px}
+    .lbl{font-size:10.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#8AA3BC}
+    .lbl.o{color:#EA7C31}
     .card{border:1px solid rgba(175,194,214,.16);border-radius:16px;background:#0F2036;padding:16px 16px 18px}
-    .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:24px}
-    sup a{color:#7ED2EE;text-decoration:none}
+    .fig{border:1px solid rgba(175,194,214,.16);border-radius:16px;background:#0F2036;padding:18px;margin-top:22px}
+    .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:22px}
+    .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:20px}
+    .grid5{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:12px;margin-top:22px}
+    .chip{display:inline-block;border:1px solid rgba(175,194,214,.32);border-radius:6px;background:#152A44;padding:5px 9px;font-size:11px;color:#AFC2D6;white-space:nowrap}
+    .chip.o{border-color:rgba(234,124,49,.5);color:#EA7C31;background:rgba(234,124,49,.07)}
+    .chip.r{border-color:rgba(213,85,46,.6);color:#F0A08A;background:rgba(213,85,46,.12)}
+    .chip.y{border-color:rgba(232,180,74,.55);color:#E8B44A;background:rgba(232,180,74,.1)}
+    .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .tbl{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:8px}
+    .tbl th,.tbl td{border:1px solid rgba(175,194,214,.18);padding:10px 12px;text-align:left;vertical-align:top}
+    .tbl th{font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:#8AA3BC;font-weight:800}
+    .fail{color:#F0A08A}
+    .pass{color:#EA7C31}
+    .scroller{overflow-x:auto}
     #sec-appendix details{background:#152A44;border:1px solid rgba(175,194,214,.22);border-radius:12px;margin-top:12px;overflow:hidden}
     #sec-appendix summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:center;gap:12px;font-size:12px;font-weight:800;letter-spacing:.08em;color:#EA7C31}
     #sec-appendix summary::-webkit-details-marker{display:none}
@@ -54,33 +70,45 @@
   <div data-screen-label="Topbar" style="position:sticky;top:0;z-index:50;background:rgba(15,32,54,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(175,194,214,.16)">
     <div style="max-width:900px;margin:0 auto;padding:0 28px;display:flex;align-items:center;gap:22px;height:62px">
       <img src="assets/altify-logo-white.png" alt="Altify" style="height:20px;width:auto;display:block;flex:none">
-      <nav id="topnav" aria-label="Sections" style="margin-left:auto;display:flex;align-items:center;gap:20px;overflow-x:auto;white-space:nowrap;scrollbar-width:none;padding:6px 0;min-width:0">
+      <nav id="topnav" aria-label="Sections" style="margin-left:auto;display:flex;align-items:center;gap:18px;overflow-x:auto;white-space:nowrap;scrollbar-width:none;padding:6px 0;min-width:0">
         <a href="#sec-hero" data-target="0" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">The layer</a>
         <a href="#sec-law" data-target="1" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">The law</a>
-        <a href="#sec-stacked" data-target="2" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">The problem</a>
-        <a href="#sec-ontology" data-target="3" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">Meaning</a>
-        <a href="#sec-traversal" data-target="4" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">Reach</a>
-        <a href="#sec-algo" data-target="5" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">Computation</a>
-        <a href="#sec-determinism" data-target="6" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">The output</a>
-        <a href="#sec-time" data-target="7" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">Through time</a>
-        <a href="#sec-cost" data-target="8" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">The cost</a>
-        <a href="#sec-appendix" data-target="9" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">Appendix</a>
+        <a href="#sec-job" data-target="2" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">The job</a>
+        <a href="#sec-design" data-target="3" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">The design</a>
+        <a href="#sec-ontology" data-target="4" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">Ontology</a>
+        <a href="#sec-traversal" data-target="5" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">Traversal</a>
+        <a href="#sec-algorithmic" data-target="6" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">Algorithmic</a>
+        <a href="#sec-boundary" data-target="7" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">The output</a>
+        <a href="#sec-time" data-target="8" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">Time</a>
+        <a href="#sec-memory" data-target="9" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">Where it runs</a>
+        <a href="#sec-loops" data-target="10" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">Learning</a>
+        <a href="#sec-day" data-target="11" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">The day</a>
+        <a href="#sec-steelman" data-target="12" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">The steel man</a>
+        <a href="#sec-cost" data-target="13" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">The cost</a>
+        <a href="#sec-proof" data-target="14" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">The proof</a>
+        <a href="#sec-appendix" data-target="15" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">Appendix</a>
       </nav>
       <button id="navMenuBtn" aria-label="Sections menu" aria-expanded="false" style="display:none;width:44px;height:44px;border-radius:10px;background:transparent;border:1px solid rgba(175,194,214,.35);color:#EAF0F6;align-items:center;justify-content:center;cursor:pointer;padding:0;margin-left:auto;flex:none">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M 4 7 H 20 M 4 12 H 20 M 4 17 H 20"></path></svg>
       </button>
     </div>
-    <div id="navMenu" style="display:none;position:absolute;top:100%;left:0;right:0;z-index:49;flex-direction:column;background:rgba(15,32,54,.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(175,194,214,.2);padding:8px 28px 14px">
-      <a href="#sec-hero" data-target="0" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">The layer</a>
-      <a href="#sec-law" data-target="1" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">The law</a>
-      <a href="#sec-stacked" data-target="2" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">The problem</a>
-      <a href="#sec-ontology" data-target="3" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">Meaning</a>
-      <a href="#sec-traversal" data-target="4" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">Reach</a>
-      <a href="#sec-algo" data-target="5" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">Computation</a>
-      <a href="#sec-determinism" data-target="6" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">The output</a>
-      <a href="#sec-time" data-target="7" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">Through time</a>
-      <a href="#sec-cost" data-target="8" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">The cost</a>
-      <a href="#sec-appendix" data-target="9" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 2px" style-hover="color:#FFFFFF">Appendix</a>
+    <div id="navMenu" style="display:none;position:absolute;top:100%;left:0;right:0;z-index:49;flex-direction:column;background:rgba(15,32,54,.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(175,194,214,.2);padding:8px 28px 14px;max-height:70vh;overflow-y:auto">
+      <a href="#sec-hero" data-target="0" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:11px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">The layer</a>
+      <a href="#sec-law" data-target="1" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:11px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">The law</a>
+      <a href="#sec-job" data-target="2" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:11px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">The job</a>
+      <a href="#sec-design" data-target="3" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:11px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">The design</a>
+      <a href="#sec-ontology" data-target="4" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:11px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">Ontology</a>
+      <a href="#sec-traversal" data-target="5" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:11px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">Traversal</a>
+      <a href="#sec-algorithmic" data-target="6" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:11px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">Algorithmic</a>
+      <a href="#sec-boundary" data-target="7" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:11px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">The output</a>
+      <a href="#sec-time" data-target="8" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:11px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">Time</a>
+      <a href="#sec-memory" data-target="9" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:11px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">Where it runs</a>
+      <a href="#sec-loops" data-target="10" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:11px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">Learning</a>
+      <a href="#sec-day" data-target="11" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:11px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">The day</a>
+      <a href="#sec-steelman" data-target="12" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:11px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">The steel man</a>
+      <a href="#sec-cost" data-target="13" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:11px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">The cost</a>
+      <a href="#sec-proof" data-target="14" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:11px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">The proof</a>
+      <a href="#sec-appendix" data-target="15" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:11px 2px" style-hover="color:#FFFFFF">Appendix</a>
     </div>
   </div>
 
@@ -90,9 +118,8 @@
     <div class="wrap" style="position:relative">
       <div class="eyb"><i></i>The architecture layer</div>
       <h1 style="font-family:var(--font-display);font-weight:800;font-size:clamp(2.05rem,4.6vw,3.2rem);line-height:1.1;letter-spacing:-.025em;color:#FFFFFF;margin:20px 0 0;max-width:20ch;text-wrap:balance">Under the coach, under the loop, <em style="font-style:normal;color:#EA7C31">there is a machine.</em></h1>
-      <p style="font-size:clamp(1.02rem,1.7vw,1.2rem);color:#AFC2D6;max-width:60ch;margin:18px 0 0;line-height:1.55">Enterprise selling runs on three layers. On top, sellers sell. In the middle, people and AI work each deal together. Underneath sits the architecture layer: the data and the rules that hold it all up, with no human in it. This page is about that bottom layer, because everything above it is only as good as what happens down here.</p>
+      <p style="font-size:clamp(1.02rem,1.7vw,1.2rem);color:#AFC2D6;max-width:62ch;margin:18px 0 0;line-height:1.55">Enterprise selling runs as three layers. Sellers execute on top. Humans and AI collaborate in the middle. And underneath sits the architecture layer: everything but humans. This page is the bottom of the cake, a structural replica of the deal's interior, and everything above it stands on what happens down here.</p>
 
-      <!-- VISUAL 0 · the cake -->
       <figure data-rv="1" style="margin:32px 0 0;display:flex;gap:14px;align-items:stretch">
         <div style="flex:1;display:flex;flex-direction:column;gap:8px">
           <div style="border:1px solid rgba(175,194,214,.28);border-radius:12px;background:#152A44;padding:15px 18px"><div style="font-family:var(--font-display);font-weight:800;font-size:15px;letter-spacing:.06em;color:#EAF0F6">EXECUTION</div><div style="font-size:12.5px;color:#8AA3BC;margin-top:2px">sellers selling</div></div>
@@ -107,171 +134,225 @@
     </div>
   </header>
 
-  <!-- 1 · THE LAW (quote card) -->
+  <!-- 1 · THE LAW -->
   <section id="sec-law" data-nav="The law" data-screen-label="01 The law" class="sec">
     <div class="wrap">
       <div data-rv="1" style="text-align:center;max-width:62ch;margin:0 auto">
-        <p style="font-family:var(--font-display);font-size:clamp(1.4rem,3.1vw,2.2rem);font-weight:800;color:#FFFFFF;line-height:1.24;letter-spacing:-.02em;margin:0;text-wrap:balance">“The shape of the data is fixed, never guessed. Every fact is confirmed by a person before it counts. <em style="font-style:normal;color:#EA7C31">Answers are looked up, not made up.</em>”</p>
-        <div class="cap" style="margin-top:16px">our rule: the AI reads information in and phrases answers out, but it never guesses the facts in the middle.</div>
+        <p style="font-family:var(--font-display);font-size:clamp(1.4rem,3.1vw,2.2rem);font-weight:800;color:#FFFFFF;line-height:1.24;letter-spacing:-.02em;margin:0;text-wrap:balance">“Structure is never inferred. Values are inferred once, then ratified. <em style="font-style:normal;color:#EA7C31">Answers are retrieved, not guessed.</em>”</p>
+        <div class="cap" style="margin-top:16px">the quarantine law: inference is allowed only at the edges, never in the middle.</div>
+        <div style="font-size:11.5px;color:#8AA3BC;margin-top:6px;letter-spacing:.04em">Models read. Algorithms compute. Humans ratify.</div>
       </div>
     </div>
   </section>
 
-  <!-- 2 · STACKED GUESSING -->
-  <section id="sec-stacked" data-nav="The problem" data-screen-label="02 Stacked guessing" class="sec">
+  <!-- 2 · THE JOB -->
+  <section id="sec-job" data-nav="The job" data-screen-label="02 The job" class="sec">
     <div class="wrap">
-      <div class="eyb"><i></i>The architecture layer · Stacked guessing</div>
-      <h2 class="h2">Guesses stacked <em>on guesses.</em></h2>
-      <p class="body">Most AI sales tools guess three times. The AI guesses what a call meant. It guesses how the pieces fit together. Then it guesses your answer from those two guesses, fresh, every time you ask. And nobody ever checks the work.</p>
+      <div class="eyb"><i></i>The requirements</div>
+      <h2 class="h2">The job makes five demands. <em>Guessing meets none of them.</em></h2>
+      <p class="body">Enterprise selling is not like other AI work. A support bot can be ninety percent right across a million tickets, because the errors average out. A quarter of enterprise selling has a dozen deals that matter, so the errors concentrate. That difference writes the job's requirements, and the requirements write the architecture.</p>
 
-      <!-- VISUAL 2 · stacked vs quarantined -->
-      <div data-rv="1" class="grid2">
-        <div class="card" style="border-color:rgba(138,163,188,.4)">
-          <span class="lbl">Them</span>
-          <div style="margin-top:14px;display:flex;flex-direction:column;gap:0">
-            <div style="border:1px solid rgba(138,163,188,.4);border-radius:8px;background:#152A44;padding:10px 12px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:13px;color:#EAF0F6">extraction</span><span style="font-size:11px;color:#8AA3BC">~ guessed</span></div>
-            <div style="text-align:center;color:#8AA3BC;font-size:15px;line-height:1;padding:3px 0">&#215;</div>
-            <div style="border:1px solid rgba(138,163,188,.4);border-radius:8px;background:#152A44;padding:10px 12px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:13px;color:#EAF0F6">structure</span><span style="font-size:11px;color:#8AA3BC">~ guessed</span></div>
-            <div style="text-align:center;color:#8AA3BC;font-size:15px;line-height:1;padding:3px 0">&#215;</div>
-            <div style="border:1px solid rgba(138,163,188,.4);border-radius:8px;background:#152A44;padding:10px 12px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:13px;color:#EAF0F6">answer</span><span style="font-size:11px;color:#8AA3BC">~ guessed</span></div>
-          </div>
-        </div>
-        <div class="card" style="border-color:rgba(234,124,49,.5)">
-          <span class="lbl" style="color:#EA7C31">Altify</span>
-          <div style="margin-top:14px;display:flex;align-items:stretch;gap:8px">
-            <div style="flex:none;width:74px;border:1px solid rgba(234,124,49,.4);border-radius:8px;background:rgba(234,124,49,.06);padding:9px 8px;display:flex;flex-direction:column;justify-content:center"><span style="font-size:10px;font-weight:800;letter-spacing:.04em;color:#EA7C31">WRITE</span><span style="font-size:10.5px;color:#AFC2D6;margin-top:3px;line-height:1.3">AI drafts, human ratifies</span></div>
-            <div style="flex:1;border:1.6px solid #EA7C31;border-radius:8px;background:#1a2740;padding:14px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center"><span style="font-size:13.5px;font-weight:700;color:#FFFFFF">structure</span><span style="font-size:11.5px;color:#EA7C31;margin-top:3px">defined, computed</span></div>
-            <div style="flex:none;width:74px;border:1px solid rgba(234,124,49,.4);border-radius:8px;background:rgba(234,124,49,.06);padding:9px 8px;display:flex;flex-direction:column;justify-content:center"><span style="font-size:10px;font-weight:800;letter-spacing:.04em;color:#EA7C31">READ</span><span style="font-size:10.5px;color:#AFC2D6;margin-top:3px;line-height:1.3">sense-making only</span></div>
-          </div>
-        </div>
+      <div data-rv="1" class="grid5">
+        <div class="card"><div style="font-family:var(--font-display);font-weight:800;font-size:15px;color:#EA7C31">R1</div><div style="font-family:var(--font-display);font-weight:700;font-size:14.5px;color:#FFFFFF;margin-top:4px">Repeatability</div><div style="font-size:12.5px;color:#AFC2D6;line-height:1.5;margin-top:5px">Same question, same answer, every time. A forecast is a financial statement.<sup><a href="#r3">3</a></sup></div></div>
+        <div class="card"><div style="font-family:var(--font-display);font-weight:800;font-size:15px;color:#EA7C31">R2</div><div style="font-family:var(--font-display);font-weight:700;font-size:14.5px;color:#FFFFFF;margin-top:4px">Provenance</div><div style="font-size:12.5px;color:#AFC2D6;line-height:1.5;margin-top:5px">Every value shows its source and its ratifier.<sup><a href="#r6">6</a></sup></div></div>
+        <div class="card"><div style="font-family:var(--font-display);font-weight:800;font-size:15px;color:#EA7C31">R3</div><div style="font-family:var(--font-display);font-weight:700;font-size:14.5px;color:#FFFFFF;margin-top:4px">Absence</div><div style="font-size:12.5px;color:#AFC2D6;line-height:1.5;margin-top:5px">The job's core question is what's missing from the deal.<sup><a href="#r1">1</a></sup></div></div>
+        <div class="card"><div style="font-family:var(--font-display);font-weight:800;font-size:15px;color:#EA7C31">R4</div><div style="font-family:var(--font-display);font-weight:700;font-size:14.5px;color:#FFFFFF;margin-top:4px">Arbitration</div><div style="font-size:12.5px;color:#AFC2D6;line-height:1.5;margin-top:5px">When values conflict, a rule decides which wins.<sup><a href="#r2">2</a></sup></div></div>
+        <div class="card"><div style="font-family:var(--font-display);font-weight:800;font-size:15px;color:#EA7C31">R5</div><div style="font-family:var(--font-display);font-weight:700;font-size:14.5px;color:#FFFFFF;margin-top:4px">Custody</div><div style="font-size:12.5px;color:#AFC2D6;line-height:1.5;margin-top:5px">Nothing leaves the customer's tenant. Permissions and audit are inherited, and the security office adds zero new vendors to its register.</div></div>
       </div>
-      <div class="cap" style="margin-top:12px">guessing, quarantined at the edges.</div>
 
-      <p class="kick" style="max-width:44ch">Guessing on top of guessing is <em>not an enterprise system.</em></p>
+      <p class="kick">Where errors average out, guessing survives. <em>Where they concentrate, it cannot.</em></p>
     </div>
   </section>
 
-  <!-- 3 · ONTOLOGY -->
-  <section id="sec-ontology" data-nav="Meaning" data-screen-label="03 Ontology" class="sec">
+  <!-- 3 · THE DESIGN -->
+  <section id="sec-design" data-nav="The design" data-screen-label="03 The design" class="sec">
     <div class="wrap">
-      <div class="eyb"><i></i>Pillar one · Meaning</div>
-      <h2 class="h2">Every connection <em>knows why it is there.</em></h2>
-      <p class="body">Two things describe a deal. The maps: who is involved, how they relate, and what they care about, laid out by power, politics, and coverage. The rubrics: what has to be true to win, and what has to happen next, stage by stage. The maps point the rubrics at the right people and problems. The rubrics say what to check and do about them. Each explains the other, and both adapt to the deal in front of you: survival first, then compliance, then the upside.</p>
+      <div class="eyb"><i></i>The design · One deal, three planes</div>
+      <h2 class="h2">The standard. The situation. <em>The history.</em></h2>
+      <p class="body">Around one opportunity ID sit three planes. The rubric holds what must be true. The maps hold what is true now. The strata hold what has been true. Four typed arrows connect them, and only one of them can change anything.</p>
 
-      <!-- VISUAL 3 · mutual definition -->
-      <div data-rv="1" style="margin-top:24px;display:flex;gap:16px;align-items:stretch;flex-wrap:wrap">
-        <div style="flex:1;min-width:260px;border:1px solid rgba(175,194,214,.16);border-radius:16px;background:#0F2036;padding:18px">
-          <div style="display:flex;gap:10px">
-            <div style="flex:1;border:1px solid rgba(234,124,49,.45);border-radius:10px;background:#152A44;padding:11px 12px;text-align:center;font-size:13px;font-weight:700;color:#EAF0F6">People</div>
-            <div style="flex:1;border:1px solid rgba(234,124,49,.45);border-radius:10px;background:#152A44;padding:11px 12px;text-align:center;font-size:13px;font-weight:700;color:#EAF0F6">Problems</div>
-          </div>
-          <div style="display:flex;align-items:center;justify-content:center;gap:22px;padding:10px 0">
-            <div style="text-align:center"><svg width="16" height="34" viewBox="0 0 16 34"><path d="M8 4 V30 M3 24 L8 31 L13 24" stroke="#EA7C31" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg><div style="font-size:9.5px;color:#8AA3BC;max-width:96px;line-height:1.3">who and what this applies to</div></div>
-            <div style="text-align:center"><svg width="16" height="34" viewBox="0 0 16 34"><path d="M8 30 V4 M3 10 L8 3 L13 10" stroke="#8AA3BC" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg><div style="font-size:9.5px;color:#8AA3BC;max-width:96px;line-height:1.3">what must be true about them</div></div>
-          </div>
-          <div style="display:flex;gap:10px">
-            <div style="flex:1;border:1px solid rgba(175,194,214,.3);border-radius:10px;background:#0F2439;padding:11px 12px;text-align:center;font-size:13px;font-weight:700;color:#AFC2D6">Process</div>
-            <div style="flex:1;border:1px solid rgba(175,194,214,.3);border-radius:10px;background:#0F2439;padding:11px 12px;text-align:center;font-size:13px;font-weight:700;color:#AFC2D6">Methodology</div>
-          </div>
-        </div>
-        <div style="flex:none;align-self:center;max-width:200px;border:1px dashed rgba(234,124,49,.5);border-radius:12px;background:rgba(234,124,49,.06);padding:14px 16px">
-          <div style="font-size:9.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#EA7C31;margin-bottom:5px">Deal type selects the rules</div>
-          <div style="font-size:13px;color:#EAF0F6;line-height:1.4">data as metadata</div>
-        </div>
-      </div>
-
-      <p class="kick" style="max-width:34ch">Different on every deal. <em>By rule, not by guess.</em></p>
-    </div>
-  </section>
-
-  <!-- 4 · TRAVERSAL (pile and spine) -->
-  <section id="sec-traversal" data-nav="Reach" data-screen-label="04 Traversal" class="sec">
-    <div class="wrap">
-      <div class="eyb"><i></i>Pillar two · Reach</div>
-      <h2 class="h2">One deal. <em>Everything connected.</em></h2>
-      <p class="body">Everything about a deal hangs off one record, every piece connected to the next. The AI follows one thread and the answer is already sitting there, not pieced back together. And because the structure is complete, it can do the one thing search cannot: tell you what is missing.<sup style="font-size:.7em;line-height:0"><a href="#r1">1</a></sup></p>
-
-      <!-- VISUAL 4 · the pile and the spine -->
-      <div data-rv="1" class="grid2">
-        <div class="card" style="border-color:rgba(138,163,188,.4)">
-          <span class="lbl">Flat</span>
-          <svg viewBox="0 0 300 210" style="width:100%;height:auto;display:block;margin-top:10px" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif">
-            <rect x="28" y="26" width="26" height="15" rx="3" fill="#0F2439" stroke="#46607C" stroke-width="1.4" transform="rotate(-18 41 33.5)"></rect>
-            <rect x="95" y="18" width="26" height="15" rx="3" fill="#0F2439" stroke="#46607C" stroke-width="1.4" transform="rotate(12 108 25.5)"></rect>
-            <rect x="165" y="16" width="26" height="15" rx="3" fill="#0F2439" stroke="#46607C" stroke-width="1.4" transform="rotate(-6 178 23.5)"></rect>
-            <rect x="228" y="28" width="26" height="15" rx="3" fill="#0F2439" stroke="#46607C" stroke-width="1.4" transform="rotate(20 241 35.5)"></rect>
-            <rect x="256" y="70" width="26" height="15" rx="3" fill="#0F2439" stroke="#46607C" stroke-width="1.4" transform="rotate(-14 269 77.5)"></rect>
-            <rect x="20" y="76" width="26" height="15" rx="3" fill="#0F2439" stroke="#46607C" stroke-width="1.4" transform="rotate(10 33 83.5)"></rect>
-            <rect x="252" y="120" width="26" height="15" rx="3" fill="#0F2439" stroke="#46607C" stroke-width="1.4" transform="rotate(-22 265 127.5)"></rect>
-            <rect x="24" y="140" width="26" height="15" rx="3" fill="#0F2439" stroke="#46607C" stroke-width="1.4" transform="rotate(16 37 147.5)"></rect>
-            <rect x="80" y="178" width="26" height="15" rx="3" fill="#0F2439" stroke="#46607C" stroke-width="1.4" transform="rotate(-8 93 185.5)"></rect>
-            <rect x="150" y="184" width="26" height="15" rx="3" fill="#0F2439" stroke="#46607C" stroke-width="1.4" transform="rotate(10 163 191.5)"></rect>
-            <rect x="212" y="170" width="26" height="15" rx="3" fill="#0F2439" stroke="#46607C" stroke-width="1.4" transform="rotate(-18 225 177.5)"></rect>
-            <rect x="254" y="156" width="26" height="15" rx="3" fill="#0F2439" stroke="#46607C" stroke-width="1.4" transform="rotate(8 267 163.5)"></rect>
-            <g stroke="#8AA3BC" stroke-width="1" stroke-dasharray="2 3" opacity=".5">
-              <line x1="150" y1="105" x2="108" y2="26"></line><line x1="150" y1="105" x2="178" y2="24"></line><line x1="150" y1="105" x2="241" y2="36"></line><line x1="150" y1="105" x2="269" y2="78"></line><line x1="150" y1="105" x2="265" y2="128"></line><line x1="150" y1="105" x2="93" y2="186"></line><line x1="150" y1="105" x2="225" y2="178"></line><line x1="150" y1="105" x2="33" y2="84"></line>
-            </g>
-            <circle cx="150" cy="105" r="12" fill="rgba(138,163,188,.14)"></circle>
-            <circle cx="150" cy="105" r="7" fill="#AFC2D6"></circle>
-            <text x="150" y="108.5" text-anchor="middle" fill="#0F2036" font-size="8" font-weight="800">AI</text>
-            <text x="120" y="62" fill="#8AA3BC" font-size="15" font-weight="700">?</text><text x="206" y="96" fill="#8AA3BC" font-size="15" font-weight="700">?</text><text x="112" y="150" fill="#8AA3BC" font-size="15" font-weight="700">?</text>
-          </svg>
-          <div class="cap">reads everything, then guesses</div>
-        </div>
-        <div class="card" style="border-color:rgba(234,124,49,.5)">
-          <span class="lbl" style="color:#EA7C31">Altify</span>
-          <svg viewBox="0 0 300 210" style="width:100%;height:auto;display:block;margin-top:10px" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif">
-            <rect x="70" y="8" width="120" height="26" rx="7" fill="#152A44" stroke="#EA7C31" stroke-width="1.7"></rect>
-            <text x="130" y="25" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="700">Opportunity</text>
-            <line x1="92" y1="34" x2="92" y2="190" stroke="#EA7C31" stroke-width="1.6" opacity=".5"></line>
-            <line x1="92" y1="58" x2="120" y2="58" stroke="#EA7C31" stroke-width="1.4" opacity=".5"></line>
-            <text x="126" y="62" fill="#AFC2D6" font-size="12">People</text>
-            <rect x="222" y="49" width="56" height="18" rx="5" fill="#182f49" stroke="#EA7C31" stroke-width="1.1"></rect>
-            <text x="250" y="62" text-anchor="middle" fill="#EA7C31" font-size="11" font-weight="700">0.82</text>
-            <line x1="92" y1="96" x2="120" y2="96" stroke="#EA7C31" stroke-width="1.4" opacity=".5"></line>
-            <text x="126" y="100" fill="#AFC2D6" font-size="12">Problems</text>
-            <rect x="222" y="87" width="56" height="18" rx="5" fill="#182f49" stroke="#EA7C31" stroke-width="1.1"></rect>
-            <text x="250" y="100" text-anchor="middle" fill="#EA7C31" font-size="11" font-weight="700">Y</text>
-            <line x1="92" y1="134" x2="120" y2="134" stroke="#EA7C31" stroke-width="2.4"></line>
-            <text x="126" y="138" fill="#FFFFFF" font-size="12" font-weight="700">Process</text>
-            <rect x="222" y="125" width="56" height="18" rx="5" fill="#2a1a10" stroke="#EA7C31" stroke-width="1.7"></rect>
-            <text x="250" y="138" text-anchor="middle" fill="#EA7C31" font-size="11" font-weight="700">4/5</text>
-            <line x1="176" y1="134" x2="222" y2="134" stroke="#EA7C31" stroke-width="2"></line>
-            <circle cx="192" cy="134" r="6" fill="#EAF0F6"></circle>
-            <line x1="92" y1="172" x2="120" y2="172" stroke="#EA7C31" stroke-width="1.4" opacity=".5"></line>
-            <text x="126" y="176" fill="#AFC2D6" font-size="12">Potential</text>
-            <rect x="222" y="163" width="56" height="18" rx="5" fill="#182f49" stroke="#EA7C31" stroke-width="1.1"></rect>
-            <text x="250" y="176" text-anchor="middle" fill="#EA7C31" font-size="11" font-weight="700">N</text>
-          </svg>
-          <div class="cap">reads one branch, the answer is already there</div>
-        </div>
-      </div>
-
-      <p class="kick">Search finds what was written down. <em>Ours knows what is not there.</em></p>
-    </div>
-  </section>
-
-  <!-- 5 · ALGORITHMIC -->
-  <section id="sec-algo" data-nav="Computation" data-screen-label="05 Algorithmic" class="sec">
-    <div class="wrap">
-      <div class="eyb"><i></i>Pillar three · Computation</div>
-      <h2 class="h2">The structure adapts to every deal. <em>The math never moves.</em></h2>
-      <p class="body">Scores, roll-ups, and which value is current are calculated by code, the way they have been here for a decade. Not because old is better, but because when a right answer exists, guessing at it is malpractice.<sup style="font-size:.7em;line-height:0"><a href="#r2">2</a></sup></p>
-
-      <!-- VISUAL 5 · the computation -->
-      <figure data-rv="1" style="margin:24px 0 0;border:1px solid rgba(175,194,214,.16);border-radius:16px;background:#0F2036;padding:18px">
-        <svg viewBox="0 0 600 120" style="width:100%;height:auto;display:block;max-width:520px" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif">
-          <g>
-            <rect x="10" y="24" width="34" height="24" rx="5" fill="#152A44" stroke="#46607C" stroke-width="1.2"></rect><text x="27" y="40" text-anchor="middle" fill="#AFC2D6" font-size="12" font-weight="700">Y</text>
-            <rect x="10" y="52" width="34" height="24" rx="5" fill="#152A44" stroke="#46607C" stroke-width="1.2"></rect><text x="27" y="68" text-anchor="middle" fill="#AFC2D6" font-size="12" font-weight="700">N</text>
-            <rect x="52" y="24" width="34" height="24" rx="5" fill="#152A44" stroke="#46607C" stroke-width="1.2"></rect><text x="69" y="40" text-anchor="middle" fill="#AFC2D6" font-size="12" font-weight="700">Y</text>
-            <rect x="52" y="52" width="34" height="24" rx="5" fill="#152A44" stroke="#46607C" stroke-width="1.2"></rect><text x="69" y="68" text-anchor="middle" fill="#AFC2D6" font-size="12" font-weight="700">N</text>
+      <figure data-rv="1" class="fig scroller">
+        <svg viewBox="0 0 900 470" style="width:100%;min-width:620px;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif">
+          <rect x="368" y="12" width="164" height="32" rx="16" fill="#152A44" stroke="#EA7C31" stroke-width="1.8"></rect>
+          <text x="450" y="33" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="700">Opportunity ID</text>
+          <g stroke="rgba(175,194,214,.25)" stroke-width="1.1" stroke-dasharray="3 5">
+            <line x1="410" y1="44" x2="230" y2="108"></line><line x1="490" y1="44" x2="672" y2="108"></line><line x1="450" y1="44" x2="450" y2="348"></line>
           </g>
+          <rect x="40" y="110" width="300" height="86" rx="12" fill="#152A44" stroke="rgba(175,194,214,.38)" stroke-width="1.3"></rect>
+          <text x="62" y="146" fill="#EAF0F6" font-size="14.5" font-weight="800">WHAT IS TRUE NOW</text>
+          <text x="62" y="169" fill="#8AA3BC" font-size="11.5">the maps: people and problems</text>
+          <rect x="560" y="110" width="300" height="86" rx="12" fill="#1a2740" stroke="#EA7C31" stroke-width="1.6"></rect>
+          <text x="582" y="146" fill="#FFFFFF" font-size="14.5" font-weight="800">WHAT MUST BE TRUE</text>
+          <text x="582" y="169" fill="#EA7C31" font-size="11.5">the rubric</text>
+          <rect x="300" y="350" width="300" height="86" rx="12" fill="#0F2439" stroke="rgba(175,194,214,.28)" stroke-width="1.3"></rect>
+          <text x="322" y="386" fill="#EAF0F6" font-size="14.5" font-weight="800">WHAT HAS BEEN TRUE</text>
+          <text x="322" y="409" fill="#8AA3BC" font-size="11.5">the strata: the record</text>
+          <path d="M 556 138 H 348 M 356 133 L 346 138 L 356 143" stroke="#EA7C31" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+          <text x="452" y="130" text-anchor="middle" fill="#EA7C31" font-size="11">sets the concerns</text>
+          <path d="M 344 172 H 552 M 544 167 L 554 172 L 544 177" stroke="#7ED2EE" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".85"></path>
+          <text x="452" y="190" text-anchor="middle" fill="#7ED2EE" font-size="11">supplies the evidence</text>
+          <path d="M 196 200 L 246 258" stroke="#EAF0F6" stroke-width="2.4" fill="none" stroke-linecap="round"></path>
+          <path d="M 272 290 L 320 346 M 310 340 L 322 348 L 312 352" stroke="#EAF0F6" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+          <rect x="240" y="256" width="40" height="34" rx="6" fill="#0F2036" stroke="#EA7C31" stroke-width="1.7"></rect>
+          <path d="M250 263 V283 M260 263 V283 M270 263 V283" stroke="#EA7C31" stroke-width="1.3"></path>
+          <text x="292" y="270" fill="#EA7C31" font-size="10" font-weight="700">ratified only</text>
+          <text x="96" y="252" fill="#EAF0F6" font-size="11.5" font-weight="700">writes the record</text>
+          <path d="M 592 348 L 700 204 M 692 214 L 702 202 L 704 214" stroke="#7ED2EE" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".65"></path>
+          <rect x="600" y="258" width="104" height="24" rx="6" fill="rgba(213,85,46,.14)" stroke="#D5552E" stroke-width="1.3"></rect>
+          <text x="652" y="274" text-anchor="middle" fill="#F0A08A" font-size="10" font-weight="700">contention flag</text>
+          <text x="716" y="330" fill="#AFC2D6" font-size="11">checks the present</text>
+          <text x="716" y="346" fill="#AFC2D6" font-size="11">against the past</text>
+        </svg>
+        <div class="cap">Nothing changes anything without a ratified write.</div>
+        <div class="cap" style="margin-top:3px">Reference is not recursion. Every arrow is a read, except the one through the gate.</div>
+      </figure>
+
+      <p class="kick" style="max-width:34ch">A deal review, <em>drawn as a machine.</em></p>
+    </div>
+  </section>
+
+  <!-- 4 · ONTOLOGY -->
+  <section id="sec-ontology" data-nav="Ontology" data-screen-label="04 Ontology" class="sec">
+    <div class="wrap">
+      <div class="eyb"><i></i>Pillar one · Ontology</div>
+      <h2 class="h2">A knowledge graph, <em>written by the methodology.</em></h2>
+      <p class="body">This structure is a graph: typed entities, typed relationships, one deal at the root. The difference is who writes it. Elsewhere, a model extracts a graph from conversations, so the structure records what was said. Here, the methodology declares the structure, so it records what must be true. That is why absence is computable: a red flag is a condition that must be true and isn't, and only a declared structure can say so. The maps give the rubrics their subjects. The rubrics give the maps their meaning. Which methodology, which questions, which process: chosen by the deal's own attributes, not by inference.</p>
+
+      <div data-rv="1" class="grid2">
+        <div class="card" style="border-color:rgba(138,163,188,.4)">
+          <span class="lbl">Extracted</span>
+          <svg viewBox="0 0 300 170" style="width:100%;height:auto;display:block;margin-top:10px" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif">
+            <rect x="18" y="52" width="66" height="66" rx="7" fill="#152A44" stroke="#46607C" stroke-width="1.3"></rect>
+            <line x1="30" y1="70" x2="72" y2="70" stroke="#46607C" stroke-width="2.4"></line><line x1="30" y1="84" x2="66" y2="84" stroke="#33485F" stroke-width="2.4"></line><line x1="30" y1="98" x2="70" y2="98" stroke="#33485F" stroke-width="2.4"></line>
+            <text x="51" y="136" text-anchor="middle" fill="#8AA3BC" font-size="10">transcript</text>
+            <g stroke="#8AA3BC" stroke-width="1.2" opacity=".8">
+              <line x1="90" y1="85" x2="150" y2="52"></line><line x1="90" y1="85" x2="150" y2="118"></line><line x1="158" y1="52" x2="228" y2="36"></line><line x1="158" y1="58" x2="228" y2="96"></line><line x1="158" y1="118" x2="228" y2="132"></line>
+            </g>
+            <circle cx="154" cy="52" r="8" fill="#152A44" stroke="#8AA3BC" stroke-width="1.4"></circle>
+            <circle cx="154" cy="118" r="8" fill="#152A44" stroke="#8AA3BC" stroke-width="1.4"></circle>
+            <circle cx="234" cy="36" r="7" fill="#152A44" stroke="#8AA3BC" stroke-width="1.4"></circle>
+            <circle cx="234" cy="96" r="7" fill="#152A44" stroke="#8AA3BC" stroke-width="1.4"></circle>
+            <circle cx="234" cy="132" r="7" fill="#152A44" stroke="#8AA3BC" stroke-width="1.4"></circle>
+            <text x="196" y="76" text-anchor="middle" fill="#8AA3BC" font-size="9.5">inferred</text>
+          </svg>
+          <div class="cap">records what was said</div>
+        </div>
+        <div class="card" style="border-color:rgba(234,124,49,.5)">
+          <span class="lbl o">Declared</span>
+          <svg viewBox="0 0 300 170" style="width:100%;height:auto;display:block;margin-top:10px" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif">
+            <rect x="18" y="52" width="66" height="66" rx="7" fill="#1a2740" stroke="#EA7C31" stroke-width="1.6"></rect>
+            <path d="M32 68 H70 M32 80 H70 M32 92 H62" stroke="#EA7C31" stroke-width="2.2" stroke-linecap="round"></path>
+            <path d="M51 52 V118" stroke="rgba(234,124,49,.4)" stroke-width="1"></path>
+            <text x="51" y="136" text-anchor="middle" fill="#EA7C31" font-size="10">rulebook</text>
+            <g stroke="#EA7C31" stroke-width="1.4">
+              <line x1="90" y1="85" x2="150" y2="52"></line><line x1="90" y1="85" x2="150" y2="118"></line><line x1="158" y1="52" x2="228" y2="36"></line><line x1="158" y1="58" x2="228" y2="96"></line><line x1="158" y1="118" x2="228" y2="132"></line>
+            </g>
+            <rect x="145" y="44" width="18" height="16" rx="4" fill="#1a2740" stroke="#EA7C31" stroke-width="1.5"></rect>
+            <rect x="145" y="110" width="18" height="16" rx="4" fill="#1a2740" stroke="#EA7C31" stroke-width="1.5"></rect>
+            <rect x="226" y="29" width="16" height="14" rx="4" fill="#1a2740" stroke="#EA7C31" stroke-width="1.4"></rect>
+            <rect x="226" y="89" width="16" height="14" rx="4" fill="#1a2740" stroke="#EA7C31" stroke-width="1.4"></rect>
+            <rect x="226" y="125" width="16" height="14" rx="4" fill="#1a2740" stroke="#EA7C31" stroke-width="1.4"></rect>
+            <text x="196" y="76" text-anchor="middle" fill="#EA7C31" font-size="9.5">declared</text>
+          </svg>
+          <div class="cap">records what must be true</div>
+        </div>
+      </div>
+
+      <figure class="fig">
+        <div class="row" style="justify-content:space-between">
+          <span class="chip o">rulebook v1.4</span>
+          <svg width="26" height="14" viewBox="0 0 26 14"><path d="M1 7 H20 M15 2 L21 7 L15 12" stroke="#8AA3BC" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          <span style="flex:1;min-width:200px;border:1px dashed rgba(175,194,214,.4);border-radius:9px;padding:9px 12px;font-size:12px;color:#AFC2D6">pattern seen 23 times: recommend new condition</span>
+          <svg width="26" height="14" viewBox="0 0 26 14"><path d="M1 7 H20 M15 2 L21 7 L15 12" stroke="#8AA3BC" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          <span style="display:inline-flex;align-items:center;gap:6px;color:#EA7C31;font-size:11px;font-weight:700"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EA7C31" stroke-width="2" stroke-linecap="round"><path d="M4 20 H14 M6 14 L13 7 M9 4 L17 12 M13 8 L20 15"></path></svg>ratify</span>
+          <svg width="26" height="14" viewBox="0 0 26 14"><path d="M1 7 H20 M15 2 L21 7 L15 12" stroke="#EA7C31" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          <span class="chip o">rulebook v1.5</span>
+        </div>
+        <div class="cap">Dynamic by rule. Never by guess. The structure evolves by amendment, not by use.</div>
+      </figure>
+
+      <p class="body" style="font-size:15.5px">The ontology is calibrated per customer at design time, from their own closed-lost history: their rulebook, learned from their deals, owned in their tenant. Nothing learned ever leaves.</p>
+
+      <p class="kick">Their structure records what was said. <em>Ours declares what must be true.</em></p>
+    </div>
+  </section>
+
+  <!-- 5 · TRAVERSAL -->
+  <section id="sec-traversal" data-nav="Traversal" data-screen-label="05 Traversal" class="sec">
+    <div class="wrap">
+      <div class="eyb"><i></i>Pillar two · Traversal</div>
+      <h2 class="h2">One ID. <em>Everything walkable.</em></h2>
+      <p class="body">Everything about a deal hangs off one opportunity ID in typed relationships. AI walks a branch and the answer is already there. Because the schema is closed, it can do the one thing retrieval cannot: enumerate what is missing.<sup><a href="#r1">1</a></sup> And because every entity already owns a key, incoming signals resolve by narrowing, not by matching.</p>
+
+      <figure data-rv="1" class="fig">
+        <svg viewBox="0 0 300 210" style="width:100%;height:auto;display:block;max-width:340px" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif">
+          <rect x="70" y="8" width="120" height="26" rx="7" fill="#152A44" stroke="#EA7C31" stroke-width="1.7"></rect>
+          <text x="130" y="25" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="700">Opportunity</text>
+          <line x1="92" y1="34" x2="92" y2="190" stroke="#EA7C31" stroke-width="1.6" opacity=".5"></line>
+          <line x1="92" y1="58" x2="120" y2="58" stroke="#EA7C31" stroke-width="1.4" opacity=".5"></line>
+          <text x="126" y="62" fill="#AFC2D6" font-size="12">People</text>
+          <rect x="222" y="49" width="56" height="18" rx="5" fill="#182f49" stroke="#EA7C31" stroke-width="1.1"></rect><text x="250" y="62" text-anchor="middle" fill="#EA7C31" font-size="11" font-weight="700">0.82</text>
+          <line x1="92" y1="96" x2="120" y2="96" stroke="#EA7C31" stroke-width="1.4" opacity=".5"></line>
+          <text x="126" y="100" fill="#AFC2D6" font-size="12">Problems</text>
+          <rect x="222" y="87" width="56" height="18" rx="5" fill="#182f49" stroke="#EA7C31" stroke-width="1.1"></rect><text x="250" y="100" text-anchor="middle" fill="#EA7C31" font-size="11" font-weight="700">Y</text>
+          <line x1="92" y1="134" x2="120" y2="134" stroke="#EA7C31" stroke-width="2.4"></line>
+          <text x="126" y="138" fill="#FFFFFF" font-size="12" font-weight="700">Process</text>
+          <rect x="222" y="125" width="56" height="18" rx="5" fill="#2a1a10" stroke="#EA7C31" stroke-width="1.7"></rect><text x="250" y="138" text-anchor="middle" fill="#EA7C31" font-size="11" font-weight="700">4/5</text>
+          <line x1="176" y1="134" x2="222" y2="134" stroke="#EA7C31" stroke-width="2"></line>
+          <circle cx="192" cy="134" r="6" fill="#EAF0F6"></circle>
+          <line x1="92" y1="172" x2="120" y2="172" stroke="#EA7C31" stroke-width="1.4" opacity=".5"></line>
+          <text x="126" y="176" fill="#AFC2D6" font-size="12">Potential</text>
+          <rect x="222" y="163" width="56" height="18" rx="5" fill="#182f49" stroke="#EA7C31" stroke-width="1.1"></rect><text x="250" y="176" text-anchor="middle" fill="#EA7C31" font-size="11" font-weight="700">N</text>
+        </svg>
+        <div class="cap">reads one branch, the answer is already there</div>
+      </figure>
+
+      <figure data-rv="1" class="fig">
+        <div style="display:flex;gap:12px;align-items:stretch;flex-wrap:wrap">
+          <div style="flex:1.3;min-width:210px;border:1px solid rgba(175,194,214,.3);border-radius:12px;background:#152A44;padding:14px">
+            <span class="lbl">Deterministic</span>
+            <div class="row" style="margin-top:9px"><span class="chip">seller's address on the signal</span><span class="chip">calendar attendees</span></div>
+            <div class="row" style="margin-top:9px"><span class="chip o">five open deals</span><span class="chip o">nine mapped people</span></div>
+            <div class="cap">keys first, zero inference</div>
+          </div>
+          <div style="flex:1;min-width:190px;border:1px solid rgba(175,194,214,.3);border-radius:12px;background:#152A44;padding:14px">
+            <span class="lbl">Closed-set selection</span>
+            <div class="row" style="margin-top:9px"><span style="width:9px;height:9px;border-radius:50%;background:#EAF0F6;display:inline-block"></span><span class="chip">one of nine person chips</span></div>
+            <div class="cap">pick from a list, not from the world</div>
+          </div>
+          <div style="flex:.8;min-width:170px;border:1px solid rgba(234,124,49,.45);border-radius:12px;background:#1a2740;padding:14px">
+            <span class="lbl o">The residue</span>
+            <div class="row" style="margin-top:9px"><span class="chip o">1 to a human</span><span class="chip">citation</span></div>
+            <div class="cap">the truly ambiguous few go to people</div>
+          </div>
+        </div>
+        <div style="margin-top:12px;border:1px dashed rgba(175,194,214,.4);border-radius:12px;padding:12px 14px;max-width:520px">
+          <span class="lbl">Discovery</span>
+          <div style="font-size:12.5px;color:#AFC2D6;margin-top:6px">new stakeholder mentioned: add to the map? <span style="color:#EA7C31;font-weight:700">ratify</span></div>
+          <div class="cap">unknown people are proposed, never merged</div>
+        </div>
+      </figure>
+
+      <p class="kick">Retrieval finds what was written. <em>Traversal knows what's missing.</em></p>
+    </div>
+  </section>
+
+  <!-- 6 · ALGORITHMIC -->
+  <section id="sec-algorithmic" data-nav="Algorithmic" data-screen-label="06 Algorithmic" class="sec">
+    <div class="wrap">
+      <div class="eyb"><i></i>Pillar three · Algorithmic</div>
+      <h2 class="h2">The structure is dynamic. <em>The computation is absolute.</em></h2>
+      <p class="body">Scores, roll-ups, and which-value-wins are computed by code, the way they have been here for a decade: where a right answer exists, guessing at it is malpractice.<sup><a href="#r2">2</a></sup> The same is true of warnings. There are three species of flag, and severity is computed, never declared.</p>
+
+      <figure data-rv="1" class="fig scroller">
+        <svg viewBox="0 0 600 120" style="width:100%;min-width:460px;height:auto;display:block;max-width:520px" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif">
+          <rect x="10" y="24" width="34" height="24" rx="5" fill="#152A44" stroke="#46607C" stroke-width="1.2"></rect><text x="27" y="40" text-anchor="middle" fill="#AFC2D6" font-size="12" font-weight="700">Y</text>
+          <rect x="10" y="52" width="34" height="24" rx="5" fill="#152A44" stroke="#46607C" stroke-width="1.2"></rect><text x="27" y="68" text-anchor="middle" fill="#AFC2D6" font-size="12" font-weight="700">N</text>
+          <rect x="52" y="24" width="34" height="24" rx="5" fill="#152A44" stroke="#46607C" stroke-width="1.2"></rect><text x="69" y="40" text-anchor="middle" fill="#AFC2D6" font-size="12" font-weight="700">Y</text>
+          <rect x="52" y="52" width="34" height="24" rx="5" fill="#152A44" stroke="#46607C" stroke-width="1.2"></rect><text x="69" y="68" text-anchor="middle" fill="#AFC2D6" font-size="12" font-weight="700">N</text>
           <path d="M96 50 H150 M144 45 L150 50 L144 55" stroke="#EA7C31" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
           <circle cx="200" cy="50" r="30" fill="none" stroke="#EA7C31" stroke-width="2"></circle>
-          <g stroke="#EA7C31" stroke-width="2">
-            <line x1="200" y1="14" x2="200" y2="26"></line><line x1="200" y1="74" x2="200" y2="86"></line><line x1="164" y1="50" x2="176" y2="50"></line><line x1="224" y1="50" x2="236" y2="50"></line><line x1="175" y1="25" x2="183" y2="33"></line><line x1="217" y1="67" x2="225" y2="75"></line><line x1="225" y1="25" x2="217" y2="33"></line><line x1="183" y1="67" x2="175" y2="75"></line>
-          </g>
+          <g stroke="#EA7C31" stroke-width="2"><line x1="200" y1="14" x2="200" y2="26"></line><line x1="200" y1="74" x2="200" y2="86"></line><line x1="164" y1="50" x2="176" y2="50"></line><line x1="224" y1="50" x2="236" y2="50"></line><line x1="175" y1="25" x2="183" y2="33"></line><line x1="217" y1="67" x2="225" y2="75"></line><line x1="225" y1="25" x2="217" y2="33"></line><line x1="183" y1="67" x2="175" y2="75"></line></g>
           <circle cx="200" cy="50" r="8" fill="#0F2036" stroke="#EA7C31" stroke-width="2"></circle>
           <path d="M250 50 H300 M294 45 L300 50 L294 55" stroke="#EA7C31" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
           <rect x="312" y="34" width="52" height="32" rx="7" fill="#1a2740" stroke="#EA7C31" stroke-width="1.7"></rect><text x="338" y="55" text-anchor="middle" fill="#EA7C31" font-size="16" font-weight="800">62</text>
@@ -281,20 +362,53 @@
         </svg>
       </figure>
 
+      <div data-rv="1" class="grid3">
+        <div class="card" style="border-color:rgba(232,180,74,.5)"><span class="lbl" style="color:#E8B44A">Yellow</span><div style="font-size:13px;color:#EAF0F6;margin-top:7px;line-height:1.5">inferred, awaiting ratification</div><div style="margin-top:8px"><span class="chip">citation</span></div></div>
+        <div class="card" style="border-color:rgba(213,85,46,.55)"><span class="lbl" style="color:#F0A08A">Red</span><div style="font-size:13px;color:#EAF0F6;margin-top:7px;line-height:1.5">a condition that must be true and isn't</div></div>
+        <div class="card" style="border-color:#D5552E;border-width:1.6px"><span class="lbl" style="color:#F0A08A">Contention</span><div style="font-size:13px;color:#EAF0F6;margin-top:7px;line-height:1.5">the present disagrees with the ratified past, and hasn't explained itself</div></div>
+      </div>
+      <figure class="fig" style="margin-top:14px">
+        <span class="lbl">Escalation, computed</span>
+        <div class="row" style="margin-top:10px">
+          <span class="chip">green to red</span><span class="chip">unresolved 30 days</span><span class="chip">role: key player</span>
+          <svg width="26" height="14" viewBox="0 0 26 14"><path d="M1 7 H20 M15 2 L21 7 L15 12" stroke="#EA7C31" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="none" stroke="#EA7C31" stroke-width="1.8"></circle><g stroke="#EA7C31" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="4"></line><line x1="12" y1="20" x2="12" y2="23"></line><line x1="1" y1="12" x2="4" y2="12"></line><line x1="20" y1="12" x2="23" y2="12"></line></g></svg>
+          <svg width="26" height="14" viewBox="0 0 26 14"><path d="M1 7 H20 M15 2 L21 7 L15 12" stroke="#EA7C31" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          <span class="chip o">severity</span>
+        </div>
+        <div class="cap">flags are records: transitions, dwell time, and role are just fields, scoped by the rubric.</div>
+      </figure>
+
+      <figure data-rv="1" class="fig">
+        <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+          <div style="flex:1;min-width:250px">
+            <div style="display:flex;gap:3px;align-items:flex-end">
+              <span style="flex:1;height:14px;border-radius:3px;background:rgba(234,124,49,.16)"></span><span style="flex:1;height:14px;border-radius:3px;background:rgba(234,124,49,.2)"></span><span style="flex:1;height:14px;border-radius:3px;background:rgba(234,124,49,.24)"></span><span style="flex:1;height:14px;border-radius:3px;background:rgba(234,124,49,.3)"></span><span style="flex:1;height:14px;border-radius:3px;background:rgba(213,85,46,.34)"></span><span style="flex:1;height:14px;border-radius:3px;background:rgba(213,85,46,.4)"></span><span style="flex:1;height:14px;border-radius:3px;background:rgba(213,85,46,.46)"></span><span style="flex:1;height:14px;border-radius:3px;background:rgba(213,85,46,.52)"></span><span style="flex:1;height:14px;border-radius:3px;background:rgba(213,85,46,.58)"></span><span style="flex:1;height:14px;border-radius:3px;background:rgba(213,85,46,.64)"></span><span style="flex:1;height:14px;border-radius:3px;background:rgba(213,85,46,.7)"></span><span style="flex:1;height:14px;border-radius:3px;background:rgba(213,85,46,.78)"></span><span style="flex:1;height:14px;border-radius:3px;background:rgba(213,85,46,.86)"></span><span style="flex:1;height:14px;border-radius:3px;background:rgba(213,85,46,.95)"></span>
+              <span style="flex:none;width:64px;height:22px;border-radius:5px;border:1.4px solid #3f9d6b;background:rgba(63,157,107,.16);color:#8fd6b0;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center">mentor</span>
+            </div>
+            <div class="cap" style="margin-top:6px">sentiment declining, fourteen ratified quarters</div>
+          </div>
+          <div style="flex:none;display:flex;flex-direction:column;gap:8px">
+            <span class="chip r" style="font-weight:800">contention</span>
+            <span class="chip o">rule applies: key player</span>
+          </div>
+        </div>
+        <div class="cap">fourteen ratified quarters of decline, one green card today, and a rulebook that says this person matters: detected by computation, narrated by the model only afterward.</div>
+      </figure>
+
       <p class="kick" style="max-width:40ch">Where there's a right answer, <em>we compute it.</em></p>
     </div>
   </section>
 
-  <!-- 6 · DETERMINISM -->
-  <section id="sec-determinism" data-nav="The output" data-screen-label="06 Determinism" class="sec">
+  <!-- 7 · THE BOUNDARY -->
+  <section id="sec-boundary" data-nav="The output" data-screen-label="07 Determinism" class="sec">
     <div class="wrap">
       <div class="eyb"><i></i>The output · Determinism</div>
       <h2 class="h2">Determinism is not a pillar. <em>It is the product.</em></h2>
-      <p class="body">Meaning, reach, and computation together produce one guarantee, and everything above depends on it: ask the same question twice and get the same answer twice, and get told what is missing. In one test, a top AI model asked the same question a thousand times, on its most careful setting, gave eighty different answers.<sup style="font-size:.7em;line-height:0"><a href="#r3">3</a></sup> This layer gives one.</p>
+      <p class="body">Ontology gives meaning. Traversal gives reach. Algorithm gives computation. Together they print one guarantee at the boundary, and everything above stands on it: ask twice, get the same answer twice, and get told what's missing. In one measurement, a frontier model asked the same question a thousand times at its most careful setting gave eighty different answers.<sup><a href="#r3">3</a></sup> This layer gives one.</p>
 
-      <!-- VISUAL 6 · the beam -->
       <div data-rv="1" style="margin-top:24px;display:flex;gap:16px;align-items:stretch;flex-wrap:wrap">
-        <div style="flex:1;min-width:260px;border:1px solid rgba(175,194,214,.16);border-radius:16px;background:#0F2036;padding:18px;position:relative;overflow:hidden">
+        <div style="flex:1;min-width:260px;border:1px solid rgba(175,194,214,.16);border-radius:16px;background:#0F2036;padding:18px">
           <div style="border:1px dashed rgba(175,194,214,.3);border-radius:10px;padding:9px 12px;text-align:center;font-size:10.5px;font-weight:800;letter-spacing:.1em;color:#8AA3BC">COLLABORATION</div>
           <div style="display:flex;justify-content:center;padding:6px 0"><svg width="26" height="40" viewBox="0 0 26 40"><path d="M13 38 V6 M6 15 L13 4 L20 15" stroke="#EA7C31" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
           <div style="border:1.6px solid rgba(234,124,49,.6);border-radius:10px;background:#1a2740;padding:12px;display:flex;flex-direction:column;gap:6px">
@@ -302,11 +416,11 @@
             <div style="text-align:center;font-size:11px;color:#EAF0F6;border:1px solid rgba(234,124,49,.35);border-radius:7px;padding:6px">TRAVERSAL</div>
             <div style="text-align:center;font-size:11px;color:#EA7C31;font-weight:700;border:1px solid rgba(234,124,49,.55);border-radius:7px;padding:6px">ONTOLOGY</div>
           </div>
-          <div class="cap" style="text-align:center;margin-top:10px">determinism, delivered upward</div>
+          <div class="cap" style="text-align:center">determinism, delivered upward</div>
         </div>
         <div style="flex:none;align-self:center;display:flex;flex-direction:column;gap:10px">
-          <div style="border:1px solid rgba(138,163,188,.4);border-radius:10px;background:#152A44;padding:12px 16px;min-width:150px"><div style="font-size:12px;color:#8AA3BC">1,000 asks</div><div style="font-family:var(--font-display);font-weight:800;font-size:20px;color:#AFC2D6">80 answers</div></div>
-          <div style="border:1.4px solid rgba(234,124,49,.55);border-radius:10px;background:rgba(234,124,49,.07);padding:12px 16px;min-width:150px"><div style="font-size:12px;color:#EA7C31">1,000 asks</div><div style="font-family:var(--font-display);font-weight:800;font-size:20px;color:#EA7C31">1 answer</div></div>
+          <div style="border:1px solid rgba(138,163,188,.4);border-radius:10px;background:#152A44;padding:12px 16px;min-width:160px"><div style="font-size:12px;color:#8AA3BC">1,000 asks</div><div style="font-family:var(--font-display);font-weight:800;font-size:20px;color:#AFC2D6">80 answers</div></div>
+          <div style="border:1.4px solid rgba(234,124,49,.55);border-radius:10px;background:rgba(234,124,49,.07);padding:12px 16px;min-width:160px"><div style="font-size:12px;color:#EA7C31">1,000 asks</div><div style="font-family:var(--font-display);font-weight:800;font-size:20px;color:#EA7C31">1 answer</div></div>
         </div>
       </div>
 
@@ -314,14 +428,13 @@
     </div>
   </section>
 
-  <!-- 7 · THROUGH TIME -->
-  <section id="sec-time" data-nav="Through time" data-screen-label="07 Through time" class="sec">
+  <!-- 8 · TIME -->
+  <section id="sec-time" data-nav="Time" data-screen-label="08 Time" class="sec">
     <div class="wrap">
       <div class="eyb"><i></i>The fourth dimension</div>
-      <h2 class="h2">4D is not a fourth pillar. <em>It is the same three, through time.</em></h2>
-      <p class="body">Reach over time is walking a timeline. Meaning over time is changes that matter: a role changed, sentiment shifted, a flag went up. Computation over time is a rule that decides which value is current.<sup style="font-size:.7em;line-height:0"><a href="#r2">2</a></sup> One record per person and per deal, getting deeper every day instead of piling up copies.<sup style="font-size:.7em;line-height:0"><a href="#r4">4</a></sup></p>
+      <h2 class="h2">Time is authored, <em>not conjured.</em></h2>
+      <p class="body">No platform manufactures a timeline for you. Snapshots capture state; to know what changed and why, something must diff the frames and guess at the meaning, at read time, every time. Here the meaning is written once, at the moment it matters: when a change is ratified, the loop writes a delta. Role changed. Sentiment shifted. Flag raised. Each delta carries its source, its citation, and its ratifier, so citing history is citing a node, not a frame. The record keeps two grains: one card of current truth per entity, and an append-only journal of deltas beneath it. Old deltas compact into period summaries on a cadence.</p>
 
-      <!-- VISUAL 7 · strata vs copies -->
       <div data-rv="1" class="grid2">
         <div class="card" style="border-color:rgba(138,163,188,.4)">
           <span class="lbl">Snapshots</span>
@@ -335,7 +448,7 @@
           <div class="cap">snapshots to reconcile</div>
         </div>
         <div class="card" style="border-color:rgba(234,124,49,.5)">
-          <span class="lbl" style="color:#EA7C31">Altify</span>
+          <span class="lbl o">Strata</span>
           <svg viewBox="0 0 300 170" style="width:100%;height:auto;display:block;margin-top:10px" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif">
             <rect x="95" y="14" width="110" height="30" rx="7" fill="#152A44" stroke="#EA7C31" stroke-width="1.7"></rect>
             <text x="150" y="33" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="700">One record</text>
@@ -344,28 +457,214 @@
             <rect x="102" y="104" width="96" height="20" rx="4" fill="#132338" stroke="rgba(234,124,49,.4)" stroke-width="1"></rect><text x="112" y="118" fill="#8AA3BC" font-size="10.5" font-weight="700">Q1</text>
             <rect x="102" y="130" width="96" height="20" rx="4" fill="#101d2f" stroke="rgba(234,124,49,.28)" stroke-width="1"></rect><text x="112" y="144" fill="#8AA3BC" font-size="10.5" font-weight="700">LAST YEAR</text>
             <line x1="150" y1="44" x2="150" y2="52" stroke="#EA7C31" stroke-width="1.4"></line>
-            <path d="M214 58 V150 M209 144 L214 150 L219 144" stroke="#8AA3BC" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".7"></path>
           </svg>
           <div class="cap">one record, deepening</div>
         </div>
       </div>
 
-      <p class="kick" style="max-width:40ch">The record deepens. <em>It never multiplies.</em></p>
+      <figure data-rv="1" class="fig">
+        <div style="max-width:360px">
+          <div style="border:1.5px solid rgba(234,124,49,.55);border-radius:10px;background:#1a2740;padding:12px 14px"><span class="lbl o">Current truth</span><div style="font-size:12.5px;color:#AFC2D6;margin-top:4px">upserted</div></div>
+          <div style="display:flex;flex-direction:column;gap:6px;margin-top:10px;padding-left:14px;border-left:2px solid rgba(234,124,49,.3)">
+            <div style="border:1px solid rgba(175,194,214,.28);border-radius:8px;background:#152A44;padding:8px 10px;font-size:11.5px;color:#AFC2D6">delta <span style="color:#8AA3BC">· source · citation · ratified by</span></div>
+            <div style="border:1px solid rgba(175,194,214,.28);border-radius:8px;background:#152A44;padding:8px 10px;font-size:11.5px;color:#AFC2D6">delta <span style="color:#8AA3BC">· source · citation · ratified by</span></div>
+            <div style="border:1px solid rgba(175,194,214,.28);border-radius:8px;background:#152A44;padding:8px 10px;font-size:11.5px;color:#AFC2D6">delta <span style="color:#8AA3BC">· source · citation · ratified by</span></div>
+          </div>
+        </div>
+        <div class="cap">the card says what is. The journal says how it got that way.</div>
+      </figure>
+
+      <figure data-rv="1" class="fig">
+        <div style="border:1.6px solid #EA7C31;border-radius:12px;background:#1a2740;padding:14px 16px;max-width:600px">
+          <div style="font-size:13.5px;color:#FFFFFF;line-height:1.6">2026-05-14 · sentiment: neutral &#8594; negative · source: call transcript · cited · ratified: J. Alvarez</div>
+        </div>
+        <div class="cap">citing history is citing a node, not a frame.</div>
+      </figure>
+
+      <figure data-rv="1" class="fig">
+        <div class="row" style="gap:4px">
+          <span style="width:12px;height:20px;border-radius:3px;background:rgba(175,194,214,.28);display:inline-block"></span><span style="width:12px;height:20px;border-radius:3px;background:rgba(175,194,214,.28);display:inline-block"></span><span style="width:12px;height:20px;border-radius:3px;background:rgba(175,194,214,.28);display:inline-block"></span><span style="width:12px;height:20px;border-radius:3px;background:rgba(175,194,214,.28);display:inline-block"></span><span style="width:12px;height:20px;border-radius:3px;background:rgba(175,194,214,.28);display:inline-block"></span><span style="width:12px;height:20px;border-radius:3px;background:rgba(175,194,214,.28);display:inline-block"></span><span style="width:12px;height:20px;border-radius:3px;background:rgba(175,194,214,.28);display:inline-block"></span><span style="width:12px;height:20px;border-radius:3px;background:rgba(175,194,214,.28);display:inline-block"></span><span style="width:12px;height:20px;border-radius:3px;background:rgba(175,194,214,.28);display:inline-block"></span><span style="width:12px;height:20px;border-radius:3px;background:rgba(175,194,214,.28);display:inline-block"></span><span style="width:12px;height:20px;border-radius:3px;background:rgba(175,194,214,.28);display:inline-block"></span><span style="width:12px;height:20px;border-radius:3px;background:rgba(175,194,214,.28);display:inline-block"></span>
+          <svg width="26" height="14" viewBox="0 0 26 14"><path d="M1 7 H20 M15 2 L21 7 L15 12" stroke="#EA7C31" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          <span style="border:1.4px solid rgba(234,124,49,.55);border-radius:6px;background:rgba(234,124,49,.09);color:#EA7C31;font-size:11px;font-weight:700;padding:6px 16px">Q1 summary</span>
+          <span style="margin-left:14px" class="chip">recent</span><span class="chip">recent</span><span class="chip">recent</span>
+        </div>
+        <div class="cap">the record deepens, it never multiplies, and it never hoards.</div>
+      </figure>
+
+      <p class="kick">Written at the moment it matters. <em>Readable forever.</em></p>
     </div>
   </section>
 
-  <!-- 8 · THE COST -->
-  <section id="sec-cost" data-nav="The cost" data-screen-label="08 The cost" class="sec">
+  <!-- 9 · THE MEMORY LAYER -->
+  <section id="sec-memory" data-nav="Where it runs" data-screen-label="09 Memory layer" class="sec">
+    <div class="wrap">
+      <div class="eyb"><i></i>Where it runs</div>
+      <h2 class="h2">An activation, <em>not a build.</em></h2>
+      <p class="body">The memory layer runs on the platform's own native data engine, inside the customer's tenant. Ratified records stream in through the platform's free connector. Consolidation is a key join, because every record already shares an ID: no probabilistic matching, no unification engine, and none of its cost. The nightly pattern math runs as scheduled batch computation priced in fractions of a cent per million rows, inside an allowance most enterprise customers already hold. The expensive machinery this platform offers, profile unification and streaming, is machinery this design never turns on.</p>
+
+      <figure data-rv="1" class="fig">
+        <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+          <div style="flex:none;text-align:center">
+            <svg width="44" height="38" viewBox="0 0 44 38"><rect x="4" y="4" width="36" height="30" rx="6" fill="#0F2036" stroke="#EA7C31" stroke-width="1.7"></rect><path d="M14 10 V28 M22 10 V28 M30 10 V28" stroke="#EA7C31" stroke-width="1.3"></path></svg>
+            <div style="font-size:10px;color:#EA7C31;margin-top:3px">gate</div>
+          </div>
+          <div style="flex:none;display:flex;flex-direction:column;gap:4px"><span class="chip o">ratified delta</span><span class="chip o">ratified delta</span></div>
+          <div style="flex:none;text-align:center">
+            <svg width="60" height="16" viewBox="0 0 60 16"><path d="M2 8 H50 M44 3 L52 8 L44 13" stroke="#EA7C31" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <div style="font-size:10px;color:#8AA3BC">free connector</div>
+          </div>
+          <div style="flex:1;min-width:200px;border:1.6px solid rgba(234,124,49,.55);border-radius:12px;background:#1a2740;padding:14px">
+            <span class="lbl o">Memory layer</span>
+            <div style="font-size:11.5px;color:#AFC2D6;margin-top:3px">customer's tenant</div>
+            <div class="row" style="margin-top:9px"><span class="chip">profile cards</span><span class="chip">journals</span></div>
+          </div>
+          <div style="flex:none;display:flex;flex-direction:column;gap:6px;min-width:180px">
+            <span class="chip">nightly batch</span>
+            <span class="chip o">15 credits per million rows<sup><a href="#r11">11</a></sup></span>
+            <span class="chip">unification engine: never enabled, zero cost</span>
+          </div>
+        </div>
+        <div class="cap">their meter, barely moving.</div>
+      </figure>
+
+      <p class="kick">The customer's tenant. The customer's keys. <em>The customer's meter, barely moving.</em></p>
+    </div>
+  </section>
+
+  <!-- 10 · THE TWO LOOPS -->
+  <section id="sec-loops" data-nav="Learning" data-screen-label="10 Two loops" class="sec">
+    <div class="wrap">
+      <div class="eyb"><i></i>Learning · Two cadences</div>
+      <h2 class="h2">The rulebook amends. <em>The playbook advises.</em></h2>
+      <p class="body">Two learning loops run over the ratified record, in a required order. The analysis loop mines what actually killed deals and, when a pattern clears a threshold, proposes an amendment to the rulebook: a new condition that must be true. Humans ratify it; a new version ships. The optimization loop watches what the best sellers do inside the rules and coaches everyone else, continuously, as advice. Methodology first, optimization second, because you cannot compute "better" against an undefined standard. And both loops are only trustworthy because they read ratified truth: pattern mining over guessed data compounds the guessing.</p>
+
+      <figure data-rv="1" class="fig">
+        <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+          <div style="flex:none;border:1.6px solid rgba(234,124,49,.5);border-radius:12px;background:#1a2740;padding:16px 18px;text-align:center;min-width:170px">
+            <div style="font-family:var(--font-display);font-weight:800;font-size:13px;letter-spacing:.06em;color:#FFFFFF">RATIFIED RECORD</div>
+          </div>
+          <div style="flex:1;min-width:260px;display:flex;flex-direction:column;gap:12px">
+            <div style="border:1.4px solid rgba(234,124,49,.5);border-radius:12px;padding:12px 14px">
+              <div class="row" style="gap:8px"><span style="width:19px;height:19px;border-radius:50%;background:#EA7C31;color:#0F2036;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none">1</span><span class="lbl o">Rulebook loop</span><span style="font-size:10.5px;color:#8AA3BC">slow</span></div>
+              <div class="row" style="margin-top:9px"><span class="chip o">mine closed-lost</span><span class="chip o">pattern over threshold</span><span class="chip o">propose amendment</span><span class="chip o">ratify</span><span class="chip o">version ships</span></div>
+            </div>
+            <div style="border:1.2px solid rgba(175,194,214,.32);border-radius:12px;padding:12px 14px">
+              <div class="row" style="gap:8px"><span style="width:19px;height:19px;border-radius:50%;background:#7ED2EE;color:#0F2036;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none">2</span><span class="lbl">Playbook loop</span><span style="font-size:10.5px;color:#8AA3BC">fast</span></div>
+              <div class="row" style="margin-top:9px"><span class="chip">watch the best</span><span class="chip">find the difference</span><span class="chip">coach the rest</span><span class="chip">advisory</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="cap">the standard defines the coordinate system; only then is "better" measurable.</div>
+      </figure>
+
+      <p class="kick">Both loops learn only from ratified truth. <em>That is why they compound instead of drift.</em></p>
+    </div>
+  </section>
+
+  <!-- 11 · THE DAY -->
+  <section id="sec-day" data-nav="The day" data-screen-label="11 The day" class="sec">
+    <div class="wrap">
+      <div class="eyb"><i></i>The collaboration layer's one motion</div>
+      <h2 class="h2">One brief. <em>Every dawn.</em></h2>
+      <p class="body">The layer above this machine has one daily motion: inspect and reconcile. Because flags and deltas are records, the morning brief is not a new system, it is a scheduled read: every unratified yellow, every new red, every contention on this seller's deals, ranked, narrated, and sent where that team already works. Thirty pings train the mute button. One ranked brief trains a ritual. Ratification always returns through the gate, and every brief is logged: what was sent, when, through which door.</p>
+
+      <figure data-rv="1" class="fig">
+        <div style="display:flex;gap:12px;align-items:stretch;flex-wrap:wrap">
+          <div style="flex:1;min-width:180px;border-radius:12px;background:#0b1728;border:1px solid rgba(175,194,214,.2);padding:14px">
+            <span class="lbl">Night</span>
+            <div class="row" style="margin-top:10px">
+              <svg width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="none" stroke="#8AA3BC" stroke-width="1.6"></circle><g stroke="#8AA3BC" stroke-width="1.6"><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line></g></svg>
+              <svg width="24" height="20" viewBox="0 0 44 38"><rect x="4" y="4" width="36" height="30" rx="6" fill="#0F2036" stroke="#8AA3BC" stroke-width="1.6"></rect><path d="M14 10 V28 M22 10 V28 M30 10 V28" stroke="#8AA3BC" stroke-width="1.2"></path></svg>
+            </div>
+            <div class="row" style="margin-top:9px"><span class="chip">delta</span><span class="chip">flag</span><span class="chip">delta</span></div>
+          </div>
+          <div style="flex:1.2;min-width:210px;border-radius:12px;background:#1a2740;border:1.5px solid rgba(234,124,49,.5);padding:14px">
+            <span class="lbl o">Dawn</span>
+            <div style="margin-top:9px;display:flex;flex-direction:column;gap:5px;font-size:11.5px;color:#AFC2D6">
+              <div style="border-bottom:1px solid rgba(175,194,214,.14);padding-bottom:4px">contentions</div>
+              <div style="border-bottom:1px solid rgba(175,194,214,.14);padding-bottom:4px">to ratify</div>
+              <div style="border-bottom:1px solid rgba(175,194,214,.14);padding-bottom:4px">new reds</div>
+              <div>the rest</div>
+            </div>
+          </div>
+          <div style="flex:1;min-width:180px;border-radius:12px;border:1px solid rgba(175,194,214,.2);padding:14px">
+            <span class="lbl">Doors</span>
+            <div class="row" style="margin-top:10px"><span class="chip">email</span><span class="chip">chat</span><span class="chip">teams</span><span class="chip">agent (pull)</span></div>
+            <div class="row" style="margin-top:10px"><span style="font-size:11px;color:#EA7C31;font-weight:700">ratify returns through the gate</span></div>
+            <div style="margin-top:9px"><span class="chip">logged: what, when, which door</span></div>
+          </div>
+        </div>
+        <div class="cap">the coach works all night and speaks once at dawn.</div>
+      </figure>
+
+      <p class="kick" style="max-width:34ch">Always on, <em>not always available.</em></p>
+    </div>
+  </section>
+
+  <!-- 12 · THE STEEL MAN -->
+  <section id="sec-steelman" data-nav="The steel man" data-screen-label="12 Steel man" class="sec">
+    <div class="wrap">
+      <div class="eyb"><i></i>The steel man</div>
+      <h2 class="h2">The strongest alternative, <em>drawn honestly.</em></h2>
+      <p class="body">The best systems in this field share one design. They capture every interaction, extract meaning with models, probabilistically match it to accounts, people, and deals, keep a persistent memory in the vendor's cloud, re-read and re-score it daily, and write updates back to the record. Every serious system now answers anywhere; access is table stakes, and the contest is what the answers stand on. This design is genuinely superior for open questions: discovering themes across unknown documents, cold-starting on unstructured text, exploring a corpus nobody modeled.<sup><a href="#r9">9</a></sup> <sup><a href="#r10">10</a></sup> Given its address, outside the system of record, it is close to the best possible design. The address is the flaw. Score it against the job's five requirements, and the failures are structural, not incidental.</p>
+
+      <figure data-rv="1" class="fig scroller">
+        <div style="display:flex;gap:8px;align-items:stretch;min-width:640px">
+          <div style="flex:1;border:1px solid rgba(175,194,214,.3);border-radius:10px;background:#152A44;padding:11px"><div style="font-size:10px;font-weight:800;letter-spacing:.08em;color:#EAF0F6">CAPTURE</div><div style="font-size:10.5px;color:#8AA3BC;margin-top:4px">calls, email, calendar</div></div>
+          <div style="flex:1;border:1px solid rgba(175,194,214,.3);border-radius:10px;background:#152A44;padding:11px"><div style="font-size:10px;font-weight:800;letter-spacing:.08em;color:#EAF0F6">EXTRACT</div><div style="font-size:10.5px;color:#8AA3BC;margin-top:4px">models label meaning</div></div>
+          <div style="flex:1;border:1px solid rgba(175,194,214,.3);border-radius:10px;background:#152A44;padding:11px"><div style="font-size:10px;font-weight:800;letter-spacing:.08em;color:#EAF0F6">RESOLVE</div><div style="font-size:10.5px;color:#8AA3BC;margin-top:4px">probabilistic match to people, accounts, deals</div></div>
+          <div style="flex:1;border:1px solid rgba(175,194,214,.34);border-radius:10px;background:#182f49;padding:11px"><div style="font-size:10px;font-weight:800;letter-spacing:.08em;color:#EAF0F6">STORE</div><div style="font-size:10.5px;color:#8AA3BC;margin-top:4px">persistent vendor-side memory</div><div style="margin-top:6px;font-size:9.5px;color:#7ED2EE;border-top:1px solid rgba(126,210,238,.25);padding-top:5px">answers anywhere</div></div>
+          <div style="flex:1;border:1px solid rgba(175,194,214,.3);border-radius:10px;background:#152A44;padding:11px"><div style="font-size:10px;font-weight:800;letter-spacing:.08em;color:#EAF0F6">SCORE &amp; SYNTHESIZE</div><div style="font-size:10.5px;color:#8AA3BC;margin-top:4px">models re-read daily</div></div>
+          <div style="flex:1;border:1px solid rgba(175,194,214,.3);border-radius:10px;background:#152A44;padding:11px"><div style="font-size:10px;font-weight:800;letter-spacing:.08em;color:#EAF0F6">WRITE BACK</div><div style="font-size:10.5px;color:#8AA3BC;margin-top:4px">auto-updates the record</div></div>
+        </div>
+        <div class="cap">the state of the art, given the address.</div>
+      </figure>
+
+      <figure data-rv="1" class="fig">
+        <div class="row"><span class="chip">discovery across unknown corpora<sup><a href="#r9">9</a></sup></span><span class="chip">cold start on unstructured text</span><span class="chip">cross-document synthesis<sup><a href="#r10">10</a></sup></span></div>
+        <div class="cap">for those jobs, this is the right machine.</div>
+      </figure>
+
+      <figure data-rv="1" class="fig scroller">
+        <table class="tbl" style="min-width:600px">
+          <thead><tr><th style="width:16%"></th><th style="width:42%">Extraction-first</th><th style="width:42%">Schema-first</th></tr></thead>
+          <tbody>
+            <tr><td><b style="color:#FFFFFF">R1</b><br><span style="font-size:11.5px;color:#8AA3BC">Repeatability</span></td><td class="fail">fails: identical questions, differing answers, even at the most careful settings<sup><a href="#r3">3</a></sup></td><td class="pass">passes: computed</td></tr>
+            <tr><td><b style="color:#FFFFFF">R2</b><br><span style="font-size:11.5px;color:#8AA3BC">Provenance</span></td><td class="fail">fails: citations generated at answer time, roughly half invalid on audit<sup><a href="#r6">6</a></sup></td><td class="pass">passes: written at ingestion, ratified</td></tr>
+            <tr><td><b style="color:#FFFFFF">R3</b><br><span style="font-size:11.5px;color:#8AA3BC">Absence</span></td><td class="fail">fails: an extracted store contains only what was said<sup><a href="#r1">1</a></sup></td><td class="pass">passes: a declared schema enumerates what's missing</td></tr>
+            <tr><td><b style="color:#FFFFFF">R4</b><br><span style="font-size:11.5px;color:#8AA3BC">Arbitration</span></td><td class="fail">fails: freshness left to model judgment, even purpose-built temporal graphs score in single digits<sup><a href="#r2">2</a></sup></td><td class="pass">passes: survivorship by rule</td></tr>
+            <tr><td><b style="color:#FFFFFF">R5</b><br><span style="font-size:11.5px;color:#8AA3BC">Custody</span></td><td class="fail">fails: the memory lives in the vendor's cloud, one more name on the security register</td><td class="pass">passes: the customer's tenant, permissions inherited</td></tr>
+          </tbody>
+        </table>
+        <div class="cap">the tax of the address: capture, match, sync, and re-infer are what living outside the record costs. No engineering refunds it.</div>
+      </figure>
+
+      <p class="kick">For open questions over unknown corpora, grow a graph. For governed answers over a known domain, own the ontology. <em>Enterprise sales is the second kind of job.</em></p>
+    </div>
+  </section>
+
+  <!-- 13 · THE COST -->
+  <section id="sec-cost" data-nav="The cost" data-screen-label="13 The cost" class="sec">
     <div class="wrap">
       <div class="eyb"><i></i>The cost</div>
-      <h2 class="h2">Paid once. <em>Pays back forever.</em></h2>
-      <p class="body">Building this structure is painstaking, and it is done up front, once, then updated on a schedule. That cost is real. It is also the price of admission, and it is exactly why this belongs on big, complex, long-cycle deals, where guessing is the thing you cannot afford. On smaller deals, lighter tools are the right call, and we say so.</p>
+      <h2 class="h2">Paid once. <em>Amortized forever.</em></h2>
+      <p class="body">Designing a declared schema is tedious, and calibrating it per customer takes design-time work with their own history. That cost is real, it happens once, and it evolves by amendment on a cadence. It is the price of admission that keeps this architecture where it belongs: deals with many stakeholders and long cycles, where guessing is the thing you cannot afford. Below that line, lighter tools are the right answer, and we say so.</p>
       <p class="kick">Necessary above the enterprise line. Unnecessary below it. <em>That is the point.</em></p>
     </div>
   </section>
 
-  <!-- 9 · APPENDIX -->
-  <section id="sec-appendix" data-nav="Appendix" data-screen-label="09 Appendix" class="sec">
+  <!-- 14 · THE PROOF -->
+  <section id="sec-proof" data-nav="The proof" data-screen-label="14 The proof" class="sec">
+    <div class="wrap">
+      <div class="eyb"><i></i>The numbers we owe</div>
+      <h2 class="h2">A protocol and a date, <em>not adjectives.</em></h2>
+      <p class="body">Two numbers matter more than any claim on this page: measured extraction precision at the write edge, and the ratification catch rate, how often humans correct what the model routed to them. The measurement protocol is defined, it runs first on our own pipeline, and the first results print before September 15.</p>
+      <p class="kick" style="max-width:34ch">You cannot fake green. <em>Starting with ours.</em></p>
+    </div>
+  </section>
+
+  <!-- 15 · APPENDIX -->
+  <section id="sec-appendix" data-nav="Appendix" data-screen-label="15 Appendix" class="sec">
     <div class="wrap">
       <h2 style="font-family:var(--font-display);font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.14;letter-spacing:-.02em;color:#FFFFFF;margin:0">Appendix</h2>
       <p style="font-size:15px;color:#8AA3BC;margin:8px 0 0">Three panels. Open what you need.</p>
@@ -373,22 +672,30 @@
       <details>
         <summary>THE STACK, TECHNICALLY</summary>
         <div class="panelbody">
-          <p><b>Closed, expert-defined schema.</b> The ontology is the customer's own methodology encoded as objects, fields, and typed relationships: relationship maps, insight maps, process steps, assessment rubrics, all children of one opportunity ID with deterministic foreign keys. Nothing about the structure is model-generated.</p>
-          <p><b>Data as metadata.</b> Which methodology applies, which questions it asks, and which process governs are selected by rule from the deal's own attributes: solution, segment, motion. The structure is dynamic without being inferred.</p>
-          <p><b>The write edge.</b> LLM extraction runs once per new input, at ingestion. Every extracted value carries a citation to its source and a confidence level. Low confidence routes to a human for ratification; high confidence writes with full audit. Inference exists here, quarantined, and caught.</p>
-          <p><b>The read edge.</b> Answers are assembled by traversal and computation. Model inference at read time is limited to sense-making over already-true values: a fraction of the volume, and never the source of facts.</p>
-          <p><b>Time.</b> Changes write as deltas onto one persistent record per entity: append-only journal beside upserted current state, with deterministic survivorship deciding which value wins, and compaction rolling old deltas into period summaries.</p>
+          <p><b>Closed, expert-defined schema.</b> The ontology is the customer's own methodology encoded as objects, fields, and typed relationships: relationship maps, insight maps, process steps, assessment rubrics, all children of one opportunity ID with deterministic foreign keys. Nothing about the structure is model-generated. The structure is a graph in the strict sense: typed nodes, typed edges, one root. It is declared, versioned, and admin-extensible; instances are dynamic, the schema changes only by amendment.</p>
+          <p><b>Data as metadata.</b> Which methodology applies, which questions it asks, and which process governs are selected by rule from the deal's own attributes: solution, segment, motion. Fifty divisions can run fifty calibrated rulebooks in one tenant. The structure is dynamic without being inferred.</p>
+          <p><b>The write edge.</b> Extraction runs once per new signal, at ingestion, behind a resolution funnel: deterministic keys narrow first (the seller's address bounds the deal set, calendar attendees key most voices), closed-set selection assigns the rest (the model picks from the deal's mapped people, a list, not a world), and the truly ambiguous residue routes to a human with a citation. People mentioned but unknown are never probabilistically merged: the system proposes a new stakeholder, a human ratifies, and the identity question is answered once, forever. Every extracted value carries a citation and a confidence level. Low confidence routes to ratification; high confidence writes with full audit. Inference exists here, quarantined, and caught.</p>
+          <p><b>The read edge.</b> Answers are assembled by traversal and computation. Model inference at read time is limited to sense-making over already-true values: narrating why a computed flag exists, assembling the morning brief. A fraction of the volume, and never the source of facts.</p>
+          <p><b>Time, in two grains.</b> Each entity keeps one profile card of current truth, upserted, and one append-only journal of ratified deltas beneath it, each delta carrying source, citation, ratifier, and timestamp. Deterministic survivorship decides which value wins. Compaction rolls old deltas into period summaries on a cadence, so the record deepens without hoarding. Consolidation across an entity's many per-deal cards is a key join plus a materialized entity view: the platform's profile-unification engine is never enabled, because deterministic foreign keys make it unnecessary, and its cost, orders of magnitude above batch computation, is never incurred.</p>
+          <p><b>The memory layer, concretely.</b> Ratified records stream to the platform's native data engine inside the customer's tenant over the free CRM connector. Pattern analysis runs as scheduled batch calculated insights, priced per million rows scanned<sup><a href="#r11">11</a></sup>; threshold conditions fire native triggered flows that create recommendation records, post to chat, or feed an agent. Weekly and monthly cadences keep consumption inside the free allowance most enterprise editions already include<sup><a href="#r12">12</a></sup>. Streaming computation and profile unification are excluded from the design on purpose. Generative narration, where used, runs through the platform's governed AI gateway; the batch layer is tenant-local by architecture and never leaves.</p>
+          <p><b>The delivery edge.</b> The brief subsystem is one-way publication of rendered content, never record sync: a preference registry (asked at design time: where does this team work), a per-timezone assembler that runs after the nightly write completes, channel adapters (email and chat natively, other suites via governed webhook), and a ledger logging every brief sent: content, time, door. Agents pull the same brief over the open assistant protocol instead of being pushed. Ratification from any door returns through the governed loop.</p>
+          <p><b>Packaging.</b> Platform rules require the memory-layer metadata to ship as its own package beside the existing application package, distributed as a data kit; the pattern is the same one the platform vendor uses for its own industry kits. The core loop requires no custom code beyond the assembler, the adapters, and the write edge.</p>
         </div>
       </details>
 
       <details>
         <summary>WHY EACH CHOICE, THE EVIDENCE</summary>
         <div class="panelbody">
-          <p><b>Why a closed schema:</b> models cannot reliably detect what is absent from open text: frontier models reach only about 70% F1 finding deliberate omissions even at small context sizes, because attention cannot attend to gaps.<sup style="font-size:.7em;line-height:0"><a href="#r1">1</a></sup> A closed schema turns absence into a null-field lookup. Every red flag is exactly that.</p>
-          <p><b>Why computation over judgment:</b> replacing model judgment with a deterministic rule improved accuracy by 10.8 points, widening to 21 at long context, while a leading temporal knowledge graph scored 7% on the same conflict-resolution task.<sup style="font-size:.7em;line-height:0"><a href="#r2">2</a></sup> Our survivorship and scoring are those rules.</p>
-          <p><b>Why not generation-time answers:</b> identical temperature-zero sampling produced 80 distinct outputs in 1,000 runs.<sup style="font-size:.7em;line-height:0"><a href="#r3">3</a></sup> Long context degrades 30 to 50% before advertised limits, worst on cross-referencing.<sup style="font-size:.7em;line-height:0"><a href="#r5">5</a></sup> Retrieving pre-computed state uses about 90% fewer tokens than re-reading history.<sup style="font-size:.7em;line-height:0"><a href="#r4">4</a></sup></p>
-          <p><b>Why ratified citations:</b> roughly half of citations generated at answer time are invalid on audit.<sup style="font-size:.7em;line-height:0"><a href="#r6">6</a></sup> Ours are written at ingestion and human-ratified where uncertain, following the proven pattern of routing the uncertain few percent to people.<sup style="font-size:.7em;line-height:0"><a href="#r7">7</a></sup></p>
-          <p><b>The shared weakness, said plainly:</b> our write edge depends on the same extraction reliability that limits automatic knowledge graphs, with published error rates from a few percent to roughly a quarter in open graphs.<sup style="font-size:.7em;line-height:0"><a href="#r8">8</a></sup> Confidence routing and ratification contain it. Nothing eliminates it. The highest-value number we can ever publish is our own measured extraction precision and ratification catch rate.</p>
+          <p><b>Why a closed schema:</b> models cannot reliably detect what is absent from open text: frontier models reach only about 70% F1 finding deliberate omissions even at small context sizes, because attention cannot attend to gaps.<sup><a href="#r1">1</a></sup> A closed schema turns absence into a null-field lookup. Every red flag is exactly that. And in this vertical, absence detection is the job: qualification is the discipline of finding what's missing.</p>
+          <p><b>Why a normative schema:</b> a structure extracted from conversations can only describe what was said. A structure declared by methodology prescribes what must be true, which is the only way a machine can compute a red flag, and the only way it can compute a contention: the present disagreeing with the ratified past. Descriptive stores cannot raise either, because they contain no obligations and no ratified history to contend with.</p>
+          <p><b>Why computation over judgment:</b> replacing model judgment with a deterministic rule improved accuracy by 10.8 points, widening to 21 at long context, while a leading temporal knowledge graph scored 7% on the same conflict-resolution task.<sup><a href="#r2">2</a></sup> Our survivorship, scoring, and escalation are those rules. Severity is computed from role, transition, and dwell time, never declared by a model.</p>
+          <p><b>Why not generation-time answers:</b> identical temperature-zero sampling produced 80 distinct outputs in 1,000 runs.<sup><a href="#r3">3</a></sup> Long context degrades 30 to 50% before advertised limits, worst on cross-referencing.<sup><a href="#r5">5</a></sup> Retrieving pre-computed state uses about 90% fewer tokens than re-reading history.<sup><a href="#r4">4</a></sup></p>
+          <p><b>Why ratified citations:</b> roughly half of citations generated at answer time are invalid on audit.<sup><a href="#r6">6</a></sup> Ours are written at ingestion and human-ratified where uncertain, following the proven pattern of routing the uncertain few percent to people.<sup><a href="#r7">7</a></sup></p>
+          <p><b>Why closed-set resolution:</b> open-set identification, matching a name against the world, is where probabilistic systems spend fortunes and still err; the field's patent portfolios are monuments to it. Closed-set selection, picking one of nine mapped people, is where extraction models are strong and hallucination has nowhere to land. The schema converts the hard problem into the easy one before any model runs.</p>
+          <p><b>Why authored time:</b> snapshots preserve state and discard meaning; recovering "what changed and why" from frames requires re-inference on every read, forever. Writing the delta once, at ratification, with its citation and its ratifier, makes history cheap to carry and free to cite. Fixed lookback windows in interaction-corpus systems are the tell of the opposite cost model: when every question re-reads the past, the past must be capped.</p>
+          <p><b>Why per-tenant learning:</b> the rulebook loop calibrates each customer's ontology from their own closed-lost history, at design time, and amendments ship as versions after human ratification. Nothing is trained across customers, and nothing learned leaves the tenant. Cross-tenant learning builds the vendor's asset; per-tenant learning builds the customer's.</p>
+          <p><b>The honest graph comparison:</b> emergent graph retrieval is real progress and wins real jobs: multi-hop discovery and thematic summarization over unknown corpora are its documented strengths.<sup><a href="#r9">9</a></sup> The same benchmark literature shows it underperforming plain retrieval on simple factual and time-sensitive questions at multiplied latency,<sup><a href="#r10">10</a></sup> and the field's own consensus now pairs graphs with deterministic computation in front of structured data. That hybrid conclusion is this page's design, stated from the other direction.</p>
+          <p><b>The shared weakness, said plainly:</b> our write edge depends on the same extraction reliability that limits automatic knowledge graphs, with published error rates from a few percent to roughly a quarter in open graphs.<sup><a href="#r8">8</a></sup> Confidence routing, closed-set narrowing, and ratification contain it. Nothing eliminates it. The highest-value numbers we can publish are our own measured extraction precision and ratification catch rate, and the protocol for both is defined with a date.</p>
         </div>
       </details>
 
@@ -403,12 +710,21 @@
           <p id="r6"><sup style="color:#7ED2EE;font-weight:700">6</sup> GhostCite (arXiv:2602.06718): ~50% of model-generated citations invalid on audit; "Correctness is not Faithfulness" (arXiv:2412.18004).</p>
           <p id="r7"><sup style="color:#7ED2EE;font-weight:700">7</sup> Cleanlab (2025): confidence-thresholded routing: automate 95 to 99%, review the uncertain 1 to 5%.</p>
           <p id="r8"><sup style="color:#7ED2EE;font-weight:700">8</sup> Automatic KG construction error rates: ~2.4% anomalous triples in controlled settings (arXiv:2602.13830) up to ~26% erroneous knowledge in NELL (cited in arXiv:2506.11012).</p>
+          <p id="r9"><sup style="color:#7ED2EE;font-weight:700">9</sup> GraphRAG (Edge et al., arXiv:2404.16130, 2024): LLM-extracted entity graph with hierarchical community summaries; documented strengths in multi-hop, corpus-level thematic questions.</p>
+          <p id="r10"><sup style="color:#7ED2EE;font-weight:700">10</sup> GraphRAG-Bench (2025): graph-based retrieval trailing plain retrieval on simple factual and time-sensitive queries (reported drops of ~13 to 17 points) at 2 to 3x latency; consensus recommendation: hybrid routing with deterministic computation for structured lookups.</p>
+          <p id="r11"><sup style="color:#7ED2EE;font-weight:700">11</sup> Salesforce Data 360 consumption documentation and Trailhead credit module (2026): batch calculated insights at 15 credits per 1,000,000 rows; additional credits at $500 per 100,000.</p>
+          <p id="r12"><sup style="color:#7ED2EE;font-weight:700">12</sup> Salesforce Help, Data 360 Provisioning (article 000396380, 2026): 250,000 data services credits per year included on Enterprise Edition and above.</p>
         </div>
       </details>
     </div>
   </section>
 
-  <footer data-screen-label="Footer" style="border-top:1px solid rgba(175,194,214,.16);padding:30px 0 46px">
+  <!-- CLOSE -->
+  <div style="padding:44px 0 0;text-align:center">
+    <div style="font-size:13px;color:#8AA3BC;letter-spacing:.03em">This is the bottom of the cake. The loop above runs on this machine.</div>
+  </div>
+
+  <footer data-screen-label="Footer" style="border-top:1px solid rgba(175,194,214,.16);padding:30px 0 46px;margin-top:36px">
     <div style="max-width:900px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center">
       <a href="./" style="display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#EA7C31;text-decoration:none">The vision <span style="font-size:15px">&#8594;</span></a>
       <div style="color:#8AA3BC;font-size:12px">ALTIFY · Internal · Not for external distribution</div>
@@ -432,7 +748,6 @@ class Component extends DCLogic {
     const $ = (id) => document.getElementById(id);
     this._observers = [];
 
-    // --- footnotes: open the Receipts panel and scroll to the source (enhancement; accordion works without JS) ---
     this._onFnClick = (e) => {
       const a = e.target.closest('a[href^="#r"]');
       if (!a) return;
@@ -447,7 +762,6 @@ class Component extends DCLogic {
     };
     document.addEventListener('click', this._onFnClick);
 
-    // --- section quick-nav: sticky links + step buttons ---
     const navSecs = Array.from(document.querySelectorAll('[data-nav]'));
     const topnav = $('topnav');
     const btnUp = $('navUp'), btnDown = $('navDown');
@@ -493,7 +807,6 @@ class Component extends DCLogic {
       update();
     }
 
-    // --- section reveals ---
     if (reduced) return;
     const rvs = Array.from(document.querySelectorAll('[data-rv]'));
     rvs.forEach((el) => { el.style.opacity = '0'; el.style.transform = 'translateY(16px)'; el.style.transition = 'opacity .6s cubic-bezier(.22,.61,.36,1), transform .6s cubic-bezier(.22,.61,.36,1)'; });
