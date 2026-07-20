@@ -376,10 +376,10 @@
       <svg id="walkviz" viewBox="0 0 940 486" style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif" role="img" aria-label="An opportunity record with four named arrows to people, problems, process and methodology. A dot walks each arrow and a window prints what it found: budget holder not engaged, stage 3 blocked, IT feasibility not complete, and three red flags carrying critical risk, then asks whether to reconcile them.">
         <rect width="940" height="486" fill="#0F2036"></rect>
 
-        <path data-hop="1" data-target="wk-people" d="M170 76 L170 100 L76 100 L76 134 L82 134" fill="none" stroke="#EA7C31" stroke-width="2" marker-end="url(#ah-o)"></path>
-        <path data-hop="3" data-target="wk-problems" d="M160 76 L160 94 L68 94 L68 204 L82 204" fill="none" stroke="#EA7C31" stroke-width="2" marker-end="url(#ah-o)"></path>
-        <path data-hop="2" data-target="wk-process" d="M150 76 L150 88 L60 88 L60 274 L82 274" fill="none" stroke="#EA7C31" stroke-width="2" marker-end="url(#ah-o)"></path>
-        <path data-hop="4" data-target="wk-potential" d="M140 76 L140 82 L52 82 L52 344 L82 344" fill="none" stroke="#EA7C31" stroke-width="2" marker-end="url(#ah-o)"></path>
+        <path data-hop="2" data-target="wk-people" d="M170 76 L170 100 L76 100 L76 134 L82 134" fill="none" stroke="#EA7C31" stroke-width="2" marker-end="url(#ah-o)"></path>
+        <path data-hop="4" data-target="wk-problems" d="M160 76 L160 94 L68 94 L68 204 L82 204" fill="none" stroke="#EA7C31" stroke-width="2" marker-end="url(#ah-o)"></path>
+        <path data-hop="3" data-target="wk-process" d="M150 76 L150 88 L60 88 L60 274 L82 274" fill="none" stroke="#EA7C31" stroke-width="2" marker-end="url(#ah-o)"></path>
+        <path data-hop="1" data-target="wk-potential" d="M140 76 L140 82 L52 82 L52 344 L82 344" fill="none" stroke="#EA7C31" stroke-width="2" marker-end="url(#ah-o)"></path>
 
         <rect x="30" y="30" width="250" height="46" rx="10" fill="#152A44" stroke="#EA7C31" stroke-width="1.7"></rect>
         <text x="155" y="60" text-anchor="middle" fill="#FFFFFF" font-size="14.5" font-weight="700">Opportunity</text>
@@ -423,12 +423,12 @@
         <text id="walkquery" data-full="Where does this deal stand, and what's next?" x="372" y="110" fill="#EAF0F6" font-size="14.5" font-weight="700"></text>
 
         <g font-size="14">
-          <circle cx="378" cy="155" r="4" fill="#EA7C31"></circle><text data-line="1" data-hop="1" data-full="Budget holder: not engaged." x="394" y="160" fill="#AFC2D6"></text>
-          <circle cx="378" cy="195" r="4" fill="#EA7C31"></circle><text data-line="2" data-hop="2" data-full="Stage 3 blocked: two procurement contacts missing." x="394" y="200" fill="#AFC2D6"></text>
-          <circle cx="378" cy="235" r="4" fill="#EA7C31"></circle><text data-line="3" data-hop="3" data-full="IT feasibility not complete." x="394" y="240" fill="#AFC2D6"></text>
-          <circle cx="378" cy="285" r="4" fill="#D5552E"></circle><text data-line="4" data-hop="4" data-full="Red Flags: No Feasibility Study, No Supporter" x="394" y="290" fill="#F0A08A" font-weight="700"></text>
-          <text data-line="5" data-hop="4" data-full="In Decision Maker, No Budget Confirmed." x="394" y="314" fill="#F0A08A" font-weight="700"></text>
-          <text data-line="6" data-hop="4" data-full="Do you want to reconcile any of these 3?" x="394" y="356" fill="#FFFFFF"></text>
+          <circle cx="378" cy="155" r="4" fill="#D5552E"></circle><text data-line="1" data-hop="1" data-full="Red Flags: No Feasibility Study, No Supporter" x="394" y="160" fill="#F0A08A" font-weight="700"></text>
+          <text data-line="2" data-hop="1" data-full="In Decision Maker, No Budget Confirmed." x="394" y="184" fill="#F0A08A" font-weight="700"></text>
+          <circle cx="378" cy="221" r="4" fill="#EA7C31"></circle><text data-line="3" data-hop="2" data-full="Budget holder: not engaged." x="394" y="226" fill="#AFC2D6"></text>
+          <circle cx="378" cy="261" r="4" fill="#EA7C31"></circle><text data-line="4" data-hop="3" data-full="Stage 3 blocked: two procurement contacts missing." x="394" y="266" fill="#AFC2D6"></text>
+          <circle cx="378" cy="301" r="4" fill="#EA7C31"></circle><text data-line="5" data-hop="4" data-full="IT feasibility not complete." x="394" y="306" fill="#AFC2D6"></text>
+          <text data-line="6" data-hop="final" data-full="Do you want to reconcile any of these 3?" x="394" y="354" fill="#FFFFFF"></text>
         </g>
 
         <g font-size="12.5" font-weight="700">
@@ -621,7 +621,7 @@ class Component extends DCLogic {
       const q = document.getElementById('walkquery');
       const lines = Array.from(svg.querySelectorAll('[data-line]')).sort((a, b) => +a.dataset.line - +b.dataset.line);
       const chips = Array.from(svg.querySelectorAll('[data-chip]'));
-      const hops = Array.from(svg.querySelectorAll('[data-hop]')).sort((a, b) => +a.dataset.hop - +b.dataset.hop);
+      const hops = Array.from(svg.querySelectorAll('path[data-hop][data-target]')).sort((a, b) => +a.dataset.hop - +b.dataset.hop);
       const targets = hops.map((h) => document.getElementById(h.dataset.target));
       const QUERY = q.getAttribute('data-full');
       const full = () => {
@@ -672,22 +672,25 @@ class Component extends DCLogic {
       const run = async () => {
         const my = ++token;
         reset();
-        if (!(await type(q, QUERY, 26, my))) return;
-        await wait(420);
+        if (!(await type(q, QUERY, 18, my))) return;
+        await wait(260);
         for (let i = 0; i < hops.length; i++) {
           if (my !== token) return;
-          if (!(await travel(hops[i], 2400, my))) return;
+          if (!(await travel(hops[i], 900, my))) return;
           pulse(targets[i]);
           const group = lines.filter((l) => l.dataset.hop === hops[i].dataset.hop);
           for (const ln of group) {
-            if (!(await type(ln, ln.getAttribute('data-full'), 17, my))) return;
-            await wait(130);
+            if (!(await type(ln, ln.getAttribute('data-full'), 11, my))) return;
+            await wait(90);
           }
-          await wait(340);
+          await wait(170);
+        }
+        for (const ln of lines.filter((l) => l.dataset.hop === 'final')) {
+          if (!(await type(ln, ln.getAttribute('data-full'), 11, my))) return;
         }
         if (my !== token) return;
         dot.setAttribute('opacity', '0');
-        chips.forEach((c, i) => setTimeout(() => { if (my === token) c.setAttribute('opacity', '1'); }, i * 170));
+        chips.forEach((c, i) => setTimeout(() => { if (my === token) c.setAttribute('opacity', '1'); }, i * 120));
       };
       if (btn) btn.onclick = run;
       reset();
