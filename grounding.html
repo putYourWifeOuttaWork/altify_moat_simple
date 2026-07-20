@@ -62,6 +62,11 @@
     .cornerlg div{display:flex;align-items:center;gap:7px;font-size:9.5px;color:#AFC2D6;line-height:1.45}
     .cornerlg svg{width:30px;height:auto;flex:none}
     @media (max-width:760px){.cornerlg{position:static;max-width:none;margin-bottom:12px}}
+    .cornerlg.strip{position:static;max-width:none;margin:0 0 14px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;background:transparent;border:0;padding:0}
+    .cornerlg.strip .clg-t{margin:0 4px 0 0}
+    .snapcard{opacity:0;animation:snapcyc 33s linear infinite}
+    @keyframes snapcyc{0%{opacity:0}0.6%{opacity:1}8.4%{opacity:1}9%{opacity:0}100%{opacity:0}}
+    @media (prefers-reduced-motion:reduce){.snapcard{animation:none}.snapcard:first-child{opacity:1}}
     .anchor{width:48px;height:48px;flex:none}
     .fixbadge{position:absolute;top:10px;right:12px;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#8AA3BC;border:1px solid rgba(175,194,214,.25);border-radius:5px;padding:2px 7px;background:#0F2036}
     .fromto{display:flex;gap:12px;align-items:stretch;flex-wrap:wrap;margin-top:16px}
@@ -86,13 +91,14 @@
 
 <!-- ARROWHEAD SPRITE -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
-  <marker id="ah-g" viewBox="0 0 10 10" refX="9.2" refY="5" markerWidth="5.4" markerHeight="5.4" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#5FBE8C"></path></marker>
-  <marker id="ah-r" viewBox="0 0 10 10" refX="9.2" refY="5" markerWidth="5.4" markerHeight="5.4" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#D5552E"></path></marker>
-  <marker id="ah-k" viewBox="0 0 10 10" refX="9.2" refY="5" markerWidth="5.4" markerHeight="5.4" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#8AA3BC"></path></marker>
-  <marker id="ah-o" viewBox="0 0 10 10" refX="9.2" refY="5" markerWidth="5.4" markerHeight="5.4" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#EA7C31"></path></marker>
-  <marker id="ah-b" viewBox="0 0 10 10" refX="9.2" refY="5" markerWidth="5.4" markerHeight="5.4" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#7ED2EE"></path></marker>
-  <marker id="ah-d" viewBox="0 0 10 10" refX="9.2" refY="5" markerWidth="5.4" markerHeight="5.4" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#53AFD4"></path></marker>
-  <marker id="ah-t" viewBox="0 0 10 10" refX="9.2" refY="5" markerWidth="4.6" markerHeight="4.6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#53AFD4"></path></marker>
+  <marker id="ah-g" viewBox="0 0 10 10" refX="9.6" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#5FBE8C"></path></marker>
+  <marker id="ah-r" viewBox="0 0 10 10" refX="9.6" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#D5552E"></path></marker>
+  <marker id="ah-k" viewBox="0 0 10 10" refX="9.6" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#8AA3BC"></path></marker>
+  <marker id="ah-o" viewBox="0 0 10 10" refX="9.6" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#EA7C31"></path></marker>
+  <marker id="ah-b" viewBox="0 0 10 10" refX="9.6" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#7ED2EE"></path></marker>
+  <marker id="ah-d" viewBox="0 0 10 10" refX="9.6" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#53AFD4"></path></marker>
+  <marker id="ah-t" viewBox="0 0 10 10" refX="9.6" refY="5" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#53AFD4"></path></marker>
+  <marker id="ah-y" viewBox="0 0 10 10" refX="9.6" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#E8B44A"></path></marker>
 </defs></svg>
 
 <!-- TOPBAR -->
@@ -143,159 +149,163 @@
     <p class="body">On the relationship map, every person carries measured attributes: sentiment, political status, buying role, coverage, key player, target. And people reference each other: influence runs from one person to another as its own arrow, and so does conflict. On the insight map, every card is one of five types: a goal, a pressure, an initiative, an obstacle, or a solution, and each is honed by or informs specific people, many to many. Joined, this is the deal's political situation: not a diagram of contacts, a typed graph of who matters, to whom, about what.</p>
 
     <figure class="fig" data-rv="1">
-      <svg viewBox="0 0 940 526" style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif" role="img" aria-label="One continuous field called the political situation. On the left, six typed person cards and a dim budget holder slot, joined by gray reports to arrows, one green influence arrow and one red conflict arrow. On the right, five typed insight cards joined to people by orange honed by and informs arrows, many to many.">
-        <rect width="940" height="526" fill="#0F2036"></rect>
-        <rect x="8" y="8" width="924" height="472" rx="16" fill="#122539" stroke="rgba(234,124,49,.28)"></rect>
-        <text x="28" y="34" fill="#EA7C31" font-size="10.5" font-weight="800" letter-spacing="1.6">RELATIONSHIP MAP</text>
-        <text x="560" y="34" fill="#7ED2EE" font-size="10.5" font-weight="800" letter-spacing="1.6">INSIGHT MAP</text>
+      <svg viewBox="0 0 940 572" style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif" role="img" aria-label="One continuous field called the political situation. Six typed person cards in a column with a dim budget holder slot, joined on the left by nested gray reports to arrows, one green influence arrow and one red conflict arrow. On the right, five typed insight cards joined to people by orange honed by and informs arrows that never cross.">
+        <rect width="940" height="572" fill="#0F2036"></rect>
+        <rect x="8" y="8" width="924" height="486" rx="16" fill="#122539" stroke="rgba(234,124,49,.28)"></rect>
+        <text x="24" y="32" fill="#EA7C31" font-size="10.5" font-weight="800" letter-spacing="1.6">RELATIONSHIP MAP</text>
+        <text x="560" y="32" fill="#7ED2EE" font-size="10.5" font-weight="800" letter-spacing="1.6">INSIGHT MAP</text>
 
-        <!-- HONED BY: person to card, head at the card -->
-        <g fill="none" stroke="#EA7C31" stroke-width="1.5" opacity=".85">
-          <path d="M262 78 C 400 66, 470 62, 552 62" marker-end="url(#ah-o)"></path>
-          <path d="M502 178 C 530 170, 536 150, 552 136" marker-end="url(#ah-o)"></path>
-          <path d="M262 282 C 420 300, 470 310, 552 308" marker-end="url(#ah-o)"></path>
-        </g>
-        <!-- INFORMS: card to person, head at the person -->
-        <g fill="none" stroke="#EA7C31" stroke-width="1.5" opacity=".85" stroke-dasharray="none">
-          <path d="M552 74 C 460 100, 400 140, 344 168" marker-end="url(#ah-o)"></path>
-          <path d="M552 86 C 500 180, 470 250, 444 274" marker-end="url(#ah-o)"></path>
-          <path d="M552 208 C 530 200, 520 188, 504 184" marker-end="url(#ah-o)"></path>
-          <path d="M552 366 C 480 300, 460 160, 452 116" marker-end="url(#ah-o)"></path>
-        </g>
-
-        <!-- REPORTS TO: gray, head at the manager -->
+        <!-- LEFT GUTTER: nested reports to, influence, conflict. No two arcs cross. -->
         <g fill="none" stroke="#8AA3BC" stroke-width="1.6">
-          <path d="M105 156 L105 132 L168 132 L168 116" marker-end="url(#ah-k)"></path>
-          <path d="M265 156 L265 132 L202 132 L202 116" marker-end="url(#ah-k)"></path>
-          <path d="M425 156 L425 132 L392 132 L392 116" marker-end="url(#ah-k)"></path>
-          <path d="M185 256 L185 232 L112 232 L112 216" marker-end="url(#ah-k)"></path>
-          <path d="M365 256 L365 232 L268 232 L268 216" marker-end="url(#ah-k)"></path>
+          <path d="M100 140 L64 140 L64 84 L100 84" marker-end="url(#ah-k)"></path>
+          <path d="M100 200 L44 200 L44 80 L100 80" marker-end="url(#ah-k)"></path>
+          <path d="M100 260 L72 260 L72 216 L100 216" marker-end="url(#ah-k)"></path>
+          <path d="M100 320 L60 320 L60 212 L100 212" marker-end="url(#ah-k)"></path>
+          <path d="M100 380 L48 380 L48 208 L100 208" marker-end="url(#ah-k)"></path>
+          <path d="M100 440 L36 440 L36 204 L100 204" marker-end="url(#ah-k)"></path>
         </g>
-
-        <!-- INFLUENCE: green, supporter to director -->
-        <path d="M262 286 C 300 274, 306 244, 302 220" fill="none" stroke="#5FBE8C" stroke-width="2" marker-end="url(#ah-g)"></path>
-        <text x="272" y="252" fill="#5FBE8C" font-size="9" font-weight="800" letter-spacing=".6">INFLUENCE</text>
-        <!-- CONFLICT: red dashed, double headed -->
-        <path d="M264 102 L346 164" fill="none" stroke="#D5552E" stroke-width="2" stroke-dasharray="6 4" marker-start="url(#ah-r)" marker-end="url(#ah-r)"></path>
-        <text x="268" y="146" fill="#F0A08A" font-size="9" font-weight="800" letter-spacing=".6">CONFLICT</text>
+        <path d="M100 368 L84 368 L84 312 L100 312" fill="none" stroke="#5FBE8C" stroke-width="2" marker-end="url(#ah-g)"></path>
+        <path d="M100 272 L88 272 L88 300 L100 300" fill="none" stroke="#D5552E" stroke-width="2" stroke-dasharray="6 4" marker-start="url(#ah-r)" marker-end="url(#ah-r)"></path>
 
         <!-- PERSON CARDS -->
         <g>
-          <rect x="110" y="56" width="150" height="60" rx="7" fill="#FFFFFF"></rect>
-          <circle cx="130" cy="76" r="11" fill="#C6D2DE"></circle>
-          <rect x="148" y="68" width="70" height="7" rx="3.5" fill="#94A5B6"></rect>
-          <rect x="148" y="80" width="48" height="6" rx="3" fill="#C6D2DE"></rect>
-          <g><circle cx="121" cy="102" r="2.6" fill="#5FBE8C"></circle><circle cx="128" cy="102" r="2.6" fill="#5FBE8C"></circle><circle cx="135" cy="102" r="2.6" fill="#D8DEE6"></circle></g>
-          <rect x="144" y="97" width="20" height="10" rx="3" fill="#E8B44A"></rect>
-          <rect x="168" y="97" width="20" height="10" rx="3" fill="#AFC2D6"></rect>
-          <g fill="#8AA3BC"><rect x="192" y="97" width="4" height="10" rx="1"></rect><rect x="198" y="97" width="4" height="10" rx="1"></rect><rect x="204" y="100" width="4" height="7" rx="1" fill="#D8DEE6"></rect></g>
-          <rect x="214" y="97" width="18" height="10" rx="3" fill="#53AFD4"></rect>
-          <circle cx="244" cy="102" r="5" fill="none" stroke="#EA7C31" stroke-width="2"></circle>
-        </g>
-        <g>
-          <rect x="30" y="156" width="150" height="60" rx="7" fill="#FFFFFF"></rect>
-          <circle cx="50" cy="176" r="11" fill="#C6D2DE"></circle>
-          <rect x="68" y="168" width="70" height="7" rx="3.5" fill="#94A5B6"></rect>
-          <rect x="68" y="180" width="48" height="6" rx="3" fill="#C6D2DE"></rect>
-          <g><circle cx="41" cy="202" r="2.6" fill="#5FBE8C"></circle><circle cx="48" cy="202" r="2.6" fill="#D8DEE6"></circle><circle cx="55" cy="202" r="2.6" fill="#D8DEE6"></circle></g>
-          <rect x="64" y="197" width="20" height="10" rx="3" fill="#E8B44A"></rect>
-          <rect x="88" y="197" width="20" height="10" rx="3" fill="#AFC2D6"></rect>
-          <g fill="#8AA3BC"><rect x="112" y="197" width="4" height="10" rx="1"></rect><rect x="118" y="200" width="4" height="7" rx="1" fill="#D8DEE6"></rect><rect x="124" y="200" width="4" height="7" rx="1" fill="#D8DEE6"></rect></g>
-          <circle cx="164" cy="202" r="5" fill="none" stroke="#EA7C31" stroke-width="2"></circle>
-        </g>
-        <g>
-          <rect x="190" y="156" width="150" height="60" rx="7" fill="#FFFFFF"></rect>
-          <circle cx="210" cy="176" r="11" fill="#C6D2DE"></circle>
-          <rect x="228" y="168" width="70" height="7" rx="3.5" fill="#94A5B6"></rect>
-          <rect x="228" y="180" width="48" height="6" rx="3" fill="#C6D2DE"></rect>
-          <g><circle cx="201" cy="202" r="2.6" fill="#5FBE8C"></circle><circle cx="208" cy="202" r="2.6" fill="#5FBE8C"></circle><circle cx="215" cy="202" r="2.6" fill="#5FBE8C"></circle></g>
-          <rect x="224" y="197" width="20" height="10" rx="3" fill="#E8B44A"></rect>
-          <rect x="248" y="197" width="20" height="10" rx="3" fill="#AFC2D6"></rect>
-          <g fill="#8AA3BC"><rect x="272" y="197" width="4" height="10" rx="1"></rect><rect x="278" y="197" width="4" height="10" rx="1"></rect><rect x="284" y="197" width="4" height="10" rx="1"></rect></g>
-          <rect x="294" y="197" width="18" height="10" rx="3" fill="#53AFD4"></rect>
-          <circle cx="324" cy="202" r="5" fill="none" stroke="#EA7C31" stroke-width="2"></circle>
-        </g>
-        <g>
-          <rect x="350" y="156" width="150" height="60" rx="7" fill="#FFFFFF"></rect>
-          <circle cx="370" cy="176" r="11" fill="#C6D2DE"></circle>
-          <rect x="388" y="168" width="70" height="7" rx="3.5" fill="#94A5B6"></rect>
-          <rect x="388" y="180" width="48" height="6" rx="3" fill="#C6D2DE"></rect>
-          <g><circle cx="361" cy="202" r="2.6" fill="#5FBE8C"></circle><circle cx="368" cy="202" r="2.6" fill="#5FBE8C"></circle><circle cx="375" cy="202" r="2.6" fill="#D8DEE6"></circle></g>
-          <rect x="384" y="197" width="20" height="10" rx="3" fill="#E8B44A"></rect>
-          <rect x="408" y="197" width="20" height="10" rx="3" fill="#AFC2D6"></rect>
-          <g fill="#8AA3BC"><rect x="432" y="197" width="4" height="10" rx="1"></rect><rect x="438" y="197" width="4" height="10" rx="1"></rect><rect x="444" y="200" width="4" height="7" rx="1" fill="#D8DEE6"></rect></g>
-          <circle cx="484" cy="202" r="5" fill="none" stroke="#EA7C31" stroke-width="2"></circle>
-          <circle cx="490" cy="164" r="6" fill="#5FBE8C"></circle>
-          <text x="350" y="232" fill="#5FBE8C" font-size="10" font-weight="700">buying dept</text>
-        </g>
-        <g>
-          <rect x="110" y="256" width="150" height="60" rx="7" fill="#FFFFFF"></rect>
-          <circle cx="130" cy="276" r="11" fill="#C6D2DE"></circle>
-          <rect x="148" y="268" width="70" height="7" rx="3.5" fill="#94A5B6"></rect>
-          <rect x="148" y="280" width="48" height="6" rx="3" fill="#C6D2DE"></rect>
-          <g><circle cx="121" cy="302" r="2.6" fill="#5FBE8C"></circle><circle cx="128" cy="302" r="2.6" fill="#5FBE8C"></circle><circle cx="135" cy="302" r="2.6" fill="#5FBE8C"></circle></g>
-          <rect x="144" y="297" width="20" height="10" rx="3" fill="#E8B44A"></rect>
-          <rect x="168" y="297" width="20" height="10" rx="3" fill="#AFC2D6"></rect>
-          <g fill="#8AA3BC"><rect x="192" y="297" width="4" height="10" rx="1"></rect><rect x="198" y="297" width="4" height="10" rx="1"></rect><rect x="204" y="297" width="4" height="10" rx="1"></rect></g>
-          <rect x="214" y="297" width="18" height="10" rx="3" fill="#53AFD4"></rect>
-          <circle cx="244" cy="302" r="5" fill="none" stroke="#EA7C31" stroke-width="2"></circle>
-          <circle cx="250" cy="264" r="6" fill="#5FBE8C"></circle>
-          <text x="110" y="332" fill="#5FBE8C" font-size="10" font-weight="700">buying dept</text>
-        </g>
-        <g>
-          <rect x="290" y="256" width="150" height="60" rx="7" fill="#FFFFFF"></rect>
-          <circle cx="310" cy="276" r="11" fill="#C6D2DE"></circle>
-          <rect x="328" y="268" width="70" height="7" rx="3.5" fill="#94A5B6"></rect>
-          <rect x="328" y="280" width="48" height="6" rx="3" fill="#C6D2DE"></rect>
-          <g><circle cx="301" cy="302" r="2.6" fill="#5FBE8C"></circle><circle cx="308" cy="302" r="2.6" fill="#5FBE8C"></circle><circle cx="315" cy="302" r="2.6" fill="#D8DEE6"></circle></g>
-          <rect x="324" y="297" width="20" height="10" rx="3" fill="#E8B44A"></rect>
-          <rect x="348" y="297" width="20" height="10" rx="3" fill="#AFC2D6"></rect>
-          <g fill="#8AA3BC"><rect x="372" y="297" width="4" height="10" rx="1"></rect><rect x="378" y="297" width="4" height="10" rx="1"></rect><rect x="384" y="300" width="4" height="7" rx="1" fill="#D8DEE6"></rect></g>
-          <circle cx="424" cy="302" r="5" fill="none" stroke="#EA7C31" stroke-width="2"></circle>
-          <circle cx="430" cy="264" r="6" fill="#5FBE8C"></circle>
-          <text x="290" y="332" fill="#5FBE8C" font-size="10" font-weight="700">buying dept</text>
+          <rect x="100" y="56" width="270" height="48" rx="7" fill="#FFFFFF"></rect>
+          <circle cx="122" cy="80" r="11" fill="#C6D2DE"></circle>
+          <rect x="140" y="70" width="76" height="7" rx="3.5" fill="#94A5B6"></rect>
+          <rect x="140" y="82" width="52" height="6" rx="3" fill="#C6D2DE"></rect>
+          <g><circle cx="234" cy="80" r="2.8" fill="#5FBE8C"></circle><circle cx="242" cy="80" r="2.8" fill="#5FBE8C"></circle><circle cx="250" cy="80" r="2.8" fill="#D8DEE6"></circle></g>
+          <rect x="262" y="74" width="22" height="12" rx="3" fill="#E8B44A"></rect>
+          <rect x="290" y="74" width="22" height="12" rx="3" fill="#AFC2D6"></rect>
+          <g fill="#8AA3BC"><rect x="318" y="74" width="4" height="12" rx="1"></rect><rect x="324" y="74" width="4" height="12" rx="1"></rect><rect x="330" y="77" width="4" height="9" rx="1" fill="#D8DEE6"></rect></g>
+          <rect x="340" y="74" width="14" height="12" rx="3" fill="#53AFD4"></rect>
+          <circle cx="362" cy="80" r="5" fill="none" stroke="#EA7C31" stroke-width="2"></circle>
         </g>
 
-        <!-- THE EMPTY SLOT -->
-        <rect x="300" y="56" width="150" height="60" rx="7" fill="none" stroke="#8AA3BC" stroke-width="1.6" stroke-dasharray="6 4"></rect>
-        <circle cx="320" cy="76" r="11" fill="none" stroke="#8AA3BC" stroke-width="1.3" stroke-dasharray="3 3"></circle>
-        <text x="338" y="74" fill="#8AA3BC" font-size="10.5" font-weight="800" letter-spacing=".7">BUDGET HOLDER</text>
-        <text x="338" y="90" fill="#8AA3BC" font-size="10.5">not engaged</text>
-        <text x="316" y="108" fill="#8AA3BC" font-size="9.5" letter-spacing=".5">no attributes, no arrows</text>
+        <rect x="100" y="116" width="270" height="48" rx="7" fill="none" stroke="#8AA3BC" stroke-width="1.6" stroke-dasharray="6 4"></rect>
+        <circle cx="122" cy="140" r="11" fill="none" stroke="#8AA3BC" stroke-width="1.3" stroke-dasharray="3 3"></circle>
+        <text x="142" y="136" fill="#8AA3BC" font-size="11" font-weight="800" letter-spacing=".7">BUDGET HOLDER</text>
+        <text x="142" y="151" fill="#8AA3BC" font-size="10.5">not engaged. no attributes, no arrows</text>
+
+        <g>
+          <rect x="100" y="176" width="270" height="48" rx="7" fill="#FFFFFF"></rect>
+          <circle cx="122" cy="200" r="11" fill="#C6D2DE"></circle>
+          <rect x="140" y="190" width="76" height="7" rx="3.5" fill="#94A5B6"></rect>
+          <rect x="140" y="202" width="52" height="6" rx="3" fill="#C6D2DE"></rect>
+          <g><circle cx="234" cy="200" r="2.8" fill="#5FBE8C"></circle><circle cx="242" cy="200" r="2.8" fill="#D8DEE6"></circle><circle cx="250" cy="200" r="2.8" fill="#D8DEE6"></circle></g>
+          <rect x="262" y="194" width="22" height="12" rx="3" fill="#E8B44A"></rect>
+          <rect x="290" y="194" width="22" height="12" rx="3" fill="#AFC2D6"></rect>
+          <g fill="#8AA3BC"><rect x="318" y="194" width="4" height="12" rx="1"></rect><rect x="324" y="197" width="4" height="9" rx="1" fill="#D8DEE6"></rect><rect x="330" y="197" width="4" height="9" rx="1" fill="#D8DEE6"></rect></g>
+          <circle cx="362" cy="200" r="5" fill="none" stroke="#EA7C31" stroke-width="2"></circle>
+        </g>
+        <g>
+          <rect x="100" y="236" width="270" height="48" rx="7" fill="#FFFFFF"></rect>
+          <circle cx="122" cy="260" r="11" fill="#C6D2DE"></circle>
+          <rect x="140" y="250" width="76" height="7" rx="3.5" fill="#94A5B6"></rect>
+          <rect x="140" y="262" width="52" height="6" rx="3" fill="#C6D2DE"></rect>
+          <g><circle cx="234" cy="260" r="2.8" fill="#5FBE8C"></circle><circle cx="242" cy="260" r="2.8" fill="#5FBE8C"></circle><circle cx="250" cy="260" r="2.8" fill="#5FBE8C"></circle></g>
+          <rect x="262" y="254" width="22" height="12" rx="3" fill="#E8B44A"></rect>
+          <rect x="290" y="254" width="22" height="12" rx="3" fill="#AFC2D6"></rect>
+          <g fill="#8AA3BC"><rect x="318" y="254" width="4" height="12" rx="1"></rect><rect x="324" y="254" width="4" height="12" rx="1"></rect><rect x="330" y="254" width="4" height="12" rx="1"></rect></g>
+          <rect x="340" y="254" width="14" height="12" rx="3" fill="#53AFD4"></rect>
+          <circle cx="362" cy="260" r="5" fill="none" stroke="#EA7C31" stroke-width="2"></circle>
+          <circle cx="106" cy="242" r="6" fill="#5FBE8C"></circle>
+          
+        </g>
+        <g>
+          <rect x="100" y="296" width="270" height="48" rx="7" fill="#FFFFFF"></rect>
+          <circle cx="122" cy="320" r="11" fill="#C6D2DE"></circle>
+          <rect x="140" y="310" width="76" height="7" rx="3.5" fill="#94A5B6"></rect>
+          <rect x="140" y="322" width="52" height="6" rx="3" fill="#C6D2DE"></rect>
+          <g><circle cx="234" cy="320" r="2.8" fill="#5FBE8C"></circle><circle cx="242" cy="320" r="2.8" fill="#5FBE8C"></circle><circle cx="250" cy="320" r="2.8" fill="#D8DEE6"></circle></g>
+          <rect x="262" y="314" width="22" height="12" rx="3" fill="#E8B44A"></rect>
+          <rect x="290" y="314" width="22" height="12" rx="3" fill="#AFC2D6"></rect>
+          <g fill="#8AA3BC"><rect x="318" y="314" width="4" height="12" rx="1"></rect><rect x="324" y="314" width="4" height="12" rx="1"></rect><rect x="330" y="317" width="4" height="9" rx="1" fill="#D8DEE6"></rect></g>
+          <rect x="340" y="314" width="14" height="12" rx="3" fill="#53AFD4"></rect>
+          <circle cx="362" cy="320" r="5" fill="none" stroke="#EA7C31" stroke-width="2"></circle>
+        </g>
+        <g>
+          <rect x="100" y="356" width="270" height="48" rx="7" fill="#FFFFFF"></rect>
+          <circle cx="122" cy="380" r="11" fill="#C6D2DE"></circle>
+          <rect x="140" y="370" width="76" height="7" rx="3.5" fill="#94A5B6"></rect>
+          <rect x="140" y="382" width="52" height="6" rx="3" fill="#C6D2DE"></rect>
+          <g><circle cx="234" cy="380" r="2.8" fill="#5FBE8C"></circle><circle cx="242" cy="380" r="2.8" fill="#5FBE8C"></circle><circle cx="250" cy="380" r="2.8" fill="#5FBE8C"></circle></g>
+          <rect x="262" y="374" width="22" height="12" rx="3" fill="#E8B44A"></rect>
+          <rect x="290" y="374" width="22" height="12" rx="3" fill="#AFC2D6"></rect>
+          <g fill="#8AA3BC"><rect x="318" y="374" width="4" height="12" rx="1"></rect><rect x="324" y="374" width="4" height="12" rx="1"></rect><rect x="330" y="374" width="4" height="12" rx="1"></rect></g>
+          <circle cx="362" cy="380" r="5" fill="none" stroke="#EA7C31" stroke-width="2"></circle>
+          <circle cx="106" cy="362" r="6" fill="#5FBE8C"></circle>
+          
+        </g>
+        <g>
+          <rect x="100" y="416" width="270" height="48" rx="7" fill="#FFFFFF"></rect>
+          <circle cx="122" cy="440" r="11" fill="#C6D2DE"></circle>
+          <rect x="140" y="430" width="76" height="7" rx="3.5" fill="#94A5B6"></rect>
+          <rect x="140" y="442" width="52" height="6" rx="3" fill="#C6D2DE"></rect>
+          <g><circle cx="234" cy="440" r="2.8" fill="#5FBE8C"></circle><circle cx="242" cy="440" r="2.8" fill="#5FBE8C"></circle><circle cx="250" cy="440" r="2.8" fill="#D8DEE6"></circle></g>
+          <rect x="262" y="434" width="22" height="12" rx="3" fill="#E8B44A"></rect>
+          <rect x="290" y="434" width="22" height="12" rx="3" fill="#AFC2D6"></rect>
+          <g fill="#8AA3BC"><rect x="318" y="434" width="4" height="12" rx="1"></rect><rect x="324" y="434" width="4" height="12" rx="1"></rect><rect x="330" y="437" width="4" height="9" rx="1" fill="#D8DEE6"></rect></g>
+          <circle cx="362" cy="440" r="5" fill="none" stroke="#EA7C31" stroke-width="2"></circle>
+          <circle cx="106" cy="422" r="6" fill="#5FBE8C"></circle>
+          
+        </g>
+
+        <!-- ORANGE CORRIDOR: honed by points at the card, informs points at the person. Ordered so no two cross. -->
+        <g fill="none" stroke="#EA7C31" stroke-width="1.6" opacity=".9">
+          <path d="M470 72 C 510 70, 530 68, 556 68" marker-end="url(#ah-o)"></path>
+          <path d="M556 84 C 520 90, 500 160, 470 196" marker-end="url(#ah-o)"></path>
+          <path d="M556 94 C 516 110, 500 220, 470 252" marker-end="url(#ah-o)"></path>
+          <path d="M470 308 C 510 300, 528 190, 556 152" marker-end="url(#ah-o)"></path>
+          <path d="M470 320 C 512 316, 530 260, 556 236" marker-end="url(#ah-o)"></path>
+          <path d="M556 324 C 520 336, 500 360, 470 376" marker-end="url(#ah-o)"></path>
+          <path d="M470 436 C 510 432, 532 416, 556 408" marker-end="url(#ah-o)"></path>
+        </g>
+        <g fill="#8AA3BC" font-size="9" font-weight="800" letter-spacing=".6" text-anchor="middle">
+          <rect x="392" y="60" width="72" height="15" rx="4" fill="#122539"></rect><text x="428" y="71" fill="#EA7C31">HONED BY</text>
+          <rect x="392" y="188" width="72" height="15" rx="4" fill="#122539"></rect><text x="428" y="199" fill="#EA7C31">INFORMS</text>
+          <rect x="392" y="244" width="72" height="15" rx="4" fill="#122539"></rect><text x="428" y="255" fill="#EA7C31">INFORMS</text>
+          <rect x="392" y="300" width="72" height="15" rx="4" fill="#122539"></rect><text x="428" y="311" fill="#EA7C31">HONED BY</text>
+          <rect x="392" y="368" width="72" height="15" rx="4" fill="#122539"></rect><text x="428" y="379" fill="#EA7C31">INFORMS</text>
+          <rect x="392" y="428" width="72" height="15" rx="4" fill="#122539"></rect><text x="428" y="439" fill="#EA7C31">HONED BY</text>
+        </g>
+        <g font-size="10" font-weight="700">
+          <rect x="24" y="472" width="20" height="3" rx="1.5" fill="#8AA3BC"></rect><text x="52" y="477" fill="#8AA3BC">reports to</text>
+          <rect x="130" y="472" width="20" height="3" rx="1.5" fill="#5FBE8C"></rect><text x="158" y="477" fill="#5FBE8C">influence</text>
+          <rect x="234" y="472" width="20" height="3" rx="1.5" fill="#D5552E"></rect><text x="262" y="477" fill="#F0A08A">conflict</text>
+          <circle cx="340" cy="473" r="5" fill="#5FBE8C"></circle><text x="354" y="477" fill="#5FBE8C">supporter, buying dept</text>
+        </g>
 
         <!-- INSIGHT CARDS -->
-        <g font-family="DM Sans, system-ui, sans-serif">
-          <rect x="552" y="46" width="360" height="52" rx="8" fill="#152A44" stroke="rgba(175,194,214,.28)"></rect>
-          <rect x="566" y="60" width="52" height="16" rx="4" fill="rgba(95,190,140,.18)" stroke="#5FBE8C"></rect>
-          <text x="592" y="72" text-anchor="middle" fill="#5FBE8C" font-size="9" font-weight="800" letter-spacing=".8">GOAL</text>
-          <text x="630" y="72" fill="#EAF0F6" font-size="13" font-weight="700">close the audit finding this year</text>
-          <text x="566" y="90" fill="#8AA3BC" font-size="10">touches three people</text>
+        <g>
+          <rect x="556" y="56" width="360" height="48" rx="8" fill="#152A44" stroke="rgba(175,194,214,.28)"></rect>
+          <rect x="570" y="70" width="52" height="16" rx="4" fill="rgba(95,190,140,.18)" stroke="#5FBE8C"></rect>
+          <text x="596" y="82" text-anchor="middle" fill="#5FBE8C" font-size="9" font-weight="800" letter-spacing=".8">GOAL</text>
+          <text x="634" y="82" fill="#EAF0F6" font-size="12.5" font-weight="700">close the audit finding this year</text>
 
-          <rect x="552" y="118" width="360" height="52" rx="8" fill="#152A44" stroke="rgba(175,194,214,.28)"></rect>
-          <rect x="566" y="132" width="76" height="16" rx="4" fill="rgba(213,85,46,.18)" stroke="#D5552E"></rect>
-          <text x="604" y="144" text-anchor="middle" fill="#F0A08A" font-size="9" font-weight="800" letter-spacing=".8">PRESSURE</text>
-          <text x="654" y="144" fill="#EAF0F6" font-size="13" font-weight="700">renewal lands in ninety days</text>
+          <rect x="556" y="140" width="360" height="48" rx="8" fill="#152A44" stroke="rgba(175,194,214,.28)"></rect>
+          <rect x="570" y="154" width="76" height="16" rx="4" fill="rgba(213,85,46,.18)" stroke="#D5552E"></rect>
+          <text x="608" y="166" text-anchor="middle" fill="#F0A08A" font-size="9" font-weight="800" letter-spacing=".8">PRESSURE</text>
+          <text x="658" y="166" fill="#EAF0F6" font-size="12.5" font-weight="700">renewal lands in ninety days</text>
 
-          <rect x="552" y="190" width="360" height="52" rx="8" fill="#152A44" stroke="rgba(175,194,214,.28)"></rect>
-          <rect x="566" y="204" width="80" height="16" rx="4" fill="rgba(126,210,238,.16)" stroke="#7ED2EE"></rect>
-          <text x="606" y="216" text-anchor="middle" fill="#7ED2EE" font-size="9" font-weight="800" letter-spacing=".8">INITIATIVE</text>
-          <text x="658" y="216" fill="#EAF0F6" font-size="13" font-weight="700">consolidate the vendor stack</text>
+          <rect x="556" y="224" width="360" height="48" rx="8" fill="#152A44" stroke="rgba(175,194,214,.28)"></rect>
+          <rect x="570" y="238" width="80" height="16" rx="4" fill="rgba(126,210,238,.16)" stroke="#7ED2EE"></rect>
+          <text x="610" y="250" text-anchor="middle" fill="#7ED2EE" font-size="9" font-weight="800" letter-spacing=".8">INITIATIVE</text>
+          <text x="662" y="250" fill="#EAF0F6" font-size="12.5" font-weight="700">consolidate the vendor stack</text>
 
-          <rect x="552" y="262" width="360" height="52" rx="8" fill="#152A44" stroke="rgba(175,194,214,.28)"></rect>
-          <rect x="566" y="276" width="76" height="16" rx="4" fill="rgba(232,180,74,.16)" stroke="#E8B44A"></rect>
-          <text x="604" y="288" text-anchor="middle" fill="#E8B44A" font-size="9" font-weight="800" letter-spacing=".8">OBSTACLE</text>
-          <text x="654" y="288" fill="#EAF0F6" font-size="13" font-weight="700">integration backlog is eight months</text>
+          <rect x="556" y="308" width="360" height="48" rx="8" fill="#152A44" stroke="rgba(175,194,214,.28)"></rect>
+          <rect x="570" y="322" width="76" height="16" rx="4" fill="rgba(232,180,74,.16)" stroke="#E8B44A"></rect>
+          <text x="608" y="334" text-anchor="middle" fill="#E8B44A" font-size="9" font-weight="800" letter-spacing=".8">OBSTACLE</text>
+          <text x="658" y="334" fill="#EAF0F6" font-size="12.5" font-weight="700">integration backlog is eight months</text>
 
-          <rect x="552" y="334" width="360" height="52" rx="8" fill="#152A44" stroke="rgba(175,194,214,.28)"></rect>
-          <rect x="566" y="348" width="76" height="16" rx="4" fill="rgba(234,124,49,.16)" stroke="#EA7C31"></rect>
-          <text x="604" y="360" text-anchor="middle" fill="#EA7C31" font-size="9" font-weight="800" letter-spacing=".8">SOLUTION</text>
-          <text x="654" y="360" fill="#EAF0F6" font-size="13" font-weight="700">phased rollout, audit scope first</text>
+          <rect x="556" y="392" width="360" height="48" rx="8" fill="#152A44" stroke="rgba(175,194,214,.28)"></rect>
+          <rect x="570" y="406" width="76" height="16" rx="4" fill="rgba(234,124,49,.16)" stroke="#EA7C31"></rect>
+          <text x="608" y="418" text-anchor="middle" fill="#EA7C31" font-size="9" font-weight="800" letter-spacing=".8">SOLUTION</text>
+          <text x="658" y="418" fill="#EAF0F6" font-size="12.5" font-weight="700">phased rollout, audit scope first</text>
         </g>
 
-        <rect x="330" y="424" width="280" height="38" rx="19" fill="#152A44" stroke="#EA7C31"></rect>
-        <text x="470" y="448" text-anchor="middle" fill="#FFFFFF" font-size="12.5" font-weight="800" letter-spacing="1.4">THE POLITICAL SITUATION</text>
-
-        <text x="470" y="506" text-anchor="middle" fill="#8AA3BC" font-size="13">six measured attributes per person, five insight types, five arrow types, many to many: the politics, as data.</text>
+        <rect x="330" y="504" width="280" height="34" rx="17" fill="#152A44" stroke="#EA7C31"></rect>
+        <text x="470" y="526" text-anchor="middle" fill="#FFFFFF" font-size="12.5" font-weight="800" letter-spacing="1.4">THE POLITICAL SITUATION</text>
+        <text x="470" y="562" text-anchor="middle" fill="#8AA3BC" font-size="13">six measured attributes per person, five insight types, five arrow types, many to many: the politics, as data.</text>
       </svg>
     </figure>
 
@@ -331,129 +341,122 @@
     <p class="body">The maps supply the evidence. The assessment reads it and sets what must become true. The sales process tells everything where we are, and it sequences the assessment: in stage one it would be unfair to flag a seller for lacking influence over the budget holder, you may not even know who that is yet, but budget confirmed, timeline known, need established: required now. And potential is not an opinion. The odds of winning, and the risk of losing, are computed from all of it.</p>
 
     <figure class="fig" data-rv="1">
-      <div class="cornerlg" aria-hidden="true">
+      <div class="cornerlg strip" aria-hidden="true">
         <div class="clg-t">Arrow types</div>
-        <div><svg viewBox="0 0 30 10"><path d="M1 5 H22" stroke="#5FBE8C" stroke-width="2" fill="none" marker-end="url(#ah-g)"></path></svg>influence</div>
-        <div><svg viewBox="0 0 30 10"><path d="M6 5 H22" stroke="#D5552E" stroke-width="2" fill="none" stroke-dasharray="4 3" marker-start="url(#ah-r)" marker-end="url(#ah-r)"></path></svg>conflict</div>
-        <div><svg viewBox="0 0 30 10"><path d="M1 5 H22" stroke="#8AA3BC" stroke-width="2" fill="none" marker-end="url(#ah-k)"></path></svg>reports to</div>
         <div><svg viewBox="0 0 30 10"><path d="M1 5 H22" stroke="#EA7C31" stroke-width="2" fill="none" marker-end="url(#ah-o)"></path></svg>honed by, informs</div>
         <div><svg viewBox="0 0 30 10"><path d="M1 5 H22" stroke="#7ED2EE" stroke-width="2" fill="none" marker-end="url(#ah-b)"></path></svg>supplies evidence</div>
         <div><svg viewBox="0 0 30 10"><path d="M1 5 H22" stroke="#EA7C31" stroke-width="2.8" fill="none" marker-end="url(#ah-o)"></path></svg>sets what must become true</div>
-        <div><svg viewBox="0 0 30 10"><path d="M1 5 H22" stroke="#53AFD4" stroke-width="3" fill="none" marker-end="url(#ah-d)"></path></svg>sequences</div>
-        <div><svg viewBox="0 0 30 12"><path d="M1 4 H22" stroke="#53AFD4" stroke-width="1.1" fill="none" marker-end="url(#ah-t)"></path><path d="M22 9 H1" stroke="#53AFD4" stroke-width="1.1" fill="none" marker-end="url(#ah-t)"></path></svg>necessitates, informs the stage</div>
+        <div><svg viewBox="0 0 30 10"><path d="M1 5 H22" stroke="#53AFD4" stroke-width="3.2" fill="none" marker-end="url(#ah-d)"></path></svg>sequences</div>
+        <div><svg viewBox="0 0 30 10"><path d="M1 5 H22" stroke="#53AFD4" stroke-width="1.2" fill="none" marker-end="url(#ah-t)"></path></svg>necessitates, informs the stage</div>
       </div>
-      <svg viewBox="0 0 940 660" style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif" role="img" aria-label="Four blocks in a diamond: people, problems, process and potential, joined by named directed arrows. Supplies evidence runs from the maps into potential, sets what must become true runs back, sequences runs from process into potential, and paired thin arrows run between process and the maps.">
+      <svg viewBox="0 0 940 660" style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif" role="img" aria-label="Four blocks in a square: people, problems, process and methodology. Named arrows run around the perimeter, and exactly two run across the middle in one shared corridor, so nothing crosses.">
         <rect width="940" height="660" fill="#0F2036"></rect>
 
-        <!-- SUPPLIES EVIDENCE -->
-        <path d="M400 218 C 372 300, 384 400, 410 452" fill="none" stroke="#7ED2EE" stroke-width="2.2" marker-end="url(#ah-b)"></path>
-        <path d="M700 372 C 660 420, 600 448, 556 462" fill="none" stroke="#7ED2EE" stroke-width="2.2" marker-end="url(#ah-b)"></path>
-        <g font-size="9.5" font-weight="800" letter-spacing=".7" fill="#7ED2EE">
-          <text x="352" y="344">SUPPLIES EVIDENCE</text>
-          <text x="612" y="428">SUPPLIES EVIDENCE</text>
+        <!-- PERIMETER -->
+        <path d="M394 180 L546 180" fill="none" stroke="#EA7C31" stroke-width="2" marker-start="url(#ah-o)" marker-end="url(#ah-o)"></path>
+        <path d="M210 304 L210 396" fill="none" stroke="#53AFD4" stroke-width="1.3" marker-end="url(#ah-t)"></path>
+        <path d="M240 396 L240 304" fill="none" stroke="#53AFD4" stroke-width="1.3" marker-end="url(#ah-t)"></path>
+        <path d="M715 304 L715 396" fill="none" stroke="#7ED2EE" stroke-width="2.2" marker-end="url(#ah-b)"></path>
+        <path d="M394 515 L546 515" fill="none" stroke="#53AFD4" stroke-width="3.4" marker-end="url(#ah-d)"></path>
+
+        <!-- THE ONLY TWO ARROWS ACROSS THE MIDDLE, ONE CORRIDOR, NO PERPENDICULAR CROSSING -->
+        <path d="M348 302 L556 406" fill="none" stroke="#7ED2EE" stroke-width="2.2" marker-end="url(#ah-b)"></path>
+        <path d="M600 382 L394 268" fill="none" stroke="#EA7C31" stroke-width="2.8" marker-end="url(#ah-o)"></path>
+
+        <!-- LABEL CHIPS, EACH ON ITS OWN ARROW, OPAQUE -->
+        <g font-size="9" font-weight="800" letter-spacing=".6" text-anchor="middle">
+          <rect x="404" y="172" width="132" height="16" rx="4" fill="#0F2036"></rect><text x="470" y="184" fill="#EA7C31">HONED BY, INFORMS</text>
+          <rect x="79" y="342" width="118" height="16" rx="4" fill="#0F2036"></rect><text x="138" y="354" fill="#53AFD4">INFORMS THE STAGE</text>
+          <rect x="264" y="342" width="96" height="16" rx="4" fill="#0F2036"></rect><text x="312" y="354" fill="#53AFD4">NECESSITATES</text>
+          <rect x="756" y="342" width="124" height="16" rx="4" fill="#0F2036"></rect><text x="818" y="354" fill="#7ED2EE">SUPPLIES EVIDENCE</text>
+          <rect x="424" y="484" width="92" height="16" rx="4" fill="#0F2036"></rect><text x="470" y="496" fill="#53AFD4">SEQUENCES</text>
+          <rect x="390" y="364" width="124" height="16" rx="4" fill="#0F2036"></rect><text x="452" y="376" fill="#7ED2EE">SUPPLIES EVIDENCE</text>
+          <rect x="406" y="298" width="180" height="16" rx="4" fill="#0F2036"></rect><text x="496" y="310" fill="#EA7C31">SETS WHAT MUST BECOME TRUE</text>
         </g>
 
-        <!-- SETS WHAT MUST BECOME TRUE -->
-        <path d="M470 452 C 496 400, 502 300, 486 218" fill="none" stroke="#EA7C31" stroke-width="2.8" marker-end="url(#ah-o)"></path>
-        <path d="M576 452 C 640 424, 692 400, 726 366" fill="none" stroke="#EA7C31" stroke-width="2.8" marker-end="url(#ah-o)"></path>
-        <g font-size="9.5" font-weight="800" letter-spacing=".7" fill="#EA7C31">
-          <text x="498" y="332">SETS WHAT MUST BECOME TRUE</text>
-          <text x="600" y="470">SETS WHAT MUST BECOME TRUE</text>
-        </g>
-
-        <!-- SEQUENCES -->
-        <path d="M290 344 C 340 410, 348 452, 392 486" fill="none" stroke="#53AFD4" stroke-width="3.4" marker-end="url(#ah-d)"></path>
-        <text x="248" y="440" fill="#53AFD4" font-size="10.5" font-weight="800" letter-spacing=".8">SEQUENCES</text>
-
-        <!-- NECESSITATES / INFORMS THE STAGE -->
-        <g stroke="#53AFD4" stroke-width="1.3" fill="none" opacity=".9">
-          <path d="M212 240 C 244 190, 280 156, 330 132" marker-end="url(#ah-t)"></path>
-          <path d="M322 148 C 274 172, 240 202, 210 250" marker-end="url(#ah-t)"></path>
-          <path d="M282 268 C 420 232, 560 236, 692 268" marker-end="url(#ah-t)"></path>
-          <path d="M694 292 C 560 322, 420 322, 284 292" marker-end="url(#ah-t)"></path>
-        </g>
-        <g font-size="9" font-weight="800" letter-spacing=".6" fill="#53AFD4">
-          <text x="236" y="176">NECESSITATES</text>
-          <text x="196" y="216">INFORMS THE STAGE</text>
-          <text x="430" y="242">NECESSITATES</text>
-          <text x="424" y="322">INFORMS THE STAGE</text>
-        </g>
-
-        <!-- HONED BY / INFORMS between People and Problems -->
-        <path d="M616 116 C 668 132, 700 170, 716 214" fill="none" stroke="#EA7C31" stroke-width="1.8" marker-end="url(#ah-o)"></path>
-        <path d="M742 218 C 736 168, 700 130, 640 106" fill="none" stroke="#EA7C31" stroke-width="1.8" marker-end="url(#ah-o)"></path>
-        <g font-size="9" font-weight="800" letter-spacing=".6" fill="#EA7C31">
-          <text x="620" y="152">HONED BY</text>
-          <text x="686" y="180">INFORMS</text>
-        </g>
-
-        <!-- NODE: PEOPLE -->
-        <rect x="340" y="20" width="272" height="198" rx="14" fill="#152A44" stroke="rgba(234,124,49,.45)"></rect>
-        <text x="356" y="42" fill="#EA7C31" font-size="10.5" font-weight="800" letter-spacing="1.5">PEOPLE</text>
+        <!-- PEOPLE -->
+        <rect x="60" y="60" width="330" height="240" rx="14" fill="#152A44" stroke="rgba(234,124,49,.45)"></rect>
+        <text x="76" y="86" fill="#EA7C31" font-size="10.5" font-weight="800" letter-spacing="1.5">PEOPLE</text>
         <g>
-          <rect x="420" y="56" width="112" height="30" rx="5" fill="#FFFFFF"></rect><circle cx="435" cy="71" r="8" fill="#C6D2DE"></circle><rect x="448" y="66" width="46" height="5" rx="2.5" fill="#94A5B6"></rect><rect x="448" y="75" width="30" height="4" rx="2" fill="#C6D2DE"></rect>
-          <rect x="360" y="122" width="112" height="30" rx="5" fill="#FFFFFF"></rect><circle cx="375" cy="137" r="8" fill="#C6D2DE"></circle><rect x="388" y="132" width="46" height="5" rx="2.5" fill="#94A5B6"></rect><rect x="388" y="141" width="30" height="4" rx="2" fill="#C6D2DE"></rect>
-          <rect x="484" y="122" width="112" height="30" rx="5" fill="#FFFFFF"></rect><circle cx="499" cy="137" r="8" fill="#C6D2DE"></circle><rect x="512" y="132" width="46" height="5" rx="2.5" fill="#94A5B6"></rect><rect x="512" y="141" width="30" height="4" rx="2" fill="#C6D2DE"></rect>
+          <rect x="80" y="100" width="180" height="34" rx="6" fill="#FFFFFF"></rect><circle cx="97" cy="117" r="9" fill="#C6D2DE"></circle><rect x="112" y="111" width="70" height="6" rx="3" fill="#94A5B6"></rect><rect x="112" y="121" width="46" height="5" rx="2.5" fill="#C6D2DE"></rect>
+          <rect x="80" y="150" width="180" height="34" rx="6" fill="#FFFFFF"></rect><circle cx="97" cy="167" r="9" fill="#C6D2DE"></circle><rect x="112" y="161" width="70" height="6" rx="3" fill="#94A5B6"></rect><rect x="112" y="171" width="46" height="5" rx="2.5" fill="#C6D2DE"></rect>
+          <rect x="80" y="200" width="180" height="34" rx="6" fill="#FFFFFF"></rect><circle cx="97" cy="217" r="9" fill="#C6D2DE"></circle><rect x="112" y="211" width="70" height="6" rx="3" fill="#94A5B6"></rect><rect x="112" y="221" width="46" height="5" rx="2.5" fill="#C6D2DE"></rect>
         </g>
-        <g fill="none" stroke="#8AA3BC" stroke-width="1.4">
-          <path d="M416 122 L416 106 L452 106 L452 90" marker-end="url(#ah-k)"></path>
-          <path d="M540 122 L540 106 L500 106 L500 90" marker-end="url(#ah-k)"></path>
+        <path d="M260 167 L270 167 L270 117 L260 117" fill="none" stroke="#8AA3BC" stroke-width="1.5" marker-end="url(#ah-k)"></path>
+        <path d="M260 217 L286 217 L286 177 L260 177" fill="none" stroke="#5FBE8C" stroke-width="1.7" marker-end="url(#ah-g)"></path>
+        <path d="M260 233 L302 233 L302 175 L260 175" fill="none" stroke="#D5552E" stroke-width="1.7" stroke-dasharray="4 3" marker-start="url(#ah-r)" marker-end="url(#ah-r)"></path>
+        <g font-size="9" font-weight="700">
+          <rect x="80" y="252" width="10" height="3" rx="1.5" fill="#8AA3BC"></rect><text x="96" y="258" fill="#8AA3BC">reports to</text>
+          <rect x="152" y="252" width="10" height="3" rx="1.5" fill="#5FBE8C"></rect><text x="168" y="258" fill="#5FBE8C">influence</text>
+          <rect x="222" y="252" width="10" height="3" rx="1.5" fill="#D5552E"></rect><text x="238" y="258" fill="#F0A08A">conflict</text>
         </g>
-        <path d="M410 158 C 440 186, 516 186, 546 158" fill="none" stroke="#D5552E" stroke-width="1.7" stroke-dasharray="4 3" marker-start="url(#ah-r)" marker-end="url(#ah-r)"></path>
-        <path d="M594 130 C 614 106, 586 78, 538 70" fill="none" stroke="#5FBE8C" stroke-width="1.7" marker-end="url(#ah-g)"></path>
-        <text x="356" y="206" fill="#8AA3BC" font-size="10.5">typed people, typed arrows</text>
+        <text x="76" y="282" fill="#8AA3BC" font-size="10.5">typed people, typed arrows</text>
 
-        <!-- NODE: PROBLEMS -->
-        <rect x="668" y="218" width="252" height="176" rx="14" fill="#152A44" stroke="rgba(126,210,238,.45)"></rect>
-        <text x="684" y="240" fill="#7ED2EE" font-size="10.5" font-weight="800" letter-spacing="1.5">PROBLEMS</text>
+        <!-- PROBLEMS -->
+        <rect x="550" y="60" width="330" height="240" rx="14" fill="#152A44" stroke="rgba(126,210,238,.45)"></rect>
+        <text x="566" y="86" fill="#7ED2EE" font-size="10.5" font-weight="800" letter-spacing="1.5">PROBLEMS</text>
         <g>
-          <rect x="684" y="254" width="220" height="34" rx="6" fill="#122539" stroke="rgba(175,194,214,.25)"></rect>
-          <rect x="694" y="264" width="44" height="14" rx="3" fill="rgba(95,190,140,.18)" stroke="#5FBE8C"></rect><text x="716" y="274" text-anchor="middle" fill="#5FBE8C" font-size="8" font-weight="800">GOAL</text>
-          <text x="748" y="276" fill="#EAF0F6" font-size="11.5" font-weight="700">close the audit finding</text>
-          <rect x="684" y="296" width="220" height="34" rx="6" fill="#122539" stroke="rgba(175,194,214,.25)"></rect>
-          <rect x="694" y="306" width="62" height="14" rx="3" fill="rgba(232,180,74,.16)" stroke="#E8B44A"></rect><text x="725" y="316" text-anchor="middle" fill="#E8B44A" font-size="8" font-weight="800">OBSTACLE</text>
-          <text x="766" y="318" fill="#EAF0F6" font-size="11.5" font-weight="700">integration backlog</text>
-          <rect x="684" y="338" width="220" height="34" rx="6" fill="#122539" stroke="rgba(175,194,214,.25)"></rect>
-          <rect x="694" y="348" width="62" height="14" rx="3" fill="rgba(213,85,46,.18)" stroke="#D5552E"></rect><text x="725" y="358" text-anchor="middle" fill="#F0A08A" font-size="8" font-weight="800">PRESSURE</text>
-          <text x="766" y="360" fill="#EAF0F6" font-size="11.5" font-weight="700">renewal in ninety days</text>
+          <rect x="570" y="100" width="290" height="34" rx="6" fill="#122539" stroke="rgba(175,194,214,.25)"></rect>
+          <rect x="580" y="110" width="44" height="14" rx="3" fill="rgba(95,190,140,.18)" stroke="#5FBE8C"></rect><text x="602" y="120" text-anchor="middle" fill="#5FBE8C" font-size="8" font-weight="800">GOAL</text>
+          <text x="634" y="122" fill="#EAF0F6" font-size="11.5" font-weight="700">close the audit finding</text>
+          <rect x="570" y="150" width="290" height="34" rx="6" fill="#122539" stroke="rgba(175,194,214,.25)"></rect>
+          <rect x="580" y="160" width="62" height="14" rx="3" fill="rgba(232,180,74,.16)" stroke="#E8B44A"></rect><text x="611" y="170" text-anchor="middle" fill="#E8B44A" font-size="8" font-weight="800">OBSTACLE</text>
+          <text x="652" y="172" fill="#EAF0F6" font-size="11.5" font-weight="700">integration backlog</text>
+          <rect x="570" y="200" width="290" height="34" rx="6" fill="#122539" stroke="rgba(175,194,214,.25)"></rect>
+          <rect x="580" y="210" width="62" height="14" rx="3" fill="rgba(213,85,46,.18)" stroke="#D5552E"></rect><text x="611" y="220" text-anchor="middle" fill="#F0A08A" font-size="8" font-weight="800">PRESSURE</text>
+          <text x="652" y="222" fill="#EAF0F6" font-size="11.5" font-weight="700">renewal in ninety days</text>
         </g>
+        <text x="566" y="282" fill="#8AA3BC" font-size="10.5">five types, each tied to its people</text>
 
-        <!-- NODE: PROCESS -->
-        <rect x="20" y="218" width="262" height="176" rx="14" fill="#152A44" stroke="rgba(83,175,212,.45)"></rect>
-        <text x="36" y="240" fill="#53AFD4" font-size="10.5" font-weight="800" letter-spacing="1.5">PROCESS</text>
+        <!-- PROCESS -->
+        <rect x="60" y="400" width="330" height="230" rx="14" fill="#152A44" stroke="rgba(83,175,212,.45)"></rect>
+        <text x="76" y="426" fill="#53AFD4" font-size="10.5" font-weight="800" letter-spacing="1.5">PROCESS</text>
         <g>
-          <rect x="36" y="262" width="42" height="26" rx="4" fill="#122539" stroke="rgba(175,194,214,.22)"></rect>
-          <rect x="84" y="262" width="42" height="26" rx="4" fill="#122539" stroke="rgba(175,194,214,.22)"></rect>
-          <rect x="132" y="262" width="42" height="26" rx="4" fill="#53AFD4"></rect>
-          <rect x="180" y="262" width="42" height="26" rx="4" fill="#122539" stroke="rgba(175,194,214,.22)"></rect>
-          <rect x="228" y="262" width="42" height="26" rx="4" fill="#122539" stroke="rgba(175,194,214,.22)"></rect>
-          <g font-size="10.5" font-weight="800" text-anchor="middle"><text x="57" y="280" fill="#8AA3BC">1</text><text x="105" y="280" fill="#8AA3BC">2</text><text x="153" y="280" fill="#0F2036">3</text><text x="201" y="280" fill="#8AA3BC">4</text><text x="249" y="280" fill="#8AA3BC">5</text></g>
+          <rect x="76" y="440" width="54" height="26" rx="4" fill="#122539" stroke="rgba(175,194,214,.22)"></rect><text x="103" y="458" text-anchor="middle" fill="#8AA3BC" font-size="11" font-weight="800">1</text>
+          <rect x="138" y="440" width="54" height="26" rx="4" fill="#122539" stroke="rgba(175,194,214,.22)"></rect><text x="165" y="458" text-anchor="middle" fill="#8AA3BC" font-size="11" font-weight="800">2</text>
+          <rect x="200" y="440" width="54" height="26" rx="4" fill="#53AFD4"></rect><text x="227" y="458" text-anchor="middle" fill="#0F2036" font-size="11" font-weight="800">3</text>
+          <rect x="262" y="440" width="54" height="26" rx="4" fill="#122539" stroke="rgba(175,194,214,.22)"></rect><text x="289" y="458" text-anchor="middle" fill="#8AA3BC" font-size="11" font-weight="800">4</text>
+          <rect x="324" y="440" width="54" height="26" rx="4" fill="#122539" stroke="rgba(175,194,214,.22)"></rect><text x="351" y="458" text-anchor="middle" fill="#8AA3BC" font-size="11" font-weight="800">5</text>
         </g>
-        <text x="36" y="316" fill="#FFFFFF" font-size="12.5" font-weight="700">Stage 3 of 5</text>
-        <text x="36" y="336" fill="#8AA3BC" font-size="11">where the deal actually is</text>
-        <text x="36" y="366" fill="#8AA3BC" font-size="11">the stage decides what counts</text>
+        <g stroke-width="1.9" fill="none">
+          <path d="M82 484 l3.5 4 l7 -8.5" stroke="#5FBE8C"></path><rect x="98" y="481" width="26" height="4" rx="2" fill="#3f6a55" stroke="none"></rect>
+          <path d="M82 502 l3.5 4 l7 -8.5" stroke="#5FBE8C"></path><rect x="98" y="499" width="26" height="4" rx="2" fill="#3f6a55" stroke="none"></rect>
+          <path d="M82 520 l3.5 4 l7 -8.5" stroke="#5FBE8C"></path><rect x="98" y="517" width="26" height="4" rx="2" fill="#3f6a55" stroke="none"></rect>
 
-        <!-- NODE: POTENTIAL -->
-        <rect x="340" y="452" width="272" height="188" rx="14" fill="#152A44" stroke="rgba(234,124,49,.45)"></rect>
-        <text x="356" y="474" fill="#EA7C31" font-size="10.5" font-weight="800" letter-spacing="1.5">POTENTIAL</text>
-        <g font-size="10.5" fill="#AFC2D6">
-          <path d="M358 490 l4 5 l8 -10" stroke="#5FBE8C" stroke-width="2" fill="none"></path><text x="378" y="495">budget confirmed</text>
-          <path d="M358 510 l4 5 l8 -10" stroke="#5FBE8C" stroke-width="2" fill="none"></path><text x="378" y="515">timeline known</text>
-          <path d="M358 530 l4 5 l8 -10" stroke="#5FBE8C" stroke-width="2" fill="none"></path><text x="378" y="535">need established</text>
-          <path d="M357 546 l11 11 M368 546 l-11 11" stroke="#D5552E" stroke-width="2"></path><text x="378" y="556" fill="#FFFFFF" font-weight="700">budget holder engaged</text>
+          <path d="M144 484 l3.5 4 l7 -8.5" stroke="#5FBE8C"></path><rect x="160" y="481" width="26" height="4" rx="2" fill="#3f6a55" stroke="none"></rect>
+          <path d="M144 502 l3.5 4 l7 -8.5" stroke="#5FBE8C"></path><rect x="160" y="499" width="26" height="4" rx="2" fill="#3f6a55" stroke="none"></rect>
+          <path d="M144 520 l3.5 4 l7 -8.5" stroke="#5FBE8C"></path><rect x="160" y="517" width="26" height="4" rx="2" fill="#3f6a55" stroke="none"></rect>
+
+          <path d="M206 484 l3.5 4 l7 -8.5" stroke="#5FBE8C"></path><rect x="222" y="481" width="26" height="4" rx="2" fill="#3f6a55" stroke="none"></rect>
+          <path d="M206 498 l8 8 M214 498 l-8 8" stroke="#D5552E"></path><rect x="222" y="499" width="26" height="4" rx="2" fill="#7a3324" stroke="none"></rect>
+          <path d="M206 520 l3.5 4 l7 -8.5" stroke="#5FBE8C"></path><rect x="222" y="517" width="26" height="4" rx="2" fill="#3f6a55" stroke="none"></rect>
+
+          <rect x="268" y="479" width="9" height="9" rx="2" stroke="#5b6f84" fill="none"></rect><rect x="284" y="481" width="26" height="4" rx="2" fill="#33455a" stroke="none"></rect>
+          <rect x="268" y="497" width="9" height="9" rx="2" stroke="#5b6f84" fill="none"></rect><rect x="284" y="499" width="26" height="4" rx="2" fill="#33455a" stroke="none"></rect>
+          <rect x="268" y="515" width="9" height="9" rx="2" stroke="#5b6f84" fill="none"></rect><rect x="284" y="517" width="26" height="4" rx="2" fill="#33455a" stroke="none"></rect>
+
+          <rect x="330" y="479" width="9" height="9" rx="2" stroke="#5b6f84" fill="none"></rect><rect x="346" y="481" width="26" height="4" rx="2" fill="#33455a" stroke="none"></rect>
+          <rect x="330" y="497" width="9" height="9" rx="2" stroke="#5b6f84" fill="none"></rect><rect x="346" y="499" width="26" height="4" rx="2" fill="#33455a" stroke="none"></rect>
+          <rect x="330" y="515" width="9" height="9" rx="2" stroke="#5b6f84" fill="none"></rect><rect x="346" y="517" width="26" height="4" rx="2" fill="#33455a" stroke="none"></rect>
         </g>
-        <rect x="356" y="574" width="240" height="46" rx="8" fill="#122539" stroke="rgba(175,194,214,.22)"></rect>
-        <text x="368" y="592" fill="#8AA3BC" font-size="9.5" font-weight="800" letter-spacing=".8">COMPUTED</text>
-        <text x="368" y="611" fill="#5FBE8C" font-size="12.5" font-weight="700">win 41%</text>
-        <text x="452" y="611" fill="#F0A08A" font-size="12.5" font-weight="700">risk of loss 59%</text>
+        <text x="76" y="556" fill="#FFFFFF" font-size="12.5" font-weight="700">Stage 3 of 5</text>
+        <text x="76" y="576" fill="#8AA3BC" font-size="10.5">green: satisfied. red: failed. gray: not yet required.</text>
+        <text x="76" y="596" fill="#8AA3BC" font-size="10.5">the stage decides what counts.</text>
 
-        <!-- CALLOUT PINNED TO SEQUENCES -->
-        <rect x="26" y="452" width="290" height="86" rx="10" fill="#122539" stroke="#53AFD4"></rect>
-        <path d="M180 452 C 200 430, 240 400, 272 366" fill="none" stroke="#53AFD4" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#ah-t)"></path>
-        <text x="42" y="476" fill="#53AFD4" font-size="9" font-weight="800" letter-spacing=".8">PINNED TO SEQUENCES</text>
-        <text x="42" y="497" fill="#EAF0F6" font-size="11.5">Stage 1: influence over the budget</text>
-        <text x="42" y="513" fill="#EAF0F6" font-size="11.5">holder, too early to flag. Budget exists,</text>
-        <text x="42" y="529" fill="#EAF0F6" font-size="11.5">timeline known, need established: required.</text>
+        <!-- METHODOLOGY -->
+        <rect x="550" y="400" width="330" height="230" rx="14" fill="#152A44" stroke="rgba(234,124,49,.45)"></rect>
+        <text x="566" y="426" fill="#EA7C31" font-size="10.5" font-weight="800" letter-spacing="1.5">METHODOLOGY</text>
+        <g font-size="11" fill="#AFC2D6">
+          <path d="M568 442 l4 5 l8 -10" fill="none" stroke="#5FBE8C" stroke-width="2"></path><text x="590" y="447">budget confirmed</text>
+          <path d="M568 466 l4 5 l8 -10" fill="none" stroke="#5FBE8C" stroke-width="2"></path><text x="590" y="471">timeline known</text>
+          <path d="M568 490 l4 5 l8 -10" fill="none" stroke="#5FBE8C" stroke-width="2"></path><text x="590" y="495">need established</text>
+          <path d="M567 508 l11 11 M578 508 l-11 11" stroke="#D5552E" stroke-width="2"></path><text x="590" y="519" fill="#FFFFFF" font-weight="700">budget holder engaged</text>
+        </g>
+        <rect x="566" y="538" width="298" height="52" rx="8" fill="#122539" stroke="rgba(175,194,214,.22)"></rect>
+        <text x="580" y="558" fill="#8AA3BC" font-size="9.5" font-weight="800" letter-spacing=".8">COMPUTED, NOT AN OPINION</text>
+        <text x="580" y="579" fill="#5FBE8C" font-size="12.5" font-weight="700">win 41%</text>
+        <text x="672" y="579" fill="#F0A08A" font-size="12.5" font-weight="700">risk of loss 59%</text>
+        <text x="566" y="612" fill="#8AA3BC" font-size="10.5">every question grades itself from the maps</text>
       </svg>
     </figure>
     <p class="cap">a dozen directed meanings between four aspects. This mesh is the structure AI reads.</p>
@@ -470,73 +473,102 @@
     <p class="body">All of the above hangs off a single opportunity record. So AI never searches and never re-reads. It walks the named arrows: opportunity, to people, to the budget holder, to the answer. The answer is a query: a fraction of a second, a fraction of a cent, and identical every time it's asked. Write it once, read it forever.</p>
 
     <figure class="fig" data-rv="1">
-      <div class="cornerlg" aria-hidden="true">
-        <div class="clg-t">Arrow types</div>
-        <div><svg viewBox="0 0 30 10"><path d="M1 5 H22" stroke="#5FBE8C" stroke-width="2" fill="none" marker-end="url(#ah-g)"></path></svg>influence</div>
-        <div><svg viewBox="0 0 30 10"><path d="M6 5 H22" stroke="#D5552E" stroke-width="2" fill="none" stroke-dasharray="4 3" marker-start="url(#ah-r)" marker-end="url(#ah-r)"></path></svg>conflict</div>
-        <div><svg viewBox="0 0 30 10"><path d="M1 5 H22" stroke="#8AA3BC" stroke-width="2" fill="none" marker-end="url(#ah-k)"></path></svg>reports to</div>
-        <div><svg viewBox="0 0 30 10"><path d="M1 5 H22" stroke="#EA7C31" stroke-width="2" fill="none" marker-end="url(#ah-o)"></path></svg>honed by, informs</div>
-        <div><svg viewBox="0 0 30 10"><path d="M1 5 H22" stroke="#7ED2EE" stroke-width="2" fill="none" marker-end="url(#ah-b)"></path></svg>supplies evidence</div>
-        <div><svg viewBox="0 0 30 10"><path d="M1 5 H22" stroke="#EA7C31" stroke-width="2.8" fill="none" marker-end="url(#ah-o)"></path></svg>sets what must become true</div>
-        <div><svg viewBox="0 0 30 10"><path d="M1 5 H22" stroke="#53AFD4" stroke-width="3" fill="none" marker-end="url(#ah-d)"></path></svg>sequences</div>
-        <div><svg viewBox="0 0 30 12"><path d="M1 4 H22" stroke="#53AFD4" stroke-width="1.1" fill="none" marker-end="url(#ah-t)"></path><path d="M22 9 H1" stroke="#53AFD4" stroke-width="1.1" fill="none" marker-end="url(#ah-t)"></path></svg>necessitates, informs the stage</div>
-      </div>
-      <svg viewBox="0 0 940 400" style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif" role="img" aria-label="One opportunity node with four named arrows to people, problems, process and potential. A dot walks the people arrow to the budget holder card and returns the answer, budget holder not engaged.">
-        <rect width="940" height="400" fill="#0F2036"></rect>
+      <svg viewBox="0 0 940 664" style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif" role="img" aria-label="One opportunity record centered above people, problems, process and potential. Two way arrows join every pair, routed as nested arcs so none cross. Colored balls travel the arrows, and a panel below reports what each traversal determined.">
+        <rect width="940" height="664" fill="#0F2036"></rect>
 
-        <g fill="none" stroke="#7ED2EE" stroke-width="1.8" opacity=".8">
-          <path d="M300 76 L300 104 L420 104 L420 138" marker-end="url(#ah-b)"></path>
-          <path d="M300 76 L300 104 L590 104 L590 138" marker-end="url(#ah-b)"></path>
-          <path d="M300 76 L300 104 L760 104 L760 138" marker-end="url(#ah-b)"></path>
-        </g>
-        <path d="M300 76 L300 104 L150 104 L150 138" fill="none" stroke="#EA7C31" stroke-width="2.8" marker-end="url(#ah-o)"></path>
-        <path d="M150 176 L150 236" fill="none" stroke="#EA7C31" stroke-width="2.8" marker-end="url(#ah-o)"></path>
-        <text x="164" y="126" fill="#EA7C31" font-size="9" font-weight="800" letter-spacing=".7">HAS PEOPLE</text>
-        <text x="164" y="212" fill="#EA7C31" font-size="9" font-weight="800" letter-spacing=".7">HAS BUYING ROLE</text>
-        <g font-size="9" font-weight="800" letter-spacing=".7" fill="#7ED2EE">
-          <text x="432" y="126">HAS PROBLEMS</text>
-          <text x="602" y="126">HAS PROCESS</text>
-          <text x="772" y="126">HAS POTENTIAL</text>
+        <text x="480" y="26" text-anchor="middle" fill="#8AA3BC" font-size="10" font-weight="800" letter-spacing="1.5">ONE RECORD ID</text>
+
+        <!-- OPPORTUNITY TO EACH ELEMENT, TWO WAY, SYMMETRIC FAN -->
+        <g fill="none" stroke="#7ED2EE" stroke-width="1.8" opacity=".75">
+          <path d="M420 84 C 340 112, 210 134, 132 164" marker-start="url(#ah-b)" marker-end="url(#ah-b)"></path>
+          <path d="M448 84 C 428 112, 392 136, 372 164" marker-start="url(#ah-b)" marker-end="url(#ah-b)"></path>
+          <path d="M512 84 C 532 112, 568 136, 588 164" marker-start="url(#ah-b)" marker-end="url(#ah-b)"></path>
+          <path d="M540 84 C 620 112, 750 134, 828 164" marker-start="url(#ah-b)" marker-end="url(#ah-b)"></path>
         </g>
 
-        <rect x="222" y="40" width="156" height="36" rx="8" fill="#152A44" stroke="#EA7C31"></rect>
-        <text x="300" y="63" text-anchor="middle" fill="#FFFFFF" font-size="13.5" font-weight="700">Opportunity</text>
+        <!-- EVERY PAIR, NESTED ARCS, ZERO CROSSINGS -->
+        <path d="M110 232 C 170 300, 290 300, 350 232" fill="none" stroke="#7ED2EE" stroke-width="2" marker-start="url(#ah-b)" marker-end="url(#ah-b)"></path>
+        <path d="M390 232 C 440 300, 520 300, 570 232" fill="none" stroke="#EA7C31" stroke-width="2" marker-start="url(#ah-o)" marker-end="url(#ah-o)"></path>
+        <path d="M610 232 C 660 300, 760 300, 810 232" fill="none" stroke="#5FBE8C" stroke-width="2" marker-start="url(#ah-g)" marker-end="url(#ah-g)"></path>
+        <path d="M130 232 C 230 392, 490 392, 590 232" fill="none" stroke="#E8B44A" stroke-width="2" marker-start="url(#ah-y)" marker-end="url(#ah-y)"></path>
+        <path d="M150 232 C 300 480, 680 480, 850 232" fill="none" stroke="#D5552E" stroke-width="2" marker-start="url(#ah-r)" marker-end="url(#ah-r)"></path>
 
-        <g font-size="12.5" font-weight="700" text-anchor="middle">
-          <rect x="96" y="138" width="108" height="34" rx="7" fill="#152A44" stroke="#EA7C31"></rect><text x="150" y="160" fill="#FFFFFF">People</text>
-          <rect x="366" y="138" width="108" height="34" rx="7" fill="#152A44" stroke="rgba(175,194,214,.3)"></rect><text x="420" y="160" fill="#AFC2D6">Problems</text>
-          <rect x="536" y="138" width="108" height="34" rx="7" fill="#152A44" stroke="rgba(175,194,214,.3)"></rect><text x="590" y="160" fill="#AFC2D6">Process</text>
-          <rect x="706" y="138" width="108" height="34" rx="7" fill="#152A44" stroke="rgba(175,194,214,.3)"></rect><text x="760" y="160" fill="#AFC2D6">Potential</text>
-        </g>
+        <!-- OPPORTUNITY -->
+        <rect x="380" y="40" width="200" height="44" rx="10" fill="#152A44" stroke="#EA7C31" stroke-width="1.7"></rect>
+        <text x="480" y="68" text-anchor="middle" fill="#FFFFFF" font-size="15" font-weight="700">Opportunity</text>
 
-        <rect x="86" y="236" width="150" height="52" rx="7" fill="none" stroke="#8AA3BC" stroke-width="1.6" stroke-dasharray="6 4"></rect>
-        <circle cx="106" cy="256" r="10" fill="none" stroke="#8AA3BC" stroke-width="1.3" stroke-dasharray="3 3"></circle>
-        <text x="124" y="255" fill="#8AA3BC" font-size="10" font-weight="800" letter-spacing=".6">BUDGET HOLDER</text>
-        <text x="124" y="270" fill="#8AA3BC" font-size="10">not engaged</text>
-
-        <circle r="6.5" fill="#EA7C31">
-          <animateMotion dur="4.2s" repeatCount="indefinite" calcMode="linear" path="M300 76 L300 104 L150 104 L150 236"></animateMotion>
-        </circle>
-
-        <path d="M236 262 L286 262" fill="none" stroke="#EA7C31" stroke-width="2" marker-end="url(#ah-o)"></path>
-        <text x="238" y="252" fill="#EA7C31" font-size="9" font-weight="800" letter-spacing=".7">RETURNS</text>
-        <rect x="296" y="240" width="300" height="44" rx="10" fill="#152A44" stroke="#EA7C31"></rect>
-        <text x="316" y="268" fill="#FFFFFF" font-size="14.5" font-weight="700">Budget holder: not engaged</text>
-
+        <!-- THE FOUR -->
         <g>
-          <rect x="296" y="312" width="188" height="34" rx="17" fill="#122539" stroke="rgba(175,194,214,.28)"></rect>
-          <circle cx="318" cy="329" r="8" fill="none" stroke="#7ED2EE" stroke-width="1.6"></circle>
-          <path d="M318 324 L318 329 L322 331" fill="none" stroke="#7ED2EE" stroke-width="1.6"></path>
-          <text x="334" y="334" fill="#EAF0F6" font-size="12.5" font-weight="700">under a second</text>
+          <rect x="40" y="170" width="180" height="62" rx="10" fill="#152A44" stroke="#53AFD4" stroke-width="1.7">
+            <animate attributeName="stroke" values="#53AFD4;#53AFD4;#D5552E;#D5552E;#53AFD4" keyTimes="0;0.42;0.5;0.58;1" dur="7s" repeatCount="indefinite"></animate>
+          </rect>
+          <text x="130" y="200" text-anchor="middle" fill="#FFFFFF" font-size="14.5" font-weight="700">Process</text>
+          <text x="130" y="219" text-anchor="middle" fill="#8AA3BC" font-size="10.5">where we are</text>
 
-          <rect x="498" y="312" width="196" height="34" rx="17" fill="#122539" stroke="rgba(175,194,214,.28)"></rect>
-          <circle cx="520" cy="329" r="8" fill="none" stroke="#E8B44A" stroke-width="1.6"></circle>
-          <text x="536" y="334" fill="#EAF0F6" font-size="12.5" font-weight="700">fractions of a cent</text>
+          <rect x="280" y="170" width="180" height="62" rx="10" fill="#152A44" stroke="#EA7C31" stroke-width="1.7">
+            <animate attributeName="stroke" values="#EA7C31;#EA7C31;#D5552E;#D5552E;#EA7C31" keyTimes="0;0.42;0.5;0.58;1" dur="7s" begin="2.1s" repeatCount="indefinite"></animate>
+          </rect>
+          <text x="370" y="200" text-anchor="middle" fill="#FFFFFF" font-size="14.5" font-weight="700">People</text>
+          <text x="370" y="219" text-anchor="middle" fill="#8AA3BC" font-size="10.5">who matters</text>
 
-          <rect x="708" y="312" width="212" height="34" rx="17" fill="#122539" stroke="rgba(175,194,214,.28)"></rect>
-          <path d="M724 326 a8 8 0 1 1 3 6" fill="none" stroke="#5FBE8C" stroke-width="1.6"></path>
-          <path d="M720 321 L725 326 L730 322" fill="none" stroke="#5FBE8C" stroke-width="1.6"></path>
-          <text x="744" y="334" fill="#EAF0F6" font-size="12.5" font-weight="700">same answer, every time</text>
+          <rect x="500" y="170" width="180" height="62" rx="10" fill="#152A44" stroke="#7ED2EE" stroke-width="1.7">
+            <animate attributeName="stroke" values="#7ED2EE;#7ED2EE;#D5552E;#D5552E;#7ED2EE" keyTimes="0;0.42;0.5;0.58;1" dur="7s" begin="4.2s" repeatCount="indefinite"></animate>
+          </rect>
+          <text x="590" y="200" text-anchor="middle" fill="#FFFFFF" font-size="14.5" font-weight="700">Problems</text>
+          <text x="590" y="219" text-anchor="middle" fill="#8AA3BC" font-size="10.5">what they care about</text>
+
+          <rect x="740" y="170" width="180" height="62" rx="10" fill="#152A44" stroke="#5FBE8C" stroke-width="1.7">
+            <animate attributeName="stroke" values="#5FBE8C;#5FBE8C;#D5552E;#D5552E;#5FBE8C" keyTimes="0;0.42;0.5;0.58;1" dur="7s" begin="5.6s" repeatCount="indefinite"></animate>
+          </rect>
+          <text x="830" y="200" text-anchor="middle" fill="#FFFFFF" font-size="14.5" font-weight="700">Potential</text>
+          <text x="830" y="219" text-anchor="middle" fill="#8AA3BC" font-size="10.5">can we win</text>
+        </g>
+
+        <!-- THE BALLS -->
+        <circle r="6" fill="#7ED2EE"><animateMotion dur="7s" repeatCount="indefinite" calcMode="linear" keyPoints="0;1;0" keyTimes="0;0.5;1" path="M110 232 C 170 300, 290 300, 350 232"></animateMotion></circle>
+        <circle r="6" fill="#EA7C31"><animateMotion dur="6.2s" repeatCount="indefinite" calcMode="linear" keyPoints="0;1;0" keyTimes="0;0.5;1" path="M390 232 C 440 300, 520 300, 570 232"></animateMotion></circle>
+        <circle r="6" fill="#5FBE8C"><animateMotion dur="7.6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;1;0" keyTimes="0;0.5;1" path="M610 232 C 660 300, 760 300, 810 232"></animateMotion></circle>
+        <circle r="6" fill="#E8B44A"><animateMotion dur="9.4s" repeatCount="indefinite" calcMode="linear" keyPoints="0;1;0" keyTimes="0;0.5;1" path="M130 232 C 230 392, 490 392, 590 232"></animateMotion></circle>
+        <circle r="6" fill="#D5552E"><animateMotion dur="11s" repeatCount="indefinite" calcMode="linear" keyPoints="0;1;0" keyTimes="0;0.5;1" path="M150 232 C 300 480, 680 480, 850 232"></animateMotion></circle>
+
+        <text x="480" y="510" text-anchor="middle" fill="#8AA3BC" font-size="11">two way, every pair: each element reads every other.</text>
+
+        <!-- WHAT THE TRAVERSAL DETERMINED -->
+        <rect x="230" y="524" width="480" height="72" rx="12" fill="#152A44" stroke="#EA7C31" stroke-width="1.6"></rect>
+        <text x="248" y="546" fill="#EA7C31" font-size="9" font-weight="800" letter-spacing="1.2">DETERMINED</text>
+        <g class="snapstack">
+          <g class="snapcard" style="animation-delay:0s"><text x="248" y="570" fill="#8AA3BC" font-size="9.5" font-weight="800" letter-spacing=".6">PEOPLE</text><text x="248" y="588" fill="#FFFFFF" font-size="14" font-weight="700">Budget holder: not engaged</text></g>
+          <g class="snapcard" style="animation-delay:3s"><text x="248" y="570" fill="#8AA3BC" font-size="9.5" font-weight="800" letter-spacing=".6">PROBLEMS TO PEOPLE</text><text x="248" y="588" fill="#FFFFFF" font-size="14" font-weight="700">Decision maker has no insights logged</text></g>
+          <g class="snapcard" style="animation-delay:6s"><text x="248" y="570" fill="#8AA3BC" font-size="9.5" font-weight="800" letter-spacing=".6">PEOPLE TO PROBLEMS</text><text x="248" y="588" fill="#FFFFFF" font-size="14" font-weight="700">Two insights have no person attached</text></g>
+          <g class="snapcard" style="animation-delay:9s"><text x="248" y="570" fill="#8AA3BC" font-size="9.5" font-weight="800" letter-spacing=".6">PROBLEMS TO PROCESS</text><text x="248" y="588" fill="#FFFFFF" font-size="14" font-weight="700">IT feasibility has not been completed</text></g>
+          <g class="snapcard" style="animation-delay:12s"><text x="248" y="570" fill="#8AA3BC" font-size="9.5" font-weight="800" letter-spacing=".6">PROCESS TO PROBLEMS</text><text x="248" y="588" fill="#FFFFFF" font-size="14" font-weight="700">Stage 3 needs an obstacle owner, none set</text></g>
+          <g class="snapcard" style="animation-delay:15s"><text x="248" y="570" fill="#8AA3BC" font-size="9.5" font-weight="800" letter-spacing=".6">PROBLEMS TO POTENTIAL</text><text x="248" y="588" fill="#FFFFFF" font-size="14" font-weight="700">Obstacles do not align with solutions available</text></g>
+          <g class="snapcard" style="animation-delay:18s"><text x="248" y="570" fill="#8AA3BC" font-size="9.5" font-weight="800" letter-spacing=".6">POTENTIAL TO PROBLEMS</text><text x="248" y="588" fill="#FFFFFF" font-size="14" font-weight="700">No solution mapped to the audit obstacle</text></g>
+          <g class="snapcard" style="animation-delay:21s"><text x="248" y="570" fill="#8AA3BC" font-size="9.5" font-weight="800" letter-spacing=".6">PROCESS TO POTENTIAL</text><text x="248" y="588" fill="#FFFFFF" font-size="14" font-weight="700">Failed stage 4 in prior deal</text></g>
+          <g class="snapcard" style="animation-delay:24s"><text x="248" y="570" fill="#8AA3BC" font-size="9.5" font-weight="800" letter-spacing=".6">POTENTIAL TO PROCESS</text><text x="248" y="588" fill="#FFFFFF" font-size="14" font-weight="700">Stage 4 criteria unmet, do not advance</text></g>
+          <g class="snapcard" style="animation-delay:27s"><text x="248" y="570" fill="#8AA3BC" font-size="9.5" font-weight="800" letter-spacing=".6">PROCESS TO PEOPLE</text><text x="248" y="588" fill="#FFFFFF" font-size="14" font-weight="700">Must find 2 procurement representatives</text></g>
+          <g class="snapcard" style="animation-delay:30s"><text x="248" y="570" fill="#8AA3BC" font-size="9.5" font-weight="800" letter-spacing=".6">PEOPLE TO PROCESS</text><text x="248" y="588" fill="#FFFFFF" font-size="14" font-weight="700">Procurement contacts missing, stage 3 blocked</text></g>
+        </g>
+
+        <!-- WHAT EVERY TRAVERSAL BUYS -->
+        <g>
+          <rect x="16" y="616" width="216" height="36" rx="18" fill="#122539" stroke="rgba(175,194,214,.28)"></rect>
+          <path d="M40 634 l6 -9 l-2 7 l6 -1 l-8 10 l2 -7 Z" fill="#7ED2EE"></path>
+          <text x="58" y="639" fill="#EAF0F6" font-size="12.5" font-weight="700">Retrieval Speed</text>
+
+          <rect x="248" y="616" width="216" height="36" rx="18" fill="#122539" stroke="rgba(175,194,214,.28)"></rect>
+          <circle cx="272" cy="634" r="8" fill="none" stroke="#E8B44A" stroke-width="1.7"></circle>
+          <text x="290" y="639" fill="#EAF0F6" font-size="12.5" font-weight="700">Minimal Tokens Required</text>
+
+          <rect x="480" y="616" width="216" height="36" rx="18" fill="#122539" stroke="rgba(175,194,214,.28)"></rect>
+          <rect x="496" y="626" width="16" height="16" rx="3" fill="none" stroke="#5FBE8C" stroke-width="1.7"></rect>
+          <path d="M500 634 l3 3.5 l6 -7.5" fill="none" stroke="#5FBE8C" stroke-width="1.9"></path>
+          <text x="522" y="639" fill="#EAF0F6" font-size="12.5" font-weight="700">Concrete Answers</text>
+
+          <rect x="712" y="616" width="212" height="36" rx="18" fill="#122539" stroke="rgba(175,194,214,.28)"></rect>
+          <path d="M732 630 a8 8 0 1 1 3 6" fill="none" stroke="#EA7C31" stroke-width="1.7"></path>
+          <path d="M728 625 L733 630 L738 626" fill="none" stroke="#EA7C31" stroke-width="1.7"></path>
+          <text x="752" y="639" fill="#EAF0F6" font-size="12.5" font-weight="700">Consistent Analyses</text>
         </g>
       </svg>
     </figure>
@@ -553,40 +585,51 @@
     <p class="body">Each deal selects its own questions by what it is: the solution, the segment, the size. The process sequences them: what is unfair to ask in stage one becomes mandatory by stage three. And every question already knows what must be true for the deal to be winnable, and grades itself from the maps. So guidance is computed, not inferred: what isn't true yet, and, because the maps are right there, exactly who gets you to it. Not "find a budget holder." Three supporters sit in the buying department: they are the path.</p>
 
     <figure class="fig" data-rv="1">
-      <svg viewBox="0 0 940 430" style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif" role="img" aria-label="Three beats. The solution, segment, size and stage chips feed a dial that lights one question set. The set grades itself, four green and one red. The red row becomes one guidance card naming the three supporters.">
-        <rect width="940" height="430" fill="#0F2036"></rect>
+      <svg viewBox="0 0 940 372" style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif" role="img" aria-label="Three beats. The solution, segment, size and stage chips feed a decision tree that selects one question set. The set grades itself, four green and one red. The red row becomes one guidance card naming the three supporters.">
+        <rect width="940" height="372" fill="#0F2036"></rect>
 
         <!-- BEAT ONE -->
         <text x="16" y="26" fill="#8AA3BC" font-size="10" font-weight="800" letter-spacing="1.4">BEAT ONE · THE SELECTOR</text>
         <g font-size="11.5" font-weight="700" text-anchor="middle">
-          <rect x="16" y="44" width="86" height="26" rx="13" fill="#152A44" stroke="rgba(175,194,214,.3)"></rect><text x="59" y="61" fill="#EAF0F6">solution</text>
-          <rect x="16" y="78" width="86" height="26" rx="13" fill="#152A44" stroke="rgba(175,194,214,.3)"></rect><text x="59" y="95" fill="#EAF0F6">segment</text>
-          <rect x="16" y="112" width="86" height="26" rx="13" fill="#152A44" stroke="rgba(175,194,214,.3)"></rect><text x="59" y="129" fill="#EAF0F6">size</text>
-          <rect x="16" y="146" width="86" height="26" rx="13" fill="#152A44" stroke="#53AFD4"></rect><text x="59" y="163" fill="#53AFD4">stage 3</text>
+          <rect x="16" y="44" width="80" height="26" rx="13" fill="#152A44" stroke="rgba(175,194,214,.3)"></rect><text x="56" y="61" fill="#EAF0F6">solution</text>
+          <rect x="16" y="78" width="80" height="26" rx="13" fill="#152A44" stroke="rgba(175,194,214,.3)"></rect><text x="56" y="95" fill="#EAF0F6">segment</text>
+          <rect x="16" y="112" width="80" height="26" rx="13" fill="#152A44" stroke="rgba(175,194,214,.3)"></rect><text x="56" y="129" fill="#EAF0F6">size</text>
+          <rect x="16" y="146" width="80" height="26" rx="13" fill="#152A44" stroke="#53AFD4"></rect><text x="56" y="163" fill="#53AFD4">stage 3</text>
         </g>
         <g fill="none" stroke="#7ED2EE" stroke-width="1.5">
-          <path d="M102 57 C 122 70, 128 82, 136 96" marker-end="url(#ah-b)"></path>
-          <path d="M102 91 C 118 94, 124 96, 136 102" marker-end="url(#ah-b)"></path>
-          <path d="M102 125 C 118 120, 126 116, 136 110" marker-end="url(#ah-b)"></path>
+          <path d="M96 57 C 118 68, 122 80, 128 94" marker-end="url(#ah-b)"></path>
+          <path d="M96 91 C 112 94, 118 96, 128 100" marker-end="url(#ah-b)"></path>
+          <path d="M96 125 C 112 120, 120 116, 128 108" marker-end="url(#ah-b)"></path>
         </g>
-        <path d="M102 159 C 124 148, 132 136, 140 122" fill="none" stroke="#53AFD4" stroke-width="2.6" marker-end="url(#ah-d)"></path>
-        <text x="106" y="186" fill="#53AFD4" font-size="8.5" font-weight="800" letter-spacing=".6">SEQUENCES</text>
-        <circle cx="176" cy="104" r="30" fill="#152A44" stroke="#EA7C31" stroke-width="1.7"></circle>
-        <path d="M176 104 L176 80" stroke="#EA7C31" stroke-width="2.6" stroke-linecap="round"></path>
-        <circle cx="176" cy="104" r="3.6" fill="#EA7C31"></circle>
-        <path d="M206 104 L236 104" fill="none" stroke="#EA7C31" stroke-width="2" marker-end="url(#ah-o)"></path>
-        <text x="200" y="90" fill="#EA7C31" font-size="8.5" font-weight="800" letter-spacing=".6">SELECTS</text>
+        <path d="M96 159 C 118 148, 126 132, 132 118" fill="none" stroke="#53AFD4" stroke-width="2.6" marker-end="url(#ah-d)"></path>
+        <text x="100" y="186" fill="#53AFD4" font-size="8.5" font-weight="800" letter-spacing=".6">SEQUENCES</text>
+
+        <!-- THE DECISION TREE -->
+        <rect x="134" y="66" width="76" height="76" rx="10" fill="#152A44" stroke="#EA7C31" stroke-width="1.7"></rect>
+        <circle cx="172" cy="82" r="5.5" fill="#EA7C31"></circle>
+        <path d="M172 88 C 172 98, 156 100, 156 110" fill="none" stroke="#EA7C31" stroke-width="1.6" marker-end="url(#ah-o)"></path>
+        <path d="M172 88 C 172 98, 188 100, 188 110" fill="none" stroke="#EA7C31" stroke-width="1.6" marker-end="url(#ah-o)"></path>
+        <circle cx="156" cy="120" r="5" fill="none" stroke="#EA7C31" stroke-width="1.6"></circle>
+        <circle cx="188" cy="120" r="5" fill="#EA7C31"></circle>
+        <text x="172" y="158" text-anchor="middle" fill="#8AA3BC" font-size="9" font-weight="800" letter-spacing=".6">DECISION TREE</text>
+
+        <path d="M214 104 L230 104" fill="none" stroke="#EA7C31" stroke-width="2" marker-end="url(#ah-o)"></path>
         <g>
-          <rect x="246" y="52" width="104" height="28" rx="6" fill="#122539" stroke="rgba(175,194,214,.2)"></rect>
-          <rect x="246" y="88" width="104" height="34" rx="6" fill="#152A44" stroke="#EA7C31" stroke-width="1.7"></rect>
-          <text x="298" y="109" text-anchor="middle" fill="#FFFFFF" font-size="11.5" font-weight="700">question set</text>
-          <rect x="246" y="130" width="104" height="28" rx="6" fill="#122539" stroke="rgba(175,194,214,.2)"></rect>
+          <rect x="238" y="52" width="104" height="26" rx="6" fill="#122539" stroke="rgba(175,194,214,.2)"></rect>
+          <rect x="238" y="86" width="104" height="34" rx="6" fill="#152A44" stroke="#EA7C31" stroke-width="1.7"></rect>
+          <text x="290" y="107" text-anchor="middle" fill="#FFFFFF" font-size="11.5" font-weight="700">question set</text>
+          <rect x="238" y="128" width="104" height="26" rx="6" fill="#122539" stroke="rgba(175,194,214,.2)"></rect>
         </g>
         <text x="16" y="216" fill="#8AA3BC" font-size="12">the deal, and the stage, pick the questions.</text>
 
+        <!-- QUESTION SET INTO BEAT TWO -->
+        <path d="M346 103 L394 103" fill="none" stroke="#EA7C31" stroke-width="2" marker-end="url(#ah-o)"></path>
+        <rect x="346" y="112" width="50" height="15" rx="4" fill="#0F2036"></rect>
+        <text x="371" y="123" text-anchor="middle" fill="#EA7C31" font-size="8.5" font-weight="800" letter-spacing=".6">GRADES</text>
+
         <!-- BEAT TWO -->
         <text x="392" y="26" fill="#8AA3BC" font-size="10" font-weight="800" letter-spacing="1.4">BEAT TWO · THE GRADE</text>
-        <rect x="392" y="44" width="264" height="132" rx="10" fill="#122539" stroke="rgba(175,194,214,.22)"></rect>
+        <rect x="400" y="44" width="256" height="132" rx="10" fill="#122539" stroke="rgba(175,194,214,.22)"></rect>
         <g font-size="11.5" fill="#AFC2D6">
           <path d="M406 62 l4 5 l8 -10" fill="none" stroke="#5FBE8C" stroke-width="2"></path><text x="428" y="67">Compelling event confirmed</text>
           <path d="M406 86 l4 5 l8 -10" fill="none" stroke="#5FBE8C" stroke-width="2"></path><text x="428" y="91">Solution fit established</text>
@@ -596,27 +639,25 @@
           <text x="428" y="166" fill="#FFFFFF" font-weight="700">Budget holder engaged: NO</text>
         </g>
         <g>
-          <rect x="392" y="228" width="132" height="56" rx="8" fill="#122539" stroke="rgba(234,124,49,.45)"></rect>
-          <rect x="402" y="240" width="46" height="14" rx="3" fill="#C6D2DE"></rect>
-          <rect x="402" y="260" width="32" height="10" rx="3" fill="#94A5B6"></rect>
-          <rect x="466" y="240" width="46" height="10" rx="3" fill="#46607C"></rect>
-          <rect x="466" y="256" width="46" height="10" rx="3" fill="#46607C"></rect>
-          <path d="M452 246 L462 244" fill="none" stroke="#EA7C31" stroke-width="1.3" marker-end="url(#ah-o)"></path>
-          <path d="M462 262 L452 266" fill="none" stroke="#EA7C31" stroke-width="1.3" marker-end="url(#ah-o)"></path>
-          <text x="392" y="300" fill="#8AA3BC" font-size="9.5" font-weight="800" letter-spacing=".7">THE POLITICAL SITUATION</text>
+          <rect x="392" y="240" width="132" height="56" rx="8" fill="#122539" stroke="rgba(234,124,49,.45)"></rect>
+          <rect x="402" y="252" width="46" height="14" rx="3" fill="#C6D2DE"></rect>
+          <rect x="402" y="272" width="32" height="10" rx="3" fill="#94A5B6"></rect>
+          <rect x="466" y="252" width="46" height="10" rx="3" fill="#46607C"></rect>
+          <rect x="466" y="268" width="46" height="10" rx="3" fill="#46607C"></rect>
+          <path d="M452 258 L462 256" fill="none" stroke="#EA7C31" stroke-width="1.3" marker-end="url(#ah-o)"></path>
+          <path d="M462 274 L452 278" fill="none" stroke="#EA7C31" stroke-width="1.3" marker-end="url(#ah-o)"></path>
+          <text x="392" y="312" fill="#8AA3BC" font-size="9.5" font-weight="800" letter-spacing=".7">THE POLITICAL SITUATION</text>
         </g>
-        <path d="M420 188 C 400 202, 398 212, 404 226" fill="none" stroke="#7ED2EE" stroke-width="2" marker-end="url(#ah-b)"></path>
-        <text x="428" y="208" fill="#7ED2EE" font-size="8.5" font-weight="800" letter-spacing=".6">SUPPLIES EVIDENCE</text>
-        <text x="392" y="336" fill="#8AA3BC" font-size="12">graded from the maps, not from opinion.</text>
-
-        <!-- THE TAG -->
-        <rect x="668" y="196" width="152" height="30" rx="15" fill="#152A44" stroke="#EA7C31"></rect>
-        <text x="744" y="216" text-anchor="middle" fill="#EA7C31" font-size="11.5" font-weight="700">computed, not inferred</text>
+        <path d="M420 188 C 402 204, 400 220, 404 234" fill="none" stroke="#7ED2EE" stroke-width="2" marker-end="url(#ah-b)"></path>
+        <rect x="432" y="202" width="118" height="15" rx="4" fill="#0F2036"></rect>
+        <text x="491" y="213" text-anchor="middle" fill="#7ED2EE" font-size="8.5" font-weight="800" letter-spacing=".6">SUPPLIES EVIDENCE</text>
+        <text x="392" y="348" fill="#8AA3BC" font-size="12">graded from the maps, not from opinion.</text>
 
         <!-- BEAT THREE -->
         <text x="692" y="26" fill="#8AA3BC" font-size="10" font-weight="800" letter-spacing="1.4">BEAT THREE · THE GUIDANCE</text>
-        <path d="M660 160 C 690 160, 700 156, 706 142" fill="none" stroke="#EA7C31" stroke-width="2.8" marker-end="url(#ah-o)"></path>
-        <text x="644" y="182" fill="#EA7C31" font-size="8.5" font-weight="800" letter-spacing=".6">SETS WHAT MUST BECOME TRUE</text>
+        <path d="M660 158 C 682 156, 692 148, 700 142" fill="none" stroke="#EA7C31" stroke-width="2.8" marker-end="url(#ah-o)"></path>
+        <rect x="628" y="188" width="180" height="15" rx="4" fill="#0F2036"></rect>
+        <text x="718" y="199" text-anchor="middle" fill="#EA7C31" font-size="8.5" font-weight="800" letter-spacing=".6">SETS WHAT MUST BECOME TRUE</text>
         <rect x="692" y="44" width="232" height="96" rx="10" fill="#152A44" stroke="#EA7C31" stroke-width="1.7"></rect>
         <text x="708" y="70" fill="#FFFFFF" font-size="13" font-weight="700">Path to the budget holder:</text>
         <text x="708" y="90" fill="#EA7C31" font-size="13" font-weight="700">three supporters, buying dept</text>
@@ -625,7 +666,9 @@
           <circle cx="762" cy="118" r="13" fill="#C6D2DE"></circle><circle cx="768" cy="109" r="5" fill="#5FBE8C"></circle>
           <circle cx="800" cy="118" r="13" fill="#C6D2DE"></circle><circle cx="806" cy="109" r="5" fill="#5FBE8C"></circle>
         </g>
-        <text x="692" y="252" fill="#8AA3BC" font-size="12">the gap becomes the next move.</text>
+        <rect x="692" y="228" width="180" height="30" rx="15" fill="#152A44" stroke="#EA7C31"></rect>
+        <text x="782" y="248" text-anchor="middle" fill="#EA7C31" font-size="11.5" font-weight="700">computed, not inferred</text>
+        <text x="692" y="292" fill="#8AA3BC" font-size="12">the gap becomes the next move.</text>
       </svg>
     </figure>
 
@@ -641,71 +684,70 @@
     <p class="body">Because the structure already holds the meanings, everything downstream is computed, not inferred: roll-up scores, red flags, next best actions, coaching, call prep, forecasting, pipeline analysis. And because it is structured, it grounds more than our own AI. Enrichment tools, calendars, marketing, business development: every system in the ecosystem can read the same truth and write into the same shape.</p>
 
     <figure class="fig" data-rv="1">
-      <svg viewBox="0 0 940 480" style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif" role="img" aria-label="A miniature of the four way mesh on the left. One beam splits rightward into two tiers: seven computed outputs, and four ecosystem categories each joined to the mesh by a two way arrow.">
-        <rect width="940" height="480" fill="#0F2036"></rect>
+      <svg viewBox="0 0 940 500" style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif" role="img" aria-label="A ring of four named arrows joining people, problems, potential and process. One beam runs up to seven computed outputs and one two way beam runs down to four ecosystem categories.">
+        <rect width="940" height="500" fill="#0F2036"></rect>
+        <text x="20" y="146" fill="#EA7C31" font-size="9.5" font-weight="800" letter-spacing="1.3">THE STRUCTURE</text>
 
-        <!-- MINI MESH -->
-        <rect x="16" y="126" width="216" height="216" rx="14" fill="#152A44" stroke="rgba(234,124,49,.45)"></rect>
-        <text x="30" y="150" fill="#EA7C31" font-size="9.5" font-weight="800" letter-spacing="1.3">THE STRUCTURE</text>
-        <g font-size="10" font-weight="700" text-anchor="middle">
-          <rect x="86" y="162" width="76" height="26" rx="5" fill="#122539" stroke="rgba(175,194,214,.3)"></rect><text x="124" y="179" fill="#EAF0F6">People</text>
-          <rect x="150" y="222" width="76" height="26" rx="5" fill="#122539" stroke="rgba(175,194,214,.3)"></rect><text x="188" y="239" fill="#EAF0F6">Problems</text>
-          <rect x="22" y="222" width="76" height="26" rx="5" fill="#122539" stroke="rgba(175,194,214,.3)"></rect><text x="60" y="239" fill="#EAF0F6">Process</text>
-          <rect x="86" y="284" width="76" height="26" rx="5" fill="#122539" stroke="rgba(175,194,214,.3)"></rect><text x="124" y="301" fill="#EAF0F6">Potential</text>
-        </g>
-        <g fill="none" stroke-width="1.4">
-          <path d="M110 190 C 100 202, 96 210, 96 220" stroke="#53AFD4" marker-end="url(#ah-t)"></path>
-          <path d="M140 190 C 152 202, 158 210, 160 220" stroke="#EA7C31" marker-end="url(#ah-o)"></path>
-          <path d="M70 250 C 78 264, 88 276, 100 284" stroke="#53AFD4" stroke-width="2.4" marker-end="url(#ah-d)"></path>
-          <path d="M180 250 C 168 266, 158 276, 148 284" stroke="#7ED2EE" marker-end="url(#ah-b)"></path>
-          <path d="M118 282 C 112 246, 110 214, 112 192" stroke="#EA7C31" stroke-width="2" marker-end="url(#ah-o)"></path>
-        </g>
-        <text x="30" y="330" fill="#8AA3BC" font-size="10">typed, directed, named</text>
+        <!-- THE RING: four arcs, rotationally symmetric -->
+        <path d="M205.9 151.3 Q 254.8 165.2, 268.7 214.1" fill="none" stroke="#EA7C31" stroke-width="2.2" marker-end="url(#ah-o)"></path>
+        <path d="M268.7 285.9 Q 254.8 334.8, 205.9 348.7" fill="none" stroke="#7ED2EE" stroke-width="2.2" marker-end="url(#ah-b)"></path>
+        <path d="M134.1 348.7 Q 85.2 334.8, 71.3 285.9" fill="none" stroke="#EA7C31" stroke-width="2.8" marker-end="url(#ah-o)"></path>
+        <path d="M71.3 214.1 Q 85.2 165.2, 134.1 151.3" fill="none" stroke="#53AFD4" stroke-width="3.2" marker-end="url(#ah-d)"></path>
 
-        <!-- THE BEAM -->
-        <path d="M236 234 C 280 234, 290 120, 336 108" fill="none" stroke="#EA7C31" stroke-width="3.4" marker-end="url(#ah-o)"></path>
-        <path d="M236 234 C 280 234, 290 344, 336 358" fill="none" stroke="#EA7C31" stroke-width="3.4" marker-end="url(#ah-o)"></path>
-        <text x="252" y="176" fill="#EA7C31" font-size="8.5" font-weight="800" letter-spacing=".6">COMPUTES</text>
-        <text x="252" y="308" fill="#EA7C31" font-size="8.5" font-weight="800" letter-spacing=".6">GROUNDS</text>
+        <g font-size="10.5" font-weight="700" text-anchor="middle">
+          <rect x="136" y="150" width="68" height="26" rx="6" fill="#152A44" stroke="rgba(175,194,214,.3)"></rect><text x="170" y="167" fill="#EAF0F6">People</text>
+          <rect x="231" y="237" width="68" height="26" rx="6" fill="#152A44" stroke="rgba(175,194,214,.3)"></rect><text x="265" y="254" fill="#EAF0F6">Problems</text>
+          <rect x="136" y="324" width="68" height="26" rx="6" fill="#152A44" stroke="rgba(175,194,214,.3)"></rect><text x="170" y="341" fill="#EAF0F6">Potential</text>
+          <rect x="41" y="237" width="68" height="26" rx="6" fill="#152A44" stroke="rgba(175,194,214,.3)"></rect><text x="75" y="254" fill="#EAF0F6">Process</text>
+        </g>
+
+        <!-- RING KEY, placed clear of every line -->
+        <g font-size="9.5" font-weight="700">
+          <rect x="20" y="398" width="22" height="3" rx="1.5" fill="#EA7C31"></rect><text x="50" y="403" fill="#8AA3BC">honed by, informs</text>
+          <rect x="20" y="418" width="22" height="3" rx="1.5" fill="#7ED2EE"></rect><text x="50" y="423" fill="#8AA3BC">supplies evidence</text>
+          <rect x="20" y="438" width="22" height="4" rx="2" fill="#EA7C31"></rect><text x="50" y="443" fill="#8AA3BC">sets what must become true</text>
+          <rect x="20" y="458" width="22" height="4" rx="2" fill="#53AFD4"></rect><text x="50" y="463" fill="#8AA3BC">sequences</text>
+        </g>
+
+        <!-- TWO BEAMS, MIRRORED ABOUT THE RING AXIS -->
+        <path d="M305 240 C 348 222, 350 130, 382 118" fill="none" stroke="#EA7C31" stroke-width="3.2" marker-end="url(#ah-o)"></path>
+        <path d="M305 260 C 348 278, 350 370, 382 382" fill="none" stroke="#7ED2EE" stroke-width="3.2" marker-start="url(#ah-b)" marker-end="url(#ah-b)"></path>
+        <rect x="300" y="158" width="88" height="15" rx="4" fill="#0F2036"></rect>
+        <text x="344" y="169" text-anchor="middle" fill="#EA7C31" font-size="8.5" font-weight="800" letter-spacing=".6">COMPUTES</text>
+        <rect x="262" y="326" width="126" height="15" rx="4" fill="#0F2036"></rect>
+        <text x="325" y="337" text-anchor="middle" fill="#7ED2EE" font-size="8.5" font-weight="800" letter-spacing=".6">READS AND WRITES</text>
 
         <!-- TIER ONE -->
-        <text x="346" y="46" fill="#EA7C31" font-size="10" font-weight="800" letter-spacing="1.4">TIER ONE · COMPUTED, NO INFERENCE</text>
+        <text x="392" y="40" fill="#EA7C31" font-size="10" font-weight="800" letter-spacing="1.4">TIER ONE · COMPUTED, NO INFERENCE</text>
         <g font-size="11.5" font-weight="700" text-anchor="middle">
-          <rect x="346" y="60" width="128" height="30" rx="15" fill="#152A44" stroke="rgba(234,124,49,.45)"></rect><text x="410" y="80" fill="#EAF0F6">roll-up scores</text>
-          <rect x="486" y="60" width="110" height="30" rx="15" fill="#152A44" stroke="rgba(234,124,49,.45)"></rect><text x="541" y="80" fill="#EAF0F6">red flags</text>
-          <rect x="608" y="60" width="164" height="30" rx="15" fill="#152A44" stroke="rgba(234,124,49,.45)"></rect><text x="690" y="80" fill="#EAF0F6">next best actions</text>
-          <rect x="784" y="60" width="110" height="30" rx="15" fill="#152A44" stroke="rgba(234,124,49,.45)"></rect><text x="839" y="80" fill="#EAF0F6">coaching</text>
-          <rect x="346" y="102" width="110" height="30" rx="15" fill="#152A44" stroke="rgba(234,124,49,.45)"></rect><text x="401" y="122" fill="#EAF0F6">call prep</text>
-          <rect x="468" y="102" width="122" height="30" rx="15" fill="#152A44" stroke="rgba(234,124,49,.45)"></rect><text x="529" y="122" fill="#EAF0F6">forecasting</text>
-          <rect x="602" y="102" width="160" height="30" rx="15" fill="#152A44" stroke="rgba(234,124,49,.45)"></rect><text x="682" y="122" fill="#EAF0F6">pipeline analysis</text>
+          <rect x="392" y="54" width="128" height="30" rx="15" fill="#152A44" stroke="rgba(234,124,49,.45)"></rect><text x="456" y="74" fill="#EAF0F6">roll-up scores</text>
+          <rect x="532" y="54" width="106" height="30" rx="15" fill="#152A44" stroke="rgba(234,124,49,.45)"></rect><text x="585" y="74" fill="#EAF0F6">red flags</text>
+          <rect x="650" y="54" width="156" height="30" rx="15" fill="#152A44" stroke="rgba(234,124,49,.45)"></rect><text x="728" y="74" fill="#EAF0F6">next best actions</text>
+          <rect x="818" y="54" width="106" height="30" rx="15" fill="#152A44" stroke="rgba(234,124,49,.45)"></rect><text x="871" y="74" fill="#EAF0F6">coaching</text>
+          <rect x="392" y="96" width="106" height="30" rx="15" fill="#152A44" stroke="rgba(234,124,49,.45)"></rect><text x="445" y="116" fill="#EAF0F6">call prep</text>
+          <rect x="510" y="96" width="118" height="30" rx="15" fill="#152A44" stroke="rgba(234,124,49,.45)"></rect><text x="569" y="116" fill="#EAF0F6">forecasting</text>
+          <rect x="640" y="96" width="156" height="30" rx="15" fill="#152A44" stroke="rgba(234,124,49,.45)"></rect><text x="718" y="116" fill="#EAF0F6">pipeline analysis</text>
         </g>
 
         <!-- TIER TWO -->
-        <text x="346" y="316" fill="#7ED2EE" font-size="10" font-weight="800" letter-spacing="1.4">TIER TWO · THE ECOSYSTEM GROUNDS HERE</text>
+        <text x="392" y="320" fill="#7ED2EE" font-size="10" font-weight="800" letter-spacing="1.4">TIER TWO · THE ECOSYSTEM GROUNDS HERE</text>
         <g>
-          <rect x="346" y="332" width="186" height="58" rx="10" fill="#152A44" stroke="rgba(126,210,238,.4)"></rect>
-          <circle cx="372" cy="361" r="12" fill="none" stroke="#7ED2EE" stroke-width="1.6"></circle><circle cx="372" cy="361" r="4" fill="#7ED2EE"></circle>
-          <text x="394" y="366" fill="#EAF0F6" font-size="12.5" font-weight="700">enrichment</text>
+          <rect x="392" y="336" width="250" height="54" rx="10" fill="#152A44" stroke="rgba(126,210,238,.4)"></rect>
+          <circle cx="418" cy="363" r="12" fill="none" stroke="#7ED2EE" stroke-width="1.6"></circle><circle cx="418" cy="363" r="4" fill="#7ED2EE"></circle>
+          <text x="440" y="368" fill="#EAF0F6" font-size="12.5" font-weight="700">enrichment</text>
 
-          <rect x="548" y="332" width="186" height="58" rx="10" fill="#152A44" stroke="rgba(126,210,238,.4)"></rect>
-          <rect x="562" y="350" width="24" height="22" rx="3" fill="none" stroke="#7ED2EE" stroke-width="1.6"></rect><path d="M562 357 H586" stroke="#7ED2EE" stroke-width="1.6"></path>
-          <text x="596" y="366" fill="#EAF0F6" font-size="12.5" font-weight="700">calendar</text>
+          <rect x="660" y="336" width="264" height="54" rx="10" fill="#152A44" stroke="rgba(126,210,238,.4)"></rect>
+          <rect x="676" y="352" width="24" height="22" rx="3" fill="none" stroke="#7ED2EE" stroke-width="1.6"></rect><path d="M676 359 H700" stroke="#7ED2EE" stroke-width="1.6"></path>
+          <text x="712" y="368" fill="#EAF0F6" font-size="12.5" font-weight="700">calendar</text>
 
-          <rect x="346" y="402" width="186" height="58" rx="10" fill="#152A44" stroke="rgba(126,210,238,.4)"></rect>
-          <path d="M362 426 L382 414 L382 442 Z" fill="none" stroke="#7ED2EE" stroke-width="1.6"></path>
-          <text x="394" y="436" fill="#EAF0F6" font-size="12.5" font-weight="700">marketing</text>
+          <rect x="392" y="406" width="250" height="54" rx="10" fill="#152A44" stroke="rgba(126,210,238,.4)"></rect>
+          <path d="M410 433 L430 421 L430 445 Z" fill="none" stroke="#7ED2EE" stroke-width="1.6"></path>
+          <text x="440" y="438" fill="#EAF0F6" font-size="12.5" font-weight="700">marketing</text>
 
-          <rect x="548" y="402" width="242" height="58" rx="10" fill="#152A44" stroke="rgba(126,210,238,.4)"></rect>
-          <circle cx="566" cy="424" r="6" fill="none" stroke="#7ED2EE" stroke-width="1.6"></circle><circle cx="582" cy="436" r="6" fill="none" stroke="#7ED2EE" stroke-width="1.6"></circle>
-          <text x="596" y="436" fill="#EAF0F6" font-size="12.5" font-weight="700">business development</text>
+          <rect x="660" y="406" width="264" height="54" rx="10" fill="#152A44" stroke="rgba(126,210,238,.4)"></rect>
+          <circle cx="680" cy="427" r="6" fill="none" stroke="#7ED2EE" stroke-width="1.6"></circle><circle cx="696" cy="439" r="6" fill="none" stroke="#7ED2EE" stroke-width="1.6"></circle>
+          <text x="712" y="438" fill="#EAF0F6" font-size="12.5" font-weight="700">business development</text>
         </g>
-        <g fill="none" stroke="#7ED2EE" stroke-width="1.3">
-          <path d="M340 356 C 300 356, 276 330, 240 300" marker-end="url(#ah-b)"></path>
-          <path d="M240 314 C 278 344, 302 368, 340 368" marker-end="url(#ah-b)"></path>
-          <path d="M340 424 C 300 420, 268 388, 238 352" marker-end="url(#ah-b)"></path>
-          <path d="M238 366 C 270 400, 300 434, 340 436" marker-end="url(#ah-b)"></path>
-        </g>
-        <text x="252" y="404" fill="#7ED2EE" font-size="8.5" font-weight="800" letter-spacing=".6">READS AND WRITES</text>
       </svg>
     </figure>
     <p class="cap">one structure, every answer downstream, none of it guessed.</p>
