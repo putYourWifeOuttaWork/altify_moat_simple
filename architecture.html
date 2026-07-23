@@ -51,6 +51,25 @@
     .tbl th{font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:#8AA3BC;font-weight:800}
     .fail{color:#F0A08A}.pass{color:#EA7C31}
     .scroller{overflow-x:auto}
+    .layerbtn{display:block;width:100%;text-align:left;border:1px solid rgba(175,194,214,.28);border-radius:12px;background:#152A44;padding:14px 18px;cursor:pointer;font-family:inherit;transition:border-color .18s ease, background .18s ease}
+    .layerbtn:hover{border-color:rgba(234,124,49,.55)}
+    .layerbtn .lb-t{display:block;font-family:var(--font-display);font-weight:800;font-size:15px;letter-spacing:.06em;color:#EAF0F6}
+    .layerbtn .lb-s{display:block;font-size:12.5px;color:#8AA3BC;margin-top:2px}
+    .layerbtn.is-on{border-color:rgba(234,124,49,.6);box-shadow:0 0 22px rgba(234,124,49,.12);background:#1a2740}
+    .layerbtn.is-on .lb-t,.layerbtn.is-on .lb-s{color:#EA7C31}
+    .layerbtn:focus-visible{outline:2px solid #7ED2EE;outline-offset:2px}
+    .layerpane[hidden]{display:none}
+    .outcard{border:1px solid rgba(175,194,214,.18);border-radius:16px;background:#122539;padding:22px 24px;margin-top:18px}
+    .oc-head{display:flex;align-items:center;gap:11px}
+    .oc-num{font-family:var(--font-display);font-weight:800;font-size:12px;color:#0F2036;background:#EA7C31;border-radius:6px;padding:3px 8px}
+    .oc-eyb{font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#8AA3BC}
+    .oc-h{font-family:var(--font-display);font-weight:800;font-size:clamp(1.15rem,2vw,1.45rem);line-height:1.18;letter-spacing:-.015em;color:#FFFFFF;margin:12px 0 0}
+    .oc-set{font-size:13px;color:#8AA3BC;margin:7px 0 0;font-style:italic}
+    .oc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:16px}
+    .oc-col{border-left:2px solid rgba(234,124,49,.45);padding-left:14px}
+    .oc-lbl{font-size:9.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#EA7C31}
+    .oc-p{font-size:14px;color:#AFC2D6;line-height:1.6;margin:8px 0 0}
+    .oc-foot{font-family:var(--font-display);font-weight:700;font-size:15px;color:#FFFFFF;margin:18px 0 0;padding-top:14px;border-top:1px solid rgba(175,194,214,.14)}
     .anchor{width:48px;height:48px;flex:none}
     .fixbadge{position:absolute;top:10px;right:12px;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#8AA3BC;border:1px solid rgba(175,194,214,.25);border-radius:5px;padding:2px 7px;background:#0F2036}
     .fromto{display:flex;gap:12px;align-items:stretch;flex-wrap:wrap;margin-top:16px}
@@ -138,13 +157,19 @@
     <div class="wrap" style="position:relative">
       <div class="eyb"><i></i>Today's architecture · Shipped for two decades</div>
       <h1 style="font-family:var(--font-display);font-weight:800;font-size:clamp(1.9rem,4.1vw,2.9rem);line-height:1.12;letter-spacing:-.025em;color:#FFFFFF;margin:18px 0 0;max-width:24ch;text-wrap:balance">Under the coach, under the loop, there is a machine. <em style="font-style:normal;color:#EA7C31">It runs on a structure we already own.</em></h1>
-      <p style="font-size:clamp(1rem,1.6vw,1.16rem);color:#AFC2D6;max-width:64ch;margin:18px 0 0;line-height:1.55">Enterprise selling runs as three layers: sellers execute on top, humans and AI collaborate in the middle, and underneath sits the architecture layer. This page starts with the part that already exists: the data architecture Altify has shipped for twenty years, a structural replica of a deal's interior. First we teach the structure. Then we show the machine that brings it to life.</p>
+      <p style="font-size:clamp(1rem,1.6vw,1.16rem);color:#AFC2D6;max-width:64ch;margin:18px 0 0;line-height:1.55">Enterprise selling runs as three layers: sellers execute on top, humans and AI collaborate in the middle, and underneath sits the architecture layer. Pick a layer above to see it. This page opens on the operating system: the data architecture Altify has shipped for twenty years, a structural replica of a deal's interior. First we teach the structure. Then we show the machine that brings it to life.</p>
 
       <figure data-rv="1" style="margin:30px 0 0;display:flex;gap:14px;align-items:stretch">
-        <div style="flex:1;display:flex;flex-direction:column;gap:8px">
-          <div style="border:1px solid rgba(175,194,214,.28);border-radius:12px;background:#152A44;padding:14px 18px"><div style="font-family:var(--font-display);font-weight:800;font-size:15px;letter-spacing:.06em;color:#EAF0F6">EXECUTION</div><div style="font-size:12.5px;color:#8AA3BC;margin-top:2px">sellers selling</div></div>
-          <div style="border:1px solid rgba(175,194,214,.28);border-radius:12px;background:#152A44;padding:14px 18px"><div style="font-family:var(--font-display);font-weight:800;font-size:15px;letter-spacing:.06em;color:#EAF0F6">COLLABORATION</div><div style="font-size:12.5px;color:#8AA3BC;margin-top:2px">AI drafts, humans ratify</div></div>
-          <div style="border:1px solid rgba(234,124,49,.6);box-shadow:0 0 22px rgba(234,124,49,.12);border-radius:12px;background:#1a2740;padding:14px 18px"><div style="font-family:var(--font-display);font-weight:800;font-size:15px;letter-spacing:.06em;color:#EA7C31">ARCHITECTURE</div><div style="font-size:12.5px;color:#EA7C31;margin-top:2px">this page</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:8px" role="tablist" aria-label="The three layers">
+          <button class="layerbtn" data-layer="execution" role="tab" aria-selected="false" type="button">
+            <span class="lb-t">EXECUTION</span><span class="lb-s">what changes for the seller</span>
+          </button>
+          <button class="layerbtn" data-layer="collaboration" role="tab" aria-selected="false" type="button">
+            <span class="lb-t">COLLABORATION</span><span class="lb-s">AI drafts, humans ratify</span>
+          </button>
+          <button class="layerbtn is-on" data-layer="os" role="tab" aria-selected="true" type="button">
+            <span class="lb-t">OPERATING SYSTEM</span><span class="lb-s">the structure underneath</span>
+          </button>
         </div>
         <div style="flex:none;width:40px;position:relative;display:flex;align-items:center;justify-content:center">
           <svg width="16" height="100%" viewBox="0 0 16 210" preserveAspectRatio="none" style="position:absolute;inset:0"><path d="M8 204 V16 M2 28 L8 12 L14 28" stroke="#EA7C31" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".7"></path></svg>
@@ -154,6 +179,87 @@
     </div>
   </header>
 
+  <!-- LAYER · EXECUTION -->
+  <section id="layer-execution" data-screen-label="Execution outcomes" class="sec layerpane" hidden>
+    <div class="wrap">
+      <div class="eyb"><i></i>The execution layer · What changes for the seller</div>
+      <h2 class="h2">The record does the remembering. <em>The seller does the selling.</em></h2>
+      <p class="body">Three mornings, three people, one system underneath. Nothing here is a new screen to learn or a field to fill. In every case the work changed because the record already knew something the person did not.</p>
+
+      <article class="outcard" data-rv="1">
+        <div class="oc-head">
+          <span class="oc-num">01</span>
+          <span class="oc-eyb">THE FIRST CALL</span>
+        </div>
+        <h3 class="oc-h">Dan rebuilds the deck before 10:00.</h3>
+        <p class="oc-set">Three weeks on the account. The deck was a feature tour.</p>
+        <div class="oc-grid">
+          <div class="oc-col">
+            <div class="oc-lbl">What the brief said</div>
+            <p class="oc-p">Jane Okafor runs this call and is the decision maker. Her goal, in her own words from last March: five points of added net revenue retention. Red flag: her history reads unsupportive across three deals. John G. is a champion who influences her, and he is on the call.</p>
+          </div>
+          <div class="oc-col">
+            <div class="oc-lbl">What Dan did instead</div>
+            <p class="oc-p">Swapped the feature tour for an ROI case built on her own words. Asked John to join and open with support. Walked in knowing the room, not guessing at it.</p>
+          </div>
+        </div>
+        <p class="oc-foot">The deck changed. Nobody typed a thing into CRM.</p>
+      </article>
+
+      <article class="outcard" data-rv="1">
+        <div class="oc-head">
+          <span class="oc-num">02</span>
+          <span class="oc-eyb">THE RENEWAL</span>
+        </div>
+        <h3 class="oc-h">A red flag clears without a guess.</h3>
+        <p class="oc-set">Six weeks at the company. A committed renewal with no way to defend it.</p>
+        <div class="oc-grid">
+          <div class="oc-col">
+            <div class="oc-lbl">What the record found</div>
+            <p class="oc-p">Stage 5 needs an engaged IT champion for the InfoSec review. Nobody on this deal's map can carry it: red flag, deal at risk. 4D memory surfaced Jain Frit, an IT champion who called us the only vendor whose security model he trusted, on a deal that closed two years ago. He has since been promoted and now owns the very review this stage requires.</p>
+          </div>
+          <div class="oc-col">
+            <div class="oc-lbl">What the seller did instead</div>
+            <p class="oc-p">Called Jain, congratulated the promotion, quoted him to himself. Multi-threaded to the compelling event through him. Cleared the flag by selling, not by editing a field.</p>
+          </div>
+        </div>
+        <p class="oc-foot">The number did not change. The ability to defend it did.</p>
+      </article>
+
+      <article class="outcard" data-rv="1">
+        <div class="oc-head">
+          <span class="oc-num">03</span>
+          <span class="oc-eyb">THE FORECAST</span>
+        </div>
+        <h3 class="oc-h">The leader stops auditing and starts deciding.</h3>
+        <p class="oc-set">Wednesday night in dashboards. Thursday morning interrogating people.</p>
+        <div class="oc-grid">
+          <div class="oc-col">
+            <div class="oc-lbl">What the roll-up showed</div>
+            <p class="oc-p">A committed deal is already dead this quarter: procurement denied the compelling event on a logged call, whatever the seller committed. A deal called Best Case is the cleanest in the region: every must-have true, budget holder quoted, support in the inner circle. Pull it forward instead of nursing it. And a pattern, once the sample was big enough: the team keeps losing at the same spot, missing IT coverage on early calls.</p>
+          </div>
+          <div class="oc-col">
+            <div class="oc-lbl">What the leader did instead</div>
+            <p class="oc-p">Moved two commits on evidence, not on opinion. Pushed the clean deal to close early and lift velocity. Changed enablement: solutions engineers on early calls, IT coverage made a coverage requirement, not a hope.</p>
+          </div>
+        </div>
+        <p class="oc-foot">Twenty minutes of decisions. Nobody argued, because nobody could.</p>
+      </article>
+
+      <p class="kick">Sales execution changes. <em>Not the paperwork.</em></p>
+    </div>
+  </section>
+
+  <!-- LAYER · COLLABORATION -->
+  <section id="layer-collaboration" data-screen-label="Collaboration outcomes" class="sec layerpane" hidden>
+    <div class="wrap">
+      <div class="eyb"><i></i>The collaboration layer · AI drafts, humans ratify</div>
+      <h2 class="h2">Where the work actually happens. <em>The brief, the coaching, the roll-up.</em></h2>
+      <p class="body">The layer where people meet the machine: the morning brief in the channel a seller already lives in, the coaching view a manager opens on a Monday, the roll-up an executive takes into a board week, and the flagging motion that ties all three together. Detailed next.</p>
+    </div>
+  </section>
+
+  <div id="layer-os" class="layerpane">
   <!-- 2 · THE FIXTURE -->
   <section id="sec-fixture" data-nav="The fixture" data-screen-label="M1 Fixture" class="sec">
     <div class="wrap">
@@ -807,6 +913,8 @@
     <div style="font-size:13px;color:#8AA3BC;letter-spacing:.03em">This is the bottom of the cake. The loop above runs on this machine.</div>
   </div>
 
+  </div>
+
   <footer data-screen-label="Footer" style="border-top:1px solid rgba(175,194,214,.16);padding:30px 0 46px;margin-top:36px">
     <div style="max-width:900px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center">
       <a href="./" style="display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#EA7C31;text-decoration:none">The vision <span style="font-size:15px">&#8594;</span></a>
@@ -889,6 +997,30 @@ class Component extends DCLogic {
       applyCollapse();
       update();
     }
+
+
+    // the three layers act as tabs over the panes below
+    (() => {
+      const btns = Array.from(document.querySelectorAll('.layerbtn'));
+      if (!btns.length) return;
+      const panes = { execution: $('layer-execution'), collaboration: $('layer-collaboration'), os: $('layer-os') };
+      const nav = document.querySelector('#topnav');
+      const show = (key) => {
+        btns.forEach((b) => {
+          const on = b.dataset.layer === key;
+          b.classList.toggle('is-on', on);
+          b.setAttribute('aria-selected', String(on));
+        });
+        Object.entries(panes).forEach(([k, el]) => { if (el) el.hidden = k !== key; });
+        // the section nav only maps the operating system pane
+        if (nav) nav.style.visibility = key === 'os' ? '' : 'hidden';
+        try { history.replaceState(null, '', key === 'os' ? location.pathname : location.pathname + '#layer-' + key); } catch (e) {}
+      };
+      btns.forEach((b) => { b.onclick = () => show(b.dataset.layer); });
+      const initial = (location.hash || '').replace('#layer-', '');
+      show(panes[initial] ? initial : 'os');
+      this._showLayer = show;
+    })();
 
     if (reduced) return;
     const rvs = Array.from(document.querySelectorAll('[data-rv]'));
