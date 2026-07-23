@@ -51,6 +51,8 @@
     .tbl th{font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:#8AA3BC;font-weight:800}
     .fail{color:#F0A08A}.pass{color:#EA7C31}
     .scroller{overflow-x:auto}
+    #loop8 .seg{transition:opacity .3s ease}
+    #loop8 g[id^="z-"],#loop8 g[id^="lab-"]{transition:opacity .3s ease}
     .layerbtn{display:block;width:100%;text-align:left;border:1px solid rgba(175,194,214,.28);border-radius:12px;background:#152A44;padding:14px 18px;cursor:pointer;font-family:inherit;transition:border-color .18s ease, background .18s ease}
     .layerbtn:hover{border-color:rgba(234,124,49,.55)}
     .layerbtn .lb-t{display:block;font-family:var(--font-display);font-weight:800;font-size:15px;letter-spacing:.06em;color:#EAF0F6}
@@ -191,6 +193,32 @@
           <span style="transform:rotate(-90deg);white-space:nowrap;font-size:10px;color:#8AA3BC;letter-spacing:.06em;position:relative;background:#0F2036;padding:0 6px">each layer feeds the next</span>
         </div>
       </figure>
+
+      <figure data-rv="1" class="fig" style="margin-top:18px">
+        <svg id="loop8" viewBox="0 0 900 500" style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif" role="img" aria-label="A figure eight over a two by two chart. The lower left lobe is the operating system, the crossover in the middle is collaboration, and the upper right lobe is execution. One flow runs through all three.">
+          <rect width="900" height="500" fill="#0F2036"></rect>
+          <g stroke="rgba(175,194,214,.18)" stroke-width="1">
+            <path d="M 450 58 V 442" fill="none"></path><path d="M 78 245 H 822" fill="none"></path>
+          </g>
+          <text x="450" y="44" text-anchor="middle" fill="#8AA3BC" font-size="11" font-weight="700" letter-spacing="1.2">EASY FOR HUMANS</text>
+          <text x="450" y="466" text-anchor="middle" fill="#8AA3BC" font-size="11" font-weight="700" letter-spacing="1.2">HARD FOR HUMANS</text>
+          <text x="70" y="240" fill="#8AA3BC" font-size="11" font-weight="700" letter-spacing="1.2">LOW IMPACT</text>
+          <text x="830" y="240" text-anchor="end" fill="#8AA3BC" font-size="11" font-weight="700" letter-spacing="1.2">HIGH IMPACT</text>
+          <g id="z-os"><circle cx="340" cy="315" r="132" fill="#D5552E" opacity=".07"></circle></g>
+          <g id="z-execution"><circle cx="560" cy="185" r="132" fill="#53AFD4" opacity=".07"></circle></g>
+          <g id="z-collaboration"><circle cx="450" cy="245" r="86" fill="#9A8BD4" opacity=".09"></circle></g>
+          <path class="seg" data-zone="os" d="M 450.0 245.0 L 444.1 242.0 L 438.2 238.9 L 432.3 235.9 L 426.4 232.9 L 420.5 229.9 L 414.5 227.0 L 408.6 224.2 L 402.6 221.4 L 396.5 218.7 L 390.5 216.0 L 384.4 213.5 L 378.2 211.1 L 372.0 208.9 L 365.8 206.7 L 359.5 204.8 L 353.2 203.0 L 346.9 201.4 L 340.5 200.0 L 334.1 198.9 L 327.7 198.1 L 321.3 197.5 L 314.9 197.2 L 308.5 197.3 L 302.1 197.7 L 295.7 198.6 L 289.5 199.8 L 283.3 201.6 L 277.3 203.7 L 271.4 206.4 L 265.7 209.7 L 260.2 213.4 L 255.1 217.8 L 250.2 222.8 L 245.7 228.3 L 241.7 234.5 L 238.1 241.2 L 235.0 248.5 L 232.5 256.4 L 230.7 264.9 L 229.5 273.8 L 229.0 283.1 L 229.3 292.7 L 230.3 302.7 L 232.1 312.8 L 234.7 323.0 L 238.0 333.2 L 242.1 343.2 L 246.9 353.0" fill="none" stroke="#D5552E" stroke-width="5" stroke-linecap="round"></path>
+          <path class="seg" data-zone="os" d="M 246.9 353.0 L 252.4 362.4 L 258.4 371.4 L 265.0 379.9 L 272.0 387.7 L 279.3 394.9 L 287.0 401.3 L 294.9 406.9 L 302.8 411.7 L 310.9 415.7 L 318.9 418.9 L 326.8 421.3 L 334.6 422.8 L 342.2 423.6 L 349.6 423.7 L 356.7 423.1 L 363.5 421.8 L 370.1 420.0 L 376.2 417.5 L 382.1 414.6 L 387.6 411.3 L 392.8 407.5 L 397.7 403.3 L 402.2 398.8 L 406.5 394.1 L 410.4 389.0 L 414.0 383.7 L 417.4 378.3 L 420.5 372.6 L 423.4 366.8 L 426.1 360.9 L 428.5 354.9 L 430.7 348.7 L 432.8 342.5 L 434.6 336.2 L 436.4 329.9 L 437.9 323.5 L 439.4 317.0 L 440.7 310.6 L 441.9 304.1 L 443.1 297.5 L 444.1 291.0 L 445.1 284.5 L 446.0 277.9 L 446.9 271.3 L 447.7 264.7 L 448.5 258.2 L 449.2 251.6 L 450.0 245.0" fill="none" stroke="#D5552E" stroke-width="5" stroke-linecap="round"></path>
+          <path class="seg" data-zone="execution" d="M 450.0 245.0 L 450.8 238.4 L 451.5 231.8 L 452.3 225.3 L 453.1 218.7 L 454.0 212.1 L 454.9 205.5 L 455.9 199.0 L 456.9 192.5 L 458.1 185.9 L 459.3 179.4 L 460.6 173.0 L 462.1 166.5 L 463.6 160.1 L 465.4 153.8 L 467.2 147.5 L 469.3 141.3 L 471.5 135.1 L 473.9 129.1 L 476.6 123.2 L 479.5 117.4 L 482.6 111.7 L 486.0 106.3 L 489.6 101.0 L 493.5 95.9 L 497.8 91.2 L 502.3 86.7 L 507.2 82.5 L 512.4 78.7 L 517.9 75.4 L 523.8 72.5 L 529.9 70.0 L 536.5 68.2 L 543.3 66.9 L 550.4 66.3 L 557.8 66.4 L 565.4 67.2 L 573.2 68.7 L 581.1 71.1 L 589.1 74.3 L 597.2 78.3 L 605.1 83.1 L 613.0 88.7 L 620.7 95.1 L 628.0 102.3 L 635.0 110.1 L 641.6 118.6 L 647.6 127.6 L 653.1 137.0" fill="none" stroke="#53AFD4" stroke-width="5" stroke-linecap="round"></path>
+          <path class="seg" data-zone="execution" d="M 653.1 137.0 L 657.9 146.8 L 662.0 156.8 L 665.3 167.0 L 667.9 177.2 L 669.7 187.3 L 670.7 197.3 L 671.0 206.9 L 670.5 216.2 L 669.3 225.1 L 667.5 233.6 L 665.0 241.5 L 661.9 248.8 L 658.3 255.5 L 654.3 261.7 L 649.8 267.2 L 644.9 272.2 L 639.8 276.6 L 634.3 280.3 L 628.6 283.6 L 622.7 286.3 L 616.7 288.4 L 610.5 290.2 L 604.3 291.4 L 597.9 292.3 L 591.5 292.7 L 585.1 292.8 L 578.7 292.5 L 572.3 291.9 L 565.9 291.1 L 559.5 290.0 L 553.1 288.6 L 546.8 287.0 L 540.5 285.2 L 534.2 283.3 L 528.0 281.1 L 521.8 278.9 L 515.6 276.5 L 509.5 274.0 L 503.5 271.3 L 497.4 268.6 L 491.4 265.8 L 485.5 263.0 L 479.5 260.1 L 473.6 257.1 L 467.7 254.1 L 461.8 251.1 L 455.9 248.0 L 450.0 245.0" fill="none" stroke="#53AFD4" stroke-width="5" stroke-linecap="round"></path>
+          <circle class="seg" data-zone="collaboration" cx="450" cy="245" r="15" fill="#0F2036" stroke="#9A8BD4" stroke-width="4"></circle>
+          <circle id="loop8dot" r="8" fill="#FFFFFF"><animateMotion dur="14s" repeatCount="indefinite" calcMode="linear" path="M 450.0 245.0 L 444.1 242.0 L 438.2 238.9 L 432.3 235.9 L 426.4 232.9 L 420.5 229.9 L 414.5 227.0 L 408.6 224.2 L 402.6 221.4 L 396.5 218.7 L 390.5 216.0 L 384.4 213.5 L 378.2 211.1 L 372.0 208.9 L 365.8 206.7 L 359.5 204.8 L 353.2 203.0 L 346.9 201.4 L 340.5 200.0 L 334.1 198.9 L 327.7 198.1 L 321.3 197.5 L 314.9 197.2 L 308.5 197.3 L 302.1 197.7 L 295.7 198.6 L 289.5 199.8 L 283.3 201.6 L 277.3 203.7 L 271.4 206.4 L 265.7 209.7 L 260.2 213.4 L 255.1 217.8 L 250.2 222.8 L 245.7 228.3 L 241.7 234.5 L 238.1 241.2 L 235.0 248.5 L 232.5 256.4 L 230.7 264.9 L 229.5 273.8 L 229.0 283.1 L 229.3 292.7 L 230.3 302.7 L 232.1 312.8 L 234.7 323.0 L 238.0 333.2 L 242.1 343.2 L 246.9 353.0 252.4 362.4 L 258.4 371.4 L 265.0 379.9 L 272.0 387.7 L 279.3 394.9 L 287.0 401.3 L 294.9 406.9 L 302.8 411.7 L 310.9 415.7 L 318.9 418.9 L 326.8 421.3 L 334.6 422.8 L 342.2 423.6 L 349.6 423.7 L 356.7 423.1 L 363.5 421.8 L 370.1 420.0 L 376.2 417.5 L 382.1 414.6 L 387.6 411.3 L 392.8 407.5 L 397.7 403.3 L 402.2 398.8 L 406.5 394.1 L 410.4 389.0 L 414.0 383.7 L 417.4 378.3 L 420.5 372.6 L 423.4 366.8 L 426.1 360.9 L 428.5 354.9 L 430.7 348.7 L 432.8 342.5 L 434.6 336.2 L 436.4 329.9 L 437.9 323.5 L 439.4 317.0 L 440.7 310.6 L 441.9 304.1 L 443.1 297.5 L 444.1 291.0 L 445.1 284.5 L 446.0 277.9 L 446.9 271.3 L 447.7 264.7 L 448.5 258.2 L 449.2 251.6 L 450.0 245.0 L 450.8 238.4 L 451.5 231.8 L 452.3 225.3 L 453.1 218.7 L 454.0 212.1 L 454.9 205.5 L 455.9 199.0 L 456.9 192.5 L 458.1 185.9 L 459.3 179.4 L 460.6 173.0 L 462.1 166.5 L 463.6 160.1 L 465.4 153.8 L 467.2 147.5 L 469.3 141.3 L 471.5 135.1 L 473.9 129.1 L 476.6 123.2 L 479.5 117.4 L 482.6 111.7 L 486.0 106.3 L 489.6 101.0 L 493.5 95.9 L 497.8 91.2 L 502.3 86.7 L 507.2 82.5 L 512.4 78.7 L 517.9 75.4 L 523.8 72.5 L 529.9 70.0 L 536.5 68.2 L 543.3 66.9 L 550.4 66.3 L 557.8 66.4 L 565.4 67.2 L 573.2 68.7 L 581.1 71.1 L 589.1 74.3 L 597.2 78.3 L 605.1 83.1 L 613.0 88.7 L 620.7 95.1 L 628.0 102.3 L 635.0 110.1 L 641.6 118.6 L 647.6 127.6 L 653.1 137.0 L 657.9 146.8 L 662.0 156.8 L 665.3 167.0 L 667.9 177.2 L 669.7 187.3 L 670.7 197.3 L 671.0 206.9 L 670.5 216.2 L 669.3 225.1 L 667.5 233.6 L 665.0 241.5 L 661.9 248.8 L 658.3 255.5 L 654.3 261.7 L 649.8 267.2 L 644.9 272.2 L 639.8 276.6 L 634.3 280.3 L 628.6 283.6 L 622.7 286.3 L 616.7 288.4 L 610.5 290.2 L 604.3 291.4 L 597.9 292.3 L 591.5 292.7 L 585.1 292.8 L 578.7 292.5 L 572.3 291.9 L 565.9 291.1 L 559.5 290.0 L 553.1 288.6 L 546.8 287.0 L 540.5 285.2 L 534.2 283.3 L 528.0 281.1 L 521.8 278.9 L 515.6 276.5 L 509.5 274.0 L 503.5 271.3 L 497.4 268.6 L 491.4 265.8 L 485.5 263.0 L 479.5 260.1 L 473.6 257.1 L 467.7 254.1 L 461.8 251.1 L 455.9 248.0 L 450.0 245.0"></animateMotion></circle>
+          <g id="lab-os"><rect x="150" y="352" width="196" height="42" rx="10" fill="#0F2036" stroke="#D5552E" stroke-width="1.5"></rect><text x="166" y="371" fill="#D5552E" font-size="12.5" font-weight="800" letter-spacing=".08em">OPERATING SYSTEM</text><text x="166" y="387" fill="#8AA3BC" font-size="10.5">the machine does it</text></g>
+          <g id="lab-execution"><rect x="556" y="104" width="196" height="42" rx="10" fill="#0F2036" stroke="#53AFD4" stroke-width="1.5"></rect><text x="572" y="123" fill="#53AFD4" font-size="12.5" font-weight="800" letter-spacing=".08em">EXECUTION</text><text x="572" y="139" fill="#8AA3BC" font-size="10.5">the seller sells</text></g>
+          <g id="lab-collaboration"><rect x="472" y="224" width="196" height="42" rx="10" fill="#0F2036" stroke="#9A8BD4" stroke-width="1.5"></rect><text x="488" y="243" fill="#9A8BD4" font-size="12.5" font-weight="800" letter-spacing=".08em">COLLABORATION</text><text x="488" y="259" fill="#8AA3BC" font-size="10.5">they hand off here</text></g>
+          <text x="450" y="492" text-anchor="middle" fill="#8AA3BC" font-size="12.5">one flow, three layers: the machine feeds the handoff, the handoff feeds the selling.</text>
+        </svg>
+      </figure>
     </div>
   </header>
 
@@ -213,7 +241,7 @@
           <span class="oc-eyb">The first call · the seller</span>
         </div>
         <h3 class="oc-h">The brief says the standard play is wrong.</h3>
-        <svg viewBox="0 0 940 300" style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif" role="img" aria-label="The brief says the standard play is wrong.">
+        <svg viewBox="0 0 940 300" style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif" role="img" aria-label="The standard play is a product demo. The record says Jane is on the call, was an Enemy on a past deal, and buys on ROI. So the deck becomes an ROI case and a supporter is invited to swing the room.">
           <rect width="940" height="300" fill="#0F2036"></rect>
           <rect x="0" y="34" width="252" height="232" rx="14" fill="#141d2b" stroke="rgba(175,194,214,.2)"></rect>
           <text x="22" y="22" fill="#5b6f84" font-size="10.5" font-weight="800" letter-spacing="1.5">THE STANDARD PLAY</text>
@@ -225,21 +253,21 @@
           <rect x="316" y="34" width="308" height="232" rx="14" fill="rgba(213,85,46,.10)" stroke="#D5552E" stroke-width="1.8"></rect>
           <circle cx="340" cy="16" r="7" fill="#D5552E"></circle>
           <text x="354" y="21" fill="#D5552E" font-size="10.5" font-weight="800" letter-spacing="1.5">CONTENTION · 3 YEARS OF HISTORY</text>
-          <text x="338" y="78" fill="#FFFFFF" font-size="16" font-weight="800">Jane runs this call.</text>
-          <text x="338" y="97" fill="#AFC2D6" font-size="12.5">Decision maker. Not on the old deck.</text>
-          <text x="338" y="124" fill="#FFFFFF" font-size="16" font-weight="800">Never supportive.</text>
-          <text x="338" y="143" fill="#AFC2D6" font-size="12.5">Negative on three prior deals.</text>
-          <text x="338" y="170" fill="#FFFFFF" font-size="16" font-weight="800">Her goal, her words.</text>
-          <text x="338" y="189" fill="#AFC2D6" font-size="12.5">Five points of net revenue retention.</text>
+          <text x="338" y="78" fill="#FFFFFF" font-size="16" font-weight="800">Jane is on the call.</text>
+          <text x="338" y="97" fill="#AFC2D6" font-size="12.5">A prospect. Likely the decision maker.</text>
+          <text x="338" y="124" fill="#FFFFFF" font-size="16" font-weight="800">She was an Enemy.</text>
+          <text x="338" y="143" fill="#AFC2D6" font-size="12.5">On the committee that killed a past deal.</text>
+          <text x="338" y="170" fill="#FFFFFF" font-size="16" font-weight="800">She buys on ROI.</text>
+          <text x="338" y="189" fill="#AFC2D6" font-size="12.5">Her words: it has to clear a 12-month ROI.</text>
           <path d="M634 150 L678 150" fill="none" stroke="#5FBE8C" stroke-width="3" marker-end="url(#ah-g)"></path>
           <rect x="688" y="34" width="252" height="232" rx="14" fill="rgba(95,190,140,.10)" stroke="#5FBE8C" stroke-width="1.8"></rect>
           <text x="710" y="22" fill="#5FBE8C" font-size="10.5" font-weight="800" letter-spacing="1.5">WHAT HAPPENS INSTEAD</text>
           <path d="M710 71 l5 6 l11 -13" fill="none" stroke="#5FBE8C" stroke-width="2.6"></path>
           <text x="736" y="76" fill="#FFFFFF" font-size="13.5" font-weight="700">ROI case, not features</text>
           <path d="M710 115 l5 6 l11 -13" fill="none" stroke="#5FBE8C" stroke-width="2.6"></path>
-          <text x="736" y="120" fill="#FFFFFF" font-size="13.5" font-weight="700">Built on her own sentence</text>
+          <text x="736" y="120" fill="#FFFFFF" font-size="13.5" font-weight="700">Invite a supporter in</text>
           <path d="M710 159 l5 6 l11 -13" fill="none" stroke="#5FBE8C" stroke-width="2.6"></path>
-          <text x="736" y="164" fill="#FFFFFF" font-size="13.5" font-weight="700">John opens with support</text>
+          <text x="736" y="164" fill="#FFFFFF" font-size="13.5" font-weight="700">Influence in the room</text>
         </svg>
         <p class="oc-foot">The deck changed before 10:00. Nobody typed a thing into CRM.</p>
       </article>
@@ -250,33 +278,44 @@
           <span class="oc-eyb">The renewal · the seller</span>
         </div>
         <h3 class="oc-h">A red flag clears by selling, not by typing.</h3>
-        <svg viewBox="0 0 940 300" style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif" role="img" aria-label="A red flag clears by selling, not by typing.">
-          <rect width="940" height="300" fill="#0F2036"></rect>
-          <rect x="0" y="34" width="252" height="232" rx="14" fill="#141d2b" stroke="rgba(175,194,214,.2)"></rect>
+        <svg viewBox="0 0 940 392" style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif" role="img" aria-label="Stage 5 needs an IT champion and nobody on the map can carry it. Altify names the gap and the fix: Jain Frit, an IT champion from a deal closed two years ago, since promoted to own InfoSec, with the quote he gave us then.">
+          <rect width="940" height="392" fill="#0F2036"></rect>
           <text x="22" y="22" fill="#5b6f84" font-size="10.5" font-weight="800" letter-spacing="1.5">THE STANDARD PLAY</text>
-          <text x="22" y="78" fill="#8AA3BC" font-size="15" font-weight="700">Stage 5 renewal.</text>
-          <text x="22" y="104" fill="#8AA3BC" font-size="13.5" font-weight="700">Committed, $480k.</text>
-          <text x="22" y="130" fill="#8AA3BC" font-size="13.5" font-weight="700">No way to defend it.</text>
-          <g opacity=".5"><rect x="22" y="216" width="120" height="5" rx="2.5" fill="#5b6f84"></rect><rect x="22" y="230" width="86" height="5" rx="2.5" fill="#5b6f84"></rect></g>
-          <path d="M262 150 L306 150" fill="none" stroke="#D5552E" stroke-width="3" marker-end="url(#ah-r)"></path>
-          <rect x="316" y="34" width="308" height="232" rx="14" fill="rgba(213,85,46,.10)" stroke="#D5552E" stroke-width="1.8"></rect>
+          <rect x="0" y="34" width="252" height="324" rx="14" fill="#141d2b" stroke="rgba(175,194,214,.2)"></rect>
+          <text x="22" y="80" fill="#8AA3BC" font-size="15" font-weight="700">Stage 5 renewal.</text>
+          <text x="22" y="106" fill="#8AA3BC" font-size="13.5" font-weight="700">Committed, $480k.</text>
+          <text x="22" y="132" fill="#8AA3BC" font-size="13.5" font-weight="700">No way to defend it.</text>
+          <g opacity=".5"><rect x="22" y="306" width="120" height="5" rx="2.5" fill="#5b6f84"></rect><rect x="22" y="320" width="86" height="5" rx="2.5" fill="#5b6f84"></rect></g>
+          <path d="M262 196 L306 196" fill="none" stroke="#D5552E" stroke-width="3" marker-end="url(#ah-r)"></path>
           <circle cx="340" cy="16" r="7" fill="#D5552E"></circle>
-          <text x="354" y="21" fill="#D5552E" font-size="10.5" font-weight="800" letter-spacing="1.5">RED FLAG · METHODOLOGY</text>
-          <text x="338" y="78" fill="#FFFFFF" font-size="16" font-weight="800">No IT champion.</text>
-          <text x="338" y="97" fill="#AFC2D6" font-size="12.5">Stage 5 requires one for InfoSec.</text>
-          <text x="338" y="124" fill="#FFFFFF" font-size="16" font-weight="800">Nobody on this map.</text>
-          <text x="338" y="143" fill="#AFC2D6" font-size="12.5">The deal cannot advance.</text>
-          <text x="338" y="170" fill="#FFFFFF" font-size="16" font-weight="800">4D memory finds Jain.</text>
-          <text x="338" y="189" fill="#AFC2D6" font-size="12.5">Champion, closed deal, 2 years ago.</text>
-          <path d="M634 150 L678 150" fill="none" stroke="#5FBE8C" stroke-width="3" marker-end="url(#ah-g)"></path>
-          <rect x="688" y="34" width="252" height="232" rx="14" fill="rgba(95,190,140,.10)" stroke="#5FBE8C" stroke-width="1.8"></rect>
+          <text x="354" y="21" fill="#D5552E" font-size="10.5" font-weight="800" letter-spacing="1.5">RED FLAG · AND THE WAY OUT</text>
+          <rect x="316" y="34" width="308" height="324" rx="14" fill="rgba(213,85,46,.10)" stroke="#D5552E" stroke-width="1.8"></rect>
+          <text x="338" y="62" fill="#D5552E" font-size="9.5" font-weight="800" letter-spacing="1.2">THE PROBLEM</text>
+          <text x="338" y="86" fill="#FFFFFF" font-size="16" font-weight="800">No IT champion.</text>
+          <text x="338" y="105" fill="#AFC2D6" font-size="12.5">Stage 5 requires one for InfoSec.</text>
+          <text x="338" y="124" fill="#AFC2D6" font-size="12.5">Nobody on this deal's map can carry it.</text>
+          <path d="M338 142 H602" stroke="rgba(213,85,46,.4)" stroke-width="1" fill="none"></path>
+          <text x="338" y="166" fill="#5FBE8C" font-size="9.5" font-weight="800" letter-spacing="1.2">ALTIFY FINDS, AND SAYS WHY</text>
+          <text x="338" y="190" fill="#FFFFFF" font-size="16" font-weight="800">Jain Frit.</text>
+          <text x="338" y="209" fill="#AFC2D6" font-size="12.5">IT champion on a deal we won, 2 years ago.</text>
+          <text x="338" y="228" fill="#AFC2D6" font-size="12.5">Promoted since. He owns InfoSec now.</text>
+          <rect x="338" y="244" width="264" height="92" rx="9" fill="#0F2036" stroke="rgba(95,190,140,.45)"></rect>
+          <rect x="338" y="244" width="3" height="92" rx="1.5" fill="#5FBE8C"></rect>
+          <text x="354" y="268" fill="#8AA3BC" font-size="9" font-weight="800" letter-spacing="1">WHAT HE SAID THEN</text>
+          <text x="354" y="292" fill="#EAF0F6" font-size="13" font-style="italic">"The only vendor whose security</text>
+          <text x="354" y="311" fill="#EAF0F6" font-size="13" font-style="italic">model I actually trust."</text>
+          <text x="354" y="328" fill="#8AA3BC" font-size="10">Jain Frit · closed-won call · 2024</text>
+          <path d="M634 196 L678 196" fill="none" stroke="#5FBE8C" stroke-width="3" marker-end="url(#ah-g)"></path>
           <text x="710" y="22" fill="#5FBE8C" font-size="10.5" font-weight="800" letter-spacing="1.5">WHAT HAPPENS INSTEAD</text>
-          <path d="M710 71 l5 6 l11 -13" fill="none" stroke="#5FBE8C" stroke-width="2.6"></path>
-          <text x="736" y="76" fill="#FFFFFF" font-size="13.5" font-weight="700">Jain now owns InfoSec</text>
-          <path d="M710 115 l5 6 l11 -13" fill="none" stroke="#5FBE8C" stroke-width="2.6"></path>
-          <text x="736" y="120" fill="#FFFFFF" font-size="13.5" font-weight="700">His own quote, given back</text>
-          <path d="M710 159 l5 6 l11 -13" fill="none" stroke="#5FBE8C" stroke-width="2.6"></path>
-          <text x="736" y="164" fill="#FFFFFF" font-size="13.5" font-weight="700">Flag cleared, deal alive</text>
+          <rect x="688" y="34" width="252" height="324" rx="14" fill="rgba(95,190,140,.10)" stroke="#5FBE8C" stroke-width="1.8"></rect>
+          <path d="M710 83 l5 6 l11 -13" fill="none" stroke="#5FBE8C" stroke-width="2.6"></path>
+          <text x="736" y="88" fill="#FFFFFF" font-size="13.5" font-weight="700">Call Jain, not a stranger</text>
+          <path d="M710 141 l5 6 l11 -13" fill="none" stroke="#5FBE8C" stroke-width="2.6"></path>
+          <text x="736" y="146" fill="#FFFFFF" font-size="13.5" font-weight="700">Give him his own words back</text>
+          <path d="M710 199 l5 6 l11 -13" fill="none" stroke="#5FBE8C" stroke-width="2.6"></path>
+          <text x="736" y="204" fill="#FFFFFF" font-size="13.5" font-weight="700">He carries the InfoSec review</text>
+          <path d="M710 257 l5 6 l11 -13" fill="none" stroke="#5FBE8C" stroke-width="2.6"></path>
+          <text x="736" y="262" fill="#FFFFFF" font-size="13.5" font-weight="700">Flag cleared, deal alive</text>
         </svg>
         <p class="oc-foot">The number did not change. The ability to defend it did.</p>
       </article>
@@ -1084,6 +1123,15 @@ class Component extends DCLogic {
           b.setAttribute('aria-selected', String(on));
         });
         Object.entries(panes).forEach(([k, el]) => { if (el) el.hidden = k !== key; });
+        document.querySelectorAll('#loop8 .seg').forEach((el) => {
+          el.style.opacity = el.dataset.zone === key ? '1' : '.34';
+        });
+        ['os', 'execution', 'collaboration'].forEach((z) => {
+          const wash = document.getElementById('z-' + z);
+          const lab = document.getElementById('lab-' + z);
+          if (wash) wash.style.opacity = z === key ? '1' : '.3';
+          if (lab) lab.style.opacity = z === key ? '1' : '.45';
+        });
         // the section nav only maps the operating system pane
         if (nav) nav.style.visibility = key === 'os' ? '' : 'hidden';
         try { history.replaceState(null, '', key === 'os' ? location.pathname : location.pathname + '#layer-' + key); } catch (e) {}
