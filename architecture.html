@@ -69,6 +69,10 @@
     .oc-col{border-left:2px solid rgba(234,124,49,.45);padding-left:14px}
     .oc-lbl{font-size:9.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#EA7C31}
     .oc-p{font-size:14px;color:#AFC2D6;line-height:1.6;margin:8px 0 0}
+    .oc-key{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:20px}
+    .oc-key span{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8AA3BC}
+    .oc-key i{width:22px;height:4px;border-radius:2px;flex:none}
+    .outcard svg{margin-top:16px}
     .oc-foot{font-family:var(--font-display);font-weight:700;font-size:15px;color:#FFFFFF;margin:18px 0 0;padding-top:14px;border-top:1px solid rgba(175,194,214,.14)}
     .anchor{width:48px;height:48px;flex:none}
     .fixbadge{position:absolute;top:10px;right:12px;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#8AA3BC;border:1px solid rgba(175,194,214,.25);border-radius:5px;padding:2px 7px;background:#0F2036}
@@ -102,6 +106,17 @@
   <symbol id="g-stamp" viewBox="0 0 24 24"><path d="M4 20 H20 M8 16 V12 a4 4 0 0 1 8 0 v4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/><rect x="6" y="16" width="12" height="3" rx="1" fill="currentColor"/></symbol>
   <symbol id="g-pencil" viewBox="0 0 24 24"><path d="M4 20 L5 15 L16 4 L20 8 L9 19 Z M14 6 L18 10" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linejoin="round"/></symbol>
 </svg>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <marker id="ah-g" viewBox="0 0 10 10" refX="9.6" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#5FBE8C"></path></marker>
+  <marker id="ah-r" viewBox="0 0 10 10" refX="9.6" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#D5552E"></path></marker>
+  <marker id="ah-k" viewBox="0 0 10 10" refX="9.6" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#8AA3BC"></path></marker>
+  <marker id="ah-o" viewBox="0 0 10 10" refX="9.6" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#EA7C31"></path></marker>
+  <marker id="ah-b" viewBox="0 0 10 10" refX="9.6" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#7ED2EE"></path></marker>
+  <marker id="ah-d" viewBox="0 0 10 10" refX="9.6" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#53AFD4"></path></marker>
+  <marker id="ah-t" viewBox="0 0 10 10" refX="9.6" refY="5" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#53AFD4"></path></marker>
+  <marker id="ah-y" viewBox="0 0 10 10" refX="9.6" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#E8B44A"></path></marker>
+</defs></svg>
 
 <div style="min-width:320px">
 
@@ -186,63 +201,120 @@
       <h2 class="h2">The record does the remembering. <em>The seller does the selling.</em></h2>
       <p class="body">Three mornings, three people, one system underneath. Nothing here is a new screen to learn or a field to fill. In every case the work changed because the record already knew something the person did not.</p>
 
+      <div class="oc-key" data-rv="1">
+        <span><i style="background:#5b6f84"></i>the standard play</span>
+        <span><i style="background:#D5552E"></i>what the record flags</span>
+        <span><i style="background:#5FBE8C"></i>what the seller does instead</span>
+      </div>
+
       <article class="outcard" data-rv="1">
         <div class="oc-head">
           <span class="oc-num">01</span>
-          <span class="oc-eyb">THE FIRST CALL</span>
+          <span class="oc-eyb">The first call · the seller</span>
         </div>
-        <h3 class="oc-h">Dan rebuilds the deck before 10:00.</h3>
-        <p class="oc-set">Three weeks on the account. The deck was a feature tour.</p>
-        <div class="oc-grid">
-          <div class="oc-col">
-            <div class="oc-lbl">What the brief said</div>
-            <p class="oc-p">Jane Okafor runs this call and is the decision maker. Her goal, in her own words from last March: five points of added net revenue retention. Red flag: her history reads unsupportive across three deals. John G. is a champion who influences her, and he is on the call.</p>
-          </div>
-          <div class="oc-col">
-            <div class="oc-lbl">What Dan did instead</div>
-            <p class="oc-p">Swapped the feature tour for an ROI case built on her own words. Asked John to join and open with support. Walked in knowing the room, not guessing at it.</p>
-          </div>
-        </div>
-        <p class="oc-foot">The deck changed. Nobody typed a thing into CRM.</p>
+        <h3 class="oc-h">The brief says the standard play is wrong.</h3>
+        <svg viewBox="0 0 940 300" style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif" role="img" aria-label="The brief says the standard play is wrong.">
+          <rect width="940" height="300" fill="#0F2036"></rect>
+          <rect x="0" y="34" width="252" height="232" rx="14" fill="#141d2b" stroke="rgba(175,194,214,.2)"></rect>
+          <text x="22" y="22" fill="#5b6f84" font-size="10.5" font-weight="800" letter-spacing="1.5">THE STANDARD PLAY</text>
+          <text x="22" y="78" fill="#8AA3BC" font-size="15" font-weight="700">First call.</text>
+          <text x="22" y="104" fill="#8AA3BC" font-size="13.5" font-weight="700">Run the product demo.</text>
+          <text x="22" y="130" fill="#8AA3BC" font-size="13.5" font-weight="700">Same deck as always.</text>
+          <g opacity=".5"><rect x="22" y="216" width="120" height="5" rx="2.5" fill="#5b6f84"></rect><rect x="22" y="230" width="86" height="5" rx="2.5" fill="#5b6f84"></rect></g>
+          <path d="M262 150 L306 150" fill="none" stroke="#D5552E" stroke-width="3" marker-end="url(#ah-r)"></path>
+          <rect x="316" y="34" width="308" height="232" rx="14" fill="rgba(213,85,46,.10)" stroke="#D5552E" stroke-width="1.8"></rect>
+          <circle cx="340" cy="16" r="7" fill="#D5552E"></circle>
+          <text x="354" y="21" fill="#D5552E" font-size="10.5" font-weight="800" letter-spacing="1.5">CONTENTION · 3 YEARS OF HISTORY</text>
+          <text x="338" y="78" fill="#FFFFFF" font-size="16" font-weight="800">Jane runs this call.</text>
+          <text x="338" y="97" fill="#AFC2D6" font-size="12.5">Decision maker. Not on the old deck.</text>
+          <text x="338" y="124" fill="#FFFFFF" font-size="16" font-weight="800">Never supportive.</text>
+          <text x="338" y="143" fill="#AFC2D6" font-size="12.5">Negative on three prior deals.</text>
+          <text x="338" y="170" fill="#FFFFFF" font-size="16" font-weight="800">Her goal, her words.</text>
+          <text x="338" y="189" fill="#AFC2D6" font-size="12.5">Five points of net revenue retention.</text>
+          <path d="M634 150 L678 150" fill="none" stroke="#5FBE8C" stroke-width="3" marker-end="url(#ah-g)"></path>
+          <rect x="688" y="34" width="252" height="232" rx="14" fill="rgba(95,190,140,.10)" stroke="#5FBE8C" stroke-width="1.8"></rect>
+          <text x="710" y="22" fill="#5FBE8C" font-size="10.5" font-weight="800" letter-spacing="1.5">WHAT HAPPENS INSTEAD</text>
+          <path d="M710 71 l5 6 l11 -13" fill="none" stroke="#5FBE8C" stroke-width="2.6"></path>
+          <text x="736" y="76" fill="#FFFFFF" font-size="13.5" font-weight="700">ROI case, not features</text>
+          <path d="M710 115 l5 6 l11 -13" fill="none" stroke="#5FBE8C" stroke-width="2.6"></path>
+          <text x="736" y="120" fill="#FFFFFF" font-size="13.5" font-weight="700">Built on her own sentence</text>
+          <path d="M710 159 l5 6 l11 -13" fill="none" stroke="#5FBE8C" stroke-width="2.6"></path>
+          <text x="736" y="164" fill="#FFFFFF" font-size="13.5" font-weight="700">John opens with support</text>
+        </svg>
+        <p class="oc-foot">The deck changed before 10:00. Nobody typed a thing into CRM.</p>
       </article>
 
       <article class="outcard" data-rv="1">
         <div class="oc-head">
           <span class="oc-num">02</span>
-          <span class="oc-eyb">THE RENEWAL</span>
+          <span class="oc-eyb">The renewal · the seller</span>
         </div>
-        <h3 class="oc-h">A red flag clears without a guess.</h3>
-        <p class="oc-set">Six weeks at the company. A committed renewal with no way to defend it.</p>
-        <div class="oc-grid">
-          <div class="oc-col">
-            <div class="oc-lbl">What the record found</div>
-            <p class="oc-p">Stage 5 needs an engaged IT champion for the InfoSec review. Nobody on this deal's map can carry it: red flag, deal at risk. 4D memory surfaced Jain Frit, an IT champion who called us the only vendor whose security model he trusted, on a deal that closed two years ago. He has since been promoted and now owns the very review this stage requires.</p>
-          </div>
-          <div class="oc-col">
-            <div class="oc-lbl">What the seller did instead</div>
-            <p class="oc-p">Called Jain, congratulated the promotion, quoted him to himself. Multi-threaded to the compelling event through him. Cleared the flag by selling, not by editing a field.</p>
-          </div>
-        </div>
+        <h3 class="oc-h">A red flag clears by selling, not by typing.</h3>
+        <svg viewBox="0 0 940 300" style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif" role="img" aria-label="A red flag clears by selling, not by typing.">
+          <rect width="940" height="300" fill="#0F2036"></rect>
+          <rect x="0" y="34" width="252" height="232" rx="14" fill="#141d2b" stroke="rgba(175,194,214,.2)"></rect>
+          <text x="22" y="22" fill="#5b6f84" font-size="10.5" font-weight="800" letter-spacing="1.5">THE STANDARD PLAY</text>
+          <text x="22" y="78" fill="#8AA3BC" font-size="15" font-weight="700">Stage 5 renewal.</text>
+          <text x="22" y="104" fill="#8AA3BC" font-size="13.5" font-weight="700">Committed, $480k.</text>
+          <text x="22" y="130" fill="#8AA3BC" font-size="13.5" font-weight="700">No way to defend it.</text>
+          <g opacity=".5"><rect x="22" y="216" width="120" height="5" rx="2.5" fill="#5b6f84"></rect><rect x="22" y="230" width="86" height="5" rx="2.5" fill="#5b6f84"></rect></g>
+          <path d="M262 150 L306 150" fill="none" stroke="#D5552E" stroke-width="3" marker-end="url(#ah-r)"></path>
+          <rect x="316" y="34" width="308" height="232" rx="14" fill="rgba(213,85,46,.10)" stroke="#D5552E" stroke-width="1.8"></rect>
+          <circle cx="340" cy="16" r="7" fill="#D5552E"></circle>
+          <text x="354" y="21" fill="#D5552E" font-size="10.5" font-weight="800" letter-spacing="1.5">RED FLAG · METHODOLOGY</text>
+          <text x="338" y="78" fill="#FFFFFF" font-size="16" font-weight="800">No IT champion.</text>
+          <text x="338" y="97" fill="#AFC2D6" font-size="12.5">Stage 5 requires one for InfoSec.</text>
+          <text x="338" y="124" fill="#FFFFFF" font-size="16" font-weight="800">Nobody on this map.</text>
+          <text x="338" y="143" fill="#AFC2D6" font-size="12.5">The deal cannot advance.</text>
+          <text x="338" y="170" fill="#FFFFFF" font-size="16" font-weight="800">4D memory finds Jain.</text>
+          <text x="338" y="189" fill="#AFC2D6" font-size="12.5">Champion, closed deal, 2 years ago.</text>
+          <path d="M634 150 L678 150" fill="none" stroke="#5FBE8C" stroke-width="3" marker-end="url(#ah-g)"></path>
+          <rect x="688" y="34" width="252" height="232" rx="14" fill="rgba(95,190,140,.10)" stroke="#5FBE8C" stroke-width="1.8"></rect>
+          <text x="710" y="22" fill="#5FBE8C" font-size="10.5" font-weight="800" letter-spacing="1.5">WHAT HAPPENS INSTEAD</text>
+          <path d="M710 71 l5 6 l11 -13" fill="none" stroke="#5FBE8C" stroke-width="2.6"></path>
+          <text x="736" y="76" fill="#FFFFFF" font-size="13.5" font-weight="700">Jain now owns InfoSec</text>
+          <path d="M710 115 l5 6 l11 -13" fill="none" stroke="#5FBE8C" stroke-width="2.6"></path>
+          <text x="736" y="120" fill="#FFFFFF" font-size="13.5" font-weight="700">His own quote, given back</text>
+          <path d="M710 159 l5 6 l11 -13" fill="none" stroke="#5FBE8C" stroke-width="2.6"></path>
+          <text x="736" y="164" fill="#FFFFFF" font-size="13.5" font-weight="700">Flag cleared, deal alive</text>
+        </svg>
         <p class="oc-foot">The number did not change. The ability to defend it did.</p>
       </article>
 
       <article class="outcard" data-rv="1">
         <div class="oc-head">
           <span class="oc-num">03</span>
-          <span class="oc-eyb">THE FORECAST</span>
+          <span class="oc-eyb">The forecast · the leader</span>
         </div>
-        <h3 class="oc-h">The leader stops auditing and starts deciding.</h3>
-        <p class="oc-set">Wednesday night in dashboards. Thursday morning interrogating people.</p>
-        <div class="oc-grid">
-          <div class="oc-col">
-            <div class="oc-lbl">What the roll-up showed</div>
-            <p class="oc-p">A committed deal is already dead this quarter: procurement denied the compelling event on a logged call, whatever the seller committed. A deal called Best Case is the cleanest in the region: every must-have true, budget holder quoted, support in the inner circle. Pull it forward instead of nursing it. And a pattern, once the sample was big enough: the team keeps losing at the same spot, missing IT coverage on early calls.</p>
-          </div>
-          <div class="oc-col">
-            <div class="oc-lbl">What the leader did instead</div>
-            <p class="oc-p">Moved two commits on evidence, not on opinion. Pushed the clean deal to close early and lift velocity. Changed enablement: solutions engineers on early calls, IT coverage made a coverage requirement, not a hope.</p>
-          </div>
-        </div>
+        <h3 class="oc-h">Two commits move on evidence, not opinion.</h3>
+        <svg viewBox="0 0 940 300" style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif" role="img" aria-label="Two commits move on evidence, not opinion.">
+          <rect width="940" height="300" fill="#0F2036"></rect>
+          <rect x="0" y="34" width="252" height="232" rx="14" fill="#141d2b" stroke="rgba(175,194,214,.2)"></rect>
+          <text x="22" y="22" fill="#5b6f84" font-size="10.5" font-weight="800" letter-spacing="1.5">THE STANDARD PLAY</text>
+          <text x="22" y="78" fill="#8AA3BC" font-size="15" font-weight="700">Wednesday in dashboards.</text>
+          <text x="22" y="104" fill="#8AA3BC" font-size="13.5" font-weight="700">Thursday interrogating.</text>
+          <text x="22" y="130" fill="#8AA3BC" font-size="13.5" font-weight="700">Nobody agrees.</text>
+          <g opacity=".5"><rect x="22" y="216" width="120" height="5" rx="2.5" fill="#5b6f84"></rect><rect x="22" y="230" width="86" height="5" rx="2.5" fill="#5b6f84"></rect></g>
+          <path d="M262 150 L306 150" fill="none" stroke="#D5552E" stroke-width="3" marker-end="url(#ah-r)"></path>
+          <rect x="316" y="34" width="308" height="232" rx="14" fill="rgba(213,85,46,.10)" stroke="#E8B44A" stroke-width="1.8"></rect>
+          <circle cx="340" cy="16" r="7" fill="#E8B44A"></circle>
+          <text x="354" y="21" fill="#E8B44A" font-size="10.5" font-weight="800" letter-spacing="1.5">VERDICTS · FROM THE RECORD</text>
+          <text x="338" y="78" fill="#FFFFFF" font-size="16" font-weight="800">Committed, and dead.</text>
+          <text x="338" y="97" fill="#AFC2D6" font-size="12.5">Procurement denied the event, on a call.</text>
+          <text x="338" y="124" fill="#FFFFFF" font-size="16" font-weight="800">Best Case, and cleanest.</text>
+          <text x="338" y="143" fill="#AFC2D6" font-size="12.5">Every must-have true. Pull it forward.</text>
+          <text x="338" y="170" fill="#FFFFFF" font-size="16" font-weight="800">A pattern, not a hunch.</text>
+          <text x="338" y="189" fill="#AFC2D6" font-size="12.5">The team keeps losing on IT coverage.</text>
+          <path d="M634 150 L678 150" fill="none" stroke="#5FBE8C" stroke-width="3" marker-end="url(#ah-g)"></path>
+          <rect x="688" y="34" width="252" height="232" rx="14" fill="rgba(95,190,140,.10)" stroke="#5FBE8C" stroke-width="1.8"></rect>
+          <text x="710" y="22" fill="#5FBE8C" font-size="10.5" font-weight="800" letter-spacing="1.5">WHAT HAPPENS INSTEAD</text>
+          <path d="M710 71 l5 6 l11 -13" fill="none" stroke="#5FBE8C" stroke-width="2.6"></path>
+          <text x="736" y="76" fill="#FFFFFF" font-size="13.5" font-weight="700">Two commits moved</text>
+          <path d="M710 115 l5 6 l11 -13" fill="none" stroke="#5FBE8C" stroke-width="2.6"></path>
+          <text x="736" y="120" fill="#FFFFFF" font-size="13.5" font-weight="700">One deal pulled early</text>
+          <path d="M710 159 l5 6 l11 -13" fill="none" stroke="#5FBE8C" stroke-width="2.6"></path>
+          <text x="736" y="164" fill="#FFFFFF" font-size="13.5" font-weight="700">Enablement changed</text>
+        </svg>
         <p class="oc-foot">Twenty minutes of decisions. Nobody argued, because nobody could.</p>
       </article>
 
