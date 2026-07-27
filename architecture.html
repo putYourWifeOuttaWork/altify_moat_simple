@@ -53,6 +53,10 @@
     .scroller{overflow-x:auto}
     #loop8 .seg{transition:opacity .3s ease}
     #loop8 g[id^="z-"],#loop8 g[id^="lab-"]{transition:opacity .3s ease}
+    .botswitch{border-top:1px solid rgba(175,194,214,.14);padding:40px 0 8px;margin-top:20px}
+    .bs-lead{font-family:var(--font-display);font-weight:800;font-size:17px;color:#FFFFFF;margin-bottom:14px}
+    .bs-lead em{font-style:normal;color:#EA7C31}
+    .bs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
     .layerbtn{display:block;width:100%;text-align:left;border:1px solid rgba(175,194,214,.28);border-radius:12px;background:#152A44;padding:14px 18px;cursor:pointer;font-family:inherit;transition:border-color .18s ease, background .18s ease}
     .layerbtn:hover{border-color:rgba(234,124,49,.55)}
     .layerbtn .lb-t{display:block;font-family:var(--font-display);font-weight:800;font-size:15px;letter-spacing:.06em;color:#EAF0F6}
@@ -1264,6 +1268,23 @@
     <div style="font-size:13px;color:#8AA3BC;letter-spacing:.03em">This is the bottom of the cake. The loop above runs on this machine.</div>
   </div>
 
+  </div>
+
+  <div class="botswitch">
+    <div class="wrap">
+      <div class="bs-lead">Keep going. <em>Pick a layer.</em></div>
+      <div class="bs-grid" role="tablist" aria-label="The three layers">
+        <button class="layerbtn" data-layer="execution" role="tab" aria-selected="false" type="button">
+          <span class="lb-t">EXECUTION</span><span class="lb-s">what changes for the seller</span>
+        </button>
+        <button class="layerbtn" data-layer="collaboration" role="tab" aria-selected="false" type="button">
+          <span class="lb-t">COLLABORATION</span><span class="lb-s">AI drafts, humans ratify</span>
+        </button>
+        <button class="layerbtn" data-layer="os" role="tab" aria-selected="false" type="button">
+          <span class="lb-t">OPERATING SYSTEM</span><span class="lb-s">the structure underneath</span>
+        </button>
+      </div>
+    </div>
   </div>
 
   <footer data-screen-label="Footer" style="border-top:1px solid rgba(175,194,214,.16);padding:30px 0 46px;margin-top:36px">
