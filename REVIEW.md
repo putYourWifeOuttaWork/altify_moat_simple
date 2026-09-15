@@ -32,6 +32,7 @@ Live: https://putyourwifeouttawork.github.io/altify_moat_simple/
   Collaboration = purple `#9A8BD4`, Operating System = red `#D5552E`. The
   architecture hero's figure-8 highlights the matching zone when a tab is selected.
 - **Loop axes, the same on every figure-8.** Impact runs vertically (high at the top) and enjoyment horizontally (high on the right), on the vision page, the architecture hero, and `system.html`. The drill-in zones layer exists only on `system.html`.
+- **The loop on `system.html` is turned, knowingly.** It is rotated 34 degrees counterclockwise, mirroring the kit's figure-8 across the chart's diagonal, so one lap runs human work (top right), AI work (bottom left), HART (bottom right), reconciliation (top left). Its labels are renamed there too: both corner quadrants read HUMAN AT RIGHT TIME, the bottom right hand-off is Proactive AI Briefs (Inspections That Matter), and the top left is Reconciliation (HART Deep-Dives). The vision page and architecture figure-8s keep the original orientation and names.
 - **The running deal**: one fictional deal (Meridian, Jane Okafor, the renewal,
   Jain Frit) recurs across every visual so the reader tracks one story.
 - **Copy rules the pages hold to**: no em/en dashes anywhere; a running body-copy
