@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Altify · The system</title>
+  <link rel="stylesheet" href="_ds/altify-design-system-af4abb68-69d9-4fdd-b0c8-39839215fd77/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/altify-design-system-af4abb68-69d9-4fdd-b0c8-39839215fd77/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/altify-design-system-af4abb68-69d9-4fdd-b0c8-39839215fd77/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/altify-design-system-af4abb68-69d9-4fdd-b0c8-39839215fd77/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/altify-design-system-af4abb68-69d9-4fdd-b0c8-39839215fd77/styles.css">
+  <script src="_ds/altify-design-system-af4abb68-69d9-4fdd-b0c8-39839215fd77/_ds_bundle.js"></script>
+  <style>
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#0F2036;color:#EAF0F6;font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+    ::selection{background:rgba(234,124,49,.35)}
+    a{color:#7ED2EE;text-decoration-color:rgba(126,210,238,.4)}
+    a:hover{color:#EAF0F6}
+    .sec{padding:66px 0;border-top:1px solid rgba(175,194,214,.14)}
+    .wrap{max-width:900px;margin:0 auto;padding:0 28px}
+    .eyb{display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#EA7C31;margin-bottom:13px;line-height:1.5}
+    .eyb i{width:7px;height:7px;border-radius:50%;background:#EA7C31;display:inline-block;flex:none}
+    .h2{font-family:var(--font-display);font-weight:800;font-size:clamp(1.5rem,2.8vw,2.05rem);line-height:1.15;letter-spacing:-.02em;color:#FFFFFF;max-width:34ch;margin:0;text-wrap:balance}
+    .h2 em{font-style:normal;color:#EA7C31}
+    .body{font-size:16.5px;color:#AFC2D6;max-width:64ch;margin:15px 0 0;line-height:1.6}
+    .kick{font-family:var(--font-display);font-weight:700;font-size:19px;color:#FFFFFF;max-width:58ch;margin:24px 0 0;line-height:1.35;letter-spacing:-.01em;text-wrap:balance}
+    .kick em{font-style:normal;color:#EA7C31}
+    .note{font-size:13px;color:#8AA3BC;margin:12px 0 0;max-width:64ch;line-height:1.55}
+    .tag{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#EAB477;background:rgba(234,124,49,.14);border:1px solid rgba(234,124,49,.32);padding:2px 8px;border-radius:999px;white-space:nowrap}
+
+    .read3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:30px}
+    .read{border:1px solid rgba(175,194,214,.18);border-radius:14px;background:rgba(21,42,68,.45);padding:16px 18px}
+    .read-k{display:flex;align-items:center;gap:8px;font-family:var(--font-display);font-weight:800;font-size:17px;color:#FFFFFF}
+    .read-k i{width:10px;height:10px;border-radius:50%;flex:none;display:inline-block;border:2px solid #0F2036}
+    .read p{margin:7px 0 0;font-size:14.5px;color:#AFC2D6;line-height:1.55}
+
+    .regions{display:grid;gap:12px;margin-top:26px}
+    .region{display:grid;grid-template-columns:40px 1fr;gap:16px;border:1px solid rgba(175,194,214,.16);border-left:3px solid transparent;border-radius:14px;background:rgba(21,42,68,.4);padding:18px 20px}
+    @media (max-width:560px){.region{grid-template-columns:1fr;gap:10px}}
+    .rg-glyph svg{width:40px;height:40px;display:block}
+    .rg-k{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .rg-kick{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+    .rg-t{font-family:var(--font-display);font-weight:800;font-size:19px;color:#FFFFFF;margin:6px 0 0;line-height:1.2}
+    .rg-lead{font-size:15px;font-weight:600;color:#EAF0F6;margin:6px 0 0;line-height:1.45}
+    .rg-body{font-size:14.5px;color:#AFC2D6;margin:8px 0 0;line-height:1.6}
+    .region.z-tr{border-left-color:#3E9AD6}.region.z-tr .rg-kick{color:#6FC2EC}
+    .region.z-crux{border-left-color:#EA7C31}.region.z-crux .rg-kick{color:#EA7C31}
+    .region.z-bl{border-left-color:#E1673A}.region.z-bl .rg-kick{color:#F08A5F}
+    .region.z-br,.region.z-tl{border-left-color:#7B61C9}.region.z-br .rg-kick,.region.z-tl .rg-kick{color:#9A8BD4}
+    .claims{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:8px;margin-top:12px}
+    .claim{padding:10px 12px;border-radius:10px;background:rgba(21,42,68,.55);border:1px solid rgba(175,194,214,.16)}
+    .claim b{display:block;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+    .claim span{display:block;font-size:13.5px;color:#AFC2D6;margin-top:3px;line-height:1.5}
+
+    .five{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:10px}
+    .five li{display:grid;grid-template-columns:38px 1fr;gap:14px;align-items:start;padding:15px 17px;border:1px solid rgba(175,194,214,.14);border-radius:12px;background:rgba(21,42,68,.35)}
+    .five .n{font-family:var(--font-display);font-weight:800;font-size:13px;color:#0F2036;border-radius:7px;padding:4px 0;text-align:center}
+    .five .n.c-ai{background:#F08A5F}.five .n.c-door{background:#EA7C31}.five .n.c-meet{background:#9A8BD4}.five .n.c-loop{background:#EAF0F6}
+    .fv-h{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .fv-h b{font-family:var(--font-display);font-weight:700;font-size:16.5px;color:#FFFFFF;line-height:1.3}
+    .five p{margin:5px 0 0;font-size:14.5px;color:#AFC2D6;line-height:1.55}
+
+    .capcard{margin-top:24px;border:1px solid rgba(234,124,49,.36);border-radius:18px;background:linear-gradient(160deg,rgba(234,124,49,.11),rgba(21,42,68,.42) 58%);padding:clamp(22px,4.4vw,42px)}
+    .cap-big{font-family:var(--font-display);font-weight:800;font-size:clamp(1.8rem,4.6vw,3rem);line-height:1.06;letter-spacing:-.025em;color:#FFFFFF;margin:14px 0 0;text-wrap:balance;max-width:16ch}
+    .cap-big em{font-style:normal;color:#EA7C31}
+    .cap-p{font-size:clamp(1.05rem,1.9vw,1.2rem);color:#EAF0F6;line-height:1.55;margin:20px 0 0;max-width:58ch}
+    .cap-sub{font-size:15.5px;color:#AFC2D6;line-height:1.6;margin:12px 0 0;max-width:62ch}
+    .cap-note{font-size:13px;color:#8AA3BC;margin:20px 0 0;padding-top:14px;border-top:1px solid rgba(175,194,214,.16);max-width:64ch}
+
+    .next3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:24px}
+    .nextc{display:block;border:1px solid rgba(175,194,214,.2);border-radius:14px;background:#152A44;padding:16px 18px;text-decoration:none;transition:border-color .18s ease,transform .18s ease}
+    .nextc:hover{border-color:rgba(234,124,49,.55);transform:translateY(-2px)}
+    .nextc b{display:block;font-family:var(--font-display);font-weight:800;font-size:15px;letter-spacing:.03em;color:#EAF0F6}
+    .nextc span{display:block;font-size:13px;color:#8AA3BC;margin-top:4px;line-height:1.45}
+  </style>
+</helmet>
+
+<div style="min-width:320px">
+
+<!-- TOPBAR -->
+<div data-screen-label="Topbar" style="position:sticky;top:0;z-index:50;background:rgba(15,32,54,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(175,194,214,.16)">
+  <div style="max-width:900px;margin:0 auto;padding:0 28px;display:flex;align-items:center;gap:22px;height:62px">
+    <a href="./" aria-label="Altify, back to the vision" style="flex:none;display:block;line-height:0"><img src="assets/altify-logo-white.png" alt="Altify" style="height:20px;width:auto;display:block;flex:none"></a>
+    <nav id="topnav" aria-label="Sections" style="margin-left:auto;display:flex;align-items:center;gap:17px;overflow-x:auto;white-space:nowrap;scrollbar-width:none;padding:6px 0;min-width:0">
+      <a href="#sec-hero" data-target="0" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">The system</a>
+      <a href="#sec-loop" data-target="1" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">The loop</a>
+      <a href="#sec-lap" data-target="2" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">One lap</a>
+      <a href="#sec-five" data-target="3" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">Five things</a>
+      <a href="#sec-roi" data-target="4" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">The ROI</a>
+      <a href="./" style="color:#AFC2D6;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="color:#FFFFFF">The vision</a>
+    </nav>
+    <button id="navMenuBtn" aria-label="Sections menu" aria-expanded="false" style="display:none;width:44px;height:44px;border-radius:10px;background:transparent;border:1px solid rgba(175,194,214,.35);color:#EAF0F6;align-items:center;justify-content:center;cursor:pointer;padding:0;margin-left:auto;flex:none">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M 4 7 H 20 M 4 12 H 20 M 4 17 H 20"></path></svg>
+    </button>
+  </div>
+  <div id="navMenu" style="display:none;position:absolute;top:100%;left:0;right:0;z-index:49;flex-direction:column;background:rgba(15,32,54,.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(175,194,214,.2);padding:8px 28px 14px;max-height:70vh;overflow-y:auto">
+    <a href="#sec-hero" data-target="0" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:11px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">The system</a>
+    <a href="#sec-loop" data-target="1" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:11px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">The loop</a>
+    <a href="#sec-lap" data-target="2" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:11px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">One lap</a>
+    <a href="#sec-five" data-target="3" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:11px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">Five things</a>
+    <a href="#sec-roi" data-target="4" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:11px 2px;border-bottom:1px solid rgba(175,194,214,.08)" style-hover="color:#FFFFFF">The ROI</a>
+    <a href="./" style="color:#AFC2D6;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:11px 2px" style-hover="color:#FFFFFF">The vision</a>
+  </div>
+</div>
+
+<!-- HERO · the moat in a line, and the one-second read -->
+<header id="sec-hero" data-nav="The system" data-screen-label="01 Hero" style="padding:80px 0 38px;position:relative;overflow:hidden">
+  <div style="position:absolute;right:-260px;top:-240px;width:600px;height:600px;border-radius:50%;background:radial-gradient(closest-side, rgba(123,97,201,.17), rgba(123,97,201,0));pointer-events:none"></div>
+  <div class="wrap" style="position:relative">
+    <div class="eyb"><i></i>The whole system · One picture</div>
+    <h1 style="font-family:var(--font-display);font-weight:800;font-size:clamp(2rem,4.6vw,3.2rem);line-height:1.08;letter-spacing:-.025em;color:#FFFFFF;margin:16px 0 0;max-width:18ch;text-wrap:balance">One record. One door. <em style="font-style:normal;color:#EA7C31">One compounding loop.</em></h1>
+    <p class="body" style="font-size:18px;margin-top:18px">This is not a diagram drawn to explain the system. It is the system's actual geometry, and the picture fell out of it. Every element means something, which is why the simple version is the true one.</p>
+    <div class="read3">
+      <div class="read" data-rv="1">
+        <div class="read-k"><i style="background:#3E9AD6"></i><i style="background:#E1673A;margin-left:-9px"></i>Two worlds</div>
+        <p>A human world, where people sell and challenge the AI. A machine world, where the system verifies the work and holds the record.</p>
+      </div>
+      <div class="read" data-rv="1">
+        <div class="read-k"><i style="background:#EA7C31"></i>One door</div>
+        <p>One filter at the exact center. All work passes through it, and nothing reaches the record any other way.</p>
+      </div>
+      <div class="read" data-rv="1">
+        <div class="read-k"><i style="background:#7B61C9"></i>One loop</div>
+        <p>One path through both worlds, crossing the door twice a lap and compounding value on every pass.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- THE LOOP · interactive -->
+<section id="sec-loop" data-nav="The loop" data-screen-label="02 The loop" class="sec">
+  <div class="wrap">
+    <div class="eyb"><i></i>The loop · Explore it</div>
+    <h2 class="h2">Two worlds. <em>One door between them.</em></h2>
+    <p class="body">Up is high impact, down is low. Right is high enjoyment, left is low. Read any corner that way. Selling is both, which is why people belong there. A proactive brief sits bottom right: the person enjoys getting it and has no impact on making it. People work in the blue lobe, the machine works in the coral one, and every piece of work crosses the door at the center. Watch the ball: it swells where effort pays and drains where it does not.</p>
+      <!-- VISUAL A · the infinity loop -->
+      <figure id="loopfig" data-rv="1" style="margin:28px 0 0;border:1px solid rgba(175,194,214,.16);border-radius:16px;background:#0F2036;overflow:hidden;position:relative">
+        
+        <svg viewBox="0 0 900 480" style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif">
+          <defs>
+            <linearGradient id="gS1" gradientUnits="userSpaceOnUse" x1="450" y1="245" x2="246.9" y2="353">
+              <stop offset="0" stop-color="#7B61C9"></stop><stop offset="1" stop-color="#E1673A"></stop>
+            </linearGradient>
+            <linearGradient id="gS2" gradientUnits="userSpaceOnUse" x1="246.9" y1="353" x2="450" y2="245">
+              <stop offset="0" stop-color="#E1673A"></stop><stop offset="1" stop-color="#7B61C9"></stop>
+            </linearGradient>
+            <linearGradient id="gS3" gradientUnits="userSpaceOnUse" x1="450" y1="245" x2="653.1" y2="137">
+              <stop offset="0" stop-color="#7B61C9"></stop><stop offset="1" stop-color="#3E9AD6"></stop>
+            </linearGradient>
+            <linearGradient id="gS4" gradientUnits="userSpaceOnUse" x1="653.1" y1="137" x2="450" y2="245">
+              <stop offset="0" stop-color="#3E9AD6"></stop><stop offset="1" stop-color="#7B61C9"></stop>
+            </linearGradient>
+            <radialGradient id="glowAI" cx=".5" cy=".5" r=".5">
+              <stop offset="0" stop-color="#E1673A" stop-opacity=".2"></stop><stop offset="1" stop-color="#E1673A" stop-opacity="0"></stop>
+            </radialGradient>
+            <radialGradient id="glowHU" cx=".5" cy=".5" r=".5">
+              <stop offset="0" stop-color="#3E9AD6" stop-opacity=".2"></stop><stop offset="1" stop-color="#3E9AD6" stop-opacity="0"></stop>
+            </radialGradient>
+          </defs>
+          <rect width="900" height="480" fill="#0F2036"></rect>
+          <rect x="40" y="30" width="820" height="426" rx="18" fill="rgba(21,42,68,.45)" stroke="rgba(175,194,214,.18)" stroke-width="1.3"></rect>
+
+          <!-- interaction: quadrant highlight washes (behind the loop; driven by _setupZones) -->
+          <g id="loopZoneTint">
+            <rect id="zw-tl" x="42" y="32" width="406" height="209" rx="12" fill="rgba(154,139,212,.2)" opacity="0" style="transition:opacity .25s ease" pointer-events="none"></rect>
+            <rect id="zw-tr" x="452" y="32" width="406" height="209" rx="12" fill="rgba(62,154,214,.2)" opacity="0" style="transition:opacity .25s ease" pointer-events="none"></rect>
+            <rect id="zw-bl" x="42" y="249" width="406" height="205" rx="12" fill="rgba(225,103,58,.2)" opacity="0" style="transition:opacity .25s ease" pointer-events="none"></rect>
+            <rect id="zw-br" x="452" y="249" width="406" height="205" rx="12" fill="rgba(154,139,212,.2)" opacity="0" style="transition:opacity .25s ease" pointer-events="none"></rect>
+          </g>
+
+          <g id="loopMeta">
+            <!-- axes -->
+            <line x1="64" y1="245" x2="836" y2="245" stroke="rgba(175,194,214,.22)" stroke-width="1.2" stroke-dasharray="2 6"></line>
+            <line x1="450" y1="56" x2="450" y2="434" stroke="rgba(175,194,214,.22)" stroke-width="1.2" stroke-dasharray="2 6"></line>
+            <text x="450" y="47" text-anchor="middle" fill="#8AA3BC" font-size="11.5" font-weight="700" letter-spacing="1.2">HIGH IMPACT</text>
+            <text x="450" y="449" text-anchor="middle" fill="#8AA3BC" font-size="11.5" font-weight="700" letter-spacing="1.2">LOW IMPACT</text>
+            <text x="64" y="234" fill="#8AA3BC" font-size="11.5" font-weight="700" letter-spacing="1.2">LOW ENJOYMENT</text>
+            <text x="836" y="234" text-anchor="end" fill="#8AA3BC" font-size="11.5" font-weight="700" letter-spacing="1.2">HIGH ENJOYMENT</text>
+            <!-- corner labels -->
+            <text x="64" y="62" fill="#9A8BD4" font-size="10" letter-spacing="1" opacity=".8">HUMAN + AI COLLABORATION</text>
+            <text x="836" y="430" text-anchor="end" fill="#9A8BD4" font-size="10" letter-spacing="1" opacity=".8">HUMAN + AI COLLABORATION</text>
+            <!-- lobe glows -->
+            <circle cx="340" cy="315" r="100" fill="url(#glowAI)"></circle>
+            <circle cx="560" cy="185" r="110" fill="url(#glowHU)"></circle>
+          </g>
+
+          <!-- the single continuous figure-8, gradient stroke: blue → purple → red → purple → blue -->
+          <path id="ls1" d="M 450.0 245.0 L 444.1 242.0 L 438.2 238.9 L 432.3 235.9 L 426.4 232.9 L 420.5 229.9 L 414.5 227.0 L 408.6 224.2 L 402.6 221.4 L 396.5 218.7 L 390.5 216.0 L 384.4 213.5 L 378.2 211.1 L 372.0 208.9 L 365.8 206.7 L 359.5 204.8 L 353.2 203.0 L 346.9 201.4 L 340.5 200.0 L 334.1 198.9 L 327.7 198.1 L 321.3 197.5 L 314.9 197.2 L 308.5 197.3 L 302.1 197.7 L 295.7 198.6 L 289.5 199.8 L 283.3 201.6 L 277.3 203.7 L 271.4 206.4 L 265.7 209.7 L 260.2 213.4 L 255.1 217.8 L 250.2 222.8 L 245.7 228.3 L 241.7 234.5 L 238.1 241.2 L 235.0 248.5 L 232.5 256.4 L 230.7 264.9 L 229.5 273.8 L 229.0 283.1 L 229.3 292.7 L 230.3 302.7 L 232.1 312.8 L 234.7 323.0 L 238.0 333.2 L 242.1 343.2 L 246.9 353.0" fill="none" stroke="url(#gS1)" stroke-width="5" stroke-linecap="round"></path>
+          <path id="ls2" d="M 246.9 353.0 L 252.4 362.4 L 258.4 371.4 L 265.0 379.9 L 272.0 387.7 L 279.3 394.9 L 287.0 401.3 L 294.9 406.9 L 302.8 411.7 L 310.9 415.7 L 318.9 418.9 L 326.8 421.3 L 334.6 422.8 L 342.2 423.6 L 349.6 423.7 L 356.7 423.1 L 363.5 421.8 L 370.1 420.0 L 376.2 417.5 L 382.1 414.6 L 387.6 411.3 L 392.8 407.5 L 397.7 403.3 L 402.2 398.8 L 406.5 394.1 L 410.4 389.0 L 414.0 383.7 L 417.4 378.3 L 420.5 372.6 L 423.4 366.8 L 426.1 360.9 L 428.5 354.9 L 430.7 348.7 L 432.8 342.5 L 434.6 336.2 L 436.4 329.9 L 437.9 323.5 L 439.4 317.0 L 440.7 310.6 L 441.9 304.1 L 443.1 297.5 L 444.1 291.0 L 445.1 284.5 L 446.0 277.9 L 446.9 271.3 L 447.7 264.7 L 448.5 258.2 L 449.2 251.6 L 450.0 245.0" fill="none" stroke="url(#gS2)" stroke-width="5" stroke-linecap="round"></path>
+          <path id="ls3" d="M 450.0 245.0 L 450.8 238.4 L 451.5 231.8 L 452.3 225.3 L 453.1 218.7 L 454.0 212.1 L 454.9 205.5 L 455.9 199.0 L 456.9 192.5 L 458.1 185.9 L 459.3 179.4 L 460.6 173.0 L 462.1 166.5 L 463.6 160.1 L 465.4 153.8 L 467.2 147.5 L 469.3 141.3 L 471.5 135.1 L 473.9 129.1 L 476.6 123.2 L 479.5 117.4 L 482.6 111.7 L 486.0 106.3 L 489.6 101.0 L 493.5 95.9 L 497.8 91.2 L 502.3 86.7 L 507.2 82.5 L 512.4 78.7 L 517.9 75.4 L 523.8 72.5 L 529.9 70.0 L 536.5 68.2 L 543.3 66.9 L 550.4 66.3 L 557.8 66.4 L 565.4 67.2 L 573.2 68.7 L 581.1 71.1 L 589.1 74.3 L 597.2 78.3 L 605.1 83.1 L 613.0 88.7 L 620.7 95.1 L 628.0 102.3 L 635.0 110.1 L 641.6 118.6 L 647.6 127.6 L 653.1 137.0" fill="none" stroke="url(#gS3)" stroke-width="5" stroke-linecap="round"></path>
+          <path id="ls4" d="M 653.1 137.0 L 657.9 146.8 L 662.0 156.8 L 665.3 167.0 L 667.9 177.2 L 669.7 187.3 L 670.7 197.3 L 671.0 206.9 L 670.5 216.2 L 669.3 225.1 L 667.5 233.6 L 665.0 241.5 L 661.9 248.8 L 658.3 255.5 L 654.3 261.7 L 649.8 267.2 L 644.9 272.2 L 639.8 276.6 L 634.3 280.3 L 628.6 283.6 L 622.7 286.3 L 616.7 288.4 L 610.5 290.2 L 604.3 291.4 L 597.9 292.3 L 591.5 292.7 L 585.1 292.8 L 578.7 292.5 L 572.3 291.9 L 565.9 291.1 L 559.5 290.0 L 553.1 288.6 L 546.8 287.0 L 540.5 285.2 L 534.2 283.3 L 528.0 281.1 L 521.8 278.9 L 515.6 276.5 L 509.5 274.0 L 503.5 271.3 L 497.4 268.6 L 491.4 265.8 L 485.5 263.0 L 479.5 260.1 L 473.6 257.1 L 467.7 254.1 L 461.8 251.1 L 455.9 248.0 L 450.0 245.0" fill="none" stroke="url(#gS4)" stroke-width="5" stroke-linecap="round"></path>
+
+          <g id="loopMeta2">
+            <!-- crossover node -->
+            <circle cx="450" cy="245" r="7.5" fill="#0F2036" stroke="#7B61C9" stroke-width="2.5"></circle>
+            <!-- hand-off labels -->
+            <g text-anchor="end">
+              <text x="414" y="172" fill="#9A8BD4" font-size="13" font-weight="700">Reconciliation</text>
+              <text x="414" y="189" fill="#8AA3BC" font-size="10.5">Headless T&amp;I</text>
+            </g>
+            <g>
+              <text x="488" y="318" fill="#9A8BD4" font-size="13" font-weight="700">Inspections</text>
+              <text x="488" y="335" fill="#8AA3BC" font-size="10.5">Headless TeamView</text>
+            </g>
+            <!-- human lobe labels -->
+            <g text-anchor="middle">
+              <text x="560" y="146" fill="#6FC2EC" font-size="15" font-weight="700" font-family="Poppins, system-ui, sans-serif" letter-spacing="1.4">HUMAN WORK</text>
+              <text x="560" y="164" fill="#8AA3BC" font-size="11">Communication &amp; Strategy</text>
+              <text x="560" y="190" fill="#CBDCEA" font-size="11.5">Emails</text>
+              <text x="560" y="207" fill="#CBDCEA" font-size="11.5">Calls &amp; Chats</text>
+              <text x="560" y="224" fill="#CBDCEA" font-size="11.5">Notes &amp; Transcripts</text>
+              <text x="560" y="241" fill="#CBDCEA" font-size="11.5">Strategic Thought</text>
+              <text x="560" y="258" fill="#CBDCEA" font-size="11.5">Other CRM Work</text>
+            </g>
+            <!-- AI lobe labels -->
+            <g text-anchor="middle">
+              <text x="340" y="268" fill="#F08A5F" font-size="15" font-weight="700" font-family="Poppins, system-ui, sans-serif" letter-spacing="1.4">AI WORK</text>
+              <text x="340" y="286" fill="#8AA3BC" font-size="11">Administration &amp; Analysis</text>
+              <text x="340" y="312" fill="#CBDCEA" font-size="11.5">Human Data Ingestion</text>
+              <text x="340" y="329" fill="#CBDCEA" font-size="11.5">Data Mapping</text>
+              <text x="340" y="346" fill="#CBDCEA" font-size="11.5">Contextual Record Analysis</text>
+              <text x="340" y="363" fill="#CBDCEA" font-size="11.5">Altify Administration</text>
+            </g>
+            <!-- feed-forward arc -->
+            <path d="M 410 156 Q 426 86 478 80 M 465.5 76 L 478 80 L 466.7 87" stroke="#9A8BD4" stroke-width="1.6" fill="none" stroke-dasharray="3 7" stroke-linecap="round"></path>
+            <text x="404" y="104" text-anchor="end" fill="#9A8BD4" font-size="11.5">New tasks &amp; info</text>
+          </g>
+
+          <!-- interaction: crux "door" emphasis (on top; driven by _setupZones) -->
+          <g id="loopCrux" opacity="0" style="transition:opacity .25s ease" pointer-events="none">
+            <circle id="loopCruxPulse" cx="450" cy="245" r="20" fill="none" stroke="#EA7C31" stroke-width="1.6" opacity=".55">
+              <animate attributeName="r" values="16;40;16" dur="2.6s" repeatCount="indefinite"></animate>
+              <animate attributeName="opacity" values=".55;0;.55" dur="2.6s" repeatCount="indefinite"></animate>
+            </circle>
+            <circle cx="450" cy="245" r="30" fill="rgba(234,124,49,.10)" stroke="#EA7C31" stroke-width="1.7"></circle>
+            <circle cx="450" cy="245" r="9" fill="#0F2036" stroke="#EA7C31" stroke-width="2.6"></circle>
+            <!-- down: raw activity arrives -->
+            <path d="M434 221 L434 239 M429 233.5 L434 240 L439 233.5" fill="none" stroke="#6FC2EC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <!-- up: verified change streams to D360 -->
+            <path d="M466 269 L466 251 M461 256.5 L466 250 L471 256.5" fill="none" stroke="#EA7C31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </g>
+
+          <!-- traveling pulse -->
+          <g id="loopDot" opacity="0">
+            <g id="loopDotScale">
+              <circle r="11" fill="#EAF0F6" opacity=".14"></circle>
+              <circle r="4" fill="#EAF0F6" opacity=".95"></circle>
+            </g>
+            <animateMotion dur="18s" repeatCount="indefinite" path="M 450.0 245.0 L 444.1 242.0 L 438.2 238.9 L 432.3 235.9 L 426.4 232.9 L 420.5 229.9 L 414.5 227.0 L 408.6 224.2 L 402.6 221.4 L 396.5 218.7 L 390.5 216.0 L 384.4 213.5 L 378.2 211.1 L 372.0 208.9 L 365.8 206.7 L 359.5 204.8 L 353.2 203.0 L 346.9 201.4 L 340.5 200.0 L 334.1 198.9 L 327.7 198.1 L 321.3 197.5 L 314.9 197.2 L 308.5 197.3 L 302.1 197.7 L 295.7 198.6 L 289.5 199.8 L 283.3 201.6 L 277.3 203.7 L 271.4 206.4 L 265.7 209.7 L 260.2 213.4 L 255.1 217.8 L 250.2 222.8 L 245.7 228.3 L 241.7 234.5 L 238.1 241.2 L 235.0 248.5 L 232.5 256.4 L 230.7 264.9 L 229.5 273.8 L 229.0 283.1 L 229.3 292.7 L 230.3 302.7 L 232.1 312.8 L 234.7 323.0 L 238.0 333.2 L 242.1 343.2 L 246.9 353.0 L 252.4 362.4 L 258.4 371.4 L 265.0 379.9 L 272.0 387.7 L 279.3 394.9 L 287.0 401.3 L 294.9 406.9 L 302.8 411.7 L 310.9 415.7 L 318.9 418.9 L 326.8 421.3 L 334.6 422.8 L 342.2 423.6 L 349.6 423.7 L 356.7 423.1 L 363.5 421.8 L 370.1 420.0 L 376.2 417.5 L 382.1 414.6 L 387.6 411.3 L 392.8 407.5 L 397.7 403.3 L 402.2 398.8 L 406.5 394.1 L 410.4 389.0 L 414.0 383.7 L 417.4 378.3 L 420.5 372.6 L 423.4 366.8 L 426.1 360.9 L 428.5 354.9 L 430.7 348.7 L 432.8 342.5 L 434.6 336.2 L 436.4 329.9 L 437.9 323.5 L 439.4 317.0 L 440.7 310.6 L 441.9 304.1 L 443.1 297.5 L 444.1 291.0 L 445.1 284.5 L 446.0 277.9 L 446.9 271.3 L 447.7 264.7 L 448.5 258.2 L 449.2 251.6 L 450.0 245.0 L 450.8 238.4 L 451.5 231.8 L 452.3 225.3 L 453.1 218.7 L 454.0 212.1 L 454.9 205.5 L 455.9 199.0 L 456.9 192.5 L 458.1 185.9 L 459.3 179.4 L 460.6 173.0 L 462.1 166.5 L 463.6 160.1 L 465.4 153.8 L 467.2 147.5 L 469.3 141.3 L 471.5 135.1 L 473.9 129.1 L 476.6 123.2 L 479.5 117.4 L 482.6 111.7 L 486.0 106.3 L 489.6 101.0 L 493.5 95.9 L 497.8 91.2 L 502.3 86.7 L 507.2 82.5 L 512.4 78.7 L 517.9 75.4 L 523.8 72.5 L 529.9 70.0 L 536.5 68.2 L 543.3 66.9 L 550.4 66.3 L 557.8 66.4 L 565.4 67.2 L 573.2 68.7 L 581.1 71.1 L 589.1 74.3 L 597.2 78.3 L 605.1 83.1 L 613.0 88.7 L 620.7 95.1 L 628.0 102.3 L 635.0 110.1 L 641.6 118.6 L 647.6 127.6 L 653.1 137.0 L 657.9 146.8 L 662.0 156.8 L 665.3 167.0 L 667.9 177.2 L 669.7 187.3 L 670.7 197.3 L 671.0 206.9 L 670.5 216.2 L 669.3 225.1 L 667.5 233.6 L 665.0 241.5 L 661.9 248.8 L 658.3 255.5 L 654.3 261.7 L 649.8 267.2 L 644.9 272.2 L 639.8 276.6 L 634.3 280.3 L 628.6 283.6 L 622.7 286.3 L 616.7 288.4 L 610.5 290.2 L 604.3 291.4 L 597.9 292.3 L 591.5 292.7 L 585.1 292.8 L 578.7 292.5 L 572.3 291.9 L 565.9 291.1 L 559.5 290.0 L 553.1 288.6 L 546.8 287.0 L 540.5 285.2 L 534.2 283.3 L 528.0 281.1 L 521.8 278.9 L 515.6 276.5 L 509.5 274.0 L 503.5 271.3 L 497.4 268.6 L 491.4 265.8 L 485.5 263.0 L 479.5 260.1 L 473.6 257.1 L 467.7 254.1 L 461.8 251.1 L 455.9 248.0 L 450.0 245.0"></animateMotion>
+          </g>
+
+          <!-- interaction: transparent hit targets (re-appended on top in _setupZones) -->
+          <g id="loopHit">
+            <rect data-zone="tl" x="40" y="30" width="410" height="215" fill="none" pointer-events="all" style="cursor:pointer"></rect>
+            <rect data-zone="tr" x="450" y="30" width="410" height="215" fill="none" pointer-events="all" style="cursor:pointer"></rect>
+            <rect data-zone="bl" x="40" y="245" width="410" height="211" fill="none" pointer-events="all" style="cursor:pointer"></rect>
+            <rect data-zone="br" x="450" y="245" width="410" height="211" fill="none" pointer-events="all" style="cursor:pointer"></rect>
+            <circle data-zone="crux" cx="450" cy="245" r="40" fill="none" pointer-events="all" style="cursor:pointer"></circle>
+          </g>
+        </svg>
+
+        <!-- interaction: hover/tap label, hint, and drill-in panel (driven by _setupZones) -->
+        <div id="loopLabel" aria-hidden="true" style="position:absolute;top:12px;left:50%;transform:translateX(-50%);max-width:min(92%,520px);display:flex;align-items:center;gap:10px;padding:9px 15px;border-radius:999px;background:rgba(13,27,46,.94);border:1px solid rgba(175,194,214,.28);box-shadow:0 8px 26px rgba(0,0,0,.4);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);opacity:0;transition:opacity .18s ease;pointer-events:none;z-index:6">
+          <span id="loopLabelDot" style="width:9px;height:9px;border-radius:50%;background:#EA7C31;flex:none"></span>
+          <span style="min-width:0">
+            <span id="loopLabelKicker" style="display:block;font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#EA7C31;line-height:1.25"></span>
+            <span id="loopLabelLead" style="display:block;font-size:13px;color:#EAF0F6;line-height:1.35"></span>
+          </span>
+        </div>
+
+        <div id="loopHint" style="position:absolute;top:14px;right:16px;max-width:46%;text-align:right;font-size:11.5px;color:#8AA3BC;background:rgba(13,27,46,.72);padding:5px 11px;border-radius:999px;border:1px solid rgba(175,194,214,.16);pointer-events:none;transition:opacity .3s ease;z-index:5"></div>
+
+        <div id="loopPanel" role="dialog" aria-live="polite" style="position:absolute;box-sizing:border-box;left:12px;right:12px;bottom:12px;max-height:calc(100% - 24px);overflow:auto;padding:16px 18px 18px;border-radius:14px;background:rgba(11,24,42,.975);border:1px solid rgba(154,139,212,.5);box-shadow:0 -12px 44px rgba(0,0,0,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);opacity:0;transform:translateY(14px);transition:opacity .22s ease,transform .22s ease;pointer-events:none;z-index:8">
+          <button id="loopPanelClose" aria-label="Close" style="position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:8px;border:1px solid rgba(175,194,214,.22);background:rgba(21,42,68,.7);color:#EAF0F6;font-size:17px;line-height:1;cursor:pointer">&times;</button>
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding-right:38px">
+            <span id="loopPanelKicker" style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#9A8BD4"></span>
+            <span id="loopPanelTag" style="display:none;font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#EAB477;background:rgba(234,124,49,.14);border:1px solid rgba(234,124,49,.32);padding:2px 8px;border-radius:999px"></span>
+          </div>
+          <div id="loopPanelTitle" style="font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:19px;color:#FFFFFF;margin:6px 0 0;line-height:1.2"></div>
+          <div id="loopPanelLead" style="font-size:14.5px;font-weight:600;color:#EAF0F6;margin:8px 0 0;line-height:1.45"></div>
+          <div id="loopPanelBody" style="font-size:14px;color:#AFC2D6;margin:10px 0 0;line-height:1.6"></div>
+          <div id="loopPanelExtra" style="margin:12px 0 0"></div>
+        </div>
+        <figcaption style="display:flex;gap:22px;flex-wrap:wrap;padding:14px 20px 18px;font-size:13.5px;margin:0">
+          <span style="display:inline-flex;align-items:center;gap:8px;color:#AFC2D6"><span style="width:9px;height:9px;border-radius:50%;background:#E1673A;flex:none"></span>AI does the grunt work</span>
+          <span style="display:inline-flex;align-items:center;gap:8px;color:#AFC2D6"><span style="width: 9px; height: 9px; border-radius: 50%; background: rgb(62, 154, 214); flex: 0 0 auto;"></span>Humans do sales execution</span>
+          <span style="display:inline-flex;align-items:center;gap:8px;color:#AFC2D6"><span style="width: 9px; height: 9px; border-radius: 50%; background: rgb(123, 97, 201); flex: 0 0 auto;"></span>They drive each other &amp; meet to reconcile &amp; inspect</span>
+        </figcaption>
+      </figure>
+  </div>
+</section>
+
+<!-- ONE LAP · the five regions, for readers who scroll rather than click -->
+<section id="sec-lap" data-nav="One lap" data-screen-label="03 One lap" class="sec">
+  <div class="wrap">
+    <div class="eyb"><i></i>What each region means</div>
+    <h2 class="h2">One lap. <em>One seller's day.</em></h2>
+    <p class="body">They sell (top right). The work drops through the filter (protected, no raw writes, and they are spared the admin). The system verifies it into tiny truths (bottom left). HART surfaces what matters to their phone (bottom right). The verified change snapshots to D360 as it crosses the filter going up. They reconcile (top left: read the flag, challenge it, add what only they know, get auto-drafted next steps). They carry that enriched plan back into selling. Every lap the record gets deeper and the guidance gets better.</p>
+    <p class="note">The door, HART, and reconciliation describe what Altify is building. Each is tagged below, and none of this is a shipped feature today.</p>
+    <div class="regions">
+        <article class="region z-tr" data-rv="1">
+          <div class="rg-glyph"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="1" y="1" width="38" height="38" rx="8" fill="rgba(15,32,54,.85)" stroke="rgba(175,194,214,.28)"></rect><path d="M20 5 V35 M5 20 H35" fill="none" stroke="rgba(175,194,214,.28)" stroke-width="1" stroke-dasharray="2 3"></path><rect x="21.5" y="4.5" width="14" height="14" rx="3" fill="#3E9AD6"></rect></svg></div>
+          <div>
+            <div class="rg-k"><span class="rg-kick">Top right · Human work</span></div>
+            <h3 class="rg-t">Selling</h3>
+            <p class="rg-lead">The one thing only humans do. Highest impact, highest enjoyment.</p>
+            <p class="rg-body">This is where humans belong: in the room, on the phone, at dinner. The system's whole job is to protect this quadrant, to let a person put maximum effort here, because it is the only effort that actually wins deals. Nothing to log, nothing to update. They just sell. The work they do here is captured on the way out, not typed in.</p>
+          </div>
+        </article>
+        <article class="region z-crux" data-rv="1">
+          <div class="rg-glyph"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="1" y="1" width="38" height="38" rx="8" fill="rgba(15,32,54,.85)" stroke="rgba(175,194,214,.28)"></rect><path d="M20 5 V35 M5 20 H35" fill="none" stroke="rgba(175,194,214,.28)" stroke-width="1" stroke-dasharray="2 3"></path><circle cx="20" cy="20" r="5.5" fill="#0F2036" stroke="#EA7C31" stroke-width="2.4"></circle></svg></div>
+          <div>
+            <div class="rg-k"><span class="rg-kick">The center · The filter</span><span class="tag">Designed, not yet shipped</span></div>
+            <h3 class="rg-t">One door into the record</h3>
+            <p class="rg-lead">One door into the record. No raw writes, ever.</p>
+            <p class="rg-body">Every piece of work crosses this one point, and it is the only way in. No surface, no agent, no copilot writes to the record directly. They propose in natural language, and this door decides what becomes true. That is how the record stays trustworthy no matter what is connected to it.</p>
+          <div class="claims"><div class="claim"><b style="color:#6FC2EC">The door is locked</b><span>An architectural fact, true by design. The only path into the record is through this filter.</span></div><div class="claim"><b style="color:#EA7C31">Precision is a target we are climbing</b><span>Target 99.9%. Measured 99.73% on the first graded dataset. A goal we are climbing, not a property of the lock.</span></div></div>
+          </div>
+        </article>
+        <article class="region z-bl" data-rv="1">
+          <div class="rg-glyph"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="1" y="1" width="38" height="38" rx="8" fill="rgba(15,32,54,.85)" stroke="rgba(175,194,214,.28)"></rect><path d="M20 5 V35 M5 20 H35" fill="none" stroke="rgba(175,194,214,.28)" stroke-width="1" stroke-dasharray="2 3"></path><rect x="4.5" y="21.5" width="14" height="14" rx="3" fill="#E1673A"></rect></svg></div>
+          <div>
+            <div class="rg-k"><span class="rg-kick">Bottom left · AI work</span></div>
+            <h3 class="rg-t">The engine</h3>
+            <p class="rg-lead">The admin and analysis humans shouldn't do. Done, and verified.</p>
+            <p class="rg-body">This is where the proprietary system turns raw sales activity into small verified facts, one at a time, each tied to the exact words that prove it, checked and voted before it is kept. Humans are bad at this and hate it; the system does it completely, so they never have to. This is the layer that makes everything above it trustworthy.</p>
+          </div>
+        </article>
+        <article class="region z-br" data-rv="1">
+          <div class="rg-glyph"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="1" y="1" width="38" height="38" rx="8" fill="rgba(15,32,54,.85)" stroke="rgba(175,194,214,.28)"></rect><path d="M20 5 V35 M5 20 H35" fill="none" stroke="rgba(175,194,214,.28)" stroke-width="1" stroke-dasharray="2 3"></path><rect x="21.5" y="21.5" width="14" height="14" rx="3" fill="#7B61C9"></rect></svg></div>
+          <div>
+            <div class="rg-k"><span class="rg-kick">Bottom right · HART</span><span class="tag">Forward looking</span></div>
+            <h3 class="rg-t">Human at the right time</h3>
+            <p class="rg-lead">The right thing, surfaced to the right person, before they ask.</p>
+            <p class="rg-body">Because the record is verified, the system can push what matters, unprompted, wherever the person works. Low effort for the human, high value: they are barely doing anything, which is exactly why they will actually use it. A brief when something matters, or a daily digest, by persona. This is HART, human at the right time. The purest expression of high enjoyment at near zero effort.</p>
+          </div>
+        </article>
+        <article class="region z-tl" data-rv="1">
+          <div class="rg-glyph"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="1" y="1" width="38" height="38" rx="8" fill="rgba(15,32,54,.85)" stroke="rgba(175,194,214,.28)"></rect><path d="M20 5 V35 M5 20 H35" fill="none" stroke="rgba(175,194,214,.28)" stroke-width="1" stroke-dasharray="2 3"></path><rect x="4.5" y="4.5" width="14" height="14" rx="3" fill="#7B61C9"></rect></svg></div>
+          <div>
+            <div class="rg-k"><span class="rg-kick">Top left · Reconciliation</span><span class="tag">Forward looking · how it will work</span></div>
+            <h3 class="rg-t">Challenge and enrich</h3>
+            <p class="rg-lead">Where humans challenge the AI and add what only they know.</p>
+            <p class="rg-body">This is the one quadrant that is a little bit work, and it is the highest leverage work in the loop. The human reads the guidance, challenges it, or adds the missing piece that would otherwise be lost forever, a puzzle piece other systems cannot even ask for, because they do not build around what a losing deal is shaped like. Then they carry that enriched plan straight back into selling.</p>
+          </div>
+        </article>
+    </div>
+  </div>
+</section>
+
+<!-- FIVE THINGS -->
+<section id="sec-five" data-nav="Five things" data-screen-label="04 Five things" class="sec">
+  <div class="wrap">
+    <div class="eyb"><i></i>What to leave with</div>
+    <h2 class="h2">Five things. <em>One loop.</em></h2>
+    <ol class="five">
+          <li data-rv="1"><span class="n c-ai">01</span><div><div class="fv-h"><b>The engine is precise.</b></div><p>Raw activity becomes small verified facts, each tied to the exact words that prove it. The target is 99.9%. Measured precision is 99.73% on the first graded dataset, and climbing.</p></div></li>
+          <li data-rv="1"><span class="n c-door">02</span><div><div class="fv-h"><b>The door is mandatory.</b><span class="tag">Designed, not yet shipped</span></div><p>One way into the record, and no raw writes, ever. Batch intake and real time write-backs pass through the same door. Human edits always win, and writes never touch Opportunity or Account fields directly.</p></div></li>
+          <li data-rv="1"><span class="n c-meet">03</span><div><div class="fv-h"><b>HART brings the right thing forward.</b><span class="tag">Forward looking</span></div><p>What matters reaches the right person before they ask, wherever they already work, at near zero effort.</p></div></li>
+          <li data-rv="1"><span class="n c-meet">04</span><div><div class="fv-h"><b>Reconciliation is the highest leverage human work.</b><span class="tag">Forward looking</span></div><p>The one quadrant that is a little bit work: challenge the guidance, add what only you know, and carry the plan back into selling.</p></div></li>
+          <li data-rv="1"><span class="n c-loop">05</span><div><div class="fv-h"><b>All of it runs on one loop.</b></div><p>The four sit on a single self-perpetuating loop. Human effort goes only where it earns, and every lap leaves the record deeper and the guidance better.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- THE ROI · the sign claim, given room -->
+<section id="sec-roi" data-nav="The ROI" data-screen-label="05 The ROI" class="sec">
+  <div class="wrap">
+    <div class="eyb"><i></i>Why it wins</div>
+    <div class="capcard" data-rv="1">
+      <span class="tag">Designed, not yet shipped</span>
+      <div class="cap-big">Negative ROI is <em>structurally impossible.</em></div>
+      <p class="cap-p">Their verification is optional. Ours is a mandatory door. Because nothing enters the record unverified, no input can drag the return below zero.</p>
+      <p class="cap-sub">Stated precisely: others do verify, but optionally, or with gaps. Here there is one door and no way around it.</p>
+      <p class="cap-sub">This is a claim about the sign of the return, not its size. Human effort is spent only where it earns: fully in selling, a little in reconciliation, almost none in the admin the machine does.</p>
+      <p class="cap-note">This describes the design, not a shipped feature. Today production is read only, and the build lives in a developer sandbox.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHERE NEXT -->
+<section id="sec-next" data-screen-label="06 Where next" class="sec">
+  <div class="wrap">
+    <div class="eyb"><i></i>Where next</div>
+    <p class="kick" style="margin-top:4px">Every lap, the record gets deeper and the guidance gets better. <em>One loop, one door, compounding.</em></p>
+    <div class="next3">
+      <a class="nextc" href="./"><b>The vision</b><span>Why we build the moat, and why depth wins.</span></a>
+      <a class="nextc" href="architecture.html"><b>The three layers</b><span>What changes for sellers, for leaders, and underneath.</span></a>
+      <a class="nextc" href="grounding.html"><b>The grounding</b><span>How the structure captures context and guides AI.</span></a>
+    </div>
+  </div>
+</section>
+
+<footer data-screen-label="Footer" style="border-top:1px solid rgba(175,194,214,.16);padding:30px 0 46px;margin-top:36px">
+  <div style="max-width:900px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center">
+    <div style="display:flex;gap:26px;flex-wrap:wrap">
+      <a href="./" style="display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#EA7C31;text-decoration:none">The vision <span style="font-size:15px">&#8594;</span></a>
+      <a href="architecture.html" style="display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#EA7C31;text-decoration:none">The three layers <span style="font-size:15px">&#8594;</span></a>
+      <a href="grounding.html" style="display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#EA7C31;text-decoration:none">The grounding <span style="font-size:15px">&#8594;</span></a>
+    </div>
+    <div style="color:#8AA3BC;font-size:12px">ALTIFY · 2026</div>
+  </div>
+</footer>
+
+  <button id="navUp" aria-label="Previous section" style="position:fixed;top:80px;right:18px;z-index:40;width:46px;height:46px;border-radius:50%;background:rgba(21,42,68,.94);border:1px solid rgba(175,194,214,.35);color:#EA7C31;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;opacity:0;pointer-events:none;transition:opacity .25s ease" style-hover="border-color:#EA7C31">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M 5 14.5 L 12 7.5 L 19 14.5"></path></svg>
+  </button>
+  <button id="navDown" aria-label="Next section" style="position:fixed;bottom:22px;right:18px;z-index:40;width:46px;height:46px;border-radius:50%;background:rgba(21,42,68,.94);border:1px solid rgba(175,194,214,.35);color:#EA7C31;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;opacity:0;pointer-events:none;transition:opacity .25s ease" style-hover="border-color:#EA7C31">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M 5 9.5 L 12 16.5 L 19 9.5"></path></svg>
+  </button>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  componentDidMount() {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const animOn = (this.props.animations ?? true) && !reduced;
+    const $ = (id) => document.getElementById(id);
+    this._finishers = [];
+    this._observers = [];
+    const finishAll = () => { this._finishers.forEach((f) => { try { f(); } catch (e) {} }); this._finishers = []; };
+    this._finishAll = finishAll;
+    this._onPrint = () => finishAll();
+    window.addEventListener('beforeprint', this._onPrint);
+
+    // the traveling pulse only exists while animating; with motion off the loop sits still and stays clickable
+    const dot = $('loopDot');
+    if (dot && !animOn) dot.remove();
+
+    const navSecs = Array.from(document.querySelectorAll('[data-nav]'));
+    const topnav = $('topnav');
+    const btnUp = $('navUp'), btnDown = $('navDown');
+    const menuBtn = $('navMenuBtn'), navMenu = $('navMenu');
+    const navLinks = Array.from(document.querySelectorAll('#topnav a[data-target], #navMenu a[data-target]'));
+    if (navSecs.length) {
+      const NAVH = 70;
+      const secTop = (el) => el.getBoundingClientRect().top + window.scrollY;
+      const curIdx = () => { const y = window.scrollY + NAVH + 80; let idx = 0; navSecs.forEach((s, i) => { if (secTop(s) <= y) idx = i; }); return idx; };
+      const goTo = (i) => { if (i < 0 || i >= navSecs.length) return; window.scrollTo({ top: Math.max(0, secTop(navSecs[i]) - NAVH + 6), behavior: reduced ? 'auto' : 'smooth' }); };
+      const setBtn = (b, on) => { if (b) { b.style.opacity = on ? '1' : '0'; b.style.pointerEvents = on ? 'auto' : 'none'; } };
+      const update = () => { const i = curIdx(); setBtn(btnUp, i > 0); setBtn(btnDown, i < navSecs.length - 1); navLinks.forEach((a) => { a.style.color = (+a.dataset.target === i) ? '#EA7C31' : '#AFC2D6'; }); };
+      if (btnUp) btnUp.onclick = () => goTo(curIdx() - 1);
+      if (btnDown) btnDown.onclick = () => goTo(curIdx() + 1);
+      this._onNavClick = (e) => { const a = e.target.closest('a[data-target]'); if (!a) return; e.preventDefault(); goTo(+a.dataset.target); if (navMenu && navMenu.style.display === 'flex') { navMenu.style.display = 'none'; if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false'); } };
+      if (topnav) topnav.addEventListener('click', this._onNavClick);
+      if (navMenu) navMenu.addEventListener('click', this._onNavClick);
+      const topRow = topnav ? topnav.parentElement : null;
+      const logoEl = topRow ? topRow.querySelector('img') : null;
+      let needW = topnav ? topnav.scrollWidth + 2 : 0;
+      const applyCollapse = () => {
+        if (!topnav || !topRow) return;
+        if (topnav.style.display !== 'none') needW = Math.max(needW, topnav.scrollWidth + 2);
+        const avail = topRow.clientWidth - (logoEl ? logoEl.offsetWidth : 0) - 30;
+        const collapsed = needW > avail;
+        topnav.style.display = collapsed ? 'none' : 'flex';
+        if (menuBtn) menuBtn.style.display = collapsed ? 'flex' : 'none';
+        if (!collapsed && navMenu) { navMenu.style.display = 'none'; if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false'); }
+      };
+      if (menuBtn && navMenu) {
+        menuBtn.onclick = (e) => { e.stopPropagation(); const open = navMenu.style.display !== 'flex'; navMenu.style.display = open ? 'flex' : 'none'; menuBtn.setAttribute('aria-expanded', String(open)); };
+        this._onDocClick = (ev) => { if (navMenu.style.display === 'flex' && !navMenu.contains(ev.target) && !menuBtn.contains(ev.target)) { navMenu.style.display = 'none'; menuBtn.setAttribute('aria-expanded', 'false'); } };
+        document.addEventListener('click', this._onDocClick);
+      }
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => applyCollapse());
+      this._topnavEl = topnav;
+      this._navRaf = 0;
+      this._onNavScroll = () => { if (this._navRaf) return; this._navRaf = requestAnimationFrame(() => { this._navRaf = 0; update(); }); };
+      window.addEventListener('scroll', this._onNavScroll, { passive: true });
+      this._onNavResize = () => { applyCollapse(); this._onNavScroll(); };
+      window.addEventListener('resize', this._onNavResize, { passive: true });
+      applyCollapse();
+      update();
+    }
+
+    // the loop: snapshot belt and the five drill-ins, wired before the motion gate so clicks work either way
+    this._setupMemory(animOn);
+    this._setupZones(animOn);
+    if (!animOn) return;
+
+    // section reveals
+    const rvs = Array.from(document.querySelectorAll('[data-rv]'));
+    rvs.forEach((el) => { el.style.opacity = '0'; el.style.transform = 'translateY(16px)'; el.style.transition = 'opacity .6s cubic-bezier(.22,.61,.36,1), transform .6s cubic-bezier(.22,.61,.36,1)'; });
+    const show = (el) => { el.style.opacity = '1'; el.style.transform = 'none'; };
+    const rio = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { show(e.target); rio.unobserve(e.target); } }), { threshold: 0.12 });
+    rvs.forEach((el) => rio.observe(el));
+    this._observers.push(rio);
+    this._finishers.push(() => rvs.forEach(show));
+
+    const prep = (p) => { const L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = L; return L; };
+
+    // --- infinity loop: draw the one continuous line, then reveal labels + pulse ---
+    const loopfig = $('loopfig');
+    const segs = ['ls3', 'ls4', 'ls1', 'ls2'].map($).filter(Boolean); // human lobe first, through the crossover, around the AI lobe
+    const meta = $('loopMeta'), meta2 = $('loopMeta2');
+    if (loopfig && segs.length === 4) {
+      segs.forEach(prep);
+      [meta, meta2].forEach((g) => { if (g) { g.style.opacity = '0'; } });
+      if (dot) dot.style.opacity = '0';
+      const finishLoop = () => {
+        segs.forEach((p) => { p.style.transition = 'none'; p.style.strokeDashoffset = 0; });
+        [meta, meta2].forEach((g) => { if (g) { g.style.transition = 'none'; g.style.opacity = '1'; } });
+        if (dot && dot.isConnected) dot.style.opacity = '1';
+      };
+      this._finishers.push(finishLoop);
+      const lio = new IntersectionObserver((es) => es.forEach((e) => {
+        if (!e.isIntersecting) return;
+        segs.forEach((p, i) => {
+          setTimeout(() => {
+            p.style.transition = 'stroke-dashoffset .62s ' + (i === 0 ? 'cubic-bezier(.4,0,.6,1)' : 'linear');
+            p.style.strokeDashoffset = 0;
+          }, i * 590);
+        });
+        setTimeout(() => {
+          [meta, meta2].forEach((g) => { if (g) { g.style.transition = 'opacity .8s ease'; g.style.opacity = '1'; } });
+        }, 4 * 590 + 150);
+        setTimeout(() => {
+          if (dot && dot.isConnected) { dot.style.transition = 'opacity 1s ease'; dot.style.opacity = '1'; }
+        }, 4 * 590 + 700);
+        lio.unobserve(loopfig);
+      }), { threshold: 0.35 });
+      lio.observe(loopfig);
+      this._observers.push(lio);
+    }
+  }
+
+  _setupMemory(animOn) {
+    const svg = document.querySelector('#loopfig svg');
+    if (!svg || document.getElementById('memMask')) return;
+    const NS = 'http://www.w3.org/2000/svg';
+    const el = (tag, attrs, parent) => {
+      const n = document.createElementNS(NS, tag);
+      if (attrs) for (const k in attrs) n.setAttribute(k, attrs[k]);
+      if (parent) parent.appendChild(n);
+      return n;
+    };
+    const ORANGE = '#EA7C31';
+    const SQ = 14, PITCH = 20, SLOTS = 6;      // small nested snapshots
+    const ROW_X = 56, ROW_Y = 434;             // lower-left of the chart frame (frame bottom ~456)
+    const CY = ROW_Y + SQ / 2;
+    const CENTER = { x: 450, y: 245 };         // the crossover: where a full rotation of the 8 completes
+    const slotCx = (i) => ROW_X + i * PITCH + SQ / 2;
+
+    let defs = svg.querySelector('defs');
+    if (!defs) defs = svg.insertBefore(document.createElementNS(NS, 'defs'), svg.firstChild);
+
+    // right-edge fade: snapshots dissolve into nothingness as the belt pushes them off
+    const grad = el('linearGradient', { id: 'memFade', x1: 0, y1: 0, x2: 1, y2: 0 }, defs);
+    el('stop', { offset: 0, 'stop-color': '#fff' }, grad);
+    el('stop', { offset: 0.72, 'stop-color': '#fff' }, grad);
+    el('stop', { offset: 1, 'stop-color': '#000' }, grad);
+    const bX = ROW_X - 8, bY = ROW_Y - 8, bW = PITCH * SLOTS + 64, bH = SQ + 16;
+    const mask = el('mask', { id: 'memMask', maskUnits: 'userSpaceOnUse', x: bX, y: bY, width: bW, height: bH }, defs);
+    el('rect', { x: bX, y: bY, width: bW, height: bH, fill: 'url(#memFade)' }, mask);
+    const layer = el('g', { mask: 'url(#memMask)' }, svg);
+    const memLabel = el('text', { x: ROW_X, y: ROW_Y - 12, fill: '#8AA3BC', 'font-size': 10.5, 'font-weight': 700, 'letter-spacing': 1 }, svg);
+    memLabel.textContent = '4D MEMORY ON D360';
+
+    const square = () => {
+      const r = el('rect', { width: SQ, height: SQ, rx: 3, fill: ORANGE, stroke: 'rgba(255,255,255,.4)', 'stroke-width': 1 });
+      r.style.filter = 'drop-shadow(0 0 5px rgba(234,124,49,.65))';
+      return r;
+    };
+    const setXform = (node, cx, cy, s) => {
+      s = s || 1;
+      node.setAttribute('transform', 'translate(' + cx + ' ' + cy + ') scale(' + s + ') translate(' + (-SQ / 2) + ' ' + (-SQ / 2) + ')');
+    };
+
+    const hasMotion = !!document.querySelector('#loopDot animateMotion');
+    // reduced-motion / animations off: static belt of snapshots, faded at the right. nothing moves.
+    if (!animOn || !hasMotion) {
+      for (let i = 0; i < SLOTS; i++) { const r = square(); setXform(r, slotCx(i), CY, 1); layer.appendChild(r); }
+      return;
+    }
+
+    const dot = document.getElementById('loopDot');
+    const ballOn = () => dot && dot.isConnected && parseFloat(getComputedStyle(dot).opacity || '0') > 0.5;
+    // detect the two crossover passes by the ball's time fraction (render-independent, unlike getCTM)
+    const PERIOD = 18; // matches the ball's dur="18s"
+    const ballF = () => (svg.getCurrentTime() % PERIOD) / PERIOD;
+    let fMid = 0.5; // fraction at which the ball makes its second pass through the 0,0 crossover
+    (() => {
+      const am = dot.querySelector('animateMotion');
+      const pathD = am && am.getAttribute('path');
+      if (!pathD) return;
+      const defs = svg.querySelector('defs') || svg.insertBefore(document.createElementNS(NS, 'defs'), svg.firstChild);
+      const mp = document.createElementNS(NS, 'path');
+      mp.setAttribute('d', pathD);
+      defs.appendChild(mp);
+      const L = mp.getTotalLength();
+      let best = 1e9;
+      for (let i = 120; i <= 880; i++) {
+        const p = mp.getPointAtLength(i / 1000 * L);
+        const dx = p.x - CENTER.x, dy = p.y - CENTER.y, d = dx * dx + dy * dy;
+        if (d < best) { best = d; fMid = i / 1000; }
+      }
+    })();
+
+    const row = [];        // snapshots on the belt, index 0 = leftmost / newest
+    const tweens = [];
+    const ease = (u) => u < 0.5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2;
+    const addTween = (t) => {
+      for (let i = tweens.length - 1; i >= 0; i--) if (tweens[i].obj === t.obj) tweens.splice(i, 1);
+      t.fx = t.fx != null ? t.fx : t.obj.cx;
+      t.fy = t.fy != null ? t.fy : t.obj.cy;
+      t.t0 = performance.now();
+      t.dur = t.dur || 500;
+      t.s0 = t.s0 != null ? t.s0 : 1;
+      t.s1 = t.s1 != null ? t.s1 : 1;
+      tweens.push(t);
+    };
+    const stepTween = (t, ts) => {
+      const u = Math.min(1, (ts - t.t0) / t.dur), e = ease(u);
+      let cx, cy;
+      if (t.arc) {
+        const mx = (t.fx + t.tx) / 2, my = Math.min(t.fy, t.ty) - 40, iv = 1 - e;
+        cx = iv * iv * t.fx + 2 * iv * e * mx + e * e * t.tx;
+        cy = iv * iv * t.fy + 2 * iv * e * my + e * e * t.ty;
+      } else {
+        cx = t.fx + (t.tx - t.fx) * e;
+        cy = t.fy + (t.ty - t.fy) * e;
+      }
+      t.obj.cx = cx; t.obj.cy = cy;
+      setXform(t.obj.el, cx, cy, t.s0 + (t.s1 - t.s0) * e);
+      if (t.fade != null) t.obj.el.style.opacity = String(1 + (t.fade - 1) * e);
+      if (u >= 1) { t.done = true; if (t.onDone) t.onDone(); }
+    };
+
+    // full-frame white shutter: the snapshot is taken
+    const flash = () => {
+      const f = el('rect', { x: 40, y: 30, width: 820, height: 426, rx: 18, fill: '#fff' }, svg);
+      f.style.opacity = '0'; f.style.pointerEvents = 'none';
+      f.animate([{ opacity: 0 }, { opacity: 0.55, offset: 0.4 }, { opacity: 0 }], { duration: 150, easing: 'ease-out' })
+        .onfinish = () => { if (f.parentNode) f.parentNode.removeChild(f); };
+    };
+
+    const capture = () => {
+      flash();
+      // push the belt one slot along; anything past the last slot slides off and dissolves
+      for (let k = row.length - 1; k >= 0; k--) {
+        const o = row[k];
+        o.slot += 1;
+        if (o.slot >= SLOTS) {
+          row.splice(k, 1);
+          addTween({ obj: o, tx: slotCx(SLOTS + 1), ty: CY, dur: 760, fade: 0, onDone: () => { if (o.el.parentNode) o.el.parentNode.removeChild(o.el); } });
+        } else {
+          addTween({ obj: o, tx: slotCx(o.slot), ty: CY, dur: 500 });
+        }
+      }
+      // the snapshot pops off the loop large, then shrinks to nest at the front of the belt
+      const o = { el: square(), slot: 0, cx: CENTER.x, cy: CENTER.y };
+      o.el.style.opacity = '1';
+      setXform(o.el, o.cx, o.cy, 3.6);
+      layer.appendChild(o.el);
+      row.unshift(o);
+      addTween({ obj: o, fx: CENTER.x, fy: CENTER.y, tx: slotCx(0), ty: CY, dur: 780, arc: true, s0: 3.6, s1: 1 });
+    };
+
+    let raf = 0, running = false, visible = false, fPrev = 0;
+    const frame = (ts) => {
+      raf = 0;
+      if (!running) return;
+      // fire on both crossover passes per lap: the wrap at f=0 and the mid crossing at f=fMid (double cadence)
+      if (visible && ballOn()) {
+        const f = ballF();
+        if (f < fPrev) capture();
+        else if (fPrev < fMid && fMid <= f) capture();
+        fPrev = f;
+      } else { fPrev = ballF(); }
+      for (let i = tweens.length - 1; i >= 0; i--) { stepTween(tweens[i], ts); if (tweens[i].done) tweens.splice(i, 1); }
+      raf = requestAnimationFrame(frame);
+    };
+    const start = () => { if (!running) { running = true; fPrev = ballF(); raf = requestAnimationFrame(frame); } };
+    const stop = () => { running = false; if (raf) cancelAnimationFrame(raf); raf = 0; };
+
+    // pause fully when the chart is off-screen; resume on re-entry
+    const io = new IntersectionObserver((es) => es.forEach((e) => { visible = e.isIntersecting; if (visible) start(); else stop(); }), { threshold: 0.15 });
+    io.observe(document.getElementById('loopfig'));
+    this._observers.push(io);
+    this._memStop = stop;
+    this._finishers.push(() => { stop(); for (let i = row.length; i < SLOTS; i++) { const r = square(); setXform(r, slotCx(i), CY, 1); layer.appendChild(r); row.push({ el: r, slot: i, cx: slotCx(i), cy: CY }); } });
+  }
+
+  _setupZones(animOn) {
+    const fig = document.getElementById('loopfig');
+    const svg = fig && fig.querySelector('svg');
+    if (!fig || !svg || fig._zonesReady) return;
+    fig._zonesReady = true;
+
+    const $ = (id) => document.getElementById(id);
+    const hit = $('loopHit'), crux = $('loopCrux'), panel = $('loopPanel');
+    const tint = { tl: $('zw-tl'), tr: $('zw-tr'), bl: $('zw-bl'), br: $('zw-br') };
+    const label = $('loopLabel'), hint = $('loopHint');
+    const lDot = $('loopLabelDot'), lKick = $('loopLabelKicker'), lLead = $('loopLabelLead');
+    const pKick = $('loopPanelKicker'), pTag = $('loopPanelTag'), pTitle = $('loopPanelTitle'),
+          pLead = $('loopPanelLead'), pBody = $('loopPanelBody'), pExtra = $('loopPanelExtra'), pClose = $('loopPanelClose');
+    if (!hit || !panel) return;
+
+    const COLOR = { tr: '#6FC2EC', bl: '#F08A5F', tl: '#9A8BD4', br: '#9A8BD4', crux: '#EA7C31' };
+    const BORDER = { tr: 'rgba(62,154,214,.5)', bl: 'rgba(225,103,58,.5)', tl: 'rgba(154,139,212,.5)', br: 'rgba(154,139,212,.5)', crux: 'rgba(234,124,49,.55)' };
+
+    const Z = {
+      tr: {
+        kicker: 'Top right · Human work', title: 'Selling',
+        lead: 'The one thing only humans do. Highest impact, highest enjoyment.',
+        body: "This is where humans belong: in the room, on the phone, at dinner. The system's whole job is to protect this quadrant, to let a person put maximum effort here, because it is the only effort that actually wins deals. Nothing to log, nothing to update. They just sell. The work they do here is captured on the way out, not typed in."
+      },
+      crux: {
+        kicker: 'The center · The filter', title: 'One door into the record', tag: 'Designed, not yet shipped',
+        lead: 'One door into the record. No raw writes, ever.',
+        body: "Every piece of work crosses this one point, and it is the only way in. No surface, no agent, no copilot writes to the record directly. They propose in natural language, and this door decides what becomes true. That is how the record stays trustworthy no matter what is connected to it."
+      },
+      bl: {
+        kicker: 'Bottom left · AI work', title: 'The engine',
+        lead: "The admin and analysis humans shouldn't do. Done, and verified.",
+        body: "This is where the proprietary system turns raw sales activity into small verified facts, one at a time, each tied to the exact words that prove it, checked and voted before it is kept. Humans are bad at this and hate it; the system does it completely, so they never have to. This is the layer that makes everything above it trustworthy."
+      },
+      br: {
+        kicker: 'Bottom right · HART', title: 'Human at the right time', tag: 'Forward looking',
+        lead: 'The right thing, surfaced to the right person, before they ask.',
+        body: "Because the record is verified, the system can push what matters, unprompted, wherever the person works. Low effort for the human, high value: they are barely doing anything, which is exactly why they will actually use it. A brief when something matters, or a daily digest, by persona. This is HART, human at the right time. The purest expression of high enjoyment at near zero effort."
+      },
+      tl: {
+        kicker: 'Top left · Reconciliation', title: 'Challenge and enrich', tag: 'Forward looking · how it will work',
+        lead: 'Where humans challenge the AI and add what only they know.',
+        body: "This is the one quadrant that is a little bit work, and it is the highest leverage work in the loop. The human reads the guidance, challenges it, or adds the missing piece that would otherwise be lost forever, a puzzle piece other systems cannot even ask for, because they do not build around what a losing deal is shaped like. Then they carry that enriched plan straight back into selling."
+      }
+    };
+    const claim = (accent, head, text) =>
+      '<div style="padding:10px 12px;border-radius:10px;background:rgba(21,42,68,.55);border:1px solid rgba(175,194,214,.16)">' +
+      '<div style="font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:' + accent + '">' + head + '</div>' +
+      '<div style="font-size:13px;color:#AFC2D6;margin-top:3px;line-height:1.5">' + text + '</div></div>';
+    Z.crux.extra =
+      '<div style="display:grid;gap:8px">' +
+      claim('#6FC2EC', 'The door is locked', 'An architectural fact, true by design. The only path into the record is through this filter.') +
+      claim('#EA7C31', 'Precision is a target we are climbing', 'Target 99.9%. Measured 99.73% on the first graded dataset. A goal we are climbing, not a property of the lock.') +
+      '<div style="padding:10px 12px;border-radius:10px;background:rgba(234,124,49,.1);border:1px solid rgba(234,124,49,.3)">' +
+      '<div style="font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#EAB477">Why the ROI cannot go negative</div>' +
+      '<div style="font-size:13px;color:#EAF0F6;margin-top:3px;line-height:1.5">Their verification is optional. Ours is a mandatory door. Because nothing enters the record unverified, no input can drag the return below zero, so negative ROI is structurally impossible.</div></div>' +
+      '</div>';
+
+    svg.appendChild(hit); // keep hit targets on top, even above the runtime memory belt
+
+    const hoverCapable = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+    hint.textContent = hoverCapable ? 'Hover a zone or the center. Click to open.' : 'Tap a zone or the center. Tap again to open.';
+
+    const state = { hint: null, open: null };
+    const render = () => {
+      ['tl', 'tr', 'bl', 'br'].forEach((z) => {
+        const t = tint[z]; if (!t) return;
+        const on = (state.open === z) || (state.open === null && state.hint === z);
+        t.style.opacity = on ? '1' : '0';
+      });
+      if (crux) crux.style.opacity = ((state.open === 'crux') || (state.open === null && state.hint === 'crux')) ? '1' : '0';
+      const lz = state.open ? null : state.hint;
+      if (lz && Z[lz]) {
+        lDot.style.background = COLOR[lz]; lKick.textContent = Z[lz].kicker; lKick.style.color = COLOR[lz];
+        lLead.textContent = Z[lz].lead; label.style.opacity = '1';
+      } else { label.style.opacity = '0'; }
+      hint.style.opacity = (state.hint || state.open) ? '0' : '';
+      if (state.open && Z[state.open]) {
+        const d = Z[state.open];
+        pKick.textContent = d.kicker; pKick.style.color = COLOR[state.open];
+        pTitle.textContent = d.title; pLead.textContent = d.lead; pBody.textContent = d.body;
+        if (d.tag) { pTag.textContent = d.tag; pTag.style.display = 'inline-block'; } else { pTag.style.display = 'none'; }
+        pExtra.innerHTML = d.extra || '';
+        panel.style.borderColor = BORDER[state.open];
+        panel.style.opacity = '1'; panel.style.transform = 'translateY(0)'; panel.style.pointerEvents = 'auto';
+        panel.scrollTop = 0;
+      } else {
+        panel.style.opacity = '0'; panel.style.transform = 'translateY(14px)'; panel.style.pointerEvents = 'none';
+      }
+    };
+
+    Array.from(hit.children).forEach((elm) => {
+      const z = elm.getAttribute('data-zone'); if (!z) return;
+      if (hoverCapable) {
+        elm.addEventListener('mouseenter', () => { state.hint = z; render(); });
+        elm.addEventListener('mouseleave', () => { if (state.hint === z) { state.hint = null; render(); } });
+        elm.addEventListener('click', (e) => { e.stopPropagation(); state.open = (state.open === z) ? null : z; state.hint = state.open ? z : null; render(); });
+      } else {
+        elm.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (state.open === z) { state.open = null; state.hint = null; }
+          else if (state.hint === z) { state.open = z; }
+          else { state.hint = z; state.open = null; }
+          render();
+        });
+      }
+    });
+
+    const closeAll = () => { state.open = null; state.hint = null; render(); };
+    if (pClose) pClose.addEventListener('click', (e) => { e.stopPropagation(); closeAll(); });
+    panel.addEventListener('click', (e) => e.stopPropagation());
+    const onKey = (e) => { if (e.key === 'Escape') closeAll(); };
+    document.addEventListener('keydown', onKey);
+    this._zonesOnKey = onKey;
+    render();
+
+    // effort follows the ball: swell in the human lobe (top right), drain in the AI lobe (bottom left)
+    if (animOn) {
+      const dot = $('loopDot'), scaleG = $('loopDotScale'), am = dot && dot.querySelector('animateMotion');
+      if (dot && scaleG && am) {
+        try {
+          const mp = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+          mp.setAttribute('d', am.getAttribute('path')); mp.setAttribute('fill', 'none');
+          mp.setAttribute('stroke', 'none'); mp.setAttribute('pointer-events', 'none'); mp.style.visibility = 'hidden';
+          svg.appendChild(mp);
+          const L = mp.getTotalLength(), PERIOD = 18;
+          const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+          let raf = 0, running = false;
+          const tick = () => {
+            if (!running) return;
+            try {
+              const f = (svg.getCurrentTime() % PERIOD) / PERIOD, p = mp.getPointAtLength(f * L);
+              const rightness = clamp((p.x - 229) / 442, 0, 1), upness = clamp((424 - p.y) / 358, 0, 1);
+              const s = 0.62 + 0.92 * (0.5 * rightness + 0.5 * upness);
+              scaleG.setAttribute('transform', 'scale(' + s.toFixed(3) + ')');
+            } catch (e) {}
+            raf = requestAnimationFrame(tick);
+          };
+          const start = () => { if (!running) { running = true; raf = requestAnimationFrame(tick); } };
+          const stop = () => { running = false; if (raf) cancelAnimationFrame(raf); raf = 0; };
+          const io = new IntersectionObserver((es) => es.forEach((e) => { e.isIntersecting ? start() : stop(); }), { threshold: 0.05 });
+          io.observe(fig); this._observers.push(io); this._zonesStop = stop;
+          this._finishers.push(() => { stop(); scaleG.setAttribute('transform', 'scale(1)'); });
+        } catch (e) {}
+      }
+    }
+  }
+
+  componentWillUnmount() {
+    if (this._memStop) this._memStop();
+    if (this._zonesStop) this._zonesStop();
+    if (this._zonesOnKey) document.removeEventListener('keydown', this._zonesOnKey);
+    if (this._onPrint) window.removeEventListener('beforeprint', this._onPrint);
+    if (this._onNavScroll) window.removeEventListener('scroll', this._onNavScroll);
+    if (this._onNavResize) window.removeEventListener('resize', this._onNavResize);
+    if (this._onDocClick) document.removeEventListener('click', this._onDocClick);
+    if (this._topnavEl && this._onNavClick) this._topnavEl.removeEventListener('click', this._onNavClick);
+    (this._observers || []).forEach((o) => o.disconnect());
+  }
+}
+</script>
+</body>
+</html>
