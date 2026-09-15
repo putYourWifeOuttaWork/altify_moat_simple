@@ -29,9 +29,9 @@ Live: https://putyourwifeouttawork.github.io/altify_moat_simple/
 ## Shared conventions (worth checking a reviewer understands)
 
 - **Layer colour code**, consistent across pages: Execution = blue `#53AFD4`,
-- **Loop axes differ by page, knowingly.** On `system.html` impact runs vertically (high at the top) and enjoyment horizontally (high on the right), which is what the region copy assumes. The figure-8s on the vision page and in the architecture hero still use the older axes (easy for humans vertically, impact horizontally). Not yet reconciled. The drill-in zones layer also exists only on `system.html`.
   Collaboration = purple `#9A8BD4`, Operating System = red `#D5552E`. The
   architecture hero's figure-8 highlights the matching zone when a tab is selected.
+- **Loop axes differ by page, knowingly.** On `system.html` impact runs vertically (high at the top) and enjoyment horizontally (high on the right), which is what the region copy assumes. The figure-8s on the vision page and in the architecture hero still use the older axes (easy for humans vertically, impact horizontally). Not yet reconciled. The drill-in zones layer also exists only on `system.html`.
 - **The running deal**: one fictional deal (Meridian, Jane Okafor, the renewal,
   Jain Frit) recurs across every visual so the reader tracks one story.
 - **Copy rules the pages hold to**: no em/en dashes anywhere; a running body-copy
