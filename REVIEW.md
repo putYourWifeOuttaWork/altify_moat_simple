@@ -15,7 +15,7 @@ Live: https://putyourwifeouttawork.github.io/altify_moat_simple/
 | `Altify 4D Moat.dc.html` | **The vision.** The moat argument (scale becoming clarity, the figure-8 loop, the coach, outcomes). Embeds the grounding explainer as an accordion. | `/Altify%204D%20Moat.dc.html` and `/` (redirect) |
 | `architecture.html` | **The three layers.** A tab switcher over three panes: Execution (seller outcomes), Collaboration (Slack + Claude interfaces + the flag motion), Operating System (the data-structure deep dive). Opens on Operating System. | `/architecture.html` |
 | `grounding.html` | **The grounding.** Standalone "how the structure captures context and guides AI" explainer. Four mechanism visuals + an animated traversal. | `/grounding.html` |
-| `system.html` | **The system.** The moat loop, standalone and drillable: the figure-8 over a two by two, five clickable regions (selling, the door, the engine, HART, reconciliation), the 4D memory snapshot belt, and the page around it (one lap, five things, the ROI sign claim). | `/system.html` |
+| `system.html` | **The system.** The moat loop alone, full screen: the figure-8 over a two by two with five clickable regions (selling, the door, the engine, HART, reconciliation) and the 4D memory snapshot belt. Everything it says lives inside the drill-in panels. | `/system.html` |
 | `v2/index.html` | **Byte-identical copy of the vision page** for the `/v2/` path (asset links rewritten to `../`). Netlify/Pages path insurance. Edit in lockstep with the moat page. | `/v2/` |
 
 ## How they cross-link (the "interwoven" part)
@@ -23,7 +23,7 @@ Live: https://putyourwifeouttawork.github.io/altify_moat_simple/
 - Vision → `The three layers` (top of page) and `The architecture` + `The grounding` (nav) → architecture.html, grounding.html
 - Architecture → `The vision` (logo, topbar, footer) and `The grounding` (footer) → moat page, grounding.html
 - Grounding → `The vision` and `The full architecture` (footer) → moat page, architecture.html
-- System → `The vision` (logo, nav, footer) and `The three layers` + `The grounding` (close cards, footer). The vision nav and the architecture and grounding footers each link back to it.
+- System → `The vision` (logo and top link). The vision nav and the architecture and grounding footers each link to it.
 - All links are **relative**, so they resolve identically on Pages and Netlify.
 
 ## Shared conventions (worth checking a reviewer understands)
@@ -31,7 +31,7 @@ Live: https://putyourwifeouttawork.github.io/altify_moat_simple/
 - **Layer colour code**, consistent across pages: Execution = blue `#53AFD4`,
   Collaboration = purple `#9A8BD4`, Operating System = red `#D5552E`. The
   architecture hero's figure-8 highlights the matching zone when a tab is selected.
-- **Loop axes differ by page, knowingly.** On `system.html` impact runs vertically (high at the top) and enjoyment horizontally (high on the right), which is what the region copy assumes. The figure-8s on the vision page and in the architecture hero still use the older axes (easy for humans vertically, impact horizontally). Not yet reconciled. The drill-in zones layer also exists only on `system.html`.
+- **Loop axes, the same on every figure-8.** Impact runs vertically (high at the top) and enjoyment horizontally (high on the right), on the vision page, the architecture hero, and `system.html`. The drill-in zones layer exists only on `system.html`.
 - **The running deal**: one fictional deal (Meridian, Jane Okafor, the renewal,
   Jain Frit) recurs across every visual so the reader tracks one story.
 - **Copy rules the pages hold to**: no em/en dashes anywhere; a running body-copy
