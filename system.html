@@ -174,6 +174,7 @@
           <span style="min-width:0">
             <span id="loopLabelKicker" style="display:block;font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#EA7C31;line-height:1.25"></span>
             <span id="loopLabelLead" style="display:block;font-size:13px;color:#EAF0F6;line-height:1.35"></span>
+            <span id="loopLabelWhere" style="display:block;line-height:1.3"></span>
           </span>
         </div>
 
@@ -185,6 +186,7 @@
             <span id="loopPanelKicker" style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#9A8BD4"></span>
             <span id="loopPanelTag" style="display:none;font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#EAB477;background:rgba(234,124,49,.14);border:1px solid rgba(234,124,49,.32);padding:2px 8px;border-radius:999px"></span>
           </div>
+          <div id="loopPanelWhere" style="display:flex;flex-wrap:wrap;margin:8px 0 0"></div>
           <div id="loopPanelTitle" style="font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:19px;color:#FFFFFF;margin:6px 0 0;line-height:1.2"></div>
           <div id="loopPanelLead" style="font-size:14.5px;font-weight:600;color:#EAF0F6;margin:8px 0 0;line-height:1.45"></div>
           <div id="loopPanelBody" style="font-size:14px;color:#AFC2D6;margin:10px 0 0;line-height:1.6"></div>
@@ -427,9 +429,9 @@ class Component extends DCLogic {
     const hit = $('loopHit'), crux = $('loopCrux'), panel = $('loopPanel');
     const tint = { tl: $('zw-tl'), tr: $('zw-tr'), bl: $('zw-bl'), br: $('zw-br') };
     const label = $('loopLabel'), hint = $('loopHint');
-    const lDot = $('loopLabelDot'), lKick = $('loopLabelKicker'), lLead = $('loopLabelLead');
+    const lDot = $('loopLabelDot'), lKick = $('loopLabelKicker'), lLead = $('loopLabelLead'), lWhere = $('loopLabelWhere');
     const pKick = $('loopPanelKicker'), pTag = $('loopPanelTag'), pTitle = $('loopPanelTitle'),
-          pLead = $('loopPanelLead'), pBody = $('loopPanelBody'), pExtra = $('loopPanelExtra'), pClose = $('loopPanelClose');
+          pLead = $('loopPanelLead'), pBody = $('loopPanelBody'), pWhere = $('loopPanelWhere'), pExtra = $('loopPanelExtra'), pClose = $('loopPanelClose');
     if (!hit || !panel) return;
 
     const COLOR = { tr: '#6FC2EC', bl: '#F08A5F', tl: '#9A8BD4', br: '#9A8BD4', crux: '#EA7C31' };
@@ -438,30 +440,41 @@ class Component extends DCLogic {
     const Z = {
       tr: {
         kicker: 'Top right · Human work', title: 'Selling',
+        where: [['Seller Communications', ['Emails', 'Calls', 'Transcripts']]],
         lead: 'The one thing only humans do. Highest impact, highest enjoyment.',
-        body: "This is where humans belong: in the room, on the phone, at dinner. The system's whole job is to protect this quadrant, to let a person put maximum effort here, because it is the only effort that actually wins deals. Nothing to log, nothing to update. They just sell. The work they do here is captured on the way out, not typed in."
+        body: "This is where humans belong: in the room, on the phone, at dinner. Nothing to log and nothing to update, because the work is captured on the way out."
       },
       crux: {
         kicker: 'The center · The filter', title: 'One door into the record', tag: 'Designed, not yet shipped',
         lead: 'One door into the record. No raw writes, ever.',
-        body: "Every piece of work crosses this one point, and it is the only way in. No surface, no agent, no copilot writes to the record directly. They propose in natural language, and this door decides what becomes true. That is how the record stays trustworthy no matter what is connected to it."
+        body: "Every piece of work crosses this one point, and it is the only way in. No surface, no agent and no copilot writes to the record directly: they propose in natural language, and this door decides what becomes true."
       },
       bl: {
         kicker: 'Bottom left · AI work', title: 'The engine',
+        where: [['Data Layer', ['Altify Proprietary AI']]],
         lead: "The admin and analysis humans shouldn't do. Done, and verified.",
-        body: "This is where the proprietary system turns raw sales activity into small verified facts, one at a time, each tied to the exact words that prove it, checked and voted before it is kept. Humans are bad at this and hate it; the system does it completely, so they never have to. This is the layer that makes everything above it trustworthy."
+        body: "The proprietary system turns raw activity into small verified facts, each tied to the exact words that prove it and checked before it is kept. Humans are bad at this work and hate it, so the system does it completely, and that is what makes everything above it trustworthy."
       },
       br: {
         kicker: 'Bottom right · HART', title: 'Human at the right time', tag: 'Forward looking',
+        where: [['Surface Layer', ['Teams', 'Slack', 'Agentforce', 'SMS', 'Email']]],
         lead: 'The right thing, surfaced to the right person, before they ask.',
-        body: "Because the record is verified, the system can push what matters, unprompted, wherever the person works. Low effort for the human, high value: they are barely doing anything, which is exactly why they will actually use it. A brief when something matters, or a daily digest, by persona. This is HART, human at the right time. The purest expression of high enjoyment at near zero effort."
+        body: "Because the record is verified, the system can push what matters, unprompted, wherever the person works: a brief when something matters, or a daily digest, by persona. Barely any effort for the human, which is exactly why they will use it."
       },
       tl: {
         kicker: 'Top left · Reconciliation', title: 'Challenge and enrich', tag: 'Forward looking · how it will work',
+        where: [['Surface Layer', ['Teams', 'Slack', 'Agentforce']], ['Application Layer', ['Salesforce Apps', 'Altify UI']]],
         lead: 'Where humans challenge the AI and add what only they know.',
-        body: "This is the one quadrant that is a little bit work, and it is the highest leverage work in the loop. The human reads the guidance, challenges it, or adds the missing piece that would otherwise be lost forever, a puzzle piece other systems cannot even ask for, because they do not build around what a losing deal is shaped like. Then they carry that enriched plan straight back into selling."
+        body: "The human reads the guidance, challenges it, and adds the missing piece that would otherwise be lost. It is the only quadrant that is a little work and the highest leverage work in the loop, and the enriched plan goes straight back into selling."
       }
     };
+    // where the work happens: one pill per layer, the surfaces it runs on beside it
+    const whereHtml = (d, z, mini) => !d.where ? '' : d.where.map((w) =>
+      '<span style="display:inline-flex;align-items:baseline;gap:' + (mini ? '5px' : '7px') +
+      ';margin:' + (mini ? '2px 6px 0 0' : '0 8px 6px 0') + ';padding:' + (mini ? '1px 7px' : '3px 10px') +
+      ';border-radius:999px;background:rgba(21,42,68,.6);border:1px solid ' + BORDER[z] + '">' +
+      '<span style="font-size:' + (mini ? '8.5px' : '10px') + ';font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:' + COLOR[z] + '">' + w[0] + '</span>' +
+      '<span style="font-size:' + (mini ? '9.5px' : '11.5px') + ';color:#AFC2D6">' + w[1].join(' &middot; ') + '</span></span>').join('');
     const claim = (accent, head, text) =>
       '<div style="padding:10px 12px;border-radius:10px;background:rgba(21,42,68,.55);border:1px solid rgba(175,194,214,.16)">' +
       '<div style="font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:' + accent + '">' + head + '</div>' +
@@ -488,7 +501,7 @@ class Component extends DCLogic {
       const lz = state.open ? null : state.hint;
       if (lz && Z[lz]) {
         lDot.style.background = COLOR[lz]; lKick.textContent = Z[lz].kicker; lKick.style.color = COLOR[lz];
-        lLead.textContent = Z[lz].lead; label.style.opacity = '1';
+        lLead.textContent = Z[lz].lead; lWhere.innerHTML = whereHtml(Z[lz], lz, true); label.style.opacity = '1';
       } else { label.style.opacity = '0'; }
       hint.style.opacity = (state.hint || state.open) ? '0' : '';
       if (state.open && Z[state.open]) {
@@ -496,6 +509,7 @@ class Component extends DCLogic {
         pKick.textContent = d.kicker; pKick.style.color = COLOR[state.open];
         pTitle.textContent = d.title; pLead.textContent = d.lead; pBody.textContent = d.body;
         if (d.tag) { pTag.textContent = d.tag; pTag.style.display = 'inline-block'; } else { pTag.style.display = 'none'; }
+        pWhere.innerHTML = whereHtml(d, state.open, false);
         pExtra.innerHTML = d.extra || '';
         panel.style.borderColor = BORDER[state.open];
         panel.style.opacity = '1'; panel.style.transform = 'translateY(0)'; panel.style.pointerEvents = 'auto';

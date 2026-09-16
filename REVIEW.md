@@ -15,7 +15,7 @@ Live: https://putyourwifeouttawork.github.io/altify_moat_simple/
 | `Altify 4D Moat.dc.html` | **The vision.** The moat argument (scale becoming clarity, the figure-8 loop, the coach, outcomes). Embeds the grounding explainer as an accordion. | `/Altify%204D%20Moat.dc.html` and `/` (redirect) |
 | `architecture.html` | **The three layers.** A tab switcher over three panes: Execution (seller outcomes), Collaboration (Slack + Claude interfaces + the flag motion), Operating System (the data-structure deep dive). Opens on Operating System. | `/architecture.html` |
 | `grounding.html` | **The grounding.** Standalone "how the structure captures context and guides AI" explainer. Four mechanism visuals + an animated traversal. | `/grounding.html` |
-| `system.html` | **The system.** The moat loop alone, full screen: the figure-8 over a two by two with five clickable regions (selling, the door, the engine, HART, reconciliation) and the 4D memory snapshot belt. Everything it says lives inside the drill-in panels. | `/system.html` |
+| `system.html` | **The system.** The moat loop alone, full screen: the figure-8 over a two by two with five clickable regions (selling, the door, the engine, HART, reconciliation) and the 4D memory snapshot belt. Everything it says lives inside the drill-in panels: two sentences each, opening with a row saying where that work happens (Seller Communications, Data Layer, Application Layer, Surface Layer). | `/system.html` |
 | `v2/index.html` | **Byte-identical copy of the vision page** for the `/v2/` path (asset links rewritten to `../`). Netlify/Pages path insurance. Edit in lockstep with the moat page. | `/v2/` |
 
 ## How they cross-link (the "interwoven" part)
